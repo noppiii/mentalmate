@@ -1,0 +1,56 @@
+<?php
+
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MahasiswaDashboardController;
+use App\Http\Controllers\MasterAdminController;
+use App\Http\Controllers\MasterArticleController;
+use App\Http\Controllers\MasterBidangPsikologController;
+use App\Http\Controllers\MasterCategoryArticleController;
+use App\Http\Controllers\MasterKonsultasiController;
+use App\Http\Controllers\MasterMahasiswaController;
+use App\Http\Controllers\MasterPsikologController;
+use App\Http\Controllers\MasterPsikologFavoritController;
+use App\Http\Controllers\MasterTagArticleController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PsikologDashboardController;
+use App\Http\Controllers\PsikologFavoritController;
+use App\Http\Middleware\AuthAdmin;
+use App\Http\Middleware\AuthMahasiswa;
+use App\Http\Middleware\AuthPsikolog;
+use App\Http\Middleware\AuthUser;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/signin', [AuthUserController::class, 'showSigninForm'])->name('signin');
+Route::post('/signin', [AuthUserController::class, 'signin'])->name('postSignin');
+Route::get('/psikolog/signup', [AuthUserController::class, 'showPsikologSignupForm'])->name('psikolog.signup');
+Route::post('/psikolog/signup', [AuthUserController::class, 'psikologSignup'])->name('psikolog.postSignup');
+Route::get('/mahasiswa/signup', [AuthUserController::class, 'showMahasiswaSignupForm'])->name('mahasiswa.signup');
+Route::post('/mahasiswa/signup', [AuthUserController::class, 'mahasiswaSignup'])->name('mahasiswa.postSignup');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Group routes for admin
+Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {
+    Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('logout', [AuthUserController::class, 'logout'])->name('admin.logout');
+    Route::resource('admin', MasterAdminController::class);
+    Route::resource('psikolog', MasterPsikologController::class);
+    Route::resource('mahasiswa', MasterMahasiswaController::class);
+    Route::resource('kategori-artikel', MasterCategoryArticleController::class);
+    Route::resource('tag-artikel', MasterTagArticleController::class);
+    Route::resource('artikel', MasterArticleController::class);
+    Route::resource('bidang-psikolog', MasterBidangPsikologController::class);
+    Route::resource('psikolog-favorit', MasterPsikologFavoritController::class);
+    Route::resource('konsultasi', MasterKonsultasiController::class);
+});
+// Group routes for psikolog
+Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->group(function () {
+    Route::get('dashboard', [PsikologDashboardController::class, 'index'])->name('psikolog.dashboard');
+    Route::get('logout', [AuthUserController::class, 'logout'])->name('psikolog.logout');
+});
+// Group routes for mahasiswa
+Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {
+    Route::get('dashboard', [MahasiswaDashboardController::class, 'index'])->name('mahasiswa.dashboard');
+    Route::get('logout', [AuthUserController::class, 'logout'])->name('mahasiswa.logout');
+});
