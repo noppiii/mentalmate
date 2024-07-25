@@ -33,7 +33,7 @@
           </div>
          <!-- Multi Column with Form Separator -->
          <div class="card mb-4">
-            <form class="card-body" action="{{ route('artikel.update', $artikel->id) }}" method="post" enctype="multipart/form-data">
+            <form class="card-body" action="{{ route('my-artikel.update', $artikel->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row g-3">

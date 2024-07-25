@@ -14,7 +14,7 @@
                 <div class="col-sm-7">
                   <div class="card-body">
                     <h5 class="text-primary">Tambah Artikel</h5>
-                    <p>Di sini anda dapat menambahkan user sebagai artikel</p>
+                    <p>Di sini anda dapat menambahkan artikel</p>
                     <button id="viewDataLink" class="btn btn-sm btn-outline-primary">View Form</button>
                   </div>
                 </div>
@@ -33,7 +33,7 @@
           </div>
          <!-- Multi Column with Form Separator -->
          <div class="card mb-4">
-            <form class="card-body" action="{{ route('artikel.store') }}" method="post" enctype="multipart/form-data">
+            <form class="card-body" action="{{ route('my-artikel.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row g-3">
                     <div class="row mb-3 mt-4">

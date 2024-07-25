@@ -241,7 +241,7 @@
                 placeholder="Masukan tempat praktik"
                 aria-label="Masukan tempat praktik"
                 aria-describedby="basic-icon-default-message2"
-                style="height: 140px;"
+                style="height: 240px;"
             >{{ strip_tags($data->content) }}</textarea>
               </div>
             <div class="col-12 text-center">
