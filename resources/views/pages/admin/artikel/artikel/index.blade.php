@@ -118,8 +118,8 @@
                             <th></th>
                             <th>ID</th>
                             <th>Nama</th>
-                            <th>Tumbnail</th>
                             <th>Penulis</th>
+                            <th>Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -131,16 +131,20 @@
                               <td></td>
                               <td>{{ $data->id }}</td>
                               <td>{{ $data->name }}</td>
-                              <td>
-                                  <div class="avatar avatar-md">
-                                      <img src="{{ asset('store/artikel/thumbnail/' . $data->tumbnail) }}" alt="Avatar" class="rounded-circle" />
-                                    </div>
-                                </td>
                                 <td>
                                     @if ($data->psikolog_id == null)
                                     <span class="badge bg-label-primary">{{ $data->admin->nama }}</span>
                                     @elseif ($data->admin_id == null)
                                     <span class="badge bg-label-info">{{ $data->psikolog->nama }}</span>
+                                    @endif
+                                </td>
+                                  <td>
+                                    @if ($data->status == 'rejected')
+                                    <span class="badge bg-label-danger">{{ $data->status }}</span>
+                                    @elseif ($data->status == 'pending')
+                                    <span class="badge bg-label-warning">{{ $data->status }}</span>
+                                    @elseif ($data->status == 'accepted')
+                                    <span class="badge bg-label-success">{{ $data->status }}</span>
                                     @endif
                                 </td>
                               <td>
@@ -151,8 +155,12 @@
                                       data-bs-target="#viewUser{{ $data->id }}"
                                       class="dropdown-item"><i class="ti ti-eye me-1"></i>View
                                   </button>
+                                  <button data-bs-toggle="modal"
+                                     data-bs-target="#editStatus{{ $data->id }}"
+                                     class="dropdown-item"><i class="ti ti-edit me-1"></i>Status
+                                 </button>    
                                   <a href="{{ route('artikel.edit', $data->id) }}" class="dropdown-item"><i class="ti ti-pencil me-1"></i>Edit</a>
-                                      <div class="dropdown-divider"></div>
+                                  <div class="dropdown-divider"></div>
                                       <button  data-bs-toggle="modal"
                                       data-bs-target="#onboardHorizontalImageModal{{ $data->id }}"
                                       class="dropdown-item text-danger delete-record"><i class="ti ti-trash me-1"></i>Delete</button>
@@ -241,6 +249,51 @@
               aria-label="Close"
                class="btn btn-primary me-sm-3 me-1">Close</button>
             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
+
+  {{-- ============= EDIT STATUS DATA =============== --}}
+  @foreach ($allArtikel as $data)
+  <div class="modal fade" id="editStatus{{ $data->id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-simple modal-edit-user">
+      <div class="modal-content p-3 p-md-5">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="text-center mb-4">
+            <h3 class="mb-2">{{ $data->name }}</h3>
+            <p class="text-muted">Edit Status  {{ $data->name }}.</p>
+          </div>
+          <form id="editUserForm" class="row g-3" action="{{ route('artikel.updateStatus', ['id' => $data->id]) }}" method="post">
+            @csrf
+            @method('put')
+               <div class="col-12 mb-4">
+                  <select
+                    id="modalAddressCountry"
+                    name="status"
+                    class="select2 form-select"
+                    data-allow-clear="true"
+                  >
+                     <option value="">Pilih Status Artikel</option>
+                     <option value="rejected" {{ $data->status === 'rejected' ? 'selected' : '' }}>Rejected</option>
+                     <option value="pending" {{ $data->status === 'pending' ? 'selected' : '' }}>Pending</option>
+                     <option value="accepted" {{ $data->status === 'accepted' ? 'selected' : '' }}>Accepted</option>
+                  </select>
+                </div>
+                   <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+                <button
+                  type="reset"
+                  class="btn btn-label-secondary btn-reset"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  Cancel
+                </button>
+              </div>
           </form>
         </div>
       </div>

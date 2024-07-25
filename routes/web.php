@@ -14,6 +14,7 @@ use App\Http\Controllers\MasterPsikologController;
 use App\Http\Controllers\MasterPsikologFavoritController;
 use App\Http\Controllers\MasterTagArticleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PsikologArticleController;
 use App\Http\Controllers\PsikologDashboardController;
 use App\Http\Controllers\PsikologFavoritController;
 use App\Http\Middleware\AuthAdmin;
@@ -30,7 +31,6 @@ Route::get('/mahasiswa/signup', [AuthUserController::class, 'showMahasiswaSignup
 Route::post('/mahasiswa/signup', [AuthUserController::class, 'mahasiswaSignup'])->name('mahasiswa.postSignup');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Group routes for admin
 Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('logout', [AuthUserController::class, 'logout'])->name('admin.logout');
@@ -40,6 +40,7 @@ Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(f
     Route::resource('kategori-artikel', MasterCategoryArticleController::class);
     Route::resource('tag-artikel', MasterTagArticleController::class);
     Route::resource('artikel', MasterArticleController::class);
+    Route::put('artikel/status/{id}/update', [MasterArticleController::class, 'updateStatus'])->name('artikel.updateStatus');
     Route::resource('bidang-psikolog', MasterBidangPsikologController::class);
     Route::resource('psikolog-favorit', MasterPsikologFavoritController::class);
     Route::resource('konsultasi', MasterKonsultasiController::class);
@@ -48,6 +49,7 @@ Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(f
 Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->group(function () {
     Route::get('dashboard', [PsikologDashboardController::class, 'index'])->name('psikolog.dashboard');
     Route::get('logout', [AuthUserController::class, 'logout'])->name('psikolog.logout');
+    Route::resource('my-artikel', PsikologArticleController::class);
 });
 // Group routes for mahasiswa
 Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {

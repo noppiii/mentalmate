@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PsikologDashboardController extends Controller
 {
@@ -11,7 +12,8 @@ class PsikologDashboardController extends Controller
      */
     public function index()
     {
-        //
+        // dd(Auth::guard('psikolog')->check());
+        return view('pages.psikolog.dashboard.dashboard');
     }
 
     /**

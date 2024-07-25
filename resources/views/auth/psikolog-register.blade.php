@@ -117,7 +117,7 @@
                 </div>
               </div>
               <div class="bs-stepper-content">
-                <form id="multiStepsForm" action="{{ route('mahasiswa.postSignup') }}" method="POST" enctype="multipart/form-data">
+                <form id="multiStepsForm" action="{{ route('psikolog.postSignup') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <!-- Account Details -->
                 <div id="accountDetailsValidation" class="content">
@@ -176,13 +176,13 @@
                       />
                     </div>
                     <div class="col-sm-12">
-                      <label class="form-label" for="multiStepsNIM">Nomor Induk Mahasiswa</label>
+                      <label class="form-label" for="multiStepsNIM">Nomor Surat Tanda Registrasi</label>
                       <input
                         type="text"
                         id="multiStepsNIM"
-                        name="nomor_induk_mahasiswa"
+                        name="no_str"
                         class="form-control"
-                        placeholder="Masukan nomor induk mahasiswa"
+                        placeholder="Masukan nomor surat tanda registrasi"
                         required
                       />
                     </div>
@@ -214,27 +214,23 @@
                       <input
                         type="text"
                         id="multiStepsUniversitas"
-                        name="nama_universitas"
+                        name="asal_universitas"
                         class="form-control"
                         placeholder="Masukan asal universitas"
                         required
                       />
                     </div>
                     <div class="col-sm-6">
-                      <label class="form-label" for="multiStepsFakultas">Fakultas</label>
-                      <input type="text" id="multiStepsFakultas" name="fakultas" class="form-control" placeholder="Masukan fakultas" required />
+                      <label class="form-label" for="multiStepsFakultas">Program Studi</label>
+                      <input type="text" id="multiStepsFakultas" name="program_studi" class="form-control" placeholder="Masukan program studi" required />
                     </div>
                     <div class="col-sm-6">
-                      <label class="form-label" for="multiStepsProgramStudi">Program Studi</label>
-                      <input type="text" id="multiStepsProgramStudi" name="program_studi" class="form-control" placeholder="Masukan program studi" required />
+                      <label class="form-label" for="multiStepsProgramStudi">Tahun Lulus</label>
+                      <input type="text" id="multiStepsProgramStudi" name="tahun_lulus" class="form-control" placeholder="Masukan program studi" required />
                     </div>
-                    <div class="col-sm-6">
-                      <label class="form-label" for="multiStepsTahunMasuk">Tahun Masuk</label>
-                      <input type="text" id="multiStepsTahunMasuk" name="tahun_masuk" class="form-control" placeholder="Masukan tahun masuk" required />
-                    </div>
-                    <div class="col-sm-6">
-                      <label class="form-label" for="multiStepsSemester">Semester</label>
-                      <input type="text" id="multiStepsSemester" name="semester" class="form-control" placeholder="Masukan semester" required />
+                    <div class="col-sm-12">
+                      <label class="form-label" for="multiStepsTahunMasuk">Tempat Praktik</label>
+                      <input type="text" id="multiStepsTahunMasuk" name="tempat_praktik" class="form-control" placeholder="Masukan tempat praktik" required />
                     </div>
                     <div class="col-12 d-flex justify-content-between mt-4">
                       <button class="btn btn-label-secondary btn-prev">
@@ -253,17 +249,31 @@
                 <div id="billingLinksValidation" class="content">
                   <div class="row g-3">
                     <div class="col-md-12">
-                      <label class="form-label w-100" for="multiStepsKTM">KTM</label>
+                      <label class="form-label w-100" for="multiStepsKTM">CV</label>
                       <div class="input-group">
-                        <input type="file" name="dokumen_ktm" class="form-control" id="multiStepsKTM" required />
+                        <input type="file" name="dokumen_cv" class="form-control" id="multiStepsKTM" required />
                         <label class="input-group-text" for="multiStepsKTM">Upload</label>
                       </div>
                     </div>
                     <div class="col-md-12">
-                      <label class="form-label w-100" for="multiStepsTranskipNilai">Transkip Nilai</label>
+                      <label class="form-label w-100" for="multiStepsTranskipNilai">Ijazah</label>
                       <div class="input-group">
-                        <input type="file" name="dokumen_transkip_nilai" class="form-control" id="multiStepsTranskipNilai" required />
+                        <input type="file" name="dokumen_ijazah" class="form-control" id="multiStepsTranskipNilai" required />
                         <label class="input-group-text" for="multiStepsTranskipNilai">Upload</label>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <label class="form-label w-100" for="multiStepsFoto">STR Aktif</label>
+                      <div class="input-group">
+                        <input type="file" name="dokumen_str_aktif" class="form-control" id="multiStepsFoto" />
+                        <label class="input-group-text" for="multiStepsFoto">Upload</label>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <label class="form-label w-100" for="multiStepsFoto">Izin Praktik</label>
+                      <div class="input-group">
+                        <input type="file" name="dokumen_izin_praktik" class="form-control" id="multiStepsFoto" />
+                        <label class="input-group-text" for="multiStepsFoto">Upload</label>
                       </div>
                     </div>
                     <div class="col-md-12">

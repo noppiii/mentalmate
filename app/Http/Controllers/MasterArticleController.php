@@ -195,6 +195,46 @@ class MasterArticleController extends Controller
         }
     }
 
+    public function updateStatus(Request $request, string $id)
+    {
+        try {
+            $periode = ArticleModel::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            // Handle not found exception
+            return redirect()->route('artikel.index')->with('error_message_not_found', 'Data artikel tidak ditemukan');
+        }
+        $data = $request->all();
+
+        $rules = [
+            'status' => 'required',
+        ];
+
+        $customMessages = [
+            'status.required' => 'Status artikel harus diisi!!!',
+        ];
+
+        $this->validate($request, $rules, $customMessages);
+
+        try {
+            $periode->status  = $data['status'];
+            $periode->save();
+
+            Session::flash('success_message_create', 'Data status artikel berhasil diperbarui');
+            return redirect()->route('artikel.index');
+        } catch (QueryException $e) {
+            // Handle the integrity constraint violation exception (duplicate entry)
+            if ($e->getCode() === 23000) {
+                // Duplicate entry error
+                $errorMessage = 'Upppss Terjadi Kesalahan. Silahkan Ulangi Lagi.';
+            } else {
+                // Other database-related errors
+                $errorMessage = 'Upppss Terjadi Kesalahan. Silahkan Ulangi Lagi.';
+            }
+
+            return redirect()->back()->withInput()->withErrors([$errorMessage]);
+        }
+    }
+
 
     /**
      * Remove the specified resource from storage.

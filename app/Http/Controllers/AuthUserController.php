@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MahasiswaModel;
+use App\Models\PsikologModel;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -160,7 +161,7 @@ class AuthUserController extends Controller
 
             $mahasiswa->save();
 
-            Session::flash('success_message_create', 'Data anda berhasil terkirim. Admin akan memverifikasi data anda');
+            Session::flash('success_message', 'Data anda berhasil terkirim. Admin akan memverifikasi data anda');
             return redirect()->route('home');
         } catch (QueryException $e) {
             $errorMessage = 'Upsss terjadi kesalahan. Cek data yang anda masukan dan isi kembali!!!!';
@@ -173,10 +174,117 @@ class AuthUserController extends Controller
         return view('auth.psikolog-register');
     }
 
+    public function psikologSignup(Request $request)
+    {
+        $data = $request->all();
+
+        // Define validation rules and custom messages
+        $rules = [
+            'email' => 'required|email',
+            'password' => 'required',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required|date',
+            'asal_universitas' => 'required',
+            'program_studi' => 'required',
+            'no_str' => 'required|numeric',
+            'tahun_lulus' => 'required|numeric',
+            'tempat_praktik' => 'required',
+            'dokumen_cv' => 'required|mimes:pdf',
+            'dokumen_ijazah' => 'required|mimes:pdf',
+            'dokumen_str_aktif' => 'required|mimes:pdf',
+            'dokumen_izin_praktik' => 'required|mimes:pdf',
+            'profile_photo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ];
+
+        $customMessages = [
+            'email.required' => 'Email harus diisi!!!',
+            'email.email' => 'Email tidak sesuai format!!!',
+            'password.required' => 'Password harus diisi!!!',
+            'nama.required' => 'Nama harus diisi!!!',
+            'jenis_kelamin.required' => 'Jenis kelamin harus diisi!!!',
+            'tempat_lahir.required' => 'Tempat lahir harus diisi!!!',
+            'tanggal_lahir.required' => 'Tanggal lahir harus diisi!!!',
+            'tanggal_lahir.date' => 'Tanggal lahir harus berupa tanggal yang valid!!!',
+            'asal_universitas.required' => 'Asal universitas harus diisi!!!',
+            'program_studi.required' => 'Program studi harus diisi!!!',
+            'no_str.required' => 'Nomor STR harus diisi!!!',
+            'no_str.numeric' => 'Nomor STR harus berupa angka!!!',
+            'tahun_lulus.required' => 'Tahun lulus harus diisi!!!',
+            'tahun_lulus.numeric' => 'Tahun lulus harus berupa angka!!!',
+            'tempat_praktik.required' => 'Tempat praktik harus diisi!!!',
+            'dokumen_cv.required' => 'Dokumen CV harus diunggah!!!',
+            'dokumen_cv.mimes' => 'Dokumen CV harus berupa file PDF!!!',
+            'dokumen_ijazah.required' => 'Dokumen ijazah harus diunggah!!!',
+            'dokumen_ijazah.mimes' => 'Dokumen ijazah harus berupa file PDF!!!',
+            'dokumen_str_aktif.required' => 'Dokumen STR aktif harus diunggah!!!',
+            'dokumen_str_aktif.mimes' => 'Dokumen STR aktif harus berupa file PDF!!!',
+            'dokumen_izin_praktik.required' => 'Dokumen izin praktik harus diunggah!!!',
+            'dokumen_izin_praktik.mimes' => 'Dokumen izin praktik harus berupa file PDF!!!',
+            'profile_photo_path.image' => 'Foto profil harus berupa gambar!!!',
+            'profile_photo_path.mimes' => 'Foto profil harus berupa file JPEG, PNG, JPG, atau GIF!!!',
+            'profile_photo_path.max' => 'Foto profil tidak boleh lebih dari 2MB!!!',
+        ];
+
+        $this->validate($request, $rules, $customMessages);
+
+        try {
+            $psikolog = new PsikologModel();
+            $psikolog->fill([
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'nama' => $data['nama'],
+                'jenis_kelamin' => $data['jenis_kelamin'],
+                'tempat_lahir' => $data['tempat_lahir'],
+                'tanggal_lahir' => $data['tanggal_lahir'],
+                'asal_universitas' => $data['asal_universitas'],
+                'program_studi' => $data['program_studi'],
+                'no_str' => $data['no_str'],
+                'tahun_lulus' => $data['tahun_lulus'],
+                'tempat_praktik' => $data['tempat_praktik'],
+                'status' => 'pending',
+            ]);
+
+            // Handle profile photo upload
+            if ($request->hasFile('profile_photo_path')) {
+                $psikolog->profile_photo_path = $this->uploadFile($request->file('profile_photo_path'), 'store/user/photo/psikolog');
+            }
+
+            // Handle dokumen_cv upload
+            if ($request->hasFile('dokumen_cv')) {
+                $psikolog->dokumen_cv = $this->uploadFile($request->file('dokumen_cv'), 'psikolog/profile/berkas/cv');
+            }
+
+            // Handle dokumen_ijazah upload
+            if ($request->hasFile('dokumen_ijazah')) {
+                $psikolog->dokumen_ijazah = $this->uploadFile($request->file('dokumen_ijazah'), 'psikolog/profile/berkas/ijazah');
+            }
+
+            // Handle dokumen_str_aktif upload
+            if ($request->hasFile('dokumen_str_aktif')) {
+                $psikolog->dokumen_str_aktif = $this->uploadFile($request->file('dokumen_str_aktif'), 'psikolog/profile/berkas/str');
+            }
+
+            // Handle dokumen_izin_praktik upload
+            if ($request->hasFile('dokumen_izin_praktik')) {
+                $psikolog->dokumen_izin_praktik = $this->uploadFile($request->file('dokumen_izin_praktik'), 'psikolog/profile/berkas/izin_praktik');
+            }
+
+            $psikolog->save();
+
+            Session::flash('success_message', 'Data anda berhasil terkirim. Admin akan memverifikasi data anda');
+            return redirect()->route('home');
+        } catch (QueryException $e) {
+            $errorMessage = 'Upsss terjadi kesalahan. Cek data yang anda masukan dan isi kembali!!!!';
+            return redirect()->back()->withInput()->withErrors([$errorMessage]);
+        }
+    }
+
 public function logout()
     {
         Auth::guard('admin')->logout();
-        Session::flash('success_message_logout', 'Berhasil Logout');
+        Session::flash('success_message', 'Berhasil Logout');
         return redirect()->route('home');
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArticleModel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +12,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.client.home.home');
+        $newArtikel = ArticleModel::where('status', 'accepted')
+        ->orderBy('created_at', 'desc')
+            ->take(8)
+            ->get();
+
+        return view('pages.client.home.home', compact('newArtikel'));
     }
 
     /**

@@ -1,804 +1,2910 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<!-- Copied from https://meditro.themetrades.com/html/demo/index.html by Cyotek WebCopy 1.7.0.600, vendredi 24 juin 2022, 10:56:58 -->
-<head>
-	
-	<!-- META ============================================= -->
-	<meta charset="utf-8">
-	
-	<!-- FAVICONS ICON ============================================= -->
-	<link rel="icon" href="images/favicon.png" type="image/x-icon">
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
-	
-	<!-- PAGE TITLE HERE ============================================= -->
-	<title>MediTro - Doctor, Medical & Healthcare HTML Template</title>
-	
-	<!-- MOBILE SPECIFIC ============================================= -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!-- All PLUGINS CSS ============================================= -->
-      <link rel="stylesheet" href="{{ asset('admin/assets/vendor/fonts/fontawesome.css') }}" />
-  <link rel="stylesheet" href="{{ asset('admin/assets/vendor/fonts/tabler-icons.css') }}" />
-  <link rel="stylesheet" href="{{ asset('admin/assets/vendor/fonts/flag-icons.css') }}" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/vendor/bootstrap-select/css/bootstrap-select.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('client/vendor/swiper/swiper.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/css/style.css') }}">
-	
-	<!-- Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-</head>
-<body>
-<div class="page-wraper">
-	<div id="loading-icon-bx">
-		<div class="loading-inner">
-			<div class="load-one"></div>
-			<div class="load-two"></div>
-			<div class="load-three"></div>
-		</div>
-	</div>
-
-	<!-- header -->
-	<header class="header header-transparent rs-nav">
-		<!-- main header -->
-		<div class="sticky-header navbar-expand-lg">
-			<div class="menu-bar clearfix">
-				<div class="container-fluid clearfix">
-					<!-- website logo -->
-					<div class="menu-logo logo-dark">
-						<a href="index.html"><img src="{{ asset('client/images/logo.png') }}" alt=""></a>
-					</div>
-					<!-- nav toggle button -->
-					<button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
-						<span></span>
-						<span></span>
-						<span></span>
-					</button>
-					<!-- extra nav -->
-					<div class="secondary-menu">
-						<ul>
-							<li class="search-btn"><button id="quikSearchBtn" type="button" class="btn-link"><i class="ti ti-search fs-3"></i></button></li>
-							<li class="num-bx"><a href="tel:(+01)999888777"><i class="ti ti-phone"></i> (+01) 999 888 777</a></li>
-							<li class="btn-area"><a href="{{ route('signin') }}" class="btn btn-primary shadow">MASUK <i class="btn-icon-bx fas fa-chevron-right"></i></a></li>
-						</ul>
-					</div>
-					<!-- Search Box ==== -->
-                    <div class="nav-search-bar">
-                        <form action="#">
-                            <input name="search" value="" type="text" class="form-control" placeholder="Type to search">
-                            <span><i class="ti ti-search"></i></span>
-                        </form>
-						<span id="searchRemove"><i class="ti ti-x"></i></span>
-                    </div>
-					<div class="menu-links navbar-collapse collapse justify-content-end" id="menuDropdown">
-						<div class="menu-logo">
-							<a href="index.html"><img src="{{ asset('client/images/logo-white.png') }}" alt=""></a>
-						</div>
-						<ul class="nav navbar-nav">	
-							<li class="active"><a href="index.html">Home</a></li>
-							<li>
-								<a href="javascript:;">Pages <i class="fas fa-plus"></i></a>
-								<ul class="sub-menu">
-									<li class="add-menu-left">
-										<ul>
-											<li><a href="about-us.html"><span>About Us</span></a></li>
-											<li><a href="team.html"><span>Our Team</span></a></li>
-											<li><a href="faq.html"><span>FAQ's</span></a></li>
-											<li><a href="booking.html"><span>Booking</span></a></li>
-											<li><a href="error-404.html"><span>Error 404</span></a></li>
-											<li><a href="login.html"><span>Login / Register</span></a></li>
-										</ul>
+@extends('layouts.client.main')
+@section('title')
+    Home | Mentalmate
+@endsection
+@section('pages')
+    Home
+@endsection
+@section('content')
+<div class="page-content">
+			<!-- Inner Box Start --> 
+			<section class="section-xl inner-box_area">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-4 position-relative">
+							<div class="pbmit-widget_icon">
+								<div class="pbmit_icon">
+									<i class="pbmit-xcare-icon pbmit-xcare-icon-appointment"></i>
+								</div>
+							</div>
+							<div class="inner-box_style inner-box_1">
+								<div class="pbmit-heading_title">
+									<h5>Schedule Hours</h5>	
+								</div>
+								<ul class="pbmit-timelist-list">
+									<li>
+										<span class="pbmit-timelist-li-title">Monday – Friday</span>
+										<span class="pbmit-timelist-li-value">08:00 - 18:00</span>
+									</li>
+									<li>
+										<span class="pbmit-timelist-li-title">Saturday</span>
+										<span class="pbmit-timelist-li-value">09:30 - 17:30</span>
+									</li>
+									<li>
+										<span class="pbmit-timelist-li-title">Sunday</span>
+										<span class="pbmit-timelist-li-value">09:00 - 15:30</span>
+									</li>
+									<li>
+										<span class="pbmit-timelist-li-title">24/7 Service Available</span>
+										<span class="pbmit-timelist-li-value"></span>
 									</li>
 								</ul>
-							</li>
-							<li>
-								<a href="javascript:;">Services <i class="fas fa-plus"></i></a>
-								<ul class="sub-menu">
-									<li class="add-menu-left">
-										<ul>
-											<li><a href="services.html"><span>Service</span> </a></li>
-											<li><a href="service-detail.html"><span>Service Detail</span></a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="javascript:;">Blog <i class="fas fa-plus"></i></a>
-								<ul class="sub-menu left">
-									<li><a href="blog-grid.html"><span>Blogs</span></a></li>
-									<li><a href="blog-details.html"><span>Blog Details</span></a></li>
-								</ul>
-							</li>
-							<li><a href="{{ route('signin') }}">MASUK</a></li>
-						</ul>
-						<ul class="social-media">
-							<li><a target="_blank" href="https://www.facebook.com/" class="btn btn-primary"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a target="_blank" href="https://www.google.com/" class="btn btn-primary"><i class="fab fa-google"></i></a></li>
-							<li><a target="_blank" href="https://www.linkedin.com/" class="btn btn-primary"><i class="fab fa-linkedin-in"></i></a></li>
-							<li><a target="_blank" href="https://twitter.com/" class="btn btn-primary"><i class="fab fa-twitter"></i></a></li>
-						</ul>
-						<div class="menu-close">
-							<i class="ti ti-x"></i>
+							</div>
 						</div>
-					</div>
-					<!-- Navigation Menu END ==== -->
-				</div>
-			</div>
-		</div>
-		<!-- main header END -->
-	</header>
-	<!-- header END -->
- 
-	<div class="page-content bg-white">
-		
-		<!-- Main Banner -->
-		<div class="main-banner" style="background-image:url('{{ asset('client/images/bg1.jpg') }}');">
-			<div class="container inner-content">
-				<div class="row align-items-center">
-					<div class="col-lg-7 col-md-6 col-sm-7">
-						<h6 class="title-ext text-primary">We Provide All Health Care Solution</h6>
-						<h1>Protect Your Health And Take Care To Of Your Health</h1>
-						<a href="about-us.html" class="btn btn-secondary btn-lg shadow">Read More</a>
-					</div>
-					<div class="col-lg-5 col-md-6 col-sm-5">
-						<div class="banner-img">
-							<img src="{{ asset('client/images/doctor.png') }}" alt="">
+						<div class="col-md-6 col-lg-4 position-relative">
+							<div class="pbmit-widget_icon">
+								<div class="pbmit_icon">
+									<i class="pbmit-xcare-icon pbmit-xcare-icon-placeholder"></i>
+								</div>
+							</div>
+							<div class="inner-box_style inner-box_2">
+								<div class="pbmit-heading_title">
+									<h5>Our Location </h5>	
+								</div>
+								<div class="pbmit-text_aditor">
+									Search our locations to find the one nearest you Get the answers and assurance you deserve with accuracy you can trust.
+								</div>
+								<a class="pbmit-btn pbmit-btn-outline" href="contact-us.html">
+									<span class="pbmit-button-content-wrapper">
+										<span class="pbmit-button-icon pbmit-align-icon-right">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
+												<title>black-arrow</title>
+												<path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+												<path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+												<path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+											</svg>
+										</span>
+										<span class="pbmit-button-text">Get Directions</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-4 position-relative">
+							<div class="pbmit-widget_icon">
+								<div class="pbmit_icon">
+									<i class="pbmit-xcare-icon pbmit-xcare-icon-doctor"></i>
+								</div>
+							</div>
+							<div class="inner-box_style inner-box_3">
+								<div class="pbmit-bg_overlay"></div>
+								<div class="pbmit-heading_title">
+									<h5>Our Location </h5>	
+								</div>
+								<div class="pbmit-text_aditor">
+									Emergency Medical Services, more commonly known as EMS, is a system that responds
+								</div>
+								<div class="pbmit-ihbox-style-19">
+									<div class="pbmit-ihbox-box">
+										<div class="pbmit-ihbox-icon">
+											<div class="pbmit-ihbox-icon-wrapper">
+												<div class="pbmit-icon-wrapper pbmit-icon-type-icon">
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-live-chat"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pbmit-ihbox-contents">
+											<h4 class="pbmit-element-heading">
+												Emergency Cases
+											</h4>
+											<h2 class="pbmit-element-title">1-800-123-4560</h2>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<img class="pt-img1 animate1" src="{{ asset('client/images/trangle-orange.png') }}" alt="">
-			<img class="pt-img2 animate2" src="{{ asset('client/images/square-blue.png') }}" alt="">
-			<img class="pt-img3 animate3" src="{{ asset('client/images/chicle-blue-2.png') }}" alt="">
-			<img class="pt-img4 animate4" src="{{ asset('client/images/plus-orange.png') }}" alt="">
-			<img class="pt-img5 animate-wave" src="{{ asset('client/images/wave-orange.png') }}" alt="">
-		</div>
-		
-		<!-- About us -->
-		<section class="section-sp1 about-area">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6 mb-30">
-						<div class="about-thumb-area">
-							<ul>
-								<li><img class="about-thumb1" src="{{ asset('client/images/pic-1.jpg.jfif') }}" alt=""></li>
-								<li><img class="about-thumb2" src="{{ asset('client/images/pic-2.jpg.jfif') }}" alt=""></li>
-								<li><img class="about-thumb3" src="{{ asset('client/images/pic-3.jpg.jfif') }}" alt=""></li>
-								<li><div class="exp-bx">20<span>Year Experience</span></div></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6 mb-30">
-						<div class="heading-bx">
-							<h6 class="title-ext text-secondary">About Us</h6>
-							<h2 class="title">The Great Place Of Medical Hospital Center</h2>
-							<p>We provide the special tips and advice’s of heath care treatment and high level of best technology involve in the our hospital.</p>
-						</div>
+			</section>
+			<!-- Inner Box end --> 
+
+			<!-- About Us Start --> 
+			<section class="about-us-section_two">
+				<div class="container">
+					<div class="pbmit-sticky-special pbmit-bg-color-white">
 						<div class="row">
-							<div class="col-lg-6 col-sm-6 mb-30 mb-sm-20">
-								<div class="feature-container feature-bx1 feature1">
-									<div class="icon-md">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="85" viewbox="0 0 512 512" width="85" xmlns="http://www.w3.org/2000/svg">
-												<path d="m509.82 327.343-21.991-27.599c-1.896-2.381-4.775-3.768-7.82-3.768h-7.712l-74.353-93.385c-1.897-2.383-4.777-3.771-7.823-3.771h-22.862v-22.765c0-19.014-15.43-34.483-34.396-34.483h-97.678v-4.552c0-28.428-23.127-51.555-51.555-51.555s-51.555 23.127-51.555 51.555v4.552h-97.678c-18.966 0-34.397 15.47-34.397 34.484v251.241c0 5.523 4.478 10 10 10h22.279c4.628 22.794 24.758 39.999 48.815 39.999s44.186-17.205 48.814-39.999h250.37c4.628 22.794 24.757 39.999 48.814 39.999s44.187-17.205 48.815-39.999h24.093c5.522 0 10-4.477 10-10v-93.722c0-2.264-.769-4.461-2.18-6.232zm-124.52-108.523 61.432 77.156h-79.474v-77.156zm-233.226-81.799c0-17.399 14.155-31.555 31.555-31.555s31.555 14.156 31.555 31.555v4.552h-63.109v-4.552zm-132.074 39.035c0-7.986 6.459-14.483 14.397-14.483h298.464c7.938 0 14.396 6.497 14.396 14.483v241.241h-217.35c-4.628-22.794-24.757-39.999-48.814-39.999s-44.187 17.205-48.815 39.999h-12.278zm61.094 281.24c-16.44 0-29.816-13.458-29.816-29.999s13.376-29.999 29.816-29.999 29.815 13.458 29.815 29.999-13.375 29.999-29.815 29.999zm347.998 0c-16.44 0-29.815-13.458-29.815-29.999s13.375-29.999 29.815-29.999 29.816 13.458 29.816 29.999-13.376 29.999-29.816 29.999zm62.908-39.999h-14.093c-4.628-22.794-24.758-39.999-48.815-39.999s-44.186 17.205-48.814 39.999h-13.02v-101.321h107.932l16.81 21.096z"></path>
-												<path d="m183.629 66.808c5.522 0 10-4.477 10-10v-12.104c0-5.523-4.478-10-10-10s-10 4.477-10 10v12.104c0 5.523 4.477 10 10 10z"></path>
-												<path d="m236.764 94.969c1.934 1.829 4.404 2.736 6.871 2.736 2.652 0 5.299-1.048 7.266-3.127l10.626-11.229c3.796-4.011 3.621-10.341-.391-14.137s-10.341-3.621-14.137.391l-10.626 11.229c-3.796 4.012-3.621 10.341.391 14.137z"></path>
-												<path d="m116.358 94.579c1.967 2.078 4.613 3.126 7.266 3.126 2.467 0 4.938-.907 6.871-2.737 4.012-3.796 4.187-10.125.391-14.137l-10.627-11.229c-3.796-4.011-10.126-4.187-14.137-.39-4.012 3.796-4.187 10.125-.391 14.137z"></path>
-												<path d="m90.896 216.592h184.372v113.287h-184.372z" fill="#b2f0fb"></path>
-											</svg>
-										</span> 
-									</div>
-									<div class="icon-content">
-										<h4 class="ttr-title">Emergency Help</h4>
-									</div>
+							<div class="col-md-5 about-us-two_col1">
+								<div class="about-us-two_img">
+									<img src="{{ asset('client/images/about-img-02.jpg') }}" class="img-fluid" alt="">
 								</div>
 							</div>
-							<div class="col-lg-6 col-sm-6 mb-30 mb-sm-20">
-								<div class="feature-container feature-bx1 feature2">
-									<div class="icon-md">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="85" viewbox="0 0 512 512" width="85" xmlns="http://www.w3.org/2000/svg">
-												<path d="m351.524 124.49h-37.907v-37.907h-44.657v37.907h-37.906v44.657h37.906v37.907h44.657v-37.907h37.907z" fill="#a4fcc4"></path>
-												<path d="m291.289 279.415c73.114 0 132.597-59.482 132.597-132.597s-59.483-132.596-132.597-132.596-132.598 59.482-132.598 132.596 59.484 132.597 132.598 132.597zm0-245.193c62.086 0 112.597 50.511 112.597 112.597s-50.511 112.597-112.597 112.597c-62.087 0-112.598-50.511-112.598-112.597s50.511-112.597 112.598-112.597z"></path>
-												<path d="m502 267.736c-32.668 0-59.245 26.577-59.245 59.245v13.605h-240.266v-19.048c0-23.625-19.221-42.846-42.846-42.846h-90.398v-17.584c0-32.668-26.577-59.245-59.245-59.245-5.522 0-10 4.478-10 10v275.914c0 5.522 4.478 10 10 10h49.245c5.522 0 10-4.478 10-10v-39.327h373.51v39.327c0 5.522 4.478 10 10 10h49.245c5.522 0 10-4.478 10-10v-210.041c0-5.522-4.478-10-10-10zm-342.356 30.957c12.598 0 22.846 10.249 22.846 22.846v19.048h-113.245v-41.894zm-110.399 179.085h-29.245v-254.623c16.812 4.434 29.245 19.77 29.245 37.954zm20-49.327v-67.864h373.51v67.864zm422.755 49.327h-29.245v-150.797c0-18.185 12.434-33.521 29.245-37.954z"></path>
-											</svg>
-										</span> 
+							<div class="col-md-7 about-us-two_col2 pbmit-sticky-col2-special">
+								<div class="about-us-two_rightbox">
+									<div class="pbmit-heading-subheading animation-style2">
+										<h4 class="pbmit-subtitle">About Us</h4>
+										<h2 class="pbmit-title">The Heart and Science of Medic Test</h2>
 									</div>
-									<div class="icon-content">
-										<h4 class="ttr-title">Qualified Doctors</h4>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-sm-6 mb-30 mb-sm-20">
-								<div class="feature-container feature-bx1 feature3">
-									<div class="icon-md">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="85" viewbox="0 0 512 512" width="85" xmlns="http://www.w3.org/2000/svg">
-												<path d="m397.886 191.161c-3.545-4.235-9.852-4.797-14.087-1.252-4.235 3.544-4.797 9.851-1.253 14.086 26.684 31.893 41.165 72.339 40.775 113.888-.886 94.681-79.215 172.782-174.608 174.1-48.125.666-93.326-17.479-127.401-51.087-33.708-33.246-52.272-77.526-52.272-124.685 0-59.98 30.361-115.236 81.216-147.809 51.27-32.838 79.187-66.186 93.348-111.507l2.581-8.26 2.58 8.257c9.333 29.869 25.53 55.364 49.516 77.939 4.02 3.786 10.35 3.593 14.136-.428 3.785-4.021 3.594-10.351-.429-14.136-21.713-20.438-35.736-42.471-44.133-69.341l-12.125-38.802c-1.305-4.175-5.171-7.018-9.545-7.018s-8.24 2.843-9.545 7.018l-12.126 38.807c-12.639 40.45-38.072 70.545-85.045 100.63-56.624 36.268-90.429 97.819-90.429 164.65 0 52.553 20.679 101.891 58.228 138.924 37.248 36.736 86.47 56.867 138.888 56.865.941 0 1.891-.006 2.833-.02 51.527-.712 100.087-21.236 136.733-57.792 36.664-36.573 57.12-84.914 57.6-136.118.432-46.301-15.704-91.371-45.436-126.909z"></path>
-												<path d="m279.576 280.012v-29.712c0-5.523-4.478-10-10-10h-46.783c-5.522 0-10 4.477-10 10v29.712h-29.711c-5.522 0-10 4.477-10 10v46.783c0 5.523 4.478 10 10 10h29.711v29.711c0 5.523 4.478 10 10 10h46.783c5.522 0 10-4.477 10-10v-29.711h29.712c5.522 0 10-4.477 10-10v-46.783c0-5.523-4.478-10-10-10zm19.712 46.783h-29.712c-5.522 0-10 4.477-10 10v29.711h-26.783v-29.711c0-5.523-4.478-10-10-10h-29.711v-26.783h29.711c5.522 0 10-4.477 10-10v-29.712h26.783v29.712c0 5.523 4.478 10 10 10h29.712z"></path>
-												<path d="m369.497 246.666c51.239-.708 92.983-42.352 93.459-93.223.313-33.486-16.989-62.983-43.266-79.911-21.598-13.914-37.772-29.46-45.4-53.873l-6.143-19.659-6.143 19.661c-7.603 24.331-23.627 39.927-45.19 53.738-26.16 16.756-43.48 45.945-43.48 79.151 0 52.43 43.18 94.848 96.163 94.116z" fill="#ffbdbc"></path>
-											</svg>
-										</span> 
-									</div>
-									<div class="icon-content">
-										<h4 class="ttr-title">Best Professionals</h4>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-sm-6 mb-30 mb-sm-20">
-								<div class="feature-container feature-bx1 feature4">
-									<div class="icon-md">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="85" viewbox="0 0 512 512" width="85" xmlns="http://www.w3.org/2000/svg">	
-												<path d="m181.049 229.112-76.87 76.971c-14.045 14.07-14.045 36.883 0 50.953l50.881 50.974c14.045 14.07 36.815 14.07 50.86 0l178.611-178.899h-203.482z" fill="#e2c4ff"></path>
-												<path d="m495.277 81.339c-10.57-10.578-24.625-16.403-39.574-16.403-3.325 0-6.605.288-9.813.853 3.065-17.397-2.103-35.975-15.505-49.387-10.57-10.577-24.624-16.402-39.574-16.402s-29.003 5.825-39.573 16.402c-21.816 21.83-21.816 57.352 0 79.182 2.71 2.712 5.648 5.111 8.772 7.18l-18.689 18.716-52.105-52.184c-3.902-3.907-10.233-3.912-14.142-.012-3.908 3.902-3.914 10.234-.011 14.143l18.64 18.67-196.602 196.922c-17.56 17.593-17.902 46.002-1.029 64.017l-16.422 16.452c-3.896 3.903-3.896 10.226 0 14.129l12.383 12.406-88.75 88.913c-3.901 3.909-3.896 10.24.013 14.142 1.953 1.948 4.509 2.922 7.065 2.922 2.562 0 5.125-.979 7.078-2.936l88.724-88.887 12.357 12.38c1.876 1.88 4.422 2.936 7.078 2.936s5.202-1.056 7.078-2.936l16.396-16.426c8.547 8.028 19.644 12.432 31.418 12.432 12.28 0 23.825-4.79 32.506-13.487l196.588-196.91 18.617 18.648c1.953 1.956 4.515 2.935 7.077 2.935 2.557 0 5.113-.975 7.065-2.923 3.908-3.902 3.914-10.234.011-14.143l-52.155-52.24 18.732-18.758c2.054 3.126 4.453 6.09 7.198 8.836 10.57 10.577 24.624 16.402 39.573 16.402s29.003-5.825 39.574-16.402c21.817-21.831 21.817-57.352.001-79.182zm-129.892-50.8c6.792-6.796 15.822-10.539 25.426-10.539s18.635 3.743 25.427 10.539c13.407 13.416 13.997 34.875 1.773 49.001-.638.583-1.266 1.183-1.881 1.799-.616.617-1.214 1.245-1.795 1.882-6.533 5.671-14.791 8.766-23.524 8.766-9.604 0-18.634-3.743-25.427-10.54-14.025-14.035-14.025-36.873.001-50.908zm-239.787 380.799-24.74-24.786 9.327-9.344 14.287 14.313 10.454 10.473zm73.244-10.392c-4.903 4.912-11.42 7.617-18.352 7.617s-13.449-2.705-18.353-7.617l-50.881-50.975c-10.134-10.152-10.134-26.672-.001-36.823l196.578-196.898 87.616 87.767zm177.227-244.657-20.619-20.654 24.634-24.669c3.498.676 7.086 1.021 10.727 1.021 3.325 0 6.606-.288 9.813-.853-1.189 6.75-1.139 13.678.151 20.413zm105.062-9.905c-6.792 6.796-15.823 10.539-25.427 10.539s-18.635-3.743-25.427-10.539c-13.407-13.416-13.998-34.875-1.773-49.001.638-.583 1.266-1.183 1.881-1.799.617-.617 1.215-1.246 1.797-1.884 6.532-5.67 14.789-8.764 23.521-8.764 9.604 0 18.635 3.743 25.427 10.54 14.026 14.035 14.026 36.873.001 50.908z" fill="#020288"></path>
-											</svg>
-										</span> 
-									</div>
-									<div class="icon-content">
-										<h4 class="ttr-title">Medical Treatment</h4>
+									<div class="about-us-two_innerbox">
+										<div>Despite a robust ecosystem of its own, does not exist in isolation. It integrates with other services and systems intended to enhance the community’s health and emergency management and public safety.</div>
+										<div class="pbmit-ihbox-style-12">
+											<div class="pbmit-ihbox-box d-flex align-items-center">
+												<div class="pbmit-ihbox-icon">
+													<div class="pbmit-ihbox-icon-wrapper">
+														<div class="pbmit-icon-wrapper pbmit-icon-type-icon">
+															<i class="pbmit-xcare-icon pbmit-xcare-icon-medicine-1"></i>
+														</div>
+													</div>
+												</div>
+												<div class="pbmit-ihbox-contents">
+													<h2 class="pbmit-element-title">Infection Prevention</h2>
+													<div class="pbmit-heading-desc">This site includes an overview of how infections spread, ways to prevent the spread of infections</div>
+												</div>
+											</div>
+										</div>
+										<div class="pbmit-ihbox-style-12">
+											<div class="pbmit-ihbox-box d-flex align-items-center">
+												<div class="pbmit-ihbox-icon">
+													<div class="pbmit-ihbox-icon-wrapper">
+														<div class="pbmit-icon-wrapper pbmit-icon-type-icon">
+															<i class="pbmit-xcare-icon pbmit-xcare-icon-avatar"></i>
+														</div>
+													</div>
+												</div>
+												<div class="pbmit-ihbox-contents">
+													<h2 class="pbmit-element-title">Preventive Care</h2>
+													<div class="pbmit-heading-desc">Another part of preventive health is learning to recognize changes in your body that may not be normal</div>
+												</div>
+											</div>
+										</div>
+										<div class="img_box">
+											<img src="{{ asset('client/images/about-img-03.jpg') }}" class="img-fluid" alt="">
+										</div>
+										<div class="progressbar">
+											<span class="progress-label">Cardio-Oncology</span>
+											<div class="progress progress-lg progress-percent-bg">
+												<div class="progress-bar aos-init" data-aos="slide-right"
+													data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out"
+													role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+													style="width:90%">
+													<span class="progress-percent">90%</span>
+												</div>
+											</div>
+										</div>
+										<div class="progressbar">
+											<span class="progress-label">Heart Surgery</span>
+											<div class="progress progress-lg progress-percent-bg">
+												<div class="progress-bar aos-init" data-aos="slide-right"
+													data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out"
+													role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+													style="width:85%">
+													<span class="progress-percent">85%</span>
+												</div>
+											</div>
+										</div>
+										<h4 class="pbmit-heading_title">Digital Operation</h4>
+										<div>Digital Opration is a technique used for thousands of years to develop awareness of the present moment, It can involve practices to sharpen focus and attention</div>
+										<div class="list-group_box">
+											<div class="row">
+												<div class="col-md-6">
+													<ul class="list-group list-group-borderless">
+														<li class="list-group-item">
+															<span class="pbmit-icon-list-icon">
+																<i aria-hidden="true" class="ti-check"></i>
+															</span>
+															<span class="pbmit-icon-list-text">Avoid ultra-processed foods</span>
+														</li>
+														<li class="list-group-item">
+															<span class="pbmit-icon-list-icon">
+																<i aria-hidden="true" class="ti-check"></i>
+															</span>
+															<span class="pbmit-icon-list-text">Don’t eat heavily meats</span>
+														</li>
+														<li class="list-group-item">
+															<span class="pbmit-icon-list-icon">
+																<i aria-hidden="true" class="ti-check"></i>
+															</span>
+															<span class="pbmit-icon-list-text">Minimize your sugar intake</span>
+														</li>
+													</ul>
+												</div>
+												<div class="col-md-6">
+													<ul class="list-group list-group-borderless">
+														<li class="list-group-item">
+															<span class="pbmit-icon-list-icon">
+																<i aria-hidden="true" class="ti-check"></i>
+															</span>
+															<span class="pbmit-icon-list-text">Avoid bright lights before sleep</span>
+														</li>
+														<li class="list-group-item">
+															<span class="pbmit-icon-list-icon">
+																<i aria-hidden="true" class="ti-check"></i>
+															</span>
+															<span class="pbmit-icon-list-text">Drink only safe water</span>
+														</li>
+														<li class="list-group-item">
+															<span class="pbmit-icon-list-icon">
+																<i aria-hidden="true" class="ti-check"></i>
+															</span>
+															<span class="pbmit-icon-list-text">Avoid harmful use of alcohol</span>
+														</li>
+													</ul>
+												</div>	
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<a href="about-us.html" class="btn btn-primary shadow">Read More</a>
 					</div>
 				</div>
-			</div>
-			<img class="pt-img1 animate-wave" src="{{ asset('client/images/wave-orange.png') }}" alt="">
-			<img class="pt-img2 animate2" src="{{ asset('client/images/circle-small-blue.png') }}" alt="">
-			<img class="pt-img3 animate-rotate" src="{{ asset('client/images/line-circle-blue.png') }}" alt="">
-			<img class="pt-img4 animate-wave" src="{{ asset('client/images/square-dots-orange.png') }}" alt="">
-			<img class="pt-img5 animate2" src="{{ asset('client/images/square-blue.png') }}" alt="">
-		</section>
-		
-		<!-- Our Progress -->
-		<section class="section-area section-sp5 work-area" style="background-image: url({{ asset('client/images/line-bg1.png') }}); background-repeat: no-repeat; background-position: center; background-size: 100%;">
-			<div class="container-sm">
-				<div class="heading-bx text-center">
-					<h6 class="title-ext text-secondary">Working Process</h6>
-					<h2 class="title">How we works?</h2>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-lg-4 col-sm-6 mb-30">
-						<div class="work-bx">
-							<div class="work-num-bx">01</div>
-							<div class="work-content">
-								<h5 class="title text-secondary mb-10">Make Appointmnet</h5>
-								<p>It is a long established fact that a reader will be distracted by the readable content of.</p>
-							</div>
-							<a href="booking.html" class="btn btn-primary light">View More <i class="btn-icon-bx fas fa-chevron-right"></i></a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-6 mb-30">
-						<div class="work-bx active">
-							<div class="work-num-bx">02</div>
-							<div class="work-content">
-								<h5 class="title text-secondary mb-10">Take Treatment</h5>
-								<p>It is a long established fact that a reader will be distracted by the readable content of.</p>
-							</div>
-							<a href="services.html" class="btn btn-primary light">View More <i class="btn-icon-bx fas fa-chevron-right"></i></a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-6 mb-30">
-						<div class="work-bx">
-							<div class="work-num-bx">03</div>
-							<div class="work-content">
-								<h5 class="title text-secondary mb-10">Registration</h5>
-								<p>It is a long established fact that a reader will be distracted by the readable content of.</p>
-							</div>
-							<a href="contact-us.html" class="btn btn-primary light">View More <i class="btn-icon-bx fas fa-chevron-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<img class="pt-img1 animate1" src="{{ asset('client/images/circle-orange.png') }}" alt="">
-			<img class="pt-img2 animate2" src="{{ asset('client/images/plus-orange.png') }}" alt="">
-			<img class="pt-img3 animate3" src="{{ asset('client/images/circle-dots.png') }}" alt="">
-		</section>
-			
-		<!-- Appointment -->
-		<section class="section-area account-wraper1">
-			<div class="container-fluid">
-				<div class="appointment-inner section-sp2" style="background-image: url(images/line-bg.png); background-repeat: no-repeat; background-position: 20px 140px;">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-xl-5 col-lg-6 col-md-6">
-								<div class="appointment-form form-wraper">
-									<h3 class="title">Book Appointment</h3>
-									<form action="#">
-										<div class="form-group">
-											<select class="form-select">
-												<option selected="">Selecty Department</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
-											</select>
-										</div>
-										<div class="form-group">
-											<select class="form-select">
-												<option selected="">Select Doctor</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
-											</select>
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Your Name">
-										</div>
-										<div class="form-group">
-											<input type="number" class="form-control" placeholder="Phone Numbers">
-										</div>
-										<div class="form-group">
-											<input type="date" class="form-control">
-										</div>
-										<button type="submit" class="btn btn-secondary btn-lg">Appointment Now</button>
-									</form>
-								</div>
-							</div>
-							<div class="col-xl-7 col-lg-6 col-md-6">
-								<div class="appointment-thumb">
-									<img src="{{ asset('client/images/mobile.png') }}" alt="">
-									<div class="images-group">
-										<img class="img1" src="{{ asset('client/images/women.png') }}" alt="">
-										<img class="img2" src="{{ asset('client/images/map-pin.png') }}" alt="">
-										<img class="img3" src="{{ asset('client/images/setting.png') }}" alt="">
-										<img class="img4" src="{{ asset('client/images/check.png') }}" alt="">
-										<img class="img5" src="{{ asset('client/images/chat.png') }}" alt="">
-									</div>
-								</div>
-							</div>
-						</div>					
-					</div>	
-					<img class="pt-img1 animate1" src="{{ asset('client/images/trangle-orange.png') }}" alt="">
-					<img class="pt-img2 animate-wave" src="{{ asset('client/images/wave-orange.png') }}" alt="">
-					<img class="pt-img3 animate-wave" src="{{ asset('client/images/wave-blue.png') }}" alt="">
-					<img class="pt-img4 animate2" src="{{ asset('client/images/circle-orange.png') }}" alt="">
-				</div>					
-			</div>
-		</section>
-		
-		<!-- service -->
-		<section class="section-area section-sp1 service-wraper">
-			<div class="row align-items-center">
-				<div class="col-xl-4 col-lg-7 mb-30">	
-					<div class="heading-bx">
-						<h6 class="title-ext text-secondary">Services</h6>
-						<h2 class="title">We Cover A Big Variety Of Medical Services</h2>
-						<p>We provide the special tips and advice’s of heath care treatment and high level of best.</p>
-					</div>
-					<a href="services.html" class="btn btn-secondary btn-lg shadow">All Services</a>
-				</div>
-				<div class="col-xl-8 mb-15">	
-					<div class="swiper-container service-slide">
+			</section>
+			<!-- About Us end --> 
+
+			<!-- Marquee Start --> 
+            <section>
+				<div class="container-fluid p-0">
+					<div class="swiper-slider marquee">
 						<div class="swiper-wrapper">
+							<!-- Slide1 -->
 							<div class="swiper-slide">
-								<div class="feature-container feature-bx2 feature1">
-									<div class="feature-box-xl mb-30">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="80" viewbox="0 0 512 512" width="80" xmlns="http://www.w3.org/2000/svg">	
-												<path d="m218.578 512c-29.085 0-52.748-23.656-52.748-52.734v-102.154c0-5.522 4.477-10 10-10s10 4.478 10 10v102.153c0 18.05 14.69 32.734 32.748 32.734s32.748-14.685 32.748-32.734v-116.18c0-20.084 16.343-36.423 36.432-36.423s36.432 16.339 36.432 36.423v59.66c0 24.042 19.567 43.602 43.619 43.602s43.619-19.56 43.619-43.602v-170.256c0-5.522 4.477-10 10-10s10 4.478 10 10v170.256c0 35.07-28.54 63.602-63.619 63.602s-63.619-28.531-63.619-63.602v-59.66c0-9.056-7.371-16.423-16.432-16.423s-16.432 7.367-16.432 16.423v116.181c0 29.078-23.663 52.734-52.748 52.734z" fill="#020288"></path>
-												<ellipse cx="175.83" cy="336.898" fill="#b2f0fb" rx="30.275" ry="30.265"></ellipse>
-												<path d="m317.745 103.718h-10.12v-78.989c0-5.522-4.477-10-10-10h-55.743v-4.729c0-5.522-4.477-10-10-10s-10 4.478-10 10v29.456c0 5.522 4.477 10 10 10s10-4.478 10-10v-4.728h45.743v68.989h-10.119c-5.523 0-10 4.478-10 10v47.531c0 50.532-41.126 91.644-91.677 91.644-50.55 0-91.676-41.111-91.676-91.644v-47.531c0-5.522-4.477-10-10-10h-10.119v-68.988h45.743v4.728c0 5.522 4.477 10 10 10s10-4.478 10-10v-29.457c0-5.522-4.477-10-10-10s-10 4.478-10 10v4.729h-55.743c-5.523 0-10 4.478-10 10v78.989h-10.119c-5.523 0-10 4.478-10 10v47.531c0 83.741 68.149 151.869 151.915 151.869s151.915-68.128 151.915-151.869v-47.531c0-5.523-4.477-10-10-10zm-10 57.531c0 72.713-59.177 131.869-131.915 131.869s-131.915-59.156-131.915-131.869v-37.531h20.238v37.531c0 61.561 50.098 111.644 111.676 111.644s111.677-50.083 111.677-111.644v-37.531h20.239z" fill="#020288"></path>
-												<ellipse cx="421.426" cy="170.539" fill="#b2f0fb" rx="66.659" ry="66.637"></ellipse>
-												<path d="m421.427 202.534c-17.646 0-32.001-14.353-32.001-31.995s14.356-31.994 32.001-31.994 32.001 14.353 32.001 31.994c0 17.643-14.356 31.995-32.001 31.995zm0-43.989c-6.618 0-12.001 5.381-12.001 11.994 0 6.614 5.384 11.995 12.001 11.995s12.001-5.381 12.001-11.995c0-6.613-5.384-11.994-12.001-11.994z" fill="#020288"></path>
-											</svg>
-										</span> 
+								<article class="pbmit-marquee-effect-style-1">
+									<div class="pbmit-tag-wrapper">
+										<h2 class="pbmit-element-title" data-text="Cardiothoracic">
+											Cardiothoracic
+										</h2>
 									</div>
-									<div class="icon-content">
-										<h3 class="ttr-title">Diagnostics</h3>
-										<p>Phasellus venenatis porta rhoncus. Integer et viverra felis.</p>
-										<a href="service-detail.html" class="btn btn-primary light">View More</a>
+								</article>
+							</div>
+							<!-- Slide2 -->
+							<div class="swiper-slide">
+								<article class="pbmit-marquee-effect-style-1">
+									<div class="pbmit-tag-wrapper">
+										<h2 class="pbmit-element-title" data-text="Neurosurgery">
+											Neurosurgery
+										</h2>
+									</div>
+								</article>
+							</div>
+							<!-- Slide3 -->
+							<div class="swiper-slide">
+								<article class="pbmit-marquee-effect-style-1">
+									<div class="pbmit-tag-wrapper">
+										<h2 class="pbmit-element-title" data-text="Surgery">
+											Surgery
+										</h2>
+									</div>
+								</article>
+							</div>
+							<!-- Slide4 -->
+							<div class="swiper-slide">
+								<article class="pbmit-marquee-effect-style-1">
+									<div class="pbmit-tag-wrapper">
+										<h2 class="pbmit-element-title" data-text="Healthcare">
+											Healthcare
+										</h2>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+            </section>
+            <!-- Marquee End -->
+
+			<!-- Service Start --> 
+			<section class="pbmit-sticky-section section-xl">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 col-lg-5 pbmit-sticky-col">
+							<div class="pbmit-ele-header-area">
+								<div class="pbmit-heading-subheading">
+									<h4 class="pbmit-subtitle">Motivation</h4>
+									<h2 class="pbmit-title">Department of a medical health care</h2>
+									<div class="pbmit-heading-desc">
+										The healthcare arena there was a felt need of developing new as well as upgrading the existing functioning and processes, consequently develop an institution supported with necessary
+									</div>
+								</div>
+								<a class="pbmit-btn" href="service-details.html">
+									<span class="pbmit-button-content-wrapper">
+										<span class="pbmit-button-icon pbmit-align-icon-right">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
+												<title>black-arrow</title>
+												<path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+												<path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+												<path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+											</svg>
+										</span>
+										<span class="pbmit-button-text">Read More</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-7 pbmit-servicebox-right">
+							<article class="pbmit-service-style-4">
+								<div class="pbminfotech-post-item">
+									<div class="pbminfotech-box-content">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbmit-featured-img-wrapper">
+												<div class="pbmit-featured-wrapper">
+													<img src="{{ asset('client/images/service-01.jpg') }}" class="img-fluid" alt="">
+												</div>
+											</div>
+											<div class="pbmit-box-content-inner">
+												<div class="pbmit-content-inner-wrap">
+												<div class="pbmit-contant-box">
+													<div class="pbmit-serv-cat">
+														<a href="service-details.html" rel="tag">Dentist</a>
+													</div>
+													<h3 class="pbmit-service-title">
+														<a href="service-details.html">Dental Care</a>
+													</h3>
+												</div>
+												<div class="pbmit-service-icon">
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-gesundheit-1"></i>					
+												</div>
+												</div>
+												<div class="pbmit-service-description">
+												The medical professional doctors available in the clinic					
+												</div>
+											</div>
+										</div>
+										<a class="pbmit-service-btn" href="service-details.html" title="Dental Care">
+											<span class="pbmit-button-icon-wrapper">
+												<span class="pbmit-button-icon">
+													<i class="pbmit-base-icon-black-arrow-1"></i>
+												</span>
+											</span>
+										</a>
+									</div>
+									<a class="pbmit-link" href="service-details.html"></a>
+								</div>
+							</article>
+							<article class="pbmit-service-style-4">
+								<div class="pbminfotech-post-item">
+									<div class="pbminfotech-box-content">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbmit-featured-img-wrapper">
+												<div class="pbmit-featured-wrapper">
+													<img src="{{ asset('client/images/service-02.jpg') }}" class="img-fluid" alt="">
+												</div>
+											</div>
+											<div class="pbmit-box-content-inner">
+												<div class="pbmit-content-inner-wrap">
+												<div class="pbmit-contant-box">
+													<div class="pbmit-serv-cat">
+														<a href="service-details.html" rel="tag">Barbiturates</a>
+													</div>
+													<h3 class="pbmit-service-title">
+														<a href="service-details.html">Pharmacology</a>
+													</h3>
+												</div>
+												<div class="pbmit-service-icon">
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-pills"></i>					
+												</div>
+												</div>
+												<div class="pbmit-service-description">
+												The medical professional doctors available in the clinic					
+												</div>
+											</div>
+										</div>
+										<a class="pbmit-service-btn" href="service-details.html" title="Pharmacology">
+											<span class="pbmit-button-icon-wrapper">
+												<span class="pbmit-button-icon">
+													<i class="pbmit-base-icon-black-arrow-1"></i>
+												</span>
+											</span>
+										</a>
+									</div>
+									<a class="pbmit-link" href="service-details.html"></a>
+								</div>
+							</article>
+							<article class="pbmit-service-style-4">
+								<div class="pbminfotech-post-item">
+									<div class="pbminfotech-box-content">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbmit-featured-img-wrapper">
+												<div class="pbmit-featured-wrapper">
+													<img src="{{ asset('client/images/service-03.jpg') }}" class="img-fluid" alt="">
+												</div>
+											</div>
+											<div class="pbmit-box-content-inner">
+												<div class="pbmit-content-inner-wrap">
+												<div class="pbmit-contant-box">
+													<div class="pbmit-serv-cat">
+														<a href="service-details.html" rel="tag">Osteopaths</a>
+													</div>
+													<h3 class="pbmit-service-title">
+														<a href="service-details.html">Orthopedic</a>
+													</h3>
+												</div>
+												<div class="pbmit-service-icon">
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-joint"></i>					
+												</div>
+												</div>
+												<div class="pbmit-service-description">
+												The medical professional doctors available in the clinic					
+												</div>
+											</div>
+										</div>
+										<a class="pbmit-service-btn" href="service-details.html" title="Dental Care">
+											<span class="pbmit-button-icon-wrapper">
+												<span class="pbmit-button-icon">
+													<i class="pbmit-base-icon-black-arrow-1"></i>
+												</span>
+											</span>
+										</a>
+									</div>
+									<a class="pbmit-link" href="service-details.html"></a>
+								</div>
+							</article>
+							<article class="pbmit-service-style-4">
+								<div class="pbminfotech-post-item">
+									<div class="pbminfotech-box-content">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbmit-featured-img-wrapper">
+												<div class="pbmit-featured-wrapper">
+													<img src="{{ asset('client/images/service-04.jpg') }}" class="img-fluid" alt="">
+												</div>
+											</div>
+											<div class="pbmit-box-content-inner">
+												<div class="pbmit-content-inner-wrap">
+												<div class="pbmit-contant-box">
+													<div class="pbmit-serv-cat">
+														<a href="service-details.html" rel="tag">Rhinoplasty</a>
+													</div>
+													<h3 class="pbmit-service-title">
+														<a href="service-details.html">Plastic Surgery</a>
+													</h3>
+												</div>
+												<div class="pbmit-service-icon">
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-ppe"></i>					
+												</div>
+												</div>
+												<div class="pbmit-service-description">
+												The medical professional doctors available in the clinic					
+												</div>
+											</div>
+										</div>
+										<a class="pbmit-service-btn" href="service-details.html" title="Plastic Surgery">
+											<span class="pbmit-button-icon-wrapper">
+												<span class="pbmit-button-icon">
+													<i class="pbmit-base-icon-black-arrow-1"></i>
+												</span>
+											</span>
+										</a>
+									</div>
+									<a class="pbmit-link" href="service-details.html"></a>
+								</div>
+							</article>
+							<article class="pbmit-service-style-4">
+								<div class="pbminfotech-post-item">
+									<div class="pbminfotech-box-content">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbmit-featured-img-wrapper">
+												<div class="pbmit-featured-wrapper">
+													<img src="{{ asset('client/images/service-05.jpg') }}" class="img-fluid" alt="">
+												</div>
+											</div>
+											<div class="pbmit-box-content-inner">
+												<div class="pbmit-content-inner-wrap">
+												<div class="pbmit-contant-box">
+													<div class="pbmit-serv-cat">
+														<a href="service-details.html" rel="tag">Anaemia</a>
+													</div>
+													<h3 class="pbmit-service-title">
+														<a href="service-details.html">Hematology</a>
+													</h3>
+												</div>
+												<div class="pbmit-service-icon">
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-chemistry-1"></i>					
+												</div>
+												</div>
+												<div class="pbmit-service-description">
+												The medical professional doctors available in the clinic					
+												</div>
+											</div>
+										</div>
+										<a class="pbmit-service-btn" href="service-details.html" title="Dental Care">
+											<span class="pbmit-button-icon-wrapper">
+												<span class="pbmit-button-icon">
+													<i class="pbmit-base-icon-black-arrow-1"></i>
+												</span>
+											</span>
+										</a>
+									</div>
+									<a class="pbmit-link" href="service-details.html"></a>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Service End -->
+
+			<!-- Tab Start --> 
+			<section class="section-xl pbmit-bg-color-global pbmit-extend-animation tab_section">
+				<div class="container">
+					<div class="pbmit-heading-subheading text-white text-center">
+						<h4 class="pbmit-subtitle">our Services</h4>
+						<h2 class="pbmit-title">We Provide Various Directions</h2>
+					</div>
+					<div class="pbmit-tab">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item" role="presentation">
+								<a class="nav-link active" data-bs-toggle="tab" href="#tab-2-1" aria-selected="true" role="tab"> 
+									<span>Modern Technology</span>
+								</a>	
+							</li>
+							<li class="nav-item" role="presentation"> 
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-2" aria-selected="false" role="tab" tabindex="-1"> 
+									<span>Success of Treatment</span>
+								</a>
+							</li>
+							<li class="nav-item" role="presentation">
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-3" aria-selected="false" role="tab" tabindex="-1"> 
+									<span>Certified Doctors</span>
+								</a>
+							</li>
+							<li class="nav-item" role="presentation">
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-4" aria-selected="false" role="tab" tabindex="-1"> 
+									<span>Medical Advice</span>
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane show active" id="tab-2-1" role="tabpanel">
+								<div class="pbmit-column-inner">
+									<div class="row g-0 align-items-center">
+										<div class="col-md-12 col-xl-6 pbmit-tab-img">
+											<img src="{{ asset('client/images/tab-img-01.jpg') }}" class="img-fluid" alt="">
+										</div>
+										<div class="col-md-12 col-xl-6 pbmit-tab-list">
+											<h2>We are here to hear and heal your</h2>	
+											<div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even. Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+											<ul class="list-group list-group-borderless">
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">COVID-19 Assistance</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Comprehensive Inpatient</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Homeowners Insurance</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Medical And Surgical Services</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Insurance 101</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Specialised Support Service</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Resources Overview</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Instant Operation & Appointment</span>
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="feature-container feature-bx2 feature2">
-									<div class="feature-box-xl mb-20">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="80" viewbox="0 0 512 512" width="80" xmlns="http://www.w3.org/2000/svg">
-												<g fill="#020288">
-													<path d="m311.734 208.706h-25.074v-25.083c0-5.522-4.478-10-10-10h-41.32c-5.523 0-10 4.478-10 10v25.083h-25.074c-5.523 0-10 4.478-10 10v41.33c0 5.522 4.477 10 10 10h25.074v25.082c0 5.522 4.477 10 10 10h41.32c5.522 0 10-4.478 10-10v-25.082h25.074c5.522 0 10-4.478 10-10v-41.33c0-5.522-4.477-10-10-10zm-10 41.33h-25.074c-5.522 0-10 4.478-10 10v25.082h-21.32v-25.082c0-5.522-4.477-10-10-10h-25.074v-21.33h25.074c5.523 0 10-4.478 10-10v-25.083h21.32v25.083c0 5.522 4.478 10 10 10h25.074z"></path>
-													<path d="m330.566 120.217v-51.05c0-5.522-4.478-10-10-10h-14.759v-49.167c0-5.522-4.478-10-10-10h-79.616c-5.523 0-10 4.478-10 10v49.167h-14.758c-5.523 0-10 4.478-10 10v51.049c-37.43 23.089-62.429 64.475-62.429 111.589v270.195c0 5.522 4.477 10 10 10h253.992c5.522 0 10-4.478 10-10v-270.194c0-47.115-24.999-88.501-62.43-111.589zm-104.374-100.217h19.808v2.559c0 5.522 4.477 10 10 10 5.522 0 10-4.478 10-10v-2.559h19.808v39.167h-59.616zm-24.759 59.167h109.133v30.965c-15.03-6.023-31.427-9.338-48.583-9.338h-11.967c-17.156 0-33.552 3.315-48.583 9.338zm171.563 412.833h-233.992v-260.194c0-61.212 49.8-111.012 111.012-111.012h11.967c61.213 0 111.013 49.8 111.013 111.012z"></path>
-													<path d="m181.465 350.096h149.069v102.32h-149.069z" fill="#a4fcc4"></path>
-												</g>
-											</svg>
-										</span> 
-									</div>
-									<div class="icon-content">
-										<h3 class="ttr-title">Treatment</h3>
-										<p>Phasellus venenatis porta rhoncus. Integer et viverra felis.</p>
-										<a href="service-detail.html" class="btn btn-primary light">View More</a>
+							<div class="tab-pane" id="tab-2-2" role="tabpanel">
+								<div class="pbmit-column-inner">
+									<div class="row g-0 align-items-center">
+										<div class="col-md-12 col-xl-6 pbmit-tab-img">
+											<img src="{{ asset('client/images/tab-img-02.jpg') }}" class="img-fluid" alt="">
+										</div>
+										<div class="col-md-12 col-xl-6 pbmit-tab-list">
+											<h2>Treatment patients in primary care</h2>	
+											<div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even. Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+											<ul class="list-group list-group-borderless">
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">COVID-19 Assistance</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Comprehensive Inpatient</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Homeowners Insurance</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Medical And Surgical Services</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Insurance 101</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Specialised Support Service</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Resources Overview</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Instant Operation & Appointment</span>
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="feature-container feature-bx2 feature3">
-									<div class="feature-box-xl mb-20">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="80" viewbox="0 0 512 512" width="80" xmlns="http://www.w3.org/2000/svg">
-												<path d="m318.39 278.299h-39.263v-39.262h-46.254v39.262h-39.263v46.255h39.263v39.263h46.254v-39.263h39.263z" fill="#ffbdbc"></path>
-												<g fill="#020288">
-													<path d="m256 164.444c-75.533 0-136.983 61.45-136.983 136.982s61.45 136.983 136.983 136.983 136.983-61.45 136.983-136.982-61.45-136.983-136.983-136.983zm0 253.965c-64.504 0-116.983-52.479-116.983-116.982s52.479-116.983 116.983-116.983 116.983 52.479 116.983 116.982-52.479 116.983-116.983 116.983z"></path>
-													<path d="m470.541 112.15h-100.492v-50.962c0-20.205-16.429-36.643-36.623-36.643h-154.853c-20.194 0-36.623 16.438-36.623 36.643v50.963h-100.491c-22.86-.001-41.459 18.598-41.459 41.458v292.387c0 22.86 18.599 41.459 41.459 41.459h429.082c22.86 0 41.459-18.599 41.459-41.459v-292.387c0-22.86-18.599-41.459-41.459-41.459zm-34.541 20v36.68h-50.511v-36.68zm-274.049-70.962c0-9.177 7.457-16.643 16.623-16.643h154.854c9.166 0 16.623 7.466 16.623 16.643v50.963h-24.765v-32.806c0-5.522-4.477-10-10-10h-118.57c-5.523 0-10 4.478-10 10v32.806h-24.765zm44.765 50.962v-22.805h98.568v22.806h-98.568zm-80.205 20v36.68h-50.511v-36.68zm365.489 313.846c0 11.833-9.626 21.459-21.459 21.459h-429.082c-11.833 0-21.459-9.626-21.459-21.459v-292.387c0-11.833 9.626-21.459 21.459-21.459h14.541v46.68c0 5.522 4.477 10 10 10h70.511c5.523 0 10-4.478 10-10v-46.68h218.979v46.68c0 5.522 4.477 10 10 10h70.51c5.523 0 10-4.478 10-10v-46.68h14.541c11.833 0 21.459 9.626 21.459 21.459z"></path>
-												</g>
-											</svg>
-										</span> 
-									</div>
-									<div class="icon-content">
-										<h3 class="ttr-title">Surgery</h3>
-										<p>Phasellus venenatis porta rhoncus. Integer et viverra felis.</p>
-										<a href="service-detail.html" class="btn btn-primary light">View More</a>
+							<div class="tab-pane" id="tab-2-3" role="tabpanel">
+								<div class="pbmit-column-inner">
+									<div class="row g-0 align-items-center">
+										<div class="col-md-12 col-xl-6 pbmit-tab-img">
+											<img src="{{ asset('client/images/tab-img-03.jpg') }}" class="img-fluid" alt="">
+										</div>
+										<div class="col-md-12 col-xl-6 pbmit-tab-list">
+											<h2>Accreditation within a given specialty</h2>	
+											<div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even. Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+											<ul class="list-group list-group-borderless">
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">COVID-19 Assistance</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Comprehensive Inpatient</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Homeowners Insurance</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Medical And Surgical Services</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Insurance 101</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Specialised Support Service</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Resources Overview</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Instant Operation & Appointment</span>
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="feature-container feature-bx2 feature1">
-									<div class="feature-box-xl mb-20">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="85" viewbox="0 0 512 512" width="85" xmlns="http://www.w3.org/2000/svg">	
-												<path d="m181.049 229.112-76.87 76.971c-14.045 14.07-14.045 36.883 0 50.953l50.881 50.974c14.045 14.07 36.815 14.07 50.86 0l178.611-178.899h-203.482z" fill="#e2c4ff"></path>
-												<path d="m495.277 81.339c-10.57-10.578-24.625-16.403-39.574-16.403-3.325 0-6.605.288-9.813.853 3.065-17.397-2.103-35.975-15.505-49.387-10.57-10.577-24.624-16.402-39.574-16.402s-29.003 5.825-39.573 16.402c-21.816 21.83-21.816 57.352 0 79.182 2.71 2.712 5.648 5.111 8.772 7.18l-18.689 18.716-52.105-52.184c-3.902-3.907-10.233-3.912-14.142-.012-3.908 3.902-3.914 10.234-.011 14.143l18.64 18.67-196.602 196.922c-17.56 17.593-17.902 46.002-1.029 64.017l-16.422 16.452c-3.896 3.903-3.896 10.226 0 14.129l12.383 12.406-88.75 88.913c-3.901 3.909-3.896 10.24.013 14.142 1.953 1.948 4.509 2.922 7.065 2.922 2.562 0 5.125-.979 7.078-2.936l88.724-88.887 12.357 12.38c1.876 1.88 4.422 2.936 7.078 2.936s5.202-1.056 7.078-2.936l16.396-16.426c8.547 8.028 19.644 12.432 31.418 12.432 12.28 0 23.825-4.79 32.506-13.487l196.588-196.91 18.617 18.648c1.953 1.956 4.515 2.935 7.077 2.935 2.557 0 5.113-.975 7.065-2.923 3.908-3.902 3.914-10.234.011-14.143l-52.155-52.24 18.732-18.758c2.054 3.126 4.453 6.09 7.198 8.836 10.57 10.577 24.624 16.402 39.573 16.402s29.003-5.825 39.574-16.402c21.817-21.831 21.817-57.352.001-79.182zm-129.892-50.8c6.792-6.796 15.822-10.539 25.426-10.539s18.635 3.743 25.427 10.539c13.407 13.416 13.997 34.875 1.773 49.001-.638.583-1.266 1.183-1.881 1.799-.616.617-1.214 1.245-1.795 1.882-6.533 5.671-14.791 8.766-23.524 8.766-9.604 0-18.634-3.743-25.427-10.54-14.025-14.035-14.025-36.873.001-50.908zm-239.787 380.799-24.74-24.786 9.327-9.344 14.287 14.313 10.454 10.473zm73.244-10.392c-4.903 4.912-11.42 7.617-18.352 7.617s-13.449-2.705-18.353-7.617l-50.881-50.975c-10.134-10.152-10.134-26.672-.001-36.823l196.578-196.898 87.616 87.767zm177.227-244.657-20.619-20.654 24.634-24.669c3.498.676 7.086 1.021 10.727 1.021 3.325 0 6.606-.288 9.813-.853-1.189 6.75-1.139 13.678.151 20.413zm105.062-9.905c-6.792 6.796-15.823 10.539-25.427 10.539s-18.635-3.743-25.427-10.539c-13.407-13.416-13.998-34.875-1.773-49.001.638-.583 1.266-1.183 1.881-1.799.617-.617 1.215-1.246 1.797-1.884 6.532-5.67 14.789-8.764 23.521-8.764 9.604 0 18.635 3.743 25.427 10.54 14.026 14.035 14.026 36.873.001 50.908z" fill="#020288"></path>
-											</svg>
-										</span> 
-									</div>
-									<div class="icon-content">
-										<h3 class="ttr-title">Vaccine</h3>
-										<p>Phasellus venenatis porta rhoncus. Integer et viverra felis.</p>
-										<a href="service-detail.html" class="btn btn-primary light">View More</a>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="feature-container feature-bx2 feature2">
-									<div class="feature-box-xl mb-20">
-										<span class="icon-cell">
-											<svg enable-background="new 0 0 512 512" height="85" viewbox="0 0 512 512" width="85" xmlns="http://www.w3.org/2000/svg">
-												<path d="m509.82 327.343-21.991-27.599c-1.896-2.381-4.775-3.768-7.82-3.768h-7.712l-74.353-93.385c-1.897-2.383-4.777-3.771-7.823-3.771h-22.862v-22.765c0-19.014-15.43-34.483-34.396-34.483h-97.678v-4.552c0-28.428-23.127-51.555-51.555-51.555s-51.555 23.127-51.555 51.555v4.552h-97.678c-18.966 0-34.397 15.47-34.397 34.484v251.241c0 5.523 4.478 10 10 10h22.279c4.628 22.794 24.758 39.999 48.815 39.999s44.186-17.205 48.814-39.999h250.37c4.628 22.794 24.757 39.999 48.814 39.999s44.187-17.205 48.815-39.999h24.093c5.522 0 10-4.477 10-10v-93.722c0-2.264-.769-4.461-2.18-6.232zm-124.52-108.523 61.432 77.156h-79.474v-77.156zm-233.226-81.799c0-17.399 14.155-31.555 31.555-31.555s31.555 14.156 31.555 31.555v4.552h-63.109v-4.552zm-132.074 39.035c0-7.986 6.459-14.483 14.397-14.483h298.464c7.938 0 14.396 6.497 14.396 14.483v241.241h-217.35c-4.628-22.794-24.757-39.999-48.814-39.999s-44.187 17.205-48.815 39.999h-12.278zm61.094 281.24c-16.44 0-29.816-13.458-29.816-29.999s13.376-29.999 29.816-29.999 29.815 13.458 29.815 29.999-13.375 29.999-29.815 29.999zm347.998 0c-16.44 0-29.815-13.458-29.815-29.999s13.375-29.999 29.815-29.999 29.816 13.458 29.816 29.999-13.376 29.999-29.816 29.999zm62.908-39.999h-14.093c-4.628-22.794-24.758-39.999-48.815-39.999s-44.186 17.205-48.814 39.999h-13.02v-101.321h107.932l16.81 21.096z"></path>
-												<path d="m183.629 66.808c5.522 0 10-4.477 10-10v-12.104c0-5.523-4.478-10-10-10s-10 4.477-10 10v12.104c0 5.523 4.477 10 10 10z"></path>
-												<path d="m236.764 94.969c1.934 1.829 4.404 2.736 6.871 2.736 2.652 0 5.299-1.048 7.266-3.127l10.626-11.229c3.796-4.011 3.621-10.341-.391-14.137s-10.341-3.621-14.137.391l-10.626 11.229c-3.796 4.012-3.621 10.341.391 14.137z"></path>
-												<path d="m116.358 94.579c1.967 2.078 4.613 3.126 7.266 3.126 2.467 0 4.938-.907 6.871-2.737 4.012-3.796 4.187-10.125.391-14.137l-10.627-11.229c-3.796-4.011-10.126-4.187-14.137-.39-4.012 3.796-4.187 10.125-.391 14.137z"></path>
-												<path d="m90.896 216.592h184.372v113.287h-184.372z" fill="#b2f0fb"></path>
-											</svg>
-										</span> 
-									</div>
-									<div class="icon-content">
-										<h3 class="ttr-title">Emergency</h3>
-										<p>Phasellus venenatis porta rhoncus. Integer et viverra felis.</p>
-										<a href="service-detail.html" class="btn btn-primary light">View More</a>
+							<div class="tab-pane" id="tab-2-4" role="tabpanel">
+								<div class="pbmit-column-inner">
+									<div class="row g-0 align-items-center">
+										<div class="col-md-12 col-xl-6 pbmit-tab-img">
+											<img src="{{ asset('client/images/tab-img-04.jpg') }}" class="img-fluid" alt="">
+										</div>
+										<div class="col-md-12 col-xl-6 pbmit-tab-list">
+											<h2>Better Health While Aging health</h2>	
+											<div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even. Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+											<ul class="list-group list-group-borderless">
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">COVID-19 Assistance</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Comprehensive Inpatient</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Homeowners Insurance</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Medical And Surgical Services</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Insurance 101</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Specialised Support Service</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Resources Overview</span>
+												</li>
+												<li class="list-group-item">
+													<span class="pbmit-icon-list-icon">
+														<i aria-hidden="true" class="ti-check"></i>
+													</span>
+													<span class="pbmit-icon-list-text">Instant Operation & Appointment</span>
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>					
-				</div>	 
-			</div>
-			<img class="pt-img1 animate-rotate" src="{{ asset('client/images/line-circle-blue.png') }}" alt="">
-			<img class="pt-img2 animate2" src="{{ asset('client/images/square-dots-orange.png') }}" alt="">
-			<img class="pt-img3 animate-wave" src="{{ asset('client/images/wave-blue.png') }}" alt="">
-			<img class="pt-img4 animate1" src="{{ asset('client/images/square-rotate.png') }}" alt="">
-		</section>
-		
-		<!-- Testimonial -->
-		<section class="section-area section-sp3 testimonial-wraper">
-			<div class="container">
-				<div class="heading-bx text-center">
-					<h6 class="title-ext text-secondary">Testimonial</h6>
-					<h2 class="title m-b0">See What Are The Patients <br>Saying About us</h2>
+					</div>
 				</div>
-				<div class="row align-items-center">
-					<div class="col-lg-6 text-center">
-						<div class="thumb-wraper">
-							<img class="bg-img" src="{{ asset('client/images/shape.png') }}" alt="">
-							<ul>
-								<li data-member="1"><a href="javascript:void(0);"><img src="{{ asset('client/images/pic1.jpg.jfif') }}" alt=""></a></li>
-								<li data-member="2"><a href="javascript:void(0);"><img src="{{ asset('client/images/pic2.jpg.jfif') }}" alt=""></a></li>
-								<li data-member="3"><a href="javascript:void(0);"><img src="{{ asset('client/images/pic3.jpg.jfif') }}" alt=""></a></li>
-								<li data-member="4"><a href="javascript:void(0);"><img src="{{ asset('client/images/pic4.jpg.jfif') }}" alt=""></a></li>
-								<li data-member="5"><a href="javascript:void(0);"><img src="{{ asset('client/images/pic5.jpg.jfif') }}" alt=""></a></li>
-								<li data-member="6"><a href="javascript:void(0);"><img src="{{ asset('client/images/pic6.jpg.jfif') }}" alt=""></a></li>
+			</section>
+			<!-- Tab End -->
+
+			<!-- Timetable Start --> 
+			<section class="section-lgt timetable_section">
+				<div class="container">
+					<div class="pbmit-heading-subheading animation-style2">
+						<h4 class="pbmit-subtitle">Timetable</h4>
+						<h2 class="pbmit-title">Events Calendar</h2>
+					</div>
+					<div class="pbmit-tab pbmit-tab-style-2">
+						<div class="pbmit-select">
+							<ul class="nav nav-tabs" role="tablist">
+								<li class="nav-item" role="presentation">
+									<a class="nav-link active" data-bs-toggle="tab" href="#tab-3-1" aria-selected="true" role="tab"> 
+										<span>All Events</span>
+									</a>	
+								</li>
+								<li class="nav-item" role="presentation"> 
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-2" aria-selected="false" role="tab" tabindex="-1"> 
+										<span>Ophthalmology</span>
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-3" aria-selected="false" role="tab" tabindex="-1"> 
+										<span>Cardiologist</span>
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-4" aria-selected="false" role="tab" tabindex="-1"> 
+										<span>Pulmonary</span>
+									</a>
+								</li>
+								<li class="nav-item" role="presentation"> 
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-5" aria-selected="false" role="tab" tabindex="-1"> 
+										<span>Rhinology</span>
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-6" aria-selected="false" role="tab" tabindex="-1"> 
+										<span>Psychiatry</span>
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-7" aria-selected="false" role="tab" tabindex="-1"> 
+										<span>Dental</span>
+									</a>
+								</li>
 							</ul>
 						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="swiper-container testimonial-slide">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide" data-rel="1">
-									<div class="testimonial-bx">
-										<div class="testimonial-content">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecena ssuspendisse ultrices gravida.</p>
-										</div>
-										<div class="client-info">
-											<h5 class="name">John Deo</h5>
-											<p>patient</p>
-										</div>
-										<div class="quote-icon">
-											<i class="fas fa-quote-left"></i>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide" data-rel="2">
-									<div class="testimonial-bx">
-										<div class="testimonial-content">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecena ssuspendisse ultrices gravida.</p>
-										</div>
-										<div class="client-info">
-											<h5 class="name">John Deo</h5>
-											<p>patient</p>
-										</div>
-										<div class="quote-icon">
-											<i class="fas fa-quote-left"></i>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide" data-rel="3">
-									<div class="testimonial-bx">
-										<div class="testimonial-content">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecena ssuspendisse ultrices gravida.</p>
-										</div>
-										<div class="client-info">
-											<h5 class="name">John Deo</h5>
-											<p>patient</p>
-										</div>
-										<div class="quote-icon">
-											<i class="fas fa-quote-left"></i>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide" data-rel="4">
-									<div class="testimonial-bx">
-										<div class="testimonial-content">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecena ssuspendisse ultrices gravida.</p>
-										</div>
-										<div class="client-info">
-											<h5 class="name">John Deo</h5>
-											<p>patient</p>
-										</div>
-										<div class="quote-icon">
-											<i class="fas fa-quote-left"></i>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide" data-rel="5">
-									<div class="testimonial-bx">
-										<div class="testimonial-content">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecena ssuspendisse ultrices gravida.</p>
-										</div>
-										<div class="client-info">
-											<h5 class="name">John Deo</h5>
-											<p>patient</p>
-										</div>
-										<div class="quote-icon">
-											<i class="fas fa-quote-left"></i>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide" data-rel="6">
-									<div class="testimonial-bx">
-										<div class="testimonial-content">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecena ssuspendisse ultrices gravida.</p>
-										</div>
-										<div class="client-info">
-											<h5 class="name">John Deo</h5>
-											<p>patient</p>
-										</div>
-										<div class="quote-icon">
-											<i class="fas fa-quote-left"></i>
-										</div>
-									</div>
-								</div>
+						<div class="tab-content">
+							<div class="tab-pane show active" id="tab-3-1" role="tabpanel">
+								<table class="mptt-shortcode-table  mptt-theme-mode">
+									<thead>
+										<tr class="mptt-shortcode-row">
+											<th></th>
+											<th>Monday</th>
+											<th>Tuesday</th>
+											<th>Wednesday</th>
+											<th>Saturday</th>
+											<th>Sunday</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="mptt-shortcode-row-8" data-index="8">
+											<td class="mptt-shortcode-hours">8:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-5 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Rhinology" href="#" class="event-title">Rhinology</a>
+														<p class="timeslot">
+															<time datetime="08:00" class="timeslot-start">8:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="10:00" class="timeslot-end">10:00 am</time>
+														</p>
+														<p class="event-subtitle">Biopsy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-8 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Psychiatry" href="#" class="event-title">Psychiatry</a>
+														<p class="timeslot">
+															<time datetime="08:00" class="timeslot-start">8:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="10:00" class="timeslot-end">10:00 am</time>
+														</p>
+														<p class="event-subtitle">Colposcopy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-17 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Cardiologist" href="#" class="event-title">Cardiologist</a>
+														<p class="timeslot">
+															<time datetime="08:00" class="timeslot-start">8:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="10:00" class="timeslot-end">10:00 am</time>
+														</p>
+														<p class="event-subtitle">Cardiology</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-9" data-index="9">
+											<td class="mptt-shortcode-hours">9:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-10" data-index="10">
+											<td class="mptt-shortcode-hours">10:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-10 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Dental" href="#" class="event-title">Dental</a>
+														<p class="timeslot">
+															<time datetime="10:00" class="timeslot-start">10:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="12:00" class="timeslot-end">12:00 pm</time>
+														</p>
+														<p class="event-subtitle">Cavities</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-19 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Rhinology" href="#" class="event-title">Rhinology</a>
+														<p class="timeslot">
+															<time datetime="10:00" class="timeslot-start">10:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="12:00" class="timeslot-end">12:00 pm</time>
+														</p>
+														<p class="event-subtitle">Biopsy</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr class="mptt-shortcode-row-11" data-index="11">
+											<td class="mptt-shortcode-hours">11:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-12" data-index="12">
+											<td class="mptt-shortcode-hours">12:00 pm</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-1 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Ophthalmology" href="#" class="event-title">Ophthalmology</a>
+														<p class="timeslot">
+															<time datetime="12:00" class="timeslot-start">12:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="22:00" class="timeslot-end">10:00 pm</time>
+														</p>
+														<p class="event-subtitle">Laparoscopy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-13" data-index="13">
+											<td class="mptt-shortcode-hours">1:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-14" data-index="14">
+											<td class="mptt-shortcode-hours">2:00 pm</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-2 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Cardiologist" href="#" class="event-title">Cardiologist</a>
+														<p class="timeslot">
+															<time datetime="14:00" class="timeslot-start">2:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="16:00" class="timeslot-end">4:00 pm</time>
+														</p>
+														<p class="event-subtitle">Cardiology</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-18 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Pulmonary" href="#" class="event-title">Pulmonary</a>
+														<p class="timeslot">
+															<time datetime="14:00" class="timeslot-start">2:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="16:00" class="timeslot-end">4:00 pm</time>
+														</p>
+														<p class="event-subtitle">Routine</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-15" data-index="15">
+											<td class="mptt-shortcode-hours">3:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-16" data-index="16">
+											<td class="mptt-shortcode-hours">4:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-22 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Ophthalmology" href="#" class="event-title">Ophthalmology</a>
+														<p class="timeslot">
+															<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+														</p>
+														<p class="event-subtitle">Laparoscopy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-15 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Rhinology" href="#" class="event-title">Rhinology</a>
+														<p class="timeslot">
+															<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+														</p>
+														<p class="event-subtitle">Biopsy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-20 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Pulmonary" href="#" class="event-title">Pulmonary</a>
+														<p class="timeslot">
+															<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+														</p>
+														<p class="event-subtitle">Routine</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr class="mptt-shortcode-row-17" data-index="17">
+											<td class="mptt-shortcode-hours">5:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-18" data-index="18">
+											<td class="mptt-shortcode-hours">6:00 pm</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-3 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Pulmonary" href="#" class="event-title">Pulmonary</a>
+														<p class="timeslot">
+															<time datetime="18:00" class="timeslot-start">6:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="20:00" class="timeslot-end">8:00 pm</time>
+														</p>
+														<p class="event-subtitle">Routine</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-16 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Psychiatry" href="#" class="event-title">Psychiatry</a>
+														<p class="timeslot">
+															<time datetime="18:00" class="timeslot-start">6:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="20:00" class="timeslot-end">8:00 pm</time>
+														</p>
+														<p class="event-subtitle">Colposcopy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-19" data-index="19">
+											<td class="mptt-shortcode-hours">7:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<div class="swiper-button-prev test-btn-prev"><i class="ti ti-arrow-left"></i></div>
-							<div class="swiper-button-next test-btn-next"><i class="ti ti-arrow-right"></i></div>
-							<div class="swiper-pagination"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<img class="pt-img1 animate1" src="{{ asset('client/images/plus-orange.png') }}" alt="">
-			<img class="pt-img2 animate2" src="{{ asset('client/images/square-blue.png') }}" alt="">
-			<img class="pt-img3 animate3" src="{{ asset('client/images/circle-dots.png') }}" alt="">
-			<img class="pt-img4 animate4" src="{{ asset('client/images/circle-orange-2.png') }}" alt="">
-		</section>
-		
-		<!-- Blog -->
-		<section class="section-area section-sp1 blog-area" style="background-image: url({{ asset('client/images/line-bg2.png') }}); background-position: center; background-size: cover;">
-			<div class="container">
-				<div class="heading-bx text-center">
-					<h6 class="title-ext text-secondary">Latest News</h6>
-					<h2 class="title">Our Latest News</h2>
-				</div>
-				<div class="swiper-container blog-slide">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="blog-card">
-								<div class="post-media">
-									<a href="blog-details.html"><img src="{{ asset('client/images/pic1.jpg.jfif') }}" alt=""></a>
-								</div>
-								<div class="post-info">
-									<ul class="post-meta">
-										<li class="author"><a href="blog-details.html"><img src="{{ asset('client/images/pic1.jpg.jfif') }}" alt=""> John deo</a></li>
-										<li class="date"><i class="far fa-calendar-alt"></i> 21 July 2021</li>
-									</ul>
-									<h5 class="post-title"><a href="blog-details.html">In this hospital there are special surgeon</a></h5>		
-									<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
-								</div>
-							</div>							
-						</div>
-						<div class="swiper-slide">
-							<div class="blog-card">
-								<div class="post-media">
-									<a href="blog-details.html"><img src="{{ asset('client/images/pic2.jpg.jfif') }}" alt=""></a>
-								</div>
-								<div class="post-info">
-									<ul class="post-meta">
-										<li class="author"><a href="blog-details.html"><img src="{{ asset('client/images/pic2.jpg.jfif') }}" alt=""> Peter Packer</a></li>
-										<li class="date"><i class="far fa-calendar-alt"></i> 20 July 2021</li>
-									</ul>
-									<h5 class="post-title"><a href="blog-details.html">Can you get a diflucan prescription online?</a></h5>		
-									<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>			
-								</div>
+							<div class="tab-pane" id="tab-3-2" role="tabpanel">
+								<table class="mptt-shortcode-table  mptt-theme-mode">
+									<thead>
+										<tr class="mptt-shortcode-row">
+											<th></th>
+											<th>Monday</th>
+											<th>Tuesday</th>
+											<th>Wednesday</th>
+											<th>Saturday</th>
+											<th>Sunday</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="mptt-shortcode-row-12" data-index="12">
+											<td class="mptt-shortcode-hours">12:00 pm</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="10">
+												<div class="mptt-event-container id-1 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Ophthalmology" href="#" class="event-title">Ophthalmology</a>
+														<p class="timeslot">
+															<time datetime="12:00" class="timeslot-start">12:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="22:00" class="timeslot-end">10:00 pm</time>
+														</p>
+														<p class="event-subtitle">Laparoscopy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-13" data-index="13">
+											<td class="mptt-shortcode-hours">1:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle">
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle">
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle">
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle">
+											</td>
+										</tr>
+										<tr class="mptt-shortcode-row-14" data-index="14">
+											<td class="mptt-shortcode-hours">2:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-15" data-index="15">
+											<td class="mptt-shortcode-hours">3:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-16" data-index="16">
+											<td class="mptt-shortcode-hours">4:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-22 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Ophthalmology" href="#" class="event-title">Ophthalmology</a>
+														<p class="timeslot">
+															<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+														</p>
+														<p class="event-subtitle">Laparoscopy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-17" data-index="17">
+											<td class="mptt-shortcode-hours">5:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-18" data-index="18">
+											<td class="mptt-shortcode-hours">6:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-19" data-index="19">
+											<td class="mptt-shortcode-hours">7:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-20" data-index="20">
+											<td class="mptt-shortcode-hours">8:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-21" data-index="21">
+											<td class="mptt-shortcode-hours">9:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane" id="tab-3-3" role="tabpanel">
+								<table class="mptt-shortcode-table  mptt-theme-mode">
+									<thead>
+										<tr class="mptt-shortcode-row">
+											<th></th>
+											<th>Monday</th>
+											<th>Tuesday</th>
+											<th>Wednesday</th>
+											<th>Saturday</th>
+											<th>Sunday</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="mptt-shortcode-row-8" data-index="8">
+											<td class="mptt-shortcode-hours">8:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-17 mptt-colorized">
+													<div class="mptt-inner-event-content">
+													<a title="Cardiologist" href="#" class="event-title">Cardiologist</a>
+													<p class="timeslot">
+														<time datetime="08:00" class="timeslot-start">8:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="10:00" class="timeslot-end">10:00 am</time>
+													</p>
+													<p class="event-subtitle">Cardiology</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-9" data-index="9">
+											<td class="mptt-shortcode-hours">9:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-14" data-index="14">
+											<td class="mptt-shortcode-hours">2:00 pm</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-2 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Cardiologist" href="#" class="event-title">Cardiologist</a>
+														<p class="timeslot">
+															<time datetime="14:00" class="timeslot-start">2:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="16:00" class="timeslot-end">4:00 pm</time>
+														</p>
+														<p class="event-subtitle">Cardiology</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-15" data-index="15">
+											<td class="mptt-shortcode-hours">3:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane" id="tab-3-4" role="tabpanel">
+								<table class="mptt-shortcode-table  mptt-theme-mode">
+									<thead>
+										<tr class="mptt-shortcode-row">
+											<th></th>
+											<th>Monday</th>
+											<th>Tuesday</th>
+											<th>Wednesday</th>
+											<th>Saturday</th>
+											<th>Sunday</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="mptt-shortcode-row-14" data-index="14">
+											<td class="mptt-shortcode-hours">2:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-18 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Pulmonary" href="#" class="event-title">Pulmonary</a>
+														<p class="timeslot">
+															<time datetime="14:00" class="timeslot-start">2:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="16:00" class="timeslot-end">4:00 pm</time>
+														</p>
+														<p class="event-subtitle">Routine</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-15" data-index="15">
+											<td class="mptt-shortcode-hours">3:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-16" data-index="16">
+											<td class="mptt-shortcode-hours">4:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-20 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Pulmonary" href="#" class="event-title">Pulmonary</a>
+														<p class="timeslot">
+															<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+														</p>
+														<p class="event-subtitle">Routine</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr class="mptt-shortcode-row-17" data-index="17">
+											<td class="mptt-shortcode-hours">5:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-18" data-index="18">
+											<td class="mptt-shortcode-hours">6:00 pm</td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-3 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Pulmonary" href="#" class="event-title">Pulmonary</a>
+														<p class="timeslot">
+															<time datetime="18:00" class="timeslot-start">6:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="20:00" class="timeslot-end">8:00 pm</time>
+														</p>
+														<p class="event-subtitle">Routine</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-19" data-index="19">
+											<td class="mptt-shortcode-hours">7:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane" id="tab-3-5" role="tabpanel">
+								<table class="mptt-shortcode-table  mptt-theme-mode">
+									<thead>
+										<tr class="mptt-shortcode-row">
+											<th></th>
+											<th>Monday</th>
+											<th>Tuesday</th>
+											<th>Wednesday</th>
+											<th>Saturday</th>
+											<th>Sunday</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="mptt-shortcode-row-8" data-index="8">
+											<td class="mptt-shortcode-hours">8:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-5 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Rhinology" href="#" class="event-title">Rhinology</a>
+														<p class="timeslot">
+															<time datetime="08:00" class="timeslot-start">8:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="10:00" class="timeslot-end">10:00 am</time>
+														</p>
+														<p class="event-subtitle">Biopsy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-9" data-index="9">
+											<td class="mptt-shortcode-hours">9:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-10" data-index="10">
+											<td class="mptt-shortcode-hours">10:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-19 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Rhinology" href="#" class="event-title">Rhinology</a>
+														<p class="timeslot">
+															<time datetime="10:00" class="timeslot-start">10:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="12:00" class="timeslot-end">12:00 pm</time>
+														</p>
+														<p class="event-subtitle">Biopsy</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr class="mptt-shortcode-row-11" data-index="11">
+											<td class="mptt-shortcode-hours">11:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-16" data-index="16">
+											<td class="mptt-shortcode-hours">4:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-15 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Rhinology" href="#" class="event-title">Rhinology</a>
+														<p class="timeslot">
+															<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+														</p>
+														<p class="event-subtitle">Biopsy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-17" data-index="17">
+											<td class="mptt-shortcode-hours">5:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane" id="tab-3-6" role="tabpanel">
+								<table class="mptt-shortcode-table  mptt-theme-mode">
+									<thead>
+										<tr class="mptt-shortcode-row">
+											<th></th>
+											<th>Monday</th>
+											<th>Tuesday</th>
+											<th>Wednesday</th>
+											<th>Saturday</th>
+											<th>Sunday</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="mptt-shortcode-row-8" data-index="8">
+											<td class="mptt-shortcode-hours">8:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-8 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Psychiatry" href="#" class="event-title">Psychiatry</a>
+														<p class="timeslot">
+															<time datetime="08:00" class="timeslot-start">8:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="10:00" class="timeslot-end">10:00 am</time>
+														</p>
+														<p class="event-subtitle">Colposcopy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-9" data-index="9">
+											<td class="mptt-shortcode-hours">9:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-18" data-index="18">
+											<td class="mptt-shortcode-hours">6:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-16 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Psychiatry" href="#" class="event-title">Psychiatry</a>
+														<p class="timeslot">
+															<time datetime="18:00" class="timeslot-start">6:00 pm</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="20:00" class="timeslot-end">8:00 pm</time>
+														</p>
+														<p class="event-subtitle">Colposcopy</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle">
+											</td>
+										</tr>
+										<tr class="mptt-shortcode-row-19" data-index="19">
+											<td class="mptt-shortcode-hours">7:00 pm</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane" id="tab-3-7" role="tabpanel">
+								<table class="mptt-shortcode-table  mptt-theme-mode">
+									<thead>
+										<tr class="mptt-shortcode-row">
+											<th></th>
+											<th>Monday</th>
+											<th>Tuesday</th>
+											<th>Wednesday</th>
+											<th>Saturday</th>
+											<th>Sunday</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="mptt-shortcode-row-10" data-index="10">
+											<td class="mptt-shortcode-hours">10:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event mptt-event-vertical-middle event" rowspan="2">
+												<div class="mptt-event-container id-10 mptt-colorized">
+													<div class="mptt-inner-event-content">
+														<a title="Dental" href="#" class="event-title">Dental</a>
+														<p class="timeslot">
+															<time datetime="10:00" class="timeslot-start">10:00 am</time>
+															<span class="timeslot-delimiter"> - </span>
+															<time datetime="12:00" class="timeslot-end">12:00 pm</time>
+														</p>
+														<p class="event-subtitle">Cavities</p>
+													</div>
+												</div>
+											</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+										<tr class="mptt-shortcode-row-11" data-index="11">
+											<td class="mptt-shortcode-hours">11:00 am</td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+											<td class="mptt-shortcode-event  mptt-event-vertical-middle"></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
-						<div class="swiper-slide">
-							<div class="blog-card">
-								<div class="post-media">
-									<a href="blog-details.html"><img src="{{ asset('client/images/pic3.jpg.jfif') }}" alt=""></a>
-								</div>
-								<div class="post-info">
-									<ul class="post-meta">
-										<li class="author"><a href="blog-details.html"><img src="{{ asset('client/images/pic3.jpg.jfif') }}" alt=""> Sonar Moyna</a></li>
-										<li class="date"><i class="far fa-calendar-alt"></i> 19 July 2021</li>
-									</ul>
-									<h5 class="post-title"><a href="blog-details.html">Why Is Skin Surgeon Considered Underrated</a></h5>		
-									<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="blog-card">
-								<div class="post-media">
-									<a href="blog-details.html"><img src="{{ asset('client/images/blog/grid/pic4.jpg.jfif') }}" alt=""></a>
-								</div>
-								<div class="post-info">
-									<ul class="post-meta">
-										<li class="author"><a href="blog-details.html"><img src="{{ asset('client/images/pic4.jpg.jfif') }}" alt=""> Kalina Mollika</a></li>
-										<li class="date"><i class="far fa-calendar-alt"></i> 18 July 2021</li>
-									</ul>
-									<h5 class="post-title"><a href="blog-details.html">Dental Care for Women is very important</a></h5>		
-									<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
-								</div>
-							</div>						
-						</div>
-						<div class="swiper-slide">
-							<div class="blog-card">
-								<div class="post-media">
-									<a href="blog-details.html"><img src="{{ asset('client/images/pic5.jpg.jfif') }}" alt=""></a>
-								</div>
-								<div class="post-info">
-									<ul class="post-meta">
-										<li class="author"><a href="blog-details.html"><img src="{{ asset('client/images/pic5.jpg.jfif') }}" alt=""> Michel </a></li>
-										<li class="date"><i class="far fa-calendar-alt"></i> 17 July 2021</li>
-									</ul>
-									<h5 class="post-title"><a href="blog-details.html">Health Will Be A Thing Of The Past And Here's Why</a></h5>		
-									<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
-								</div>
-							</div>					
-						</div>
 					</div>
-				</div>
-			</div>
-			<img class="pt-img1 animate1" src="{{ asset('client/images/trangle-orange.png') }}" alt="">
-			<img class="pt-img2 animate2" src="{{ asset('client/images/square-dots-orange.png') }}" alt="">
-			<img class="pt-img3 animate-rotate" src="{{ asset('client/images/line-circle-blue.png') }}" alt="">
-			<img class="pt-img4 animate-wave" src="{{ asset('client/images/wave-blue.png') }}" alt="">
-		</section>
-		
-	</div>
-	
-	<!-- Footer ==== -->
-	<footer class="footer" style="background-image:url({{ asset('client/images/footer.jpg.jfif') }});">
-		<!-- Footer Top -->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-3 col-lg-3 col-md-6">
-						<div class="widget widget_info">
-							<div class="footer-logo">
-								<a href="index.html"><img src="{{ asset('client/images/logo.png') }}" alt=""></a>
-							</div>
-							<div class="ft-contact">
-								<p>Lorem ipsum is dolor sit amet, csectetur adipiscing elit, dolore smod tempor incididunt ut labore et.</p>
-								<div class="contact-bx">
-									<div class="icon"><i class="fas fa-phone-alt"></i></div>
-									<div class="contact-number">
-										<span>Contact Us</span>
-										<h4 class="number">+01 123 456 7890</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-6">
-						<div class="widget footer_widget ml-50">
-							<h3 class="footer-title">Quick Links</h3>
-							<ul>
-								<li><a href="about-us.html"><span>About Us</span></a></li>
-								<li><a href="services.html"><span>Services</span></a></li>
-								<li><a href="booking.html"><span>Booking</span></a></li>
-								<li><a href="faq.html"><span>Faq's</span></a></li>
-								<li><a href="blog-grid.html"><span>Blogs</span></a></li>
-								<li><a href="team.html"><span>Out Team</span></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-6">
-						<div class="widget footer_widget">
-							<h3 class="footer-title">Our Service</h3>
-							<ul>
-								<li><a href="service-detail.html"><span>Dental Care</span></a></li>
-								<li><a href="service-detail.html"><span>Cardiac Clinic</span></a></li>
-								<li><a href="service-detail.html"><span>Massege Therapy</span></a></li>
-								<li><a href="service-detail.html"><span>Cardiology</span></a></li>
-								<li><a href="service-detail.html"><span>Precise Diagnosis</span></a></li>
-								<li><a href="service-detail.html"><span>Abmbulance Services</span></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-md-6">
-                        <div class="widget widget_form">
-                            <h3 class="footer-title">Subcribe</h3>
-							<form class="subscribe-form subscription-form mb-30" action="script/mailchamp.php" method="post">
-								<div class="ajax-message"></div>
-								<div class="input-group">
-									<input name="email" required="required" class="form-control" placeholder="Email Address" type="email">
-								</div>
-								<button name="submit" value="Submit" type="submit" class="btn btn-secondary shadow w-100">Subscribe Now</button>	
-							</form>
-							<div class="footer-social-link">
-								<ul>
-									<li><a target="_blank" href="https://www.facebook.com/"><img src="{{ asset('client/images/facebook.png') }}" alt=""></a></li>
-									<li><a target="_blank" href="https://twitter.com/"><img src="{{ asset('client/images/twitter.png') }}" alt=""></a></li>
-									<li><a target="_blank" href="https://www.instagram.com/"><img src="{{ asset('client/images/instagram.png') }}" alt=""></a></li>
-									<li><a target="_blank" href="https://www.linkedin.com/"><img src="{{ asset('client/images/linkedin.png') }}" alt=""></a></li>
+					<div class="pbmit-tab pbmit-tab-style-2 mptt-shortcode-list">
+						<div class="tab-content">
+							<div class="pbmit-select">
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="nav-item" role="presentation">
+										<a class="nav-link active" data-bs-toggle="tab" href="#tab-4-1" aria-selected="true" role="tab"> 
+											<span>All Events</span>
+										</a>	
+									</li>
+									<li class="nav-item" role="presentation"> 
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-2" aria-selected="false" role="tab" tabindex="-1"> 
+											<span>Ophthalmology</span>
+										</a>
+									</li>
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-3" aria-selected="false" role="tab" tabindex="-1"> 
+											<span>Cardiologist</span>
+										</a>
+									</li>
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-4" aria-selected="false" role="tab" tabindex="-1"> 
+											<span>Pulmonary</span>
+										</a>
+									</li>
+									<li class="nav-item" role="presentation"> 
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-5" aria-selected="false" role="tab" tabindex="-1"> 
+											<span>Rhinology</span>
+										</a>
+									</li>
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-6" aria-selected="false" role="tab" tabindex="-1"> 
+											<span>Psychiatry</span>
+										</a>
+									</li>
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-7" aria-selected="false" role="tab" tabindex="-1"> 
+											<span>Dental</span>
+										</a>
+									</li>
 								</ul>
 							</div>
+							<div class="tab-content">
+								<div class="tab-pane show active" id="tab-4-1" role="tabpanel">
+									<div class="mptt-shortcode-list">
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Monday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="ophthalmology">
+													<a title="Ophthalmology" href="#" class="mptt-event-title">Ophthalmology</a>
+													<p class="timeslot">
+														<time datetime="12:00" class="timeslot-start">12:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="22:00" class="timeslot-end">10:00 pm</time>
+													</p>
+													<p class="event-subtitle">Laparoscopy</p>
+												</li>
+												<li class="mptt-list-event" data-event-id="cardiologist">
+													<a title="Cardiologist" href="#" class="mptt-event-title">Cardiologist</a>
+													<p class="timeslot">
+														<time datetime="14:00" class="timeslot-start">2:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="16:00" class="timeslot-end">4:00 pm</time>
+													</p>
+													<p class="event-subtitle">Cardiology</p>
+												</li>
+												<li class="mptt-list-event" data-event-id="pulmonary">
+													<a title="Pulmonary" href="#" class="mptt-event-title"> Pulmonary</a>
+													<p class="timeslot">
+														<time datetime="18:00" class="timeslot-start">6:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="20:00" class="timeslot-end">8:00 pm</time>
+													</p>
+													<p class="event-subtitle">Routine</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Tuesday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="rhinology">
+													<a title="Rhinology" href="#" class="mptt-event-title">Rhinology</a>
+													<p class="timeslot">
+														<time datetime="08:00" class="timeslot-start">8:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="10:00" class="timeslot-end">10:00 am</time>
+													</p>
+													<p class="event-subtitle">Biopsy</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Wednesday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="psychiatry">
+													<a title="Psychiatry" href="#" class="mptt-event-title">Psychiatry</a>
+													<p class="timeslot">
+														<time datetime="08:00" class="timeslot-start">8:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="10:00" class="timeslot-end">10:00 am</time>
+													</p>
+													<p class="event-subtitle">Colposcopy</p>
+												</li>
+												<li class="mptt-list-event" data-event-id="dental">
+													<a title="Dental" href="#" class="mptt-event-title">Dental</a>
+													<p class="timeslot">
+														<time datetime="10:00" class="timeslot-start">10:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="12:00" class="timeslot-end">12:00 pm</time>
+													</p>
+													<p class="event-subtitle">Cavities</p>
+												</li>
+												<li class="mptt-list-event" data-event-id="ophthalmology">
+													<a title="Ophthalmology" href="#" class="mptt-event-title">Ophthalmology</a>
+													<p class="timeslot">
+														<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+													</p>
+													<p class="event-subtitle">Laparoscopy</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Saturday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="cardiologist">
+													<a title="Cardiologist" href="#" class="mptt-event-title">Cardiologist</a>
+													<p class="timeslot">
+														<time datetime="08:00" class="timeslot-start">8:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="10:00" class="timeslot-end">10:00 am</time>
+													</p>
+													<p class="event-subtitle">Cardiology</p>
+												</li>
+												<li class="mptt-list-event" data-event-id="pulmonary">
+													<a title="Pulmonary" href="#" class="mptt-event-title">Pulmonary</a>
+													<p class="timeslot">
+														<time datetime="14:00" class="timeslot-start">2:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="16:00" class="timeslot-end">4:00 pm</time>
+													</p>
+													<p class="event-subtitle">Routine</p>
+												</li>
+												<li class="mptt-list-event" data-event-id="rhinology">
+													<a title="Rhinology" href="3" class="mptt-event-title">Rhinology</a>
+													<p class="timeslot">
+														<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+													</p>
+													<p class="event-subtitle">Biopsy</p>
+												</li>
+												<li class="mptt-list-event" data-event-id="psychiatry">
+													<a title="Psychiatry" href="#" class="mptt-event-title">Psychiatry</a>
+													<p class="timeslot">
+														<time datetime="18:00" class="timeslot-start">6:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="20:00" class="timeslot-end">8:00 pm</time>
+													</p>
+													<p class="event-subtitle">Colposcopy</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Sunday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="rhinology">
+													<a title="Rhinology" href="#" class="mptt-event-title">Rhinology</a>
+													<p class="timeslot">
+														<time datetime="10:00" class="timeslot-start">10:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="12:00" class="timeslot-end">12:00 pm</time>
+													</p>
+													<p class="event-subtitle">Biopsy</p>
+												</li>
+												<li class="mptt-list-event" data-event-id="pulmonary">
+													<a title="Pulmonary" href="#" class="mptt-event-title">Pulmonary</a>
+													<p class="timeslot">
+														<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+													</p>
+													<p class="event-subtitle">Routine</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab-4-2" role="tabpanel">
+									<div class="mptt-shortcode-list">
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Monday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="ophthalmology">
+													<a title="Ophthalmology" href="#" class="mptt-event-title">Ophthalmology</a>
+													<p class="timeslot">
+														<time datetime="12:00" class="timeslot-start">12:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="22:00" class="timeslot-end">10:00 pm</time>
+													</p>
+													<p class="event-subtitle">Laparoscopy</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Wednesday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="ophthalmology">
+													<a title="Ophthalmology" href="#" class="mptt-event-title">Ophthalmology</a>
+													<p class="timeslot">
+														<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+													</p>
+													<p class="event-subtitle">Laparoscopy</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab-4-3" role="tabpanel">
+									<div class="mptt-shortcode-list">
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Monday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="cardiologist">
+													<a title="Cardiologist" href="#" class="mptt-event-title">Cardiologist</a>
+													<p class="timeslot">
+														<time datetime="14:00" class="timeslot-start">2:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="16:00" class="timeslot-end">4:00 pm</time>
+													</p>
+													<p class="event-subtitle">Cardiology</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Saturday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="cardiologist">
+													<a title="Cardiologist" href="#" class="mptt-event-title">Cardiologist</a>
+													<p class="timeslot">
+														<time datetime="08:00" class="timeslot-start">8:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="10:00" class="timeslot-end">10:00 am</time>
+													</p>
+													<p class="event-subtitle">Cardiology</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab-4-4" role="tabpanel">
+									<div class="mptt-shortcode-list">
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Monday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="pulmonary">
+													<a title="Pulmonary" href="#" class="mptt-event-title"> Pulmonary </a>
+													<p class="timeslot">
+														<time datetime="18:00" class="timeslot-start">6:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="20:00" class="timeslot-end">8:00 pm</time>
+													</p>
+													<p class="event-subtitle">Routine</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Saturday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="pulmonary">
+													<a title="Pulmonary" href="#" class="mptt-event-title">Pulmonary</a>
+													<p class="timeslot">
+														<time datetime="14:00" class="timeslot-start">2:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="16:00" class="timeslot-end">4:00 pm</time>
+													</p>
+													<p class="event-subtitle">Routine</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Sunday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="pulmonary">
+													<a title="Pulmonary" href="#" class="mptt-event-title">Pulmonary</a>
+													<p class="timeslot">
+														<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+													</p>
+													<p class="event-subtitle">Routine</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab-4-5" role="tabpanel">
+									<div class="mptt-shortcode-list">
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Tuesday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="rhinology">
+													<a title="Rhinology" href="#" class="mptt-event-title">Rhinology</a>
+													<p class="timeslot">
+														<time datetime="08:00" class="timeslot-start">8:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="10:00" class="timeslot-end">10:00 am</time>
+													</p>
+													<p class="event-subtitle">Biopsy</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Saturday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="rhinology">
+													<a title="Rhinology" href="#" class="mptt-event-title">Rhinology</a>
+													<p class="timeslot">
+														<time datetime="16:00" class="timeslot-start">4:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="18:00" class="timeslot-end">6:00 pm</time>
+													</p>
+													<p class="event-subtitle">Biopsy</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Sunday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="rhinology">
+													<a title="Rhinology" href="#" class="mptt-event-title">Rhinology</a>
+													<p class="timeslot">
+														<time datetime="10:00" class="timeslot-start">10:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="12:00" class="timeslot-end">12:00 pm</time>
+													</p>
+													<p class="event-subtitle">Biopsy</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab-4-6" role="tabpanel">
+									<div class="mptt-shortcode-list">
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Wednesday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="psychiatry">
+													<a title="Psychiatry" href="#" class="mptt-event-title">Psychiatry</a>
+													<p class="timeslot">
+														<time datetime="08:00" class="timeslot-start">8:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="10:00" class="timeslot-end">10:00 am</time>
+													</p>
+													<p class="event-subtitle">Colposcopy</p>
+												</li>
+											</ul>
+										</div>
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Saturday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="psychiatry">
+													<a title="Psychiatry" href="#" class="mptt-event-title">Psychiatry</a>
+													<p class="timeslot">
+														<time datetime="18:00" class="timeslot-start">6:00 pm</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="20:00" class="timeslot-end">8:00 pm</time>
+													</p>
+													<p class="event-subtitle">Colposcopy</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab-4-7" role="tabpanel">
+									<div class="mptt-shortcode-list">
+										<div class="mptt-column">
+											<h3 class="mptt-column-title">Wednesday</h3>
+											<ul class="mptt-events-list">
+												<li class="mptt-list-event" data-event-id="dental">
+													<a title="Dental" href="#" class="mptt-event-title">Dental</a>
+													<p class="timeslot">
+														<time datetime="10:00" class="timeslot-start">10:00 am</time>
+														<span class="timeslot-delimiter"> - </span>
+														<time datetime="12:00" class="timeslot-end">12:00 pm</time>
+													</p>
+													<p class="event-subtitle">Cavities</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		<!-- footer bottom -->
-		<div class="container">
-			<div class="footer-bottom">
-                <div class="row">
-                    <div class="col-12 text-center">
-						<p class="copyright-text">Copyright © 2022 Design & Developed by <a href="https://themeforest.net/user/themetrades" target="_blank" class="text-secondary">ThemeTrades</a></p>
 					</div>
-                </div>
-            </div>
+				</div>
+			</section>
+			<!-- Timetable End --> 
+			
+			<!-- Portfolio Start -->
+			<section class="section-lgt portfolio_two">
+				<div class="container-fluid p-0">
+					<div class="swiper-slider portfolio-two_slider" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="false" data-columns="4" data-margin="30" data-effect="slide">
+						<div class="swiper-wrapper">
+							<!-- Slide1 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-01.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Health</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Neurosurgery Surgeon</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide2 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-02.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Osteopaths</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Abdominal Aneurysm</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide3 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-03.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Pharmacy</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Supraventricular</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide4 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-04.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Research</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Cardiothoracic</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide5 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-05.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Surgeon</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Pediatric Surgery</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide6 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-06.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Treatments</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Congestive Heart</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide7 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-07.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Osteopaths</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Advices & Checkup</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide8 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-08.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Research</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Orthopaedic Surgery</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide9 -->
+							<div class="swiper-slide">
+								<article class="pbmit-portfolio-style-2">
+									<div class="pbminfotech-post-content">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="{{ asset('client/images/portfolio-09.jpg') }}" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="pbminfotech-box-content">
+											<div class="pbminfotech-titlebox">
+												<div class="pbmit-port-cat">
+													<a href="portfolio-grid-col-3.html" rel="tag">Treatments</a>
+												</div>
+												<h3 class="pbmit-portfolio-title">
+													<a href="single-detail-style-01.html">Laboratory & Pathology</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Portfolio End -->
+
+			<!-- Testimonial Start -->
+			<section class="section-xl">
+				<div class="container">
+					<div class="position-relative">
+						<div class="pbmit-heading-subheading animation-style2">
+							<h4 class="pbmit-subtitle">Testimonials</h4>
+							<h2 class="pbmit-title">Our happy client say</h2>
+						</div>
+						<div class="testimonial_arrow swiper-btn-custom d-flex flex-row-reverse"></div>
+					</div>
+					<div class="swiper-slider" data-arrows-class="testimonial_arrow" data-autoplay="true" data-loop="true" data-dots="false" data-arrows="true" data-columns="3" data-margin="30" data-effect="slide">
+						<div class="swiper-wrapper">
+							<!-- Slide1 -->
+							<div class="swiper-slide">
+								<article class="pbmit-testimonial-style-1">
+									<div class="pbminfotech-post-item">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbminfotech-box-star-ratings">
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+											</div>
+											<div class="pbminfotech-box-desc">
+												<blockquote class="pbminfotech-testimonial-text">
+													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
+												</blockquote>
+											</div>
+											<div class="pbminfotech-box-author d-flex align-items-center">
+												<div class="pbminfotech-box-img">
+													<div class="pbmit-featured-img-wrapper">
+														<div class="pbmit-featured-wrapper">
+															<img src="{{ asset('client/images/testimonial-01.jpg') }}" class="img-fluid" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="pbmit-auther-content">
+													<h3 class="pbminfotech-box-title">Mariam Ness</h3>
+													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide2 -->
+							<div class="swiper-slide">
+								<article class="pbmit-testimonial-style-1">
+									<div class="pbminfotech-post-item">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbminfotech-box-star-ratings">
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+											</div>
+											<div class="pbminfotech-box-desc">
+												<blockquote class="pbminfotech-testimonial-text">
+													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
+												</blockquote>
+											</div>
+											<div class="pbminfotech-box-author d-flex align-items-center">
+												<div class="pbminfotech-box-img">
+													<div class="pbmit-featured-img-wrapper">
+														<div class="pbmit-featured-wrapper">
+															<img src="{{ asset('client/images/testimonial-02.jpg') }}" class="img-fluid" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="pbmit-auther-content">
+													<h3 class="pbminfotech-box-title">Maria Flynn</h3>
+													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide3 -->
+							<div class="swiper-slide">
+								<article class="pbmit-testimonial-style-1">
+									<div class="pbminfotech-post-item">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbminfotech-box-star-ratings">
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1"></i>
+											</div>
+											<div class="pbminfotech-box-desc">
+												<blockquote class="pbminfotech-testimonial-text">
+													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
+												</blockquote>
+											</div>
+											<div class="pbminfotech-box-author d-flex align-items-center">
+												<div class="pbminfotech-box-img">
+													<div class="pbmit-featured-img-wrapper">
+														<div class="pbmit-featured-wrapper">
+															<img src="{{ asset('client/images/testimonial-03.jpg') }}" class="img-fluid" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="pbmit-auther-content">
+													<h3 class="pbminfotech-box-title">Jennifer Smith</h3>
+													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide4 -->
+							<div class="swiper-slide">
+								<article class="pbmit-testimonial-style-1">
+									<div class="pbminfotech-post-item">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbminfotech-box-star-ratings">
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+											</div>
+											<div class="pbminfotech-box-desc">
+												<blockquote class="pbminfotech-testimonial-text">
+													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
+												</blockquote>
+											</div>
+											<div class="pbminfotech-box-author d-flex align-items-center">
+												<div class="pbminfotech-box-img">
+													<div class="pbmit-featured-img-wrapper">
+														<div class="pbmit-featured-wrapper">
+															<img src="{{ asset('client/images/testimonial-04.jpg') }}" class="img-fluid" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="pbmit-auther-content">
+													<h3 class="pbminfotech-box-title">Jane Brown</h3>
+													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide5 -->
+							<div class="swiper-slide">
+								<article class="pbmit-testimonial-style-1">
+									<div class="pbminfotech-post-item">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbminfotech-box-star-ratings">
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1"></i>
+											</div>
+											<div class="pbminfotech-box-desc">
+												<blockquote class="pbminfotech-testimonial-text">
+													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
+												</blockquote>
+											</div>
+											<div class="pbminfotech-box-author d-flex align-items-center">
+												<div class="pbminfotech-box-img">
+													<div class="pbmit-featured-img-wrapper">
+														<div class="pbmit-featured-wrapper">
+															<img src="{{ asset('client/images/testimonial-05.jpg') }}" class="img-fluid" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="pbmit-auther-content">
+													<h3 class="pbminfotech-box-title">Becky Linch</h3>
+													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<!-- Slide6 -->
+							<div class="swiper-slide">
+								<article class="pbmit-testimonial-style-1">
+									<div class="pbminfotech-post-item">
+										<div class="pbmit-box-content-wrap">
+											<div class="pbminfotech-box-star-ratings">
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+											</div>
+											<div class="pbminfotech-box-desc">
+												<blockquote class="pbminfotech-testimonial-text">
+													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
+												</blockquote>
+											</div>
+											<div class="pbminfotech-box-author d-flex align-items-center">
+												<div class="pbminfotech-box-img">
+													<div class="pbmit-featured-img-wrapper">
+														<div class="pbmit-featured-wrapper">
+															<img src="{{ asset('client/images/testimonial-06.jpg') }}" class="img-fluid" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="pbmit-auther-content">
+													<h3 class="pbminfotech-box-title">Daniel Craig</h3>
+													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Testimonial End -->  
+			
+			<!-- Ihbox Style Start -->
+			<section>
+				<div class="container">
+					<div class="row g-0">
+						<div class="col-md-12 col-xl-6">
+							<div class="ihbox-style-4_bg pbmit-text-color-white">
+								<div class="pbmit-ihbox-style-4">
+									<div class="pbmit-ihbox-headingicon">
+									   <h4 class="pbmit-element-heading">
+										  Our Health Care
+									   </h4>
+									   <h2 class="pbmit-element-title">Ready to start learn?<br> Sign up now!</h2>
+										<div class="pbmit-ihbox-btn">
+											<a href="our-history.html">
+												<span class="pbmit-button-text">sign up now</span>
+												<span class="pbmit-button-icon-wrapper">
+													<span class="pbmit-button-icon">
+														<i class="pbmit-base-icon-black-arrow-1"></i>
+													</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-xl-6">
+							<div class="pbmit-ihbox-style-5_bg pbmit-bg-color-global">
+								<div class="pbmit-ihbox-style-5">
+									<div class="pbmit-ihbox-box d-flex align-items-center">
+										<div class="pbmit-ihbox-icon">
+											<div class="pbmit-ihbox-icon-wrapper">
+												<div class="pbmit-icon-wrapper pbmit-icon-type-icon">
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-subscribe"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pbmit-ihbox-contents">
+											<h2 class="pbmit-element-title">Subscribe <br> to our newsletter</h2>
+										</div>
+									</div>
+								</div>
+								<form>
+									<div class="pbmit-footer-newsletter">
+										<input type="email" name="EMAIL" placeholder="Your email address" required="">
+										<button class="pbmit-button">
+											<span class="pbmit-button-text">Subscribe</span>
+											<span class="pbmit-btn-content-wrapper">
+												<span class="pbmit-button-icon">
+													<i class="pbmit-base-icon-black-arrow-1"></i>
+												</span>
+											</span>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Ihbox Style Start -->
+
+			<!-- Blog Start -->
+			<section class="section-xl">
+				<div class="container">
+					<div class="pbmit-heading-subheading text-center">
+						<h4 class="pbmit-subtitle">Latest Blog</h4>
+						<h2 class="pbmit-title">Latest posts & articles</h2>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-12 col-xl-5">
+							<div class="blog-style-4_box">
+								<div class="row">
+									<div class="col-md-12">
+										<article class="pbmit-blog-style-4">
+											<div class="post-item">
+												<div class="pbminfotech-box-content">
+													<div class="pbminfotech-content-inner d-flex align-items-center">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-01.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div>
+														<div class="pbmit-meta-wraper">
+															<div class="pbmit-meta-date-wrapper pbmit-meta-line">
+																<div class="pbmit-meta-date">
+																	<span class="pbmit-post-date">
+																		<i class="pbmit-base-icon-calendar-3"></i>August  29. 2023
+																	</span>
+																</div>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+															<div class="pbmit-content-wrapper">
+																<h3 class="pbmit-post-title">
+																	<a href="blog-details.html">What’s the reason so many older adults aren’t active?</a>
+																</h3>
+															</div>
+														</div>
+													</div>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+									<div class="col-md-12">
+										<article class="pbmit-blog-style-4">
+											<div class="post-item">
+												<div class="pbminfotech-box-content">
+													<div class="pbminfotech-content-inner d-flex align-items-center">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-02.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div>
+														<div class="pbmit-meta-wraper">
+															<div class="pbmit-meta-date-wrapper pbmit-meta-line">
+																<div class="pbmit-meta-date">
+																	<span class="pbmit-post-date">
+																		<i class="pbmit-base-icon-calendar-3"></i>August  29. 2023
+																	</span>
+																</div>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+															<div class="pbmit-content-wrapper">
+																<h3 class="pbmit-post-title">
+																	<a href="blog-details.html">The Most important Ventilator Equipment available</a>
+																</h3>
+															</div>
+														</div>
+													</div>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+									<div class="col-md-12">
+										<article class="pbmit-blog-style-4">
+											<div class="post-item">
+												<div class="pbminfotech-box-content">
+													<div class="pbminfotech-content-inner d-flex align-items-center">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-03.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div>
+														<div class="pbmit-meta-wraper">
+															<div class="pbmit-meta-date-wrapper pbmit-meta-line">
+																<div class="pbmit-meta-date">
+																	<span class="pbmit-post-date">
+																		<i class="pbmit-base-icon-calendar-3"></i>August  29. 2023
+																	</span>
+																</div>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+															<div class="pbmit-content-wrapper">
+																<h3 class="pbmit-post-title">
+																	<a href="blog-details.html">Blood Cancers: Early Signs, Symptoms, Institute</a>
+																</h3>
+															</div>
+														</div>
+													</div>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-xl-7">
+							<div class="swiper-slider blog-two_slider" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="false" data-columns="1" data-margin="30" data-effect="slide">
+								<div class="swiper-wrapper">
+									<!-- Slide1 -->
+									<div class="swiper-slide">
+										<article class="pbmit-blog-style-3">
+											<div class="post-item d-flex">
+												<div class="pbmit-featured-container">
+													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-04b.jpg') }})">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-04.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div> 
+													</div>
+												</div>
+												<div class="pbminfotech-box-wrap">
+													<div class="pbminfotech-box-content">
+														<div class="pbmit-date-admin-wraper d-flex align-items-center">
+															<div class="pbmit-meta-date pbmit-meta-line">
+																<span class="pbmit-post-date">
+																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
+																</span>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+														</div>
+														<h3 class="pbmit-post-title">
+															<a href="blog-details.html">Best &amp; caring Orthopedic surgeons in hospital</a>
+														</h3>
+														<div class="pbminfotech-box-desc">
+															Medical Futurist is one of the best online resources for learning about technology in the… 
+														</div>
+													</div>
+													<a class="pbmit-blog-btn" href="blog-details.html">
+														<span class="pbmit-button-icon-wrapper">
+															<span class="pbmit-button-icon">
+																<i class="pbmit-base-icon-black-arrow-1"></i>
+															</span>
+														</span>
+													</a>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+									<!-- Slide2 -->
+									<div class="swiper-slide">
+										<article class="pbmit-blog-style-3">
+											<div class="post-item d-flex">
+												<div class="pbmit-featured-container">
+													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-05b.jpg') }})">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-05.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div> 
+													</div>
+												</div>
+												<div class="pbminfotech-box-wrap">
+													<div class="pbminfotech-box-content">
+														<div class="pbmit-date-admin-wraper d-flex align-items-center">
+															<div class="pbmit-meta-date pbmit-meta-line">
+																<span class="pbmit-post-date">
+																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
+																</span>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+														</div>
+														<h3 class="pbmit-post-title">
+															<a href="blog-details.html">Cell perturbation and lasers illuminate the genetics</a>
+														</h3>
+														<div class="pbminfotech-box-desc">
+															Medical Futurist is one of the best online resources for learning about technology in the… 
+														</div>
+													</div>
+													<a class="pbmit-blog-btn" href="blog-details.html">
+														<span class="pbmit-button-icon-wrapper">
+															<span class="pbmit-button-icon">
+																<i class="pbmit-base-icon-black-arrow-1"></i>
+															</span>
+														</span>
+													</a>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+									<!-- Slide3 -->
+									<div class="swiper-slide">
+										<article class="pbmit-blog-style-3">
+											<div class="post-item d-flex">
+												<div class="pbmit-featured-container">
+													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-06b.jpg') }})">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-06.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div> 
+													</div>
+												</div>
+												<div class="pbminfotech-box-wrap">
+													<div class="pbminfotech-box-content">
+														<div class="pbmit-date-admin-wraper d-flex align-items-center">
+															<div class="pbmit-meta-date pbmit-meta-line">
+																<span class="pbmit-post-date">
+																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
+																</span>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+														</div>
+														<h3 class="pbmit-post-title">
+															<a href="blog-details.html">Do’s and Don’ts or precautions after cataract surgery</a>
+														</h3>
+														<div class="pbminfotech-box-desc">
+															Medical Futurist is one of the best online resources for learning about technology in the… 
+														</div>
+													</div>
+													<a class="pbmit-blog-btn" href="blog-details.html">
+														<span class="pbmit-button-icon-wrapper">
+															<span class="pbmit-button-icon">
+																<i class="pbmit-base-icon-black-arrow-1"></i>
+															</span>
+														</span>
+													</a>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+									<!-- Slide4 -->
+									<div class="swiper-slide">
+										<article class="pbmit-blog-style-3">
+											<div class="post-item d-flex">
+												<div class="pbmit-featured-container">
+													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-07b.jpg') }})">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-07.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div> 
+													</div>
+												</div>
+												<div class="pbminfotech-box-wrap">
+													<div class="pbminfotech-box-content">
+														<div class="pbmit-date-admin-wraper d-flex align-items-center">
+															<div class="pbmit-meta-date pbmit-meta-line">
+																<span class="pbmit-post-date">
+																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
+																</span>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+														</div>
+														<h3 class="pbmit-post-title">
+															<a href="blog-details.html">Dental or Implant. What is the Best Option?</a>
+														</h3>
+														<div class="pbminfotech-box-desc">
+															Medical Futurist is one of the best online resources for learning about technology in the… 
+														</div>
+													</div>
+													<a class="pbmit-blog-btn" href="blog-details.html">
+														<span class="pbmit-button-icon-wrapper">
+															<span class="pbmit-button-icon">
+																<i class="pbmit-base-icon-black-arrow-1"></i>
+															</span>
+														</span>
+													</a>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+									<!-- Slide5 -->
+									<div class="swiper-slide">
+										<article class="pbmit-blog-style-3">
+											<div class="post-item d-flex">
+												<div class="pbmit-featured-container">
+													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-08b.jpg') }})">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-08.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div> 
+													</div>
+												</div>
+												<div class="pbminfotech-box-wrap">
+													<div class="pbminfotech-box-content">
+														<div class="pbmit-date-admin-wraper d-flex align-items-center">
+															<div class="pbmit-meta-date pbmit-meta-line">
+																<span class="pbmit-post-date">
+																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
+																</span>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+														</div>
+														<h3 class="pbmit-post-title">
+															<a href="blog-details.html">Must Read Safety Guide For Swine Flu Season</a>
+														</h3>
+														<div class="pbminfotech-box-desc">
+															Medical Futurist is one of the best online resources for learning about technology in the… 
+														</div>
+													</div>
+													<a class="pbmit-blog-btn" href="blog-details.html">
+														<span class="pbmit-button-icon-wrapper">
+															<span class="pbmit-button-icon">
+																<i class="pbmit-base-icon-black-arrow-1"></i>
+															</span>
+														</span>
+													</a>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+									<!-- Slide6 -->
+									<div class="swiper-slide">
+										<article class="pbmit-blog-style-3">
+											<div class="post-item d-flex">
+												<div class="pbmit-featured-container">
+													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-09b.jpg') }})">
+														<div class="pbmit-featured-img-wrapper">
+															<div class="pbmit-featured-wrapper">
+																<img src="{{ asset('client/images/blog-09.jpg') }}" class="img-fluid" alt="">
+															</div>
+														</div> 
+													</div>
+												</div>
+												<div class="pbminfotech-box-wrap">
+													<div class="pbminfotech-box-content">
+														<div class="pbmit-date-admin-wraper d-flex align-items-center">
+															<div class="pbmit-meta-date pbmit-meta-line">
+																<span class="pbmit-post-date">
+																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
+																</span>
+															</div>
+															<div class="pbmit-meta-author pbmit-meta-line">
+																<span class="pbmit-post-author">
+																	<i class="pbmit-base-icon-user-3"></i>admin
+																</span>
+															</div>
+														</div>
+														<h3 class="pbmit-post-title">
+															<a href="blog-details.html">Having Viral Pneumonia with Severe ARDS, CKD</a>
+														</h3>
+														<div class="pbminfotech-box-desc">
+															Medical Futurist is one of the best online resources for learning about technology in the… 
+														</div>
+													</div>
+													<a class="pbmit-blog-btn" href="blog-details.html">
+														<span class="pbmit-button-icon-wrapper">
+															<span class="pbmit-button-icon">
+																<i class="pbmit-base-icon-black-arrow-1"></i>
+															</span>
+														</span>
+													</a>
+												</div>
+												<a class="pbmit-link" href="blog-details.html"></a>
+											</div>
+										</article>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Blog End -->
+
 		</div>
-		<!-- footer-shape -->
-		<img class="pt-img1 animate-wave" src="{{ asset('client/images/wave-blue.png') }}" alt="">
-		<img class="pt-img2 animate1" src="{{ asset('client/images/circle-dots.png') }}" alt="">
-		<img class="pt-img3 animate-rotate" src="{{ asset('client/images/plus-blue.png') }}" alt="">
-		<img class="pt-img4 animate-wave" src="{{ asset('client/images/wave-blue.png') }}" alt="">
-	</footer>
-    <!-- Footer END ==== -->
-	<button class="back-to-top fa fa-chevron-up"></button>
-</div>
-<!-- JAVASCRIPT FILES ========================================= -->
-<script src="{{ asset('client/js/jquery.min.js') }}"></script>
-<script src="{{ asset('client/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('client/vendor/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('client/vendor/swiper/swiper.min.js') }}"></script>
-<script src="{{ asset('client/vendor/magnific-popup/jquery.magnific-popup.js') }}"></script>
-<script src="{{ asset('client/js/functions.js') }}"></script>
-<script src="{{ asset('client/js/contact.js') }}"></script>
-</body>
-<!-- Copied from https://meditro.themetrades.com/html/demo/index.html by Cyotek WebCopy 1.7.0.600, vendredi 24 juin 2022, 10:56:58 -->
-</html>
+@endsection
