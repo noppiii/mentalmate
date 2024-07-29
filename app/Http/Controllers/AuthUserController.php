@@ -248,7 +248,19 @@ class AuthUserController extends Controller
 
             // Handle profile photo upload
             if ($request->hasFile('profile_photo_path')) {
-                $psikolog->profile_photo_path = $this->uploadFile($request->file('profile_photo_path'), 'store/user/photo/psikolog');
+                $img_tmp = $request->file('profile_photo_path');
+                if ($img_tmp->isValid()) {
+                    // get image extension
+                    $extension = $img_tmp->getClientOriginalExtension();
+                    // generate new image name
+                    $imageName = uniqid() . '_' . rand(111, 99999) . '.' . $extension;
+                    $imagePath = 'store/user/photo/psikolog' . $imageName;
+                    // upload image
+                    Image::make($img_tmp)->save(public_path($imagePath));
+                }
+            }
+            if (isset($imageName)) {
+                $psikolog->profile_photo_path = $imageName;
             }
 
             // Handle dokumen_cv upload
@@ -273,7 +285,7 @@ class AuthUserController extends Controller
 
             $psikolog->save();
 
-            Session::flash('success_message', 'Data anda berhasil terkirim. Admin akan memverifikasi data anda');
+            Session::flash('success_message', 'Terimakasih telah mendaftar kami akan memvalidasi berkas anda');
             return redirect()->route('home');
         } catch (QueryException $e) {
             $errorMessage = 'Upsss terjadi kesalahan. Cek data yang anda masukan dan isi kembali!!!!';

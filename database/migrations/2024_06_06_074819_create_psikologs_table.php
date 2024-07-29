@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('program_studi');
             $table->integer('tahun_lulus');
             $table->string('tempat_praktik');
-            $table->integer('no_str');
+            $table->bigInteger('no_str');
             $table->string('dokumen_cv');
             $table->string('dokumen_ijazah');
             $table->string('dokumen_str_aktif');

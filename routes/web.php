@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\ClientArtikelController;
+use App\Http\Controllers\ClientPsikologController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaDashboardController;
 use App\Http\Controllers\MasterAdminController;
@@ -30,6 +32,9 @@ Route::post('/psikolog/signup', [AuthUserController::class, 'psikologSignup'])->
 Route::get('/mahasiswa/signup', [AuthUserController::class, 'showMahasiswaSignupForm'])->name('mahasiswa.signup');
 Route::post('/mahasiswa/signup', [AuthUserController::class, 'mahasiswaSignup'])->name('mahasiswa.postSignup');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/artikel', [ClientArtikelController::class, 'index'])->name('client.artikel');
+Route::get('/artikel/{slug}', [ClientArtikelController::class, 'show'])->name('client.detailArtikel');
+Route::get('/psikolog', [ClientPsikologController::class, 'index'])->name('client.psikolog');
 
 Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');

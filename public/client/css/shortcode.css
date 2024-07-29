@@ -7024,7 +7024,7 @@ body {
 .pbmit-title-bar-wrapper{
 	position: relative;
 	z-index: 1;
-	background-image: url(../images/bg/titlebar-bg-img.jpg);
+	background-image: url(../images/titlebar-bg-img.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
