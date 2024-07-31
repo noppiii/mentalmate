@@ -46,11 +46,20 @@ class ClientArtikelController extends Controller
         try {
             $detailArtikel = ArticleModel::where('slug', $slug)
                 ->firstOrFail();
+                $allCategory = CategoryArticleModel::all();
+                $allTag = TagArticleModel::all();
+            $recentArtikel = ArticleModel::orderBy('created_at', 'asc')->take(3)->get();
+            $nextArtikel = ArticleModel::where('created_at', '>', $detailArtikel->created_at)
+                ->orderBy('created_at', 'asc')
+                ->first();
+            $previousArtikel = ArticleModel::where('created_at', '<', $detailArtikel->created_at)
+            ->orderBy('created_at', 'desc')
+            ->first();
         } catch (ModelNotFoundException $e) {
             // Handle not found exception
             return redirect()->back()->with('error_message_not_found', 'Data artikel tidak ditemukan');
         }
-        return view('pages.client.artikel.detail', compact('detailArtikel'));
+        return view('pages.client.artikel.detail', compact('detailArtikel','allCategory','allTag', 'recentArtikel', 'nextArtikel', 'previousArtikel'));
     }
 
     /**
