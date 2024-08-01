@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             MahasiswaSeeder::class,
             AdminSeeder::class,
             PsikologSeeder::class,
+            DetailPsikologSeeder::class,
+            ArtikelSeeder::class,
             // Tambahkan seeder lain di sini
         ]);
     }

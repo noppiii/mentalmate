@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PsikologModel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ClientPsikologController extends Controller
@@ -35,9 +36,21 @@ class ClientPsikologController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $username)
     {
-        //
+        try {
+            // Ganti hyphens dengan spasi untuk pencarian
+            $nama = str_replace('-', ' ', $username);
+
+            // Cari psikolog berdasarkan nama
+            $psikolog = PsikologModel::where('nama', $nama)->firstOrFail();
+            // dd($detailPsikolog);
+        } catch (ModelNotFoundException $e) {
+            // Handle not found exception
+            return redirect()->back()->with('error_message_not_found', 'Data psikolog tidak ditemukan');
+        }
+
+        return view('pages.client.psikolog.detail', compact('psikolog'));
     }
 
     /**

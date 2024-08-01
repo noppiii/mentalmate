@@ -49,10 +49,11 @@ class MasterCategoryArticleController extends Controller
 
         try {
             $category = new CategoryArticleModel();
-            $category->nama = $data['nama'];
-            $category->content = $data['content'];
-            $category->slug = Str::slug($data['nama'], '-');
-             $category->save();
+            $category->fill([
+                'nama' => $data['nama'],
+                'content' => $data['content'],
+                'slug' => Str::slug($data['nama'], '-'),
+            ]);
 
             Session::flash('success_message_create', 'Data kategori artikel berhasil disimpan');
             return redirect()->route('kategori-artikel.index');

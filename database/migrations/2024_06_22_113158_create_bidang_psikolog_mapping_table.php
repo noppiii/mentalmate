@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bidang_psikolog_mappings', function (Blueprint $table) {
-            $table->foreignId('psikolog_id')->constrained('psikologs')->onDelete('cascade');
+            $table->foreignId('detail_psikolog_id')->constrained('detail_psikologs')->onDelete('cascade');
             $table->foreignId('bidang_psikolog_id')->constrained('bidang_psikologs')->onDelete('cascade');
-            $table->primary(['psikolog_id', 'bidang_psikolog_id']);
+            $table->primary(['detail_psikolog_id', 'bidang_psikolog_id']);
         });
     }
 

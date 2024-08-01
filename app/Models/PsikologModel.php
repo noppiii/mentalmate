@@ -63,11 +63,11 @@ class PsikologModel extends Authenticatable
          return $this->hasMany(ArticleModel::class);
      }
 
-     // Relasi dengan tabel detail_psikologs
-     public function detailPsikologs()
-     {
-         return $this->hasMany(DetailPsikologModel::class);
-     }
+    // Relasi dengan tabel detail_psikologs
+    public function detailPsikologs()
+    {
+        return $this->hasMany(DetailPsikologModel::class, 'psikolog_id');
+    }
 
      // Relasi dengan tabel riwayat_sesi_konsultasis
      public function riwayatSesiKonsultasis()
@@ -81,9 +81,9 @@ class PsikologModel extends Authenticatable
          return $this->hasMany(KonsultasiModel::class);
      }
 
-     public function bidangPsikologs()
-     {
-         return $this->belongsToMany(BidangPsikologModel::class, 'bidang_psikolog_mappings', 'psikolog_id', 'bidang_psikolog_id');
-     }
+    //  public function bidangPsikologs()
+    //  {
+    //      return $this->belongsToMany(BidangPsikologModel::class, 'bidang_psikolog_mappings', 'psikolog_id', 'bidang_psikolog_id');
+    //  }
 
 }

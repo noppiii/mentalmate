@@ -49,10 +49,11 @@ class MasterTagArticleController extends Controller
 
         try {
             $tag = new TagArticleModel();
-            $tag->nama = $data['nama'];
-            $tag->content = $data['content'];
-            $tag->slug = Str::slug($data['nama'], '-');
-             $tag->save();
+            $tag->fill([
+                'nama' => $data['nama'],
+                'content' => $data['content'],
+                'slug' => Str::slug($data['nama'], '-'),
+            ]);
 
             Session::flash('success_message_create', 'Data tag artikel berhasil disimpan');
             return redirect()->route('tag-artikel.index');

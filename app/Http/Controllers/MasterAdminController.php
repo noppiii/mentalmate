@@ -83,14 +83,13 @@ class MasterAdminController extends Controller
         $data = $request->all();
         try {
             $admin = new AdminModel();
-            $admin->email = $data['email'];
-            $admin->password = bcrypt($data['password']);
-             $admin->nama = $data['nama'];
-             $admin->telp = $data['telp'];
-             if (isset($imageName)) {
-                 $admin->profile_photo_path = $imageName;
-             }
-             $admin->save();
+            $admin->fill([
+                'email' => $data['email'],
+                'password' => $data['password'],
+                'nama' => $data['nama'],
+                'telp' => $data['telp'],
+                'profile_photo_path' => $data['profile_photo_path'] ?? null,
+            ]);
 
             Session::flash('success_message_create', 'Data admin berhasil disimpan');
             return redirect()->route('admin.index');

@@ -18,6 +18,7 @@ class AuthPsikolog
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::guard('psikolog')->check()) {
+            // dd('Authenticated as psikolog');
             return $next($request);
         }
 

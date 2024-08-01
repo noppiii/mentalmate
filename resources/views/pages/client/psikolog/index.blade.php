@@ -7,13 +7,13 @@
 @endsection
 @section('content')
  <!-- Title Bar -->
-		<div class="pbmit-title-bar-wrapper">
+		<div class="pbmit-title-bar-wrapper" style="background-image: url({{ asset('client/images/titlebar-bg-img.jpg') }})">
 			<div class="container">
 				<div class="pbmit-title-bar-content">
 					<div class="pbmit-title-bar-content-inner">
 						<div class="pbmit-tbar">
 							<div class="pbmit-tbar-inner container">
-								<h1 class="pbmit-tbar-title"> Our Team Member</h1>
+								<h1 class="pbmit-tbar-title"> Daftar Psikolog</h1>
 							</div>
 						</div>
 						<div class="pbmit-breadcrumb">
@@ -24,7 +24,7 @@
 								<span class="sep">
 									<i class="pbmit-base-icon-angle-double-right"></i>
 								</span>
-								<span><span class="post-root post post-post current-item"> Our Team Member</span></span>
+								<span><span class="post-root post post-post current-item"> Daftar Psikolog</span></span>
 							</div>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 								<div class="pbmit-featured-wrap">
 									<div class="pbmit-featured-img-wrapper">
 										<div class="pbmit-featured-wrapper">
-                                            <div style="width: 80%; max-width: 400px; height: 0; padding-top: 125%; position: relative; overflow: hidden;">
+                                            <div style="width: 80%; max-width: 400px; height: 0; padding-top: 100%; position: relative; overflow: hidden;">
                                                 <img src="{{ asset('store/user/photo/psikolog' . $data->profile_photo_path) }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" class="img-fluid" alt="">
                                             </div>										
                                         </div>
@@ -85,7 +85,7 @@
 									<div class="pbminfotech-box-content-inner">
 										<div class="pbminfotech-box-team-position" style="text-transform: capitalize;">{{ $data->asal_universitas }}</div>
 										<h3 class="pbmit-team-title">
-                                        <a href="team-single-detail.html">{{ $data->nama }}</a>
+											<a href="{{ route('client.detailPsikolog', ['username' => Str::slug($data->nama)]) }}">{{ $data->nama }}</a>
 										</h3>
 									</div>
 								</div>

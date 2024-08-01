@@ -2665,6 +2665,7 @@
 						<div class="col-md-12 col-xl-5">
 							<div class="blog-style-4_box">
 								<div class="row">
+									@foreach ($newArtikel as $data)
 									<div class="col-md-12">
 										<article class="pbmit-blog-style-4">
 											<div class="post-item">
@@ -2672,119 +2673,56 @@
 													<div class="pbminfotech-content-inner d-flex align-items-center">
 														<div class="pbmit-featured-img-wrapper">
 															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-01.jpg') }}" class="img-fluid" alt="">
+																<img src="{{ asset('store/artikel/thumbnail/' . $data->tumbnail) }}" class="img-fluid" alt="">
 															</div>
 														</div>
 														<div class="pbmit-meta-wraper">
 															<div class="pbmit-meta-date-wrapper pbmit-meta-line">
 																<div class="pbmit-meta-date">
 																	<span class="pbmit-post-date">
-																		<i class="pbmit-base-icon-calendar-3"></i>August  29. 2023
+																		<i class="pbmit-base-icon-calendar-3"></i>{{ \Carbon\Carbon::parse($data->updated_at)->translatedFormat('d F Y') }}
 																	</span>
 																</div>
 															</div>
 															<div class="pbmit-meta-author pbmit-meta-line">
 																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
+																	<i class="pbmit-base-icon-user-3"></i>
+																	@if ($data->psikolog)
+                                                					    {{ $data->psikolog->nama }}
+                                                					@elseif ($data->admin)
+                                                					    {{ $data->admin->nama }}
+                                                					@endif
 																</span>
 															</div>
 															<div class="pbmit-content-wrapper">
 																<h3 class="pbmit-post-title">
-																	<a href="blog-details.html">What’s the reason so many older adults aren’t active?</a>
+																	<a href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">{{ $data->name }}</a>
 																</h3>
 															</div>
 														</div>
 													</div>
 												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
+												<a class="pbmit-link" href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}"></a>
 											</div>
 										</article>
 									</div>
-									<div class="col-md-12">
-										<article class="pbmit-blog-style-4">
-											<div class="post-item">
-												<div class="pbminfotech-box-content">
-													<div class="pbminfotech-content-inner d-flex align-items-center">
-														<div class="pbmit-featured-img-wrapper">
-															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-02.jpg') }}" class="img-fluid" alt="">
-															</div>
-														</div>
-														<div class="pbmit-meta-wraper">
-															<div class="pbmit-meta-date-wrapper pbmit-meta-line">
-																<div class="pbmit-meta-date">
-																	<span class="pbmit-post-date">
-																		<i class="pbmit-base-icon-calendar-3"></i>August  29. 2023
-																	</span>
-																</div>
-															</div>
-															<div class="pbmit-meta-author pbmit-meta-line">
-																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
-																</span>
-															</div>
-															<div class="pbmit-content-wrapper">
-																<h3 class="pbmit-post-title">
-																	<a href="blog-details.html">The Most important Ventilator Equipment available</a>
-																</h3>
-															</div>
-														</div>
-													</div>
-												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
-											</div>
-										</article>
-									</div>
-									<div class="col-md-12">
-										<article class="pbmit-blog-style-4">
-											<div class="post-item">
-												<div class="pbminfotech-box-content">
-													<div class="pbminfotech-content-inner d-flex align-items-center">
-														<div class="pbmit-featured-img-wrapper">
-															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-03.jpg') }}" class="img-fluid" alt="">
-															</div>
-														</div>
-														<div class="pbmit-meta-wraper">
-															<div class="pbmit-meta-date-wrapper pbmit-meta-line">
-																<div class="pbmit-meta-date">
-																	<span class="pbmit-post-date">
-																		<i class="pbmit-base-icon-calendar-3"></i>August  29. 2023
-																	</span>
-																</div>
-															</div>
-															<div class="pbmit-meta-author pbmit-meta-line">
-																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
-																</span>
-															</div>
-															<div class="pbmit-content-wrapper">
-																<h3 class="pbmit-post-title">
-																	<a href="blog-details.html">Blood Cancers: Early Signs, Symptoms, Institute</a>
-																</h3>
-															</div>
-														</div>
-													</div>
-												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
-											</div>
-										</article>
-									</div>
+									@endforeach
 								</div>
 							</div>
 						</div>
 						<div class="col-md-12 col-xl-7">
 							<div class="swiper-slider blog-two_slider" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="false" data-columns="1" data-margin="30" data-effect="slide">
 								<div class="swiper-wrapper">
+									@foreach ($newArtikelSlide as $data)
 									<!-- Slide1 -->
 									<div class="swiper-slide">
 										<article class="pbmit-blog-style-3">
 											<div class="post-item d-flex">
 												<div class="pbmit-featured-container">
-													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-04b.jpg') }})">
+													<div class="pbmit-bg-image" style="background-image:url({{ asset('store/artikel/thumbnail/' . $data->tumbnail) }})">
 														<div class="pbmit-featured-img-wrapper">
 															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-04.jpg') }}" class="img-fluid" alt="">
+																<img src="{{ asset('store/artikel/thumbnail/' . $data->tumbnail) }}" class="img-fluid" alt="">
 															</div>
 														</div> 
 													</div>
@@ -2794,23 +2732,29 @@
 														<div class="pbmit-date-admin-wraper d-flex align-items-center">
 															<div class="pbmit-meta-date pbmit-meta-line">
 																<span class="pbmit-post-date">
-																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
+																	<i class=" pbmit-base-icon-calendar-3"></i>
+																	{{ \Carbon\Carbon::parse($data->updated_at)->translatedFormat('d F Y') }}
 																</span>
 															</div>
 															<div class="pbmit-meta-author pbmit-meta-line">
 																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
+																	<i class="pbmit-base-icon-user-3"></i>
+																	@if ($data->psikolog)
+                                                					    {{ $data->psikolog->nama }}
+                                                					@elseif ($data->admin)
+                                                					    {{ $data->admin->nama }}
+                                                					@endif
 																</span>
 															</div>
 														</div>
 														<h3 class="pbmit-post-title">
-															<a href="blog-details.html">Best &amp; caring Orthopedic surgeons in hospital</a>
+															<a href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">Best &amp; caring Orthopedic surgeons in hospital</a>
 														</h3>
 														<div class="pbminfotech-box-desc">
-															Medical Futurist is one of the best online resources for learning about technology in the… 
+															{{ implode(' ', array_slice(str_word_count($data->content, 1), 0, 25)) }}…
 														</div>
 													</div>
-													<a class="pbmit-blog-btn" href="blog-details.html">
+													<a class="pbmit-blog-btn" href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">
 														<span class="pbmit-button-icon-wrapper">
 															<span class="pbmit-button-icon">
 																<i class="pbmit-base-icon-black-arrow-1"></i>
@@ -2818,240 +2762,11 @@
 														</span>
 													</a>
 												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
+												<a class="pbmit-link" href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}"></a>
 											</div>
 										</article>
 									</div>
-									<!-- Slide2 -->
-									<div class="swiper-slide">
-										<article class="pbmit-blog-style-3">
-											<div class="post-item d-flex">
-												<div class="pbmit-featured-container">
-													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-05b.jpg') }})">
-														<div class="pbmit-featured-img-wrapper">
-															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-05.jpg') }}" class="img-fluid" alt="">
-															</div>
-														</div> 
-													</div>
-												</div>
-												<div class="pbminfotech-box-wrap">
-													<div class="pbminfotech-box-content">
-														<div class="pbmit-date-admin-wraper d-flex align-items-center">
-															<div class="pbmit-meta-date pbmit-meta-line">
-																<span class="pbmit-post-date">
-																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
-																</span>
-															</div>
-															<div class="pbmit-meta-author pbmit-meta-line">
-																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
-																</span>
-															</div>
-														</div>
-														<h3 class="pbmit-post-title">
-															<a href="blog-details.html">Cell perturbation and lasers illuminate the genetics</a>
-														</h3>
-														<div class="pbminfotech-box-desc">
-															Medical Futurist is one of the best online resources for learning about technology in the… 
-														</div>
-													</div>
-													<a class="pbmit-blog-btn" href="blog-details.html">
-														<span class="pbmit-button-icon-wrapper">
-															<span class="pbmit-button-icon">
-																<i class="pbmit-base-icon-black-arrow-1"></i>
-															</span>
-														</span>
-													</a>
-												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
-											</div>
-										</article>
-									</div>
-									<!-- Slide3 -->
-									<div class="swiper-slide">
-										<article class="pbmit-blog-style-3">
-											<div class="post-item d-flex">
-												<div class="pbmit-featured-container">
-													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-06b.jpg') }})">
-														<div class="pbmit-featured-img-wrapper">
-															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-06.jpg') }}" class="img-fluid" alt="">
-															</div>
-														</div> 
-													</div>
-												</div>
-												<div class="pbminfotech-box-wrap">
-													<div class="pbminfotech-box-content">
-														<div class="pbmit-date-admin-wraper d-flex align-items-center">
-															<div class="pbmit-meta-date pbmit-meta-line">
-																<span class="pbmit-post-date">
-																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
-																</span>
-															</div>
-															<div class="pbmit-meta-author pbmit-meta-line">
-																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
-																</span>
-															</div>
-														</div>
-														<h3 class="pbmit-post-title">
-															<a href="blog-details.html">Do’s and Don’ts or precautions after cataract surgery</a>
-														</h3>
-														<div class="pbminfotech-box-desc">
-															Medical Futurist is one of the best online resources for learning about technology in the… 
-														</div>
-													</div>
-													<a class="pbmit-blog-btn" href="blog-details.html">
-														<span class="pbmit-button-icon-wrapper">
-															<span class="pbmit-button-icon">
-																<i class="pbmit-base-icon-black-arrow-1"></i>
-															</span>
-														</span>
-													</a>
-												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
-											</div>
-										</article>
-									</div>
-									<!-- Slide4 -->
-									<div class="swiper-slide">
-										<article class="pbmit-blog-style-3">
-											<div class="post-item d-flex">
-												<div class="pbmit-featured-container">
-													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-07b.jpg') }})">
-														<div class="pbmit-featured-img-wrapper">
-															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-07.jpg') }}" class="img-fluid" alt="">
-															</div>
-														</div> 
-													</div>
-												</div>
-												<div class="pbminfotech-box-wrap">
-													<div class="pbminfotech-box-content">
-														<div class="pbmit-date-admin-wraper d-flex align-items-center">
-															<div class="pbmit-meta-date pbmit-meta-line">
-																<span class="pbmit-post-date">
-																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
-																</span>
-															</div>
-															<div class="pbmit-meta-author pbmit-meta-line">
-																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
-																</span>
-															</div>
-														</div>
-														<h3 class="pbmit-post-title">
-															<a href="blog-details.html">Dental or Implant. What is the Best Option?</a>
-														</h3>
-														<div class="pbminfotech-box-desc">
-															Medical Futurist is one of the best online resources for learning about technology in the… 
-														</div>
-													</div>
-													<a class="pbmit-blog-btn" href="blog-details.html">
-														<span class="pbmit-button-icon-wrapper">
-															<span class="pbmit-button-icon">
-																<i class="pbmit-base-icon-black-arrow-1"></i>
-															</span>
-														</span>
-													</a>
-												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
-											</div>
-										</article>
-									</div>
-									<!-- Slide5 -->
-									<div class="swiper-slide">
-										<article class="pbmit-blog-style-3">
-											<div class="post-item d-flex">
-												<div class="pbmit-featured-container">
-													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-08b.jpg') }})">
-														<div class="pbmit-featured-img-wrapper">
-															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-08.jpg') }}" class="img-fluid" alt="">
-															</div>
-														</div> 
-													</div>
-												</div>
-												<div class="pbminfotech-box-wrap">
-													<div class="pbminfotech-box-content">
-														<div class="pbmit-date-admin-wraper d-flex align-items-center">
-															<div class="pbmit-meta-date pbmit-meta-line">
-																<span class="pbmit-post-date">
-																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
-																</span>
-															</div>
-															<div class="pbmit-meta-author pbmit-meta-line">
-																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
-																</span>
-															</div>
-														</div>
-														<h3 class="pbmit-post-title">
-															<a href="blog-details.html">Must Read Safety Guide For Swine Flu Season</a>
-														</h3>
-														<div class="pbminfotech-box-desc">
-															Medical Futurist is one of the best online resources for learning about technology in the… 
-														</div>
-													</div>
-													<a class="pbmit-blog-btn" href="blog-details.html">
-														<span class="pbmit-button-icon-wrapper">
-															<span class="pbmit-button-icon">
-																<i class="pbmit-base-icon-black-arrow-1"></i>
-															</span>
-														</span>
-													</a>
-												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
-											</div>
-										</article>
-									</div>
-									<!-- Slide6 -->
-									<div class="swiper-slide">
-										<article class="pbmit-blog-style-3">
-											<div class="post-item d-flex">
-												<div class="pbmit-featured-container">
-													<div class="pbmit-bg-image" style="background-image:url({{ asset('client/images/blog-09b.jpg') }})">
-														<div class="pbmit-featured-img-wrapper">
-															<div class="pbmit-featured-wrapper">
-																<img src="{{ asset('client/images/blog-09.jpg') }}" class="img-fluid" alt="">
-															</div>
-														</div> 
-													</div>
-												</div>
-												<div class="pbminfotech-box-wrap">
-													<div class="pbminfotech-box-content">
-														<div class="pbmit-date-admin-wraper d-flex align-items-center">
-															<div class="pbmit-meta-date pbmit-meta-line">
-																<span class="pbmit-post-date">
-																	<i class=" pbmit-base-icon-calendar-3"></i>August  29. 2023
-																</span>
-															</div>
-															<div class="pbmit-meta-author pbmit-meta-line">
-																<span class="pbmit-post-author">
-																	<i class="pbmit-base-icon-user-3"></i>admin
-																</span>
-															</div>
-														</div>
-														<h3 class="pbmit-post-title">
-															<a href="blog-details.html">Having Viral Pneumonia with Severe ARDS, CKD</a>
-														</h3>
-														<div class="pbminfotech-box-desc">
-															Medical Futurist is one of the best online resources for learning about technology in the… 
-														</div>
-													</div>
-													<a class="pbmit-blog-btn" href="blog-details.html">
-														<span class="pbmit-button-icon-wrapper">
-															<span class="pbmit-button-icon">
-																<i class="pbmit-base-icon-black-arrow-1"></i>
-															</span>
-														</span>
-													</a>
-												</div>
-												<a class="pbmit-link" href="blog-details.html"></a>
-											</div>
-										</article>
-									</div>
+									@endforeach
 								</div>
 							</div>
 						</div>

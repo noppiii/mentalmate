@@ -49,11 +49,8 @@
 													<li><a href="faq.html">Faq</a></li>
 												</ul>
 											</li>
-											<li class="dropdown">
-												<a href="#">Services</a>
-												<ul>
-													<li><a href="service-details.html">Service Detail</a></li>
-												</ul>
+											<li>
+												<a href="#">Konsultasi</a>
 											</li>
 											<li>
 												<a href="{{ route('client.psikolog') }}">Psikolog</a>

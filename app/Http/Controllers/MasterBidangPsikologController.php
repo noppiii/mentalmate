@@ -49,10 +49,11 @@ class MasterBidangPsikologController extends Controller
 
         try {
             $bidang = new BidangPsikologModel();
-            $bidang->name = $data['name'];
-            $bidang->description = $data['description'];
-            $bidang->slug = Str::slug($data['name'], '-');
-             $bidang->save();
+            $bidang->fill([
+                'name' => $data['name'],
+                'description' => $data['description'],
+                'slug' => Str::slug($data['name'], '-'),
+            ]);
 
             Session::flash('success_message_create', 'Data bidang psikolog berhasil disimpan');
             return redirect()->route('bidang-psikolog.index');

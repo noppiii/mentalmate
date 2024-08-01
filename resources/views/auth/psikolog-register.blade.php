@@ -176,6 +176,17 @@
                       />
                     </div>
                     <div class="col-sm-12">
+                        <label class="form-label" for="multiStepsDescription">Deskripsikan Diri Anda</label>
+                        <textarea
+                            id="multiStepsDescription"
+                            name="deskripsi"
+                            class="form-control"
+                            placeholder="Masukkan deskripsi diri Anda"
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="col-sm-12">
                       <label class="form-label" for="multiStepsNIM">Nomor Surat Tanda Registrasi</label>
                       <input
                         type="text"

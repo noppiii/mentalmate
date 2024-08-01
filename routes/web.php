@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\ClientArtikelController;
+use App\Http\Controllers\ClientKonsultasiController;
 use App\Http\Controllers\ClientPsikologController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaDashboardController;
@@ -32,9 +33,11 @@ Route::post('/psikolog/signup', [AuthUserController::class, 'psikologSignup'])->
 Route::get('/mahasiswa/signup', [AuthUserController::class, 'showMahasiswaSignupForm'])->name('mahasiswa.signup');
 Route::post('/mahasiswa/signup', [AuthUserController::class, 'mahasiswaSignup'])->name('mahasiswa.postSignup');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/konsultasi', [ClientKonsultasiController::class, 'index'])->name('client.konsultasi');
 Route::get('/artikel', [ClientArtikelController::class, 'index'])->name('client.artikel');
 Route::get('/artikel/{slug}', [ClientArtikelController::class, 'show'])->name('client.detailArtikel');
-Route::get('/psikolog', [ClientPsikologController::class, 'index'])->name('client.psikolog');
+Route::get('/list-psikolog', [ClientPsikologController::class, 'index'])->name('client.psikolog');
+Route::get('/list-psikolog/{username}', [ClientPsikologController::class, 'show'])->name('client.detailPsikolog');
 
 Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');

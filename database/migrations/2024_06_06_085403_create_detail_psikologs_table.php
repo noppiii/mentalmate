@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedTinyInteger('rating');
             $table->decimal('harga_konsultasi', 15, 2);
             $table->foreignId('psikolog_id')->constrained('psikologs')->onDelete('cascade');
-            $table->foreignId('bidang_psikolog_id')->constrained('bidang_psikologs')->onDelete('cascade');
             $table->foreignId('metode_konsultasi_id')->constrained('metode_konsultasis')->onDelete('cascade');
             $table->foreignId('ulasan_id')->constrained('ulasans')->onDelete('cascade');
             $table->timestamps();

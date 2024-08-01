@@ -129,7 +129,7 @@
 									</nav>
 								</article>
 								<div class="comments-area">
-									<h2 class="comments-title">3 Replies to “The Most important Ventilator Equipment available”	</h2>
+									<h2 class="comments-title">3 Replies to “{{ $detailArtikel->name }}”	</h2>
 									<ul class="comment-list">
 										<li class="comment depth-1">
 											<div class="pbmit-comment">
@@ -223,21 +223,28 @@
 						<aside class="sidebar">
 							<aside class="widget widget-search">
 								<h2 class="widget-title">Search</h2>
-								<form class="search-form">
-									<input type="search" class="search-field" placeholder="Search …" value="">
+								<form class="search-form" action="{{ route('client.artikel') }}" method="GET">
+									<input type="search"  name="cariArtikel" value="{{ request('cariArtikel') }}" class="search-field" placeholder="Search …" value="">
 									<button type="submit" class="search-submit"></button>
 								</form>
 							</aside>
 							<aside class="widget widget-categories">
 								<h2 class="widget-title">Categories</h2>
 								<ul>
-									@foreach ($allCategory as $data)
-									<li>
-										<span class="pbmit-cat-li">
-											<a href="blog-classic.html">{{ $data->nama }}</a>
-											<span class="pbmit-brackets">( 2 )</span>
-										</span>
-									</li>
+									@foreach ($allCategories as $data)
+									    @php
+									        $urlParams = [
+									            'category' => $data->nama,
+									        ];
+									        $url = route('client.artikel', $urlParams);
+									        $isActive = ($selectedCategoryArtikel == $data->nama);
+									    @endphp
+									    <li>
+									        <span class="pbmit-cat-li">
+									            <a href="{{ $url }}" class="{{ $isActive ? 'active' : '' }}">{{ $data->nama }}</a>
+									            <span class="pbmit-brackets">( {{ $data->artikels_count }} )</span>
+									        </span>
+									    </li>
 									@endforeach
 								</ul>
 							</aside>
@@ -264,9 +271,16 @@
 							<aside class="widget widget-tag-cloud">
 								<h3 class="widget-title">Tag Cloud</h3>
 								<div class="tagcloud">
-									@foreach ($detailArtikel->tagArtikels as $data)
-									<a href="blog-classic.html" class="tag-cloud-link">{{ $data->nama }}</a>
-									@endforeach
+									@foreach ($allTags as $data)
+									@php
+									    $urlParams = [
+									        'tag' => $data->nama,
+									    ];
+									    $url = route('client.artikel', $urlParams);
+									    $isActive = ($selectedTagArtikel == $data->nama);
+									@endphp
+									<a href="{{ $url }}" class="tag-cloud-link">{{ $data->nama }}</a>
+                                    @endforeach
 								</div>
 							</aside> 
 						</aside>

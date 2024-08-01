@@ -79,14 +79,13 @@ class PsikologArticleController extends Controller
 
         try {
             $artikel = new ArticleModel();
-            $artikel->name = $data['name'];
-            $artikel->slug = Str::slug($data['name']); // Generate slug from name
-            if (isset($imageName)) {
-                $artikel->tumbnail = $imageName; // Assign only the image name
-            }
-            $artikel->content = $data['content'];
+            $artikel->fill([
+                'name' => $data['name'],
+                'slug' => Str::slug($data['name']),
+                'content' => $data['content'],
+                'tumbnail' => $imageName, 
+            ]);
 
-            // Check if the user is an admin or psychologist
             if (Auth::guard('admin')->check()) {
                 $artikel->admin_id = Auth::guard('admin')->user()->id;
                 $artikel->psikolog_id = null;

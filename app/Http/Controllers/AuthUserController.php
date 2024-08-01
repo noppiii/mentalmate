@@ -58,6 +58,7 @@ class AuthUserController extends Controller
                     case 'mahasiswa':
                         return redirect()->route('mahasiswa.dashboard');
                     case 'psikolog':
+                        // dd('Redirecting to psikolog dashboard');
                         return redirect()->route('psikolog.dashboard');
                     default:
                         Session::flash('error_message', 'Anda tidak memiliki akses.');
@@ -144,9 +145,20 @@ class AuthUserController extends Controller
                 'status' => 'pending',
             ]);
 
-            // Handle profile photo upload
             if ($request->hasFile('profile_photo_path')) {
-                $mahasiswa->profile_photo_path = $this->uploadFile($request->file('profile_photo_path'), 'store/user/photo/mahasiswa');
+                $img_tmp = $request->file('profile_photo_path');
+                if ($img_tmp->isValid()) {
+                    // get image extension
+                    $extension = $img_tmp->getClientOriginalExtension();
+                    // generate new image name
+                    $imageName = uniqid() . '_' . rand(111, 99999) . '.' . $extension;
+                    $imagePath = 'store/user/photo/mahasiswa/' . $imageName;
+                    // upload image
+                    Image::make($img_tmp)->save(public_path($imagePath));
+                }
+            }
+            if (isset($imageName)) {
+                $mahasiswa->profile_photo_path = $imageName;
             }
 
             // Handle dokumen_ktm upload
@@ -183,6 +195,7 @@ class AuthUserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'nama' => 'required',
+            'deskripsi' => 'required',
             'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required|date',
@@ -203,6 +216,7 @@ class AuthUserController extends Controller
             'email.email' => 'Email tidak sesuai format!!!',
             'password.required' => 'Password harus diisi!!!',
             'nama.required' => 'Nama harus diisi!!!',
+            'deskripsi.required' => 'Deskripsi diri harus diisi!!!',
             'jenis_kelamin.required' => 'Jenis kelamin harus diisi!!!',
             'tempat_lahir.required' => 'Tempat lahir harus diisi!!!',
             'tanggal_lahir.required' => 'Tanggal lahir harus diisi!!!',
@@ -235,6 +249,7 @@ class AuthUserController extends Controller
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'nama' => $data['nama'],
+                'deskripsi' => $data['deskripsi'],
                 'jenis_kelamin' => $data['jenis_kelamin'],
                 'tempat_lahir' => $data['tempat_lahir'],
                 'tanggal_lahir' => $data['tanggal_lahir'],
@@ -254,7 +269,7 @@ class AuthUserController extends Controller
                     $extension = $img_tmp->getClientOriginalExtension();
                     // generate new image name
                     $imageName = uniqid() . '_' . rand(111, 99999) . '.' . $extension;
-                    $imagePath = 'store/user/photo/psikolog' . $imageName;
+                    $imagePath = 'store/user/photo/psikolog/' . $imageName;
                     // upload image
                     Image::make($img_tmp)->save(public_path($imagePath));
                 }

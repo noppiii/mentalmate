@@ -7,7 +7,7 @@
 @endsection
 @section('content')
 	<!-- Title Bar -->
-	<div class="pbmit-title-bar-wrapper">
+	<div class="pbmit-title-bar-wrapper" style="background-image: url({{ asset('client/images/titlebar-bg-img.jpg') }})">
 		<div class="container">
 			<div class="pbmit-title-bar-content">
 				<div class="pbmit-title-bar-content-inner">
@@ -38,6 +38,7 @@
 				<div class="row">
 					<div class="col-md-12 col-lg-9 blog-right-col">
 						<div class="row pbmit-element-posts-wrapper">
+							 @if(count($paginateArtikel) > 0)
                             @foreach ($paginateArtikel as $data)   
 							<article class="post blog-classic">   
 								<div class="pbmit-featured-img-wrapper">
@@ -98,6 +99,11 @@
 								</div> 
 							</article>
                             @endforeach
+							 @else
+                    		 <div class="text-center">
+                    		     <img src="{{ asset('image/data-not-found.png') }}" alt="No Data Image" class="img-fluid w-40" />
+                    		 </div>
+                			 @endif
 							<nav aria-label="Page navigation">
             				    <ul class="pagination justify-content-center">
                 			    <!-- Tombol Previous -->
@@ -149,8 +155,8 @@
 						<aside class="sidebar">
 							<aside class="widget widget-search">
 								<h2 class="widget-title">Search</h2>
-								<form class="search-form">
-									<input type="search" class="search-field" placeholder="Search …" value="">
+								<form class="search-form" action="{{ route('client.artikel') }}" method="GET">
+									<input type="search"  name="cariArtikel" value="{{ request('cariArtikel') }}" class="search-field" placeholder="Search …" value="">
 									<button type="submit" class="search-submit"></button>
 								</form>
 							</aside>
@@ -158,13 +164,20 @@
 								<h2 class="widget-title">Categories</h2>
 								<ul>
                                     @foreach ($allCategories as $data)
-									<li>
-										<span class="pbmit-cat-li">
-											<a href="blog-classic.html">{{ $data->nama }}</a>
-											<span class="pbmit-brackets">( 2 )</span>
-										</span>
-									</li>
-                                    @endforeach
+									    @php
+									        $urlParams = [
+									            'category' => $data->nama,
+									        ];
+									        $url = route('client.artikel', $urlParams);
+									        $isActive = ($selectedCategoryArtikel == $data->nama);
+									    @endphp
+									    <li>
+									        <span class="pbmit-cat-li">
+									            <a href="{{ $url }}" class="{{ $isActive ? 'active' : '' }}">{{ $data->nama }}</a>
+									            <span class="pbmit-brackets">( {{ $data->artikels_count }} )</span>
+									        </span>
+									    </li>
+									@endforeach
 								</ul>
 							</aside>
 							<aside class="widget widget-recent-post">
@@ -187,7 +200,7 @@
                                         @endforeach
 									</ul>
 							</aside> 
-							<aside class="widget pbmit-service-ad">
+							{{-- <aside class="widget pbmit-service-ad">
 								<div class="textwidget">
 									<div class="pbmit-service-ads">
 										<h5 class="pbmit-ads-subheding">Our Newsletter</h5>
@@ -211,12 +224,19 @@
 										</a>
 									</div>
 								</div>
-							</aside>
+							</aside> --}}
 							<aside class="widget widget-tag-cloud">
 								<h3 class="widget-title">Tag Cloud</h3>
 								<div class="tagcloud">
                                     @foreach ($allTags as $data)
-									<a href="blog-classic.html" class="tag-cloud-link">{{ $data->nama }}</a>
+									@php
+									    $urlParams = [
+									        'tag' => $data->nama,
+									    ];
+									    $url = route('client.artikel', $urlParams);
+									    $isActive = ($selectedTagArtikel == $data->nama);
+									@endphp
+									<a href="{{ $url }}" class="tag-cloud-link">{{ $data->nama }}</a>
                                     @endforeach
 								</div>
 							</aside> 

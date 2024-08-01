@@ -18,6 +18,7 @@ class PsikologSeeder extends Seeder
         DB::table('psikologs')->insert([
             [
                 'nama' => 'Psikolog One',
+                'deskripsi' => 'Psikolog One memiliki pengalaman lebih dari 10 tahun dalam membantu klien dengan berbagai masalah psikologis.',
                 'email' => 'psikolog1@example.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
@@ -41,6 +42,7 @@ class PsikologSeeder extends Seeder
             ],
             [
                 'nama' => 'Psikolog Two',
+                'deskripsi' => 'Psikolog Two dikenal karena pendekatan empatiknya dalam konseling, dengan spesialisasi pada masalah keluarga dan hubungan.',
                 'email' => 'psikolog2@example.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),

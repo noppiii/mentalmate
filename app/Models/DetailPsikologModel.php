@@ -17,10 +17,10 @@ class DetailPsikologModel extends Model
         return $this->belongsTo(PsikologModel::class);
     }
 
-    public function bidangPsikolog()
-    {
-        return $this->belongsTo(BidangPsikologModel::class);
-    }
+    // public function bidangPsikolog()
+    // {
+    //     return $this->belongsTo(BidangPsikologModel::class);
+    // }
 
     public function metodeKonsultasi()
     {
@@ -30,5 +30,10 @@ class DetailPsikologModel extends Model
     public function ulasan()
     {
         return $this->belongsTo(UlasanModel::class);
+    }
+
+    public function bidangPsikologs()
+    {
+        return $this->belongsToMany(BidangPsikologModel::class, 'bidang_psikolog_mappings', 'detail_psikolog_id', 'bidang_psikolog_id');
     }
 }
