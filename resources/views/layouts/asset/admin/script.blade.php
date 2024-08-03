@@ -1,7 +1,7 @@
 <script src="{{ asset('admin/assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('admin/assets/vendor/libs/popper/popper.js') }}"></script>
-<script src="{{ asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('admin/assets/vendor/js/bootstrap.js') }}"></script>
+<script src="{{ asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('admin/assets/vendor/libs/node-waves/node-waves.js') }}"></script>
 <script src="{{ asset('admin/assets/vendor/js/helpers.js') }}"></script>
 <script src="{{ asset('admin/assets/js/config.js') }}"></script>
@@ -44,6 +44,9 @@
   <script src="{{ asset('admin/assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
   <script src="{{ asset('admin/assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
   <script src="{{ asset('admin/assets/vendor/libs/bloodhound/bloodhound.js') }}"></script>
+  <script src="{{ asset('admin/assets/vendor/libs/fullcalendar/fullcalendar.js') }}"></script>
+  <script src="{{ asset('admin/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.js') }}"></script>
+  
 
   <!-- Page JS -->
 {{-- <script src="{{ asset('admin/assets/js/modal-edit-user.js') }}"></script> --}}
@@ -67,5 +70,8 @@
    <script src="{{ asset('admin/assets/vendor/libs/quill/katex.js') }}"></script>
    <script src="{{ asset('admin/assets/vendor/libs/quill/quill.js') }}"></script>
    <script src="{{ asset('admin/assets/js/forms-editors.js') }}"></script>
+   <script src="{{ asset('admin/assets/js/app-calendar-events.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/app-calendar.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/app-chat.js') }}"></script>
 
 

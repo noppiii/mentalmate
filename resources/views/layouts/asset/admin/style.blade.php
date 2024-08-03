@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/node-waves/node-waves.css') }}" />
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/typeahead-js/typeahead.css') }}" />
+  <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.css') }}" />
+  <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/fullcalendar/fullcalendar.css') }}" />
   {{-- <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/dropzone/dropzone.css') }}" /> --}}
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/swiper/swiper.css') }}" />
@@ -33,7 +35,6 @@
 
   <!-- Page CSS -->
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/pages/cards-advance.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/dropzoneku.css') }}" />
 
   {{-- data tabel --}}
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/datatables-select-bs5/select.bootstrap5.css') }}" />
@@ -59,4 +60,6 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/pickr/pickr-themes.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/bs-stepper/bs-stepper.css') }}" />
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css') }}" />
-
+{{-- page --}}
+ <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/pages/app-calendar.css') }}" />
+ <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/pages/app-chat.css') }}" />

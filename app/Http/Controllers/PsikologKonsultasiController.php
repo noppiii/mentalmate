@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class MahasiswaDashboardController extends Controller
+class PsikologKonsultasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // dd(Auth::guard('mahasiswa')->check());
-        return view('pages.mahasiswa.dashboard.dashboard');
+        return view('pages.psikolog.konsultasi.index');
     }
 
     /**

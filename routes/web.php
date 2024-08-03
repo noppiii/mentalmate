@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientKonsultasiController;
 use App\Http\Controllers\ClientPsikologController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaDashboardController;
+use App\Http\Controllers\MahasiswaKonsultasiController;
 use App\Http\Controllers\MasterAdminController;
 use App\Http\Controllers\MasterArticleController;
 use App\Http\Controllers\MasterBidangPsikologController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PsikologArticleController;
 use App\Http\Controllers\PsikologDashboardController;
 use App\Http\Controllers\PsikologFavoritController;
+use App\Http\Controllers\PsikologJadwalController;
+use App\Http\Controllers\PsikologKonsultasiController;
 use App\Http\Middleware\AuthAdmin;
 use App\Http\Middleware\AuthMahasiswa;
 use App\Http\Middleware\AuthPsikolog;
@@ -58,9 +61,12 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
     Route::get('dashboard', [PsikologDashboardController::class, 'index'])->name('psikolog.dashboard');
     Route::get('logout', [AuthUserController::class, 'logout'])->name('psikolog.logout');
     Route::resource('my-artikel', PsikologArticleController::class);
+    Route::resource('my-jadwal', PsikologJadwalController::class);
+    Route::resource('my-konsultasi', PsikologKonsultasiController::class);
 });
 // Group routes for mahasiswa
 Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {
     Route::get('dashboard', [MahasiswaDashboardController::class, 'index'])->name('mahasiswa.dashboard');
     Route::get('logout', [AuthUserController::class, 'logout'])->name('mahasiswa.logout');
+    Route::resource('konsultasi-ku', MahasiswaKonsultasiController::class);
 });
