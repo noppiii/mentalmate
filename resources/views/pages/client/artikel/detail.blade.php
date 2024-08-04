@@ -203,10 +203,11 @@
 										<h3 class="comment-reply-title">Leave a Reply </h3>
 										<div class="comment-form">
 											<p class="comment-notes">Your email address will not be published. Required fields are marked *</p>
-											<form>
+											<form action="{{ route('client.postComment', ['slug' => $detailArtikel->slug]) }}" method="post" enctype="multipart/form-data">
+    											@csrf
 												<div class="row">
 													<div class="col-sm-12">
-														<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Enter your comment here..." rows="3"></textarea>
+														<textarea class="form-control" name="content" id="exampleFormControlTextarea1" placeholder="Enter your comment here..." rows="3"></textarea>
 													</div>
 													<div class="col-sm-12"> 
 														<button type="submit" class="pbmit-btn">Post Comment</button>

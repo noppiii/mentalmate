@@ -198,7 +198,7 @@ class MasterArticleController extends Controller
     public function updateStatus(Request $request, string $id)
     {
         try {
-            $periode = ArticleModel::findOrFail($id);
+            $status = ArticleModel::findOrFail($id);
         } catch (ModelNotFoundException $e) {
             // Handle not found exception
             return redirect()->route('artikel.index')->with('error_message_not_found', 'Data artikel tidak ditemukan');
@@ -216,8 +216,8 @@ class MasterArticleController extends Controller
         $this->validate($request, $rules, $customMessages);
 
         try {
-            $periode->status  = $data['status'];
-            $periode->save();
+            $status->status  = $data['status'];
+            $status->save();
 
             Session::flash('success_message_create', 'Data status artikel berhasil diperbarui');
             return redirect()->route('artikel.index');

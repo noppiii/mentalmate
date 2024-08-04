@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('artikel_comments', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
             $table->longText('content');
+            $table->string('anonymous_account')->nullable();
             $table->foreignId('artikel_id')->constrained('artikels')->onDelete('cascade');
-            $table->foreignId('psikolog_id')->constrained('psikologs')->onDelete('cascade');
+            $table->foreignId('psikolog_id')->nullable()->constrained('psikologs')->onDelete('cascade');
+            $table->foreignId('mahasiswa_id')->nullable()->constrained('mahasiswas')->onDelete('cascade');
+            $table->foreignId('admin_id')->nullable()->constrained('admins')->onDelete('cascade');
             $table->timestamps();
         });
     }

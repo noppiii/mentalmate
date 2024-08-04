@@ -31,4 +31,9 @@ class ArticleModel extends Model
     {
         return $this->belongsToMany(TagArticleModel::class, 'tag_artikel_mappings', 'artikel_id', 'tag_artikel_id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(CommentModel::class, 'artikel_id');
+    }
 }

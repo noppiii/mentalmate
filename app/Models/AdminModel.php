@@ -49,4 +49,9 @@ class AdminModel extends Authenticatable
      {
          return $this->hasMany(ArticleModel::class);
      }
+
+    public function comments()
+    {
+        return $this->hasMany(CommentModel::class, 'admin_id');
+    }
 }

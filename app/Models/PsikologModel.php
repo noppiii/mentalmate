@@ -86,4 +86,8 @@ class PsikologModel extends Authenticatable
     //      return $this->belongsToMany(BidangPsikologModel::class, 'bidang_psikolog_mappings', 'psikolog_id', 'bidang_psikolog_id');
     //  }
 
+    public function comments()
+    {
+        return $this->hasMany(CommentModel::class, 'psikolog_id');
+    }
 }

@@ -80,4 +80,9 @@ class MahasiswaModel extends Authenticatable
     {
         return $this->hasMany(KonsultasiModel::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(CommentModel::class, 'mahasiswa_id');
+    }
 }

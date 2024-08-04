@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\ArticleModel;
 use App\Models\CategoryArticleModel;
+use App\Models\CommentModel;
 use App\Models\TagArticleModel;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ClientArtikelController extends Controller
 {
@@ -137,6 +141,68 @@ class ClientArtikelController extends Controller
         }
         return view('pages.client.artikel.detail', compact('detailArtikel','allCategories','allTags', 'recentArtikel', 'nextArtikel', 'previousArtikel', 'selectedCategoryArtikel','selectedTagArtikel'));
     }
+
+    public function postComment(Request $request, string $slug)
+    {
+        $data = $request->all();
+        try {
+            $artikel = ArticleModel::where('slug', $slug)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            // Handle not found exception
+            return redirect()->back()->with('error_message_not_found', 'Data artikel tidak ditemukan');
+        }
+
+        $rules = [
+            'content' => 'required',
+        ];
+
+        $customMessages = [
+            'content.required' => 'Kolom komentar tidak boleh kosong!!!',
+        ];
+
+        $this->validate($request, $rules, $customMessages);
+
+        // try {
+            $comment = new CommentModel();
+            $comment->content = $data['content'];
+            $comment->artikel_id = $artikel->id;
+            
+            if (Auth::guard('admin')->check()) {
+                $comment->admin_id = Auth::guard('admin')->user()->id;
+                $comment->psikolog_id = null;
+                $comment->mahasiswa_id = null;
+            } elseif (Auth::guard('psikolog')->check()) {
+                $comment->psikolog_id = Auth::guard('psikolog')->user()->id;
+                $comment->admin_id = null;
+                $comment->mahasiswa_id = null;
+            } elseif (Auth::guard('mahasiswa')->check()) {
+                $comment->mahasiswa_id = Auth::guard('mahasiswa')->user()->id;
+                $comment->admin_id = null;
+                $comment->psikolog_id = null;
+            } else {
+                $comment->anonymous_account = 'Anonymous Account';
+                $comment->mahasiswa_id = null;
+                $comment->admin_id = null;
+                $comment->psikolog_id = null;
+            }
+            $comment->save();
+
+            Session::flash('success_message_create', 'Berhasil publish komentar');
+            return redirect()->back();
+        // } catch (QueryException $e) {
+        //     // Handle the integrity constraint violation exception (duplicate entry)
+        //     if ($e->getCode() === 23000) {
+        //         // Duplicate entry error
+        //         $errorMessage = 'Upppss Terjadi Kesalahan. Silahkan Ulangi Lagi.';
+        //     } else {
+        //         // Other database-related errors
+        //         $errorMessage = 'Upppss Terjadi Kesalahan. Silahkan Ulangi Lagi.';
+        //     }
+
+        //     return redirect()->back()->withInput()->withErrors([$errorMessage]);
+        // }
+    }
+
 
     /**
      * Show the form for editing the specified resource.
