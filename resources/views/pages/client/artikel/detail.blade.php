@@ -129,76 +129,48 @@
 									</nav>
 								</article>
 								<div class="comments-area">
-									<h2 class="comments-title">3 Replies to “{{ $detailArtikel->name }}”	</h2>
+									<h2 class="comments-title">{{ $countComments }} Replies to “{{ $detailArtikel->name }}”	</h2>
+									@foreach ($comments as $data)
 									<ul class="comment-list">
 										<li class="comment depth-1">
 											<div class="pbmit-comment">
 												<div class="pbmit-comment-avatar">
-													<img src="images/avtar/img-01.jpeg" class="img-fluid" alt="">
+													@if ($data->admin)
+													<img src="{{ asset('store/user/photo/admin/' . $data->profile_photo_path) }}" class="img-fluid" alt="">
+													@elseif ($data->psikolog)
+													<img src="{{ asset('store/user/photo/psikolog/' . $data->profile_photo_path) }}" class="img-fluid" alt="">
+													@elseif ($data->mahasiswa)
+													<img src="{{ asset('store/user/photo/mahasiswa/' . $data->profile_photo_path) }}" class="img-fluid" alt="">
+													@else
+													<img src="{{ asset('image/mahasiswa-avatar.jpg') }}" width="100%" height="100%" class="img-cover" alt="">
+													@endif
 												</div>
 												<div class="pbmit-comment-content">
 													<div class="pbmit-comment-meta">
 														<span class="pbmit-comment-author">by
-															<span class="pbmit-comment-author-inner">Leona Spencer</span>
+															@if ($data->admin)
+															<span class="pbmit-comment-author-inner">{{ $data->admin->nama }}</span>
+															@elseif ($data->psikolog)
+															<span class="pbmit-comment-author-inner">{{ $data->psikolog->nama }}</span>
+															@elseif ($data->mahasiswa)
+															<span class="pbmit-comment-author-inner">{{ $data->mahasiswa->nama }}</span>
+															@else
+															<span class="pbmit-comment-author-inner">{{ $data->anonymous_account }}</span>
+															@endif
 														</span>
 														<span class="pbmit-comment-date">
-															<a href="#">16 mins ago	</a>
+															 <a href="#">{{ $data->created_at->diffForHumans() }}</a>
 														</span>
 													</div>
-													<p>Vivamus gravida felis et nibh tristique viverra. Sed vel tortor id ex accumsan lacinia. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-													<div class="reply">
+													<p>{{ $data->content }}</p>
+													{{-- <div class="reply">
 														<a href="#">Reply</a>
-													</div>
-												</div>
-											</div>
-											<ul class="children">
-												<li>
-													<div class="pbmit-comment">
-														<div class="pbmit-comment-avatar">
-															<img src="images/avtar/img-02.jpeg" alt="">
-														</div>
-														<div class="pbmit-comment-content">
-															<div class="pbmit-comment-meta">
-																<span class="pbmit-comment-author">by
-																	<span class="pbmit-comment-author-inner">John Doe</span>
-																</span>
-																<span class="pbmit-comment-date">
-																	<a href="#">15 mins ago</a>
-																</span>
-															</div>
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium eius, sunt porro corporis maiores ea, voluptatibus omnis maxime.</p>
-															<div class="reply">
-																<a href="#">Reply</a>
-															</div>
-														</div>
-													</div>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<div class="pbmit-comment">
-												<div class="pbmit-comment">
-													<div class="pbmit-comment-avatar">
-														<img src="images/avtar/img-01.jpeg" alt="">
-													</div>
-													<div class="pbmit-comment-content">
-														<div class="pbmit-comment-meta">
-															<span class="pbmit-comment-author">by
-																<span class="pbmit-comment-author-inner">Leona Spencer</span>
-															</span>
-															<span class="pbmit-comment-date">
-																<a href="#">15 mins ago</a>
-															</span>
-														</div>
-														<p>Sed maximus imperdiet ipsum, id scelerisque nisi tincidunt vitae. In lobortis neque nec dolor vehicula, eget vulputate ligula lobortis.</p>
-														<div class="reply">
-															<a href="#">Reply</a>
-														</div>
-													</div>
+													</div> --}}
 												</div>
 											</div>
 										</li>
 									</ul>
+									@endforeach
 									<div class="comment-respond">
 										<h3 class="comment-reply-title">Leave a Reply </h3>
 										<div class="comment-form">

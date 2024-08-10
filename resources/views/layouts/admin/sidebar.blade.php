@@ -345,10 +345,14 @@
             <span class="menu-header-text">Konsultasi</span>
           </li>
           <li class="menu-item {{ request()->is('mahasiswa/konsultasi-ku*') ? 'active' : '' }}">
-            <a href="{{ route('konsultasi-ku.index') }}" class="menu-link">
-              <i class="menu-icon tf-icons ti ti-messages"></i>
-              <div data-i18n="Konsultasi">Konsultasi</div>
-            </a>
+              <a 
+              @foreach($allPsikolog as $psikolog)
+              href="{{ route('mahasiswa.konsultasi.index', ['receiverId' => $psikolog->id, 'receiverType' => 'PsikologModel']) }}"
+              @endforeach
+              class="menu-link">
+                  <i class="menu-icon tf-icons ti ti-messages"></i>
+                  <div data-i18n="Konsultasi">Konsultasi</div>
+              </a>
           </li>
         </ul>
       </aside>

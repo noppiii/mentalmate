@@ -188,179 +188,25 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                         <li class="chat-contact-list-item chat-list-item-0 d-none">
                           <h6 class="text-muted mb-0">No Chats Found</h6>
                         </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
+                        @foreach ($allPsikolog as $data)
+                        <li class="chat-contact-list-item {{ $receiverId == $data->id ? 'active' : '' }}">
+                          <a href="{{ route('mahasiswa.konsultasi.index', ['receiverId' => $data->id, 'receiverType' => 'PsikologModel']) }}" class="d-flex align-items-center">
                             <div class="flex-shrink-0 avatar avatar-online">
-                              <img src="{{ asset('admin/assets/img/avatars/13.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Waldemar Mannering</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">
-                                Refer friends. Get rewards.
-                              </p>
-                            </div>
-                            <small class="text-muted mb-auto">5 Minutes</small>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item active">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-offline">
                               <img src="{{ asset('admin/assets/img/avatars/2.png') }}" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Felecia Rower</h6>
+                              <h6 class="chat-contact-name text-truncate m-0">{{ $data->nama }}</h6>
                               <p class="chat-contact-status text-muted text-truncate mb-0">
-                                I will purchase it for sure. 👍
+                                {{ $data->deskripsi }}
                               </p>
                             </div>
                             <small class="text-muted mb-auto">30 Minutes</small>
                           </a>
                         </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-busy">
-                              <span class="avatar-initial rounded-circle bg-label-success">CM</span>
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Calvin Moore</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">
-                                If it takes long you can mail inbox user
-                              </p>
-                            </div>
-                            <small class="text-muted mb-auto">1 Day</small>
-                          </a>
-                        </li>
+                        @endforeach
                       </ul>
                       <!-- Contacts -->
-                      <ul class="list-unstyled chat-contact-list mb-0" id="contact-list">
-                        <li class="chat-contact-list-item chat-contact-list-item-title">
-                          <h5 class="text-primary mb-0">Contacts</h5>
-                        </li>
-                        <li class="chat-contact-list-item contact-list-item-0 d-none">
-                          <h6 class="text-muted mb-0">No Contacts Found</h6>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-offline">
-                              <img src="{{ asset('admin/assets/img/avatars/4.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Natalie Maxwell</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">UI/UX Designer</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-busy">
-                              <img src="{{ asset('admin/assets/img/avatars/5.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Jess Cook</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">Business Analyst</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="avatar d-block flex-shrink-0">
-                              <span class="avatar-initial rounded-circle bg-label-primary">LM</span>
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Louie Mason</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">Resource Manager</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-busy">
-                              <img src="{{ asset('admin/assets/img/avatars/7.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Krystal Norton</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">Business Executive</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-offline">
-                              <img src="{{ asset('admin/assets/img/avatars/8.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Stacy Garrison</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">Marketing Ninja</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="avatar d-block flex-shrink-0">
-                              <span class="avatar-initial rounded-circle bg-label-success">CM</span>
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Calvin Moore</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">UX Engineer</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-busy">
-                              <img src="{{ asset('admin/assets/img/avatars/10.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Mary Giles</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">Account Department</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-offline">
-                              <img src="{{ asset('admin/assets/img/avatars/13.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Waldemar Mannering</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">AWS Support</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="avatar d-block flex-shrink-0">
-                              <span class="avatar-initial rounded-circle bg-label-danger">AJ</span>
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Amy Johnson</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">Frontend Developer</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-offline">
-                              <img src="{{ asset('admin/assets/img/avatars/2.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">Felecia Rower</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">Cloud Engineer</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="chat-contact-list-item">
-                          <a class="d-flex align-items-center">
-                            <div class="flex-shrink-0 avatar avatar-busy">
-                              <img src="{{ asset('admin/assets/img/avatars/11.png') }}" alt="Avatar" class="rounded-circle" />
-                            </div>
-                            <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="chat-contact-name text-truncate m-0">William Stephens</h6>
-                              <p class="chat-contact-status text-muted text-truncate mb-0">Backend Developer</p>
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
+                    
                     </div>
                   </div>
                   <!-- /Chat contacts -->
@@ -595,23 +441,32 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                       </div>
                       <!-- Chat message form -->
                       <div class="chat-history-footer shadow-sm">
-                        <form class="form-send-message d-flex justify-content-between align-items-center">
-                          <input
-                            class="form-control message-input border-0 me-3 shadow-none"
-                            placeholder="Type your message here"
-                          />
-                          <div class="message-actions d-flex align-items-center">
-                            <i class="speech-to-text ti ti-microphone ti-sm cursor-pointer"></i>
-                            <label for="attach-doc" class="form-label mb-0">
-                              <i class="ti ti-photo ti-sm cursor-pointer mx-3"></i>
-                              <input type="file" id="attach-doc" hidden />
-                            </label>
-                            <button class="btn btn-primary d-flex send-msg-btn">
-                              <i class="ti ti-send me-md-1 me-0"></i>
-                              <span class="align-middle d-md-inline-block d-none">Send</span>
-                            </button>
-                          </div>
-                        </form>
+                  <form action="{{ route('mahasiswa.konsultasi.store') }}" method="POST" class="form-send-message d-flex justify-content-between align-items-center" >
+    @csrf
+    <input type="hidden" name="sender_type" value="{{ auth()->guard('mahasiswa')->check() ? 'Mahasiswa' : 'Psikolog' }}">
+    <input type="hidden" name="sender_id" value="{{ auth()->guard('mahasiswa')->check() ? auth()->guard('mahasiswa')->user()->id : auth()->guard('psikolog')->user()->id }}">
+<input type="hidden" name="receiver_type" value="{{ $receiverType ?? 'Psikolog' }}">
+    <input type="hidden" name="receiver_id" value="{{ $receiverId }}">
+
+    <input
+        name="content"
+        class="form-control message-input border-0 me-3 shadow-none"
+        placeholder="Type your message here"
+        required
+    />
+    <div class="message-actions d-flex align-items-center">
+        <i class="speech-to-text ti ti-microphone ti-sm cursor-pointer"></i>
+        <label for="attach-doc" class="form-label mb-0">
+            <i class="ti ti-photo ti-sm cursor-pointer mx-3"></i>
+            <input type="file" id="attach-doc" name="attachment" hidden />
+        </label>
+        <button type="submit" class="btn btn-primary d-flex send-msg-btn">
+            <i class="ti ti-send me-md-1 me-0"></i>
+            <span class="align-middle d-md-inline-block d-none">Send</span>
+        </button>
+    </div>
+</form>
+
                       </div>
                     </div>
                   </div>

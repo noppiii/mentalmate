@@ -90,4 +90,15 @@ class PsikologModel extends Authenticatable
     {
         return $this->hasMany(CommentModel::class, 'psikolog_id');
     }
+
+    public function sentMessages()
+    {
+        return $this->morphMany(Message::class, 'sender');
+    }
+
+    public function receivedMessages()
+    {
+        return $this->morphMany(Message::class, 'receiver');
+    }
+
 }

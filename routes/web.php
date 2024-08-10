@@ -69,5 +69,9 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
 Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {
     Route::get('dashboard', [MahasiswaDashboardController::class, 'index'])->name('mahasiswa.dashboard');
     Route::get('logout', [AuthUserController::class, 'logout'])->name('mahasiswa.logout');
-    Route::resource('konsultasi-ku', MahasiswaKonsultasiController::class);
+    // In routes/web.php
+
+    Route::get('konsultasi-ku/{receiverId}/{receiverType}', [MahasiswaKonsultasiController::class, 'index'])->name('mahasiswa.konsultasi.index');
+    Route::post('konsultasi-ku/store', [MahasiswaKonsultasiController::class, 'store'])->name('mahasiswa.konsultasi.store');
+    // Route::resource('konsultasi-ku', MahasiswaKonsultasiController::class)->except(['index']);
 });

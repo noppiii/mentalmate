@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageSentEvent;
+use App\Models\Message;
+use App\Models\PsikologModel;
 use Illuminate\Http\Request;
 
 class MahasiswaKonsultasiController extends Controller
@@ -9,9 +12,11 @@ class MahasiswaKonsultasiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($receiverId, $receiverType)
     {
-        return view('pages.mahasiswa.konsultasi.index');
+        $allPsikolog = PsikologModel::all();
+        // dd($receiverId);
+        return view('pages.mahasiswa.konsultasi.index', compact('receiverId', 'receiverType', 'allPsikolog'));
     }
 
     /**
@@ -27,7 +32,34 @@ class MahasiswaKonsultasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the request
+        $validatedData = $request->validate([
+            'sender_type' => 'required|string',
+            'sender_id' => 'required|integer',
+            'receiver_type' => 'required|string',
+            'receiver_id' => 'required|integer',
+            'content' => 'required|string',
+            'reply_id' => 'nullable|integer|exists:messages,id',
+        ]);
+
+        // Handle reply_id in a safe manner
+        $replyId = $validatedData['reply_id'] ?? null;
+
+        // Create a new message
+        $message = Message::create([
+            'sender_type' => $validatedData['sender_type'],
+            'sender_id' => $validatedData['sender_id'],
+            'receiver_type' => $validatedData['receiver_type'],
+            'receiver_id' => $validatedData['receiver_id'],
+            'content' => $validatedData['content'],
+            'reply_id' => $replyId,
+        ]);
+
+        // Broadcast the message to others in real-time
+        broadcast(new MessageSentEvent($message))->toOthers();
+
+        // Return a response
+        return redirect()->back();
     }
 
     /**

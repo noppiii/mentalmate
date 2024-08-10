@@ -98,6 +98,9 @@ class ClientArtikelController extends Controller
             $previousArtikel = ArticleModel::where('created_at', '<', $detailArtikel->created_at)
             ->orderBy('created_at', 'desc')
             ->first();
+            $comments = CommentModel::where('artikel_id', $detailArtikel->id)->get();
+            $countComments = CommentModel::where('artikel_id', $detailArtikel->id)->count();
+            // dd($comments)->toArray();
             
             $search = $request->input('cariArtikel');
             $selectedCategoryArtikel = $request->input('category');
@@ -139,7 +142,7 @@ class ClientArtikelController extends Controller
             // Handle not found exception
             return redirect()->back()->with('error_message_not_found', 'Data artikel tidak ditemukan');
         }
-        return view('pages.client.artikel.detail', compact('detailArtikel','allCategories','allTags', 'recentArtikel', 'nextArtikel', 'previousArtikel', 'selectedCategoryArtikel','selectedTagArtikel'));
+        return view('pages.client.artikel.detail', compact('detailArtikel','allCategories','allTags', 'recentArtikel', 'nextArtikel', 'previousArtikel', 'selectedCategoryArtikel','selectedTagArtikel','comments', 'countComments'));
     }
 
     public function postComment(Request $request, string $slug)
