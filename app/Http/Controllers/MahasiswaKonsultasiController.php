@@ -15,8 +15,17 @@ class MahasiswaKonsultasiController extends Controller
     public function index($receiverId, $receiverType)
     {
         $allPsikolog = PsikologModel::all();
-        // dd($receiverId);
-        return view('pages.mahasiswa.konsultasi.index', compact('receiverId', 'receiverType', 'allPsikolog'));
+
+        // Mengambil pesan dari database yang sesuai dengan receiverId dan receiverType
+        $messages = Message::where(function ($query) use ($receiverId, $receiverType) {
+            $query->where('receiver_id', $receiverId)
+                ->where('receiver_type', $receiverType);
+        })->orWhere(function ($query) use ($receiverId, $receiverType) {
+            $query->where('sender_id', $receiverId)
+                ->where('sender_type', $receiverType);
+        })->orderBy('created_at', 'asc')->get();
+
+        return view('pages.mahasiswa.konsultasi.index', compact('receiverId', 'receiverType', 'allPsikolog', 'messages'));
     }
 
     /**

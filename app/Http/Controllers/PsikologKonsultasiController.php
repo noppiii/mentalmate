@@ -2,17 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageSentEvent;
+use App\Models\MahasiswaModel;
+use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PsikologKonsultasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($receiverId, $receiverType)
     {
-        return view('pages.psikolog.konsultasi.index');
+        $senderId = Auth::guard('psikolog')->user()->id;
+        $receiverId = $receiverId;
+
+        $messages = Message::where(function ($query) use ($senderId, $receiverId) {
+            $query->where('sender_id', $senderId)
+                ->orWhere('sender_id', $receiverId);
+        })
+            ->where(function ($query) use ($senderId, $receiverId) {
+                $query->where('receiver_id', $senderId)
+                    ->orWhere('receiver_id', $receiverId);
+            })
+            ->whereIn('sender_type', ['Mahasiswa', 'Psikolog'])
+            ->whereIn('receiver_type', ['PsikologModel', 'MahasiswaModel'])
+            ->orderBy('created_at', 'asc')
+            ->get();
+            // dd($messages);
+
+        $mahasiswa = MahasiswaModel::all();
+
+        return view('pages.psikolog.konsultasi.index', compact('receiverId', 'receiverType', 'messages', 'mahasiswa'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,7 +51,34 @@ class PsikologKonsultasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the request
+        $validatedData = $request->validate([
+            'sender_type' => 'required|string',
+            'sender_id' => 'required|integer',
+            'receiver_type' => 'required|string',
+            'receiver_id' => 'required|integer',
+            'content' => 'required|string',
+            'reply_id' => 'nullable|integer|exists:messages,id',
+        ]);
+
+        // Handle reply_id in a safe manner
+        $replyId = $validatedData['reply_id'] ?? null;
+
+        // Create a new message
+        $message = Message::create([
+            'sender_type' => $validatedData['sender_type'],
+            'sender_id' => $validatedData['sender_id'],
+            'receiver_type' => $validatedData['receiver_type'],
+            'receiver_id' => $validatedData['receiver_id'],
+            'content' => $validatedData['content'],
+            'reply_id' => $replyId,
+        ]);
+
+        // Broadcast the message to others in real-time
+        broadcast(new MessageSentEvent($message))->toOthers();
+
+        // Return a response
+        return redirect()->back();
     }
 
     /**

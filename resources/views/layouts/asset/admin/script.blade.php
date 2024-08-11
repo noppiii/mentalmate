@@ -72,6 +72,6 @@
    <script src="{{ asset('admin/assets/js/forms-editors.js') }}"></script>
    <script src="{{ asset('admin/assets/js/app-calendar-events.js') }}"></script>
     <script src="{{ asset('admin/assets/js/app-calendar.js') }}"></script>
-    {{-- <script src="{{ asset('admin/assets/js/app-chat.js') }}"></script> --}}
+    <script src="{{ asset('admin/assets/js/app-chat.js') }}"></script>
 
 

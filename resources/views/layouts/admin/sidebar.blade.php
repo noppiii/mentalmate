@@ -279,7 +279,11 @@
             </a>
           </li>
           <li class="menu-item {{ request()->is('psikolog/my-konsultasi*') ? 'active' : '' }}">
-            <a href="{{ route('my-konsultasi.index') }}" class="menu-link">
+            <a 
+            @foreach($allMahasiswa  as $mahasiswa)
+              href="{{ route('psikolog.konsultasi.index', ['receiverId' => $mahasiswa->id, 'receiverType' => 'MahasiswaModel']) }}"
+              @endforeach
+            class="menu-link">
               <i class="menu-icon tf-icons ti ti-messages"></i>
               <div data-i18n="Konsultasi">Konsultasi</div>
             </a>

@@ -63,7 +63,9 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
     Route::get('logout', [AuthUserController::class, 'logout'])->name('psikolog.logout');
     Route::resource('my-artikel', PsikologArticleController::class);
     Route::resource('my-jadwal', PsikologJadwalController::class);
-    Route::resource('my-konsultasi', PsikologKonsultasiController::class);
+    Route::get('my-konsultasi/{receiverId}/{receiverType}', [PsikologKonsultasiController::class, 'index'])->name('psikolog.konsultasi.index');
+    Route::post('my-konsultasi/store', [PsikologKonsultasiController::class, 'store'])->name('psikolog.konsultasi.store');
+
 });
 // Group routes for mahasiswa
 Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {

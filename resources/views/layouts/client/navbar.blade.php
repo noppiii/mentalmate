@@ -28,34 +28,8 @@
 											</svg>
 										</span>
 										<ul class="navigation clearfix">
-											<li class="dropdown active">
+											<li class="active">
 												<a href="index.html">Home</a>
-												<ul>
-													<li class="active"><a href="index.html">Homepage 01</a></li>
-													<li><a href="homepage-2.html">Homepage 02</a></li>
-													<li><a href="homepage-3.html">Homepage 03</a></li>
-													<li><a href="homepage-4.html">Homepage 04</a></li>
-													<li><a href="homepage-5.html">Homepage 05</a></li>
-													<li><a href="homepage-6.html">Homepage 06</a></li>
-													<li><a href="homepage-7.html">Homepage 07</a></li>
-													<li><a href="homepage-8.html">Homepage 08</a></li>
-													<li><a href="homepage-9.html">Homepage 09</a></li>
-													<li><a href="homepage-10.html">Homepage 10</a></li>
-													<li><a href="homepage-11.html">Homepage 11</a></li>
-													<li><a href="homepage-12.html">Homepage 12</a></li>
-												</ul>
-											</li>
-											<li class="dropdown">
-												<a href="#">Pages</a>
-												<ul>
-													<li><a href="about-us.html">About Us</a></li>
-													<li><a href="our-history.html">Our History</a></li>
-													<li><a href="classes.html">Classes</a></li>
-													<li><a href="our-team-member.html">Our Team Member</a></li>
-													<li><a href="team-single-detail.html">Team Single Detail</a></li>
-													<li><a href="make-appointments-01.html">Make Appointments 01</a></li>
-													<li><a href="faq.html">Faq</a></li>
-												</ul>
 											</li>
 											<li>
 												<a href="#">Konsultasi</a>

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\MahasiswaModel;
 use App\Models\PsikologModel;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,7 +23,12 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view) {
             $allPsikolog = PsikologModel::all();
-            $view->with('allPsikolog', $allPsikolog);
+            $allMahasiswa = MahasiswaModel::all();
+
+            $view->with([
+                'allPsikolog' => $allPsikolog,
+                'allMahasiswa' => $allMahasiswa
+            ]);
         });
     }
 }
