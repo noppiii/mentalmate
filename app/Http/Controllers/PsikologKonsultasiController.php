@@ -16,6 +16,7 @@ class PsikologKonsultasiController extends Controller
     public function index($receiverId, $receiverType)
     {
         $senderId = Auth::guard('psikolog')->user()->id;
+        $detailMahasiswa = MahasiswaModel::where('id', $receiverId)->first();
         $receiverId = $receiverId;
 
         $messages = Message::where(function ($query) use ($senderId, $receiverId) {
@@ -34,7 +35,7 @@ class PsikologKonsultasiController extends Controller
 
         $mahasiswa = MahasiswaModel::all();
 
-        return view('pages.psikolog.konsultasi.index', compact('receiverId', 'receiverType', 'messages', 'mahasiswa'));
+        return view('pages.psikolog.konsultasi.index', compact('receiverId', 'receiverType', 'messages', 'mahasiswa', 'detailMahasiswa'));
     }
 
 

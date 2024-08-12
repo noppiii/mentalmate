@@ -156,7 +156,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                         >
                           <img
                             class="user-avatar rounded-circle cursor-pointer"
-                            src="{{ asset('admin/assets/img/avatars/1.png') }}"
+                            src="{{ asset('store/user/photo/psikolog/' . Auth::guard('psikolog')->user()->profile_photo_path) }}"
                             alt="Avatar"
                           />
                         </div>
@@ -192,7 +192,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                         <li class="chat-contact-list-item">
                           <a href="{{ route('psikolog.konsultasi.index', ['receiverId' => $data->id, 'receiverType' => 'MahasiswaModel']) }}" class="d-flex align-items-center">
                             <div class="flex-shrink-0 avatar avatar-online">
-                              <img src="{{ asset('admin/assets/img/avatars/13.png') }}" alt="Avatar" class="rounded-circle" />
+                              <img src="{{ asset('store/user/photo/mahasiswa/' . $data->profile_photo_path) }}" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div class="chat-contact-info flex-grow-1 ms-2">
                               <h6 class="chat-contact-name text-truncate m-0">{{ $data->nama }}</h6>
@@ -200,7 +200,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                                 {{ $data->nama_universitas }}
                               </p>
                             </div>
-                            <small class="text-muted mb-auto">5 Minutes</small>
+                            {{-- <small class="text-muted mb-auto">5 Minutes</small> --}}
                           </a>
                         </li>
                         @endforeach
@@ -223,7 +223,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                             ></i>
                             <div class="flex-shrink-0 avatar">
                               <img
-                                src="{{ asset('admin/assets/img/avatars/2.png') }}"
+                                src="{{ asset('store/user/photo/mahasiswa/' . $detailMahasiswa->profile_photo_path) }}"
                                 alt="Avatar"
                                 class="rounded-circle"
                                 data-bs-toggle="sidebar"
@@ -232,8 +232,8 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                               />
                             </div>
                             <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="m-0">Felecia Rower</h6>
-                              <small class="user-status text-muted">NextJS developer</small>
+                              <h6 class="m-0">{{ $detailMahasiswa->nama }}</h6>
+                              <small class="user-status text-muted">{{ $detailMahasiswa->nama_universitas }}</small>
                             </div>
                           </div>
                           <div class="d-flex align-items-center">
@@ -278,7 +278,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                                         </div>
                                         <div class="user-avatar flex-shrink-0 ms-3">
                                             <div class="avatar avatar-sm">
-                                                <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt="Avatar" class="rounded-circle" />
+                                                <img src="{{ asset('store/user/photo/psikolog/' . Auth::guard('psikolog')->user()->profile_photo_path) }}" alt="Avatar" class="rounded-circle" />
                                             </div>
                                         </div>
                                     </div>
@@ -289,7 +289,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                                     <div class="d-flex overflow-hidden">
                                         <div class="user-avatar flex-shrink-0 me-3">
                                             <div class="avatar avatar-sm">
-                                                <img src="{{ asset('admin/assets/img/avatars/2.png') }}" alt="Avatar" class="rounded-circle" />
+                                                <img src="{{ asset('store/user/photo/mahasiswa/' . $detailMahasiswa->profile_photo_path) }}" alt="Avatar" class="rounded-circle" />
                                             </div>
                                         </div>
                                         <div class="chat-message-wrapper flex-grow-1">

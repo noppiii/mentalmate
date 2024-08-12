@@ -6,6 +6,7 @@ use App\Events\MessageSentEvent;
 use App\Models\Message;
 use App\Models\PsikologModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MahasiswaKonsultasiController extends Controller
 {
@@ -15,17 +16,26 @@ class MahasiswaKonsultasiController extends Controller
     public function index($receiverId, $receiverType)
     {
         $allPsikolog = PsikologModel::all();
+        $detailPsikolog = PsikologModel::where('id', $receiverId)->first();
+        // dd($detailPsikolog);
 
-        // Mengambil pesan dari database yang sesuai dengan receiverId dan receiverType
-        $messages = Message::where(function ($query) use ($receiverId, $receiverType) {
-            $query->where('receiver_id', $receiverId)
-                ->where('receiver_type', $receiverType);
-        })->orWhere(function ($query) use ($receiverId, $receiverType) {
-            $query->where('sender_id', $receiverId)
-                ->where('sender_type', $receiverType);
-        })->orderBy('created_at', 'asc')->get();
+        $senderId = Auth::guard('mahasiswa')->user()->id;
+        $receiverId = $receiverId;
 
-        return view('pages.mahasiswa.konsultasi.index', compact('receiverId', 'receiverType', 'allPsikolog', 'messages'));
+        $messages = Message::where(function ($query) use ($senderId, $receiverId) {
+            $query->where('sender_id', $senderId)
+                ->orWhere('sender_id', $receiverId);
+        })
+            ->where(function ($query) use ($senderId, $receiverId) {
+                $query->where('receiver_id', $senderId)
+                    ->orWhere('receiver_id', $receiverId);
+            })
+            ->whereIn('sender_type', ['Psikolog', 'Mahasiswa'])
+            ->whereIn('receiver_type', ['MahasiswaModel', 'PsikologModel'])
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        return view('pages.mahasiswa.konsultasi.index', compact('receiverId', 'receiverType', 'allPsikolog', 'messages', 'detailPsikolog'));
     }
 
     /**

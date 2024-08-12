@@ -156,7 +156,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                         >
                           <img
                             class="user-avatar rounded-circle cursor-pointer"
-                            src="{{ asset('admin/assets/img/avatars/1.png') }}"
+                            src="{{ asset('store/user/photo/mahasiswa/' . Auth::guard('mahasiswa')->user()->profile_photo_path) }}"
                             alt="Avatar"
                           />
                         </div>
@@ -192,15 +192,17 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                         <li class="chat-contact-list-item {{ $receiverId == $data->id ? 'active' : '' }}">
                           <a href="{{ route('mahasiswa.konsultasi.index', ['receiverId' => $data->id, 'receiverType' => 'PsikologModel']) }}" class="d-flex align-items-center">
                             <div class="flex-shrink-0 avatar avatar-online">
-                              <img src="{{ asset('admin/assets/img/avatars/2.png') }}" alt="Avatar" class="rounded-circle" />
+                              <img src="{{ asset('store/user/photo/psikolog/' . $data->profile_photo_path) }}" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div class="chat-contact-info flex-grow-1 ms-2">
                               <h6 class="chat-contact-name text-truncate m-0">{{ $data->nama }}</h6>
                               <p class="chat-contact-status text-muted text-truncate mb-0">
-                                {{ $data->deskripsi }}
+                                 {{ implode(', ', $detailPsikolog->detailPsikologs->flatMap(function ($detail) {
+                                      return $detail->bidangPsikologs->pluck('name');
+                                  })->unique()->toArray()) }}
                               </p>
                             </div>
-                            <small class="text-muted mb-auto">30 Minutes</small>
+                            {{-- <small class="text-muted mb-auto">30 Minutes</small> --}}
                           </a>
                         </li>
                         @endforeach
@@ -225,7 +227,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                             ></i>
                             <div class="flex-shrink-0 avatar">
                               <img
-                                src="{{ asset('admin/assets/img/avatars/2.png') }}"
+                                src="{{ asset('store/user/photo/psikolog/' . $detailPsikolog->profile_photo_path) }}"
                                 alt="Avatar"
                                 class="rounded-circle"
                                 data-bs-toggle="sidebar"
@@ -234,8 +236,12 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                               />
                             </div>
                             <div class="chat-contact-info flex-grow-1 ms-2">
-                              <h6 class="m-0">Felecia Rower</h6>
-                              <small class="user-status text-muted">NextJS developer</small>
+                              <h6 class="m-0">{{ $detailPsikolog->nama }}</h6>
+                              <small class="user-status text-muted">
+                                  {{ implode(', ', $detailPsikolog->detailPsikologs->flatMap(function ($detail) {
+                                      return $detail->bidangPsikologs->pluck('name');
+                                  })->unique()->toArray()) }}
+                              </small>
                             </div>
                           </div>
                           <div class="d-flex align-items-center">
@@ -265,8 +271,27 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                      <div class="chat-history-body bg-body">
                     <ul class="list-unstyled chat-history">
                         @foreach ($messages as $message)
-                            @if ($message->sender_id == auth()->id() && $message->sender_type == auth()->user()->getTable())
-                                <!-- Pesan dari pengguna saat ini -->
+                            @if ($message->sender_id == Auth::guard('mahasiswa')->user()->id && $message->sender_type == 'Psikolog')
+                                <li class="chat-message chat-message">
+                                    <div class="d-flex overflow-hidden">
+                                        <div class="user-avatar flex-shrink-0 me-3">
+                                            <div class="avatar avatar-sm">
+                                                <img src="{{ asset('store/user/photo/psikolog/' . $detailPsikolog->profile_photo_path) }}" alt="Avatar" class="rounded-circle" />
+                                            </div>
+                                        </div>
+                                        <div class="chat-message-wrapper flex-grow-1">
+                                            <div class="chat-message-text">
+                                                <p class="mb-0">{{ $message->content }}</p>
+                                            </div>
+                                            <div class="text-muted mt-1">
+                                                <small>{{ $message->created_at->format('h:i A') }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>    
+                          
+                            @else
+                                 <!-- Pesan dari pengguna saat ini -->
                                 <li class="chat-message chat-message-right">
                                     <div class="d-flex overflow-hidden">
                                         <div class="chat-message-wrapper flex-grow-1">
@@ -280,26 +305,7 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                                         </div>
                                         <div class="user-avatar flex-shrink-0 ms-3">
                                             <div class="avatar avatar-sm">
-                                                <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt="Avatar" class="rounded-circle" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            @else
-                                <!-- Pesan dari penerima -->
-                                <li class="chat-message">
-                                    <div class="d-flex overflow-hidden">
-                                        <div class="user-avatar flex-shrink-0 me-3">
-                                            <div class="avatar avatar-sm">
-                                                <img src="{{ asset('admin/assets/img/avatars/2.png') }}" alt="Avatar" class="rounded-circle" />
-                                            </div>
-                                        </div>
-                                        <div class="chat-message-wrapper flex-grow-1">
-                                            <div class="chat-message-text">
-                                                <p class="mb-0">{{ $message->content }}</p>
-                                            </div>
-                                            <div class="text-muted mt-1">
-                                                <small>{{ $message->created_at->format('h:i A') }}</small>
+                                                <img src="{{ asset('store/user/photo/mahasiswa/' . Auth::guard('mahasiswa')->user()->profile_photo_path) }}" alt="Avatar" class="rounded-circle" />
                                             </div>
                                         </div>
                                     </div>
