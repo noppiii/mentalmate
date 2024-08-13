@@ -358,6 +358,12 @@
                   <div data-i18n="Konsultasi">Konsultasi</div>
               </a>
           </li>
+          <li class="menu-item {{ request()->is('mahasiswa/tes-kesehatan-mental*') ? 'active' : '' }}">
+            <a href="{{ route('mahasiswa.test-kesehatan-mental') }}" class="menu-link">
+              <i class="menu-icon tf-icons ti ti-subtask"></i>
+              <div data-i18n="Dashboard">Tes Mental</div>
+            </a>
+          </li>
         </ul>
       </aside>
       @endif

@@ -308,9 +308,23 @@ class AuthUserController extends Controller
         }
     }
 
-public function logout()
+    public function adminLogout()
     {
         Auth::guard('admin')->logout();
+        Session::flash('success_message', 'Berhasil Logout');
+        return redirect()->route('home');
+    }
+    
+    public function mahasiswaLogout()
+    {
+        Auth::guard('mahasiswa')->logout();
+        Session::flash('success_message', 'Berhasil Logout');
+        return redirect()->route('home');
+    }
+    
+    public function psikologLogout()
+    {
+        Auth::guard('psikolog')->logout();
         Session::flash('success_message', 'Berhasil Logout');
         return redirect()->route('home');
     }

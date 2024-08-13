@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\ClientArtikelController;
+use App\Http\Controllers\ClientKonsultasController;
 use App\Http\Controllers\ClientKonsultasiController;
 use App\Http\Controllers\ClientPsikologController;
 use App\Http\Controllers\HomeController;
@@ -23,6 +24,8 @@ use App\Http\Controllers\PsikologDashboardController;
 use App\Http\Controllers\PsikologFavoritController;
 use App\Http\Controllers\PsikologJadwalController;
 use App\Http\Controllers\PsikologKonsultasiController;
+use App\Http\Controllers\PsikologProfileController;
+use App\Http\Controllers\TesKesehatanMentalController;
 use App\Http\Middleware\AuthAdmin;
 use App\Http\Middleware\AuthMahasiswa;
 use App\Http\Middleware\AuthPsikolog;
@@ -43,10 +46,14 @@ Route::post('/artikel/{slug}/post-comment', [ClientArtikelController::class, 'po
 Route::get('/list-psikolog', [ClientPsikologController::class, 'index'])->name('client.psikolog');
 Route::post('/list-psikolog/{id}/favorite', [ClientPsikologController::class, 'addFavoritePsikolog'])->name('client.psikolog.favorite');
 Route::get('/list-psikolog/{username}', [ClientPsikologController::class, 'show'])->name('client.detailPsikolog');
+Route::get('/konsultasi', [ClientKonsultasController::class, 'index'])->name('client.konsultasi');
+Route::get('/get-psikolog/{bidangId}', [ClientKonsultasController::class, 'getPsikologByBidang'])->name('client.psikolog.getByBidang');
+Route::get('/get-psikolog-detail/{psikologId}', [ClientKonsultasController::class, 'getPsikologDetail'])->name('client.psikolog.getDetail');
+
 
 Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('logout', [AuthUserController::class, 'logout'])->name('admin.logout');
+    Route::get('logout', [AuthUserController::class, 'adminLogout'])->name('admin.logout');
     Route::resource('admin', MasterAdminController::class);
     Route::resource('psikolog', MasterPsikologController::class);
     Route::resource('mahasiswa', MasterMahasiswaController::class);
@@ -61,20 +68,22 @@ Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(f
 // Group routes for psikolog
 Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->group(function () {
     Route::get('dashboard', [PsikologDashboardController::class, 'index'])->name('psikolog.dashboard');
-    Route::get('logout', [AuthUserController::class, 'logout'])->name('psikolog.logout');
+    Route::get('logout', [AuthUserController::class, 'psikologLogout'])->name('psikolog.logout');
     Route::resource('my-artikel', PsikologArticleController::class);
     Route::resource('my-jadwal', PsikologJadwalController::class);
     Route::get('my-konsultasi/{receiverId}/{receiverType}', [PsikologKonsultasiController::class, 'index'])->name('psikolog.konsultasi.index');
     Route::post('my-konsultasi/store', [PsikologKonsultasiController::class, 'store'])->name('psikolog.konsultasi.store');
-
+    Route::resource('my-profile', PsikologProfileController::class);
+    
 });
 // Group routes for mahasiswa
 Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {
     Route::get('dashboard', [MahasiswaDashboardController::class, 'index'])->name('mahasiswa.dashboard');
-    Route::get('logout', [AuthUserController::class, 'logout'])->name('mahasiswa.logout');
+    Route::get('logout', [AuthUserController::class, 'mahasiswaLogout'])->name('mahasiswa.logout');
     // In routes/web.php
 
     Route::get('konsultasi-ku/{receiverId}/{receiverType}', [MahasiswaKonsultasiController::class, 'index'])->name('mahasiswa.konsultasi.index');
     Route::post('konsultasi-ku/store', [MahasiswaKonsultasiController::class, 'store'])->name('mahasiswa.konsultasi.store');
+    Route::get('tes-kesehatan-mental', [TesKesehatanMentalController::class, 'index'])->name('mahasiswa.test-kesehatan-mental');
     // Route::resource('konsultasi-ku', MahasiswaKonsultasiController::class)->except(['index']);
 });

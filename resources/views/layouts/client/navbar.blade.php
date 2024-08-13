@@ -32,7 +32,7 @@
 												<a href="index.html">Home</a>
 											</li>
 											<li>
-												<a href="#">Konsultasi</a>
+												<a href="{{ route('client.konsultasi') }}">Konsultasi</a>
 											</li>
 											<li>
 												<a href="{{ route('client.psikolog') }}">Psikolog</a>
