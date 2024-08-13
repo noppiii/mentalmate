@@ -41,6 +41,7 @@ Route::get('/artikel', [ClientArtikelController::class, 'index'])->name('client.
 Route::get('/artikel/{slug}', [ClientArtikelController::class, 'show'])->name('client.detailArtikel');
 Route::post('/artikel/{slug}/post-comment', [ClientArtikelController::class, 'postComment'])->name('client.postComment');
 Route::get('/list-psikolog', [ClientPsikologController::class, 'index'])->name('client.psikolog');
+Route::post('/list-psikolog/{id}/favorite', [ClientPsikologController::class, 'addFavoritePsikolog'])->name('client.psikolog.favorite');
 Route::get('/list-psikolog/{username}', [ClientPsikologController::class, 'show'])->name('client.detailPsikolog');
 
 Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {

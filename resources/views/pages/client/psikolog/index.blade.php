@@ -51,35 +51,22 @@
                                             </div>										
                                         </div>
 									</div>
-									<div class="pbmit-team-btn">
-										<a class="pbmit-team-text" href="#">
-											<i class="pbmit-base-icon-share-1"></i>
-										</a>
-										<div class="pbminfotech-box-social-links">
-											<ul class="pbmit-social-links pbmit-team-social-links">
-												<li class="pbmit-social-li pbmit-social-facebook">
-													<a href="#" title="Facebook" target="_blank">
-														<span><i class="pbmit-base-icon-facebook-f"></i></span>
-													</a>
-												</li>
-												<li class="pbmit-social-li pbmit-social-twitter">
-													<a href="#" title="Twitter" target="_blank">
-														<span><i class="pbmit-base-icon-twitter-2"></i></span>
-													</a>
-												</li>
-												<li class="pbmit-social-li pbmit-social-instagram">
-													<a href="#" title="Instagram" target="_blank">
-														<span><i class="pbmit-base-icon-instagram"></i></span>
-													</a>
-												</li>
-												<li class="pbmit-social-li pbmit-social-youtube">
-													<a href="#" title="Youtube" target="_blank">
-														<span><i class="pbmit-base-icon-youtube-play"></i></span>
-													</a>
-												</li>
-											</ul>
-										</div>
+									@if (Auth::guard('mahasiswa')->check())
+										<div class="pbmit-team-btn">
+										<form action="{{ route('client.psikolog.favorite', ['id' => $data->id]) }}" method="post">
+											@csrf
+											   <button type="submit" class="pbmit-team-text" style="border: none;">
+            										<i class="{{ $data->isFavorite ? 'pbmit-base-icon-heart text-danger' : 'pbmit-base-icon-heart-empty text-secondary' }}"></i>
+											   </button>
+										</form>
 									</div>
+									@else
+									<div class="pbmit-team-btn">
+										<a href="{{ route('client.detailPsikolog', ['username' => Str::slug($data->nama)]) }}" class="pbmit-team-text">
+    									    <i class="pbmit-base-icon-arrow-right"></i>
+										</a>
+									</div>
+									@endif
 								</div>
 								<div class="pbminfotech-box-content">
 									<div class="pbminfotech-box-content-inner">

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PsikologFavoritModel;
 use App\Models\PsikologModel;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientPsikologController extends Controller
 {
@@ -14,6 +16,11 @@ class ClientPsikologController extends Controller
     public function index()
     {
         $paginatePsikolog = PsikologModel::orderBy('created_at', 'desc')->paginate(12);
+        foreach ($paginatePsikolog as $psikolog) {
+            $psikolog->isFavorite = PsikologFavoritModel::where('mahasiswa_id', Auth::guard('mahasiswa')->user()->id)
+                ->where('psikolog_id', $psikolog->id)
+                ->exists();
+        }
         return view('pages.client.psikolog.index', compact('paginatePsikolog'));
     }
 
@@ -51,6 +58,31 @@ class ClientPsikologController extends Controller
         }
 
         return view('pages.client.psikolog.detail', compact('psikolog'));
+    }
+
+    public function addFavoritePsikolog($id) {
+        $mahasiswaId = Auth::guard('mahasiswa')->user()->id;
+        
+        if($mahasiswaId == null) {
+            return back()->with('error_message_not_found', 'Psikolog gagal ditambahkan ke favorite.');
+        }
+
+        $exists = PsikologFavoritModel::where('mahasiswa_id', $mahasiswaId)
+            ->where('psikolog_id', $id)
+            ->exists();
+
+        if ($exists) {
+            PsikologFavoritModel::where('mahasiswa_id', $mahasiswaId)
+                ->where('psikolog_id', $id)
+                ->delete();
+            return back()->with('success_message_create', 'Psikolog telah dihapus dari favorit.');
+        } else {
+            PsikologFavoritModel::create([
+                'mahasiswa_id' => $mahasiswaId,
+                'psikolog_id' => $id,
+            ]);
+            return back()->with('success_message_create', 'Psikolog telah ditambahkan ke favorit.');
+        }
     }
 
     /**
