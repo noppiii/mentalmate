@@ -54,8 +54,8 @@
 			</svg>
 		</div>
 		<div class="pbmit-search-outer"> 
-			<form class="pbmit-site-searchform">
-				<input type="search" class="form-control field searchform-s" name="s" placeholder="Search …">
+			<form class="pbmit-site-searchform" action="{{ route('client.search') }}" method="GET">
+				<input type="text" class="form-control field searchform-s" name="search" value="{{ request('search') }}" placeholder="Search …">
 				<button type="submit"></button>
 			</form>
 		</div>

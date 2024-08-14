@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientArtikelController;
 use App\Http\Controllers\ClientKonsultasController;
 use App\Http\Controllers\ClientKonsultasiController;
 use App\Http\Controllers\ClientPsikologController;
+use App\Http\Controllers\ClientSearchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaDashboardController;
 use App\Http\Controllers\MahasiswaKonsultasiController;
@@ -39,6 +40,7 @@ Route::post('/psikolog/signup', [AuthUserController::class, 'psikologSignup'])->
 Route::get('/mahasiswa/signup', [AuthUserController::class, 'showMahasiswaSignupForm'])->name('mahasiswa.signup');
 Route::post('/mahasiswa/signup', [AuthUserController::class, 'mahasiswaSignup'])->name('mahasiswa.postSignup');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/search', [ClientSearchController::class, 'search'])->name('client.search');
 Route::get('/konsultasi', [ClientKonsultasiController::class, 'index'])->name('client.konsultasi');
 Route::get('/artikel', [ClientArtikelController::class, 'index'])->name('client.artikel');
 Route::get('/artikel/{slug}', [ClientArtikelController::class, 'show'])->name('client.detailArtikel');
