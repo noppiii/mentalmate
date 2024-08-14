@@ -22,9 +22,9 @@ class DetailPsikologModel extends Model
     //     return $this->belongsTo(BidangPsikologModel::class);
     // }
 
-    public function metodeKonsultasi()
+    public function metodeKonsultasis()
     {
-        return $this->belongsTo(MetodeKonsultasiModel::class);
+        return $this->belongsToMany(MetodeKonsultasiModel::class, 'metode_konsultasi_mappings', 'detail_psikolog_id', 'metode_konsultasi_id');
     }
 
     public function ulasan()

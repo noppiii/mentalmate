@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KonsultasiModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PsikologJadwalController extends Controller
 {
@@ -11,7 +13,19 @@ class PsikologJadwalController extends Controller
      */
     public function index()
     {
-        return view('pages.psikolog.jadwal.index');
+        $psikolog = Auth::guard('psikolog')->user();
+
+        // Retrieve unique bidang psikolog names
+        $bidangPsikologs = $psikolog->detailPsikologs->flatMap(function ($detail) {
+            return $detail->bidangPsikologs->pluck('name');
+        })->unique()->toArray();
+
+        // Retrieve jadwal konsultasi with relationships
+        $jadwalKonsultasi = KonsultasiModel::with(['psikolog.detailPsikologs.bidangPsikologs'])
+        ->where('psikolog_id', $psikolog->id)
+            ->get();
+
+        return view('pages.psikolog.jadwal.index', compact('bidangPsikologs', 'jadwalKonsultasi'));
     }
 
     /**

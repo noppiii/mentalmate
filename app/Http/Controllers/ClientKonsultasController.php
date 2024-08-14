@@ -72,7 +72,7 @@ class ClientKonsultasController extends Controller
             'metode_pembayaran' => 'required|string', 
         ]);
 
-        // try {
+        try {
             DB::beginTransaction();
 
             $konsultasi = new KonsultasiModel();
@@ -95,10 +95,10 @@ class ClientKonsultasController extends Controller
             DB::commit();
 
             return redirect()->back()->with('success_message_create', 'Konsultasi berhasil disimpan!');
-        // } catch (\Exception $e) {
-        //     DB::rollBack();
-        //     return redirect()->back()->with('error_message_update_details', 'Terjadi kesalahan saat menyimpan konsultasi. Silakan coba lagi.');
-        // }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error_message_update_details', 'Terjadi kesalahan saat menyimpan konsultasi. Silakan coba lagi.');
+        }
     }
 
 
