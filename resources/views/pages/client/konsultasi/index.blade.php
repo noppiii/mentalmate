@@ -21,6 +21,63 @@
 					</div>
 					<div class="appointment_box">
 						<h4 class="text-center mb-3">Make An Appointment</h4>
+						@if (Auth::guard('mahasiswa')->check())	
+						<form action="{{ route('client.postKonsultasi') }}" method="post">
+							@csrf
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" value="{{ Auth::guard('mahasiswa')->user()->nama }}" class="form-control" placeholder="Your Name *" name="nama" required>
+								</div>
+								<div class="col-md-6">
+									<input type="email" value="{{ Auth::guard('mahasiswa')->user()->email }}" class="form-control" placeholder="Your Email *" name="email" required>
+								</div>
+								<div class="col-md-6">
+									<input type="tel" class="form-control" placeholder="Your Phone *" name="nomor_telepon" required>
+								</div>
+								<div class="col-md-6">
+									<input class="form-control wpcf7-form-control wpcf7-date wpcf7-validates-as-date" aria-invalid="false" value="2024-02-23T10:00" type="datetime-local" name="tanggal">
+								</div>
+								<div class="col-md-6">
+								    <select id="bidangSelect" class="form-select form-control" aria-label="Default select example">
+								        <option value="">Pilih Bidang</option>
+								        @foreach($bidangPsikolog as $bidang)
+								            <option value="{{ $bidang->id }}">{{ $bidang->name }}</option>
+								        @endforeach
+								    </select>
+								</div>
+								<div class="col-md-6">
+								    <select id="psikologSelect" class="form-select form-control" name="psikolog_id" aria-label="Default select example">
+								        <option value="">Pilih Psikolog</option>
+								    </select>
+								</div>
+								<div class="col-md-6">
+								    <select id="bidangSelect" class="form-select form-control" name="metode_pembayaran" aria-label="Default select example">
+								        <option value="">Metode Pembayaran</option>
+								        <option value="gopay">Gopay</option>
+								        <option value="dana">Dana</option>
+								        <option value="shopeepay">ShopeePay</option>
+								    </select>
+								</div>
+								<div class="col-md-6">
+								    <input type="text" class="form-control" id="biayaKonsultasiInput" placeholder="Biaya Konsultasi" readonly>
+								    <input type="hidden" name="harga_konsultasi" id="biayaKonsultasiHidden">
+								</div>
+								<div class="col-md-12">
+									<textarea name="deskripsi" cols="40" rows="10" class="form-control" placeholder="Type Appointment Note...." required></textarea>
+								</div>
+								<div class="col-md-12">
+									<button class="pbmit-btn">
+										<span class="pbmit-button-text">Submit Now</span>
+										<span class="pbmit-button-icon-wrapper">
+											<span class="pbmit-button-icon">
+												<i class="pbmit-base-icon-black-arrow-1"></i>
+											</span>
+										</span>
+									</button>
+								</div>
+							</div>
+						</form>
+						@else
 						<form>
 							<div class="row">
 								<div class="col-md-6">
@@ -67,6 +124,7 @@
 								</div>
 							</div>
 						</form>
+						@endif
 					</div>
 				</div>
 			</section>

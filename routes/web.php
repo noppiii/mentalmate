@@ -47,6 +47,7 @@ Route::get('/list-psikolog', [ClientPsikologController::class, 'index'])->name('
 Route::post('/list-psikolog/{id}/favorite', [ClientPsikologController::class, 'addFavoritePsikolog'])->name('client.psikolog.favorite');
 Route::get('/list-psikolog/{username}', [ClientPsikologController::class, 'show'])->name('client.detailPsikolog');
 Route::get('/konsultasi', [ClientKonsultasController::class, 'index'])->name('client.konsultasi');
+Route::post('/konsultasi/store', [ClientKonsultasController::class, 'store'])->name('client.postKonsultasi');
 Route::get('/get-psikolog/{bidangId}', [ClientKonsultasController::class, 'getPsikologByBidang'])->name('client.psikolog.getByBidang');
 Route::get('/get-psikolog-detail/{psikologId}', [ClientKonsultasController::class, 'getPsikologDetail'])->name('client.psikolog.getDetail');
 

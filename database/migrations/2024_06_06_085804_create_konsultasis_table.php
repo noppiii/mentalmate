@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('konsultasis', function (Blueprint $table) {
             $table->id();
-            $table->string('hari');
-            $table->time('jam');
+            $table->string('nama');
+            $table->string('email');
+            $table->string('nomor_telepon');
+            $table->dateTime('tanggal');
+            $table->longText('deskripsi');
             $table->foreignId('mahasiswa_id')->constrained('mahasiswas')->onDelete('cascade');
             $table->foreignId('psikolog_id')->constrained('psikologs')->onDelete('cascade');
             $table->timestamps();

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\BidangPsikologModel;
+use App\Models\KonsultasiModel;
+use App\Models\PembayaranModel;
 use App\Models\PsikologModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ClientKonsultasController extends Controller
 {
@@ -57,8 +61,46 @@ class ClientKonsultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required|string',
+            'email' => 'required|email',
+            'nomor_telepon' => 'required|string|max:20',
+            'tanggal' => 'required|date',
+            'psikolog_id' => 'required',
+            'harga_konsultasi' => 'required|numeric',
+            'deskripsi' => 'required|string',
+            'metode_pembayaran' => 'required|string', 
+        ]);
+
+        // try {
+            DB::beginTransaction();
+
+            $konsultasi = new KonsultasiModel();
+            $konsultasi->nama = $request->nama;
+            $konsultasi->email = $request->email;
+            $konsultasi->nomor_telepon = $request->nomor_telepon;
+            $konsultasi->tanggal = $request->tanggal;
+            $konsultasi->psikolog_id = $request->psikolog_id;
+            $konsultasi->mahasiswa_id = Auth::guard('mahasiswa')->user()->id;
+            $konsultasi->deskripsi = $request->deskripsi;
+            $konsultasi->save();
+
+            $pembayaran = new PembayaranModel();
+            $pembayaran->nominal = $request->harga_konsultasi;
+            $pembayaran->konsultasi_id = $konsultasi->id;
+            $pembayaran->metode_pembayaran = $request->metode_pembayaran;
+            $pembayaran->status = 'pending';
+            $pembayaran->save();
+
+            DB::commit();
+
+            return redirect()->back()->with('success_message_create', 'Konsultasi berhasil disimpan!');
+        // } catch (\Exception $e) {
+        //     DB::rollBack();
+        //     return redirect()->back()->with('error_message_update_details', 'Terjadi kesalahan saat menyimpan konsultasi. Silakan coba lagi.');
+        // }
     }
+
 
     /**
      * Display the specified resource.
