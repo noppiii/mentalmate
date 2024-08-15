@@ -25,6 +25,9 @@ return Application::configure(basePath: dirname(__DIR__))
             // \App\Http\Middleware\AuthPsikolog::class,
             // \App\Http\Middleware\AuthMahasiswa::class,
         ]);
+    $middleware->alias([
+        'Zoom' => Jubaer\Zoom\Facades\Zoom::class,
+    ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

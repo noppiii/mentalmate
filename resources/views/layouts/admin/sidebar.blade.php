@@ -288,6 +288,12 @@
               <div data-i18n="Konsultasi">Konsultasi</div>
             </a>
           </li>
+          <li class="menu-item {{ request()->is('psikolog/my-meeting*') ? 'active' : '' }}">
+            <a href="{{ route('my-meeting.index') }}" class="menu-link">
+              <i class="menu-icon tf-icons ti ti-camera"></i>
+              <div data-i18n="Meeting">Meeting</div>
+            </a>
+          </li>
         </ul>
       </aside>
       @elseif ($guard === 'mahasiswa')

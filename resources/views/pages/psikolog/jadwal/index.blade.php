@@ -58,7 +58,7 @@
                       aria-labelledby="addEventSidebarLabel"
                     >
                       <div class="offcanvas-body pt-0">
-                        <form class="event-form pt-0" id="eventForm" onsubmit="return false">
+                        <div class="event-form pt-0" id="eventForm">
                           <div class="mb-3">
                             <label class="form-label" for="eventTitle">Nama</label>
                             <input type="text" class="form-control" id="eventTitle" name="eventTitle" placeholder="Event Title" />
@@ -79,6 +79,11 @@
                             <label class="form-label" for="eventDescription">Deskripsi</label>
                             <textarea class="form-control" name="eventDescription" id="eventDescription"></textarea>
                           </div>
+                          <hr class="mb-2">
+                          <div class="mb-3 select2-primary">
+                              <label class="form-label d-block" for="no_telp">Link Meeting</label>
+                              <span id="meetingStatus" class="badge rounded-pill fs-5"></span>
+                          </div>
                           <div class="mb-3 d-flex justify-content-sm-between justify-content-start my-4">
                             <div class="d-none">
                               <button type="submit" class="btn btn-primary btn-add-event me-sm-3 me-1 d-none">Add</button>
@@ -86,13 +91,18 @@
                                 Cancel
                               </button>
                             </div>
-                            <div>
-                              <button type="reset" class="btn btn-label-secondary btn-cancel me-sm-0 me-1 btn-cancel" data-bs-dismiss="offcanvas">
+                            <div class="d-flex">
+                              <button type="reset" class="btn btn-label-secondary btn-cancel me-3 btn-cancel mx-2" data-bs-dismiss="offcanvas">
                                 Close
                               </button>
+                              <form action="" method="POST" id="createMeetingForm">
+                                  @csrf
+                                  <input type="hidden" name="konsultasiId" id="hiddenKonsultasiId">
+                                  <button type="submit" id="btnCreateZoom" class="btn btn-primary btn-add-event me-sm-3 me-1">Create Meeting</button>
+                              </form>
                             </div>
                           </div>
-                        </form>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -109,6 +119,13 @@
         let startDate = new Date(konsultasi.tanggal);
         let endDate = new Date(konsultasi.tanggal);
 
+        let zoomMeeting = konsultasi.zoom_meeting;
+
+        let meetingStatusHtml = '<span class="badge rounded-pill bg-label-danger">Belum ada link zoom meeting</span>';
+        if (zoomMeeting && zoomMeeting.meeting_id) {
+            meetingStatusHtml = `<span class="badge rounded-pill bg-label-success cursor-pointer">${zoomMeeting.topic}: ${zoomMeeting.meeting_id}</span>`;
+        }
+
         return {
             id: konsultasi.id,
             url: '', 
@@ -120,7 +137,8 @@
                 calendar: 'Business',
                 email: konsultasi.email,
                 no_telp: konsultasi.nomor_telepon,
-                deskripsi: konsultasi.deskripsi
+                deskripsi: konsultasi.deskripsi,
+                meetingStatusHtml: meetingStatusHtml
             }
         };
     });
@@ -131,6 +149,11 @@
         document.getElementById('email').value = event.extendedProps.email;
         document.getElementById('no_telp').value = event.extendedProps.no_telp;
         document.getElementById('eventDescription').value = event.extendedProps.deskripsi;
+        document.getElementById('meetingStatus').innerHTML = event.extendedProps.meetingStatusHtml;
+
+        const form = document.getElementById('createMeetingForm');
+        form.action = `{{ route('psikolog.createMeeting', ['konsultasiId' => '__konsultasiId__']) }}`.replace('__konsultasiId__', event.id);
+        document.getElementById('hiddenKonsultasiId').value = event.id;
     }
 
     if (events.length > 0) {
@@ -139,5 +162,4 @@
 
     console.log('Events:', events);
 </script>
-
 @endsection

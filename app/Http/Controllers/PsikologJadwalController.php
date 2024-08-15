@@ -15,15 +15,13 @@ class PsikologJadwalController extends Controller
     {
         $psikolog = Auth::guard('psikolog')->user();
 
-        // Retrieve unique bidang psikolog names
         $bidangPsikologs = $psikolog->detailPsikologs->flatMap(function ($detail) {
             return $detail->bidangPsikologs->pluck('name');
         })->unique()->toArray();
 
-        // Retrieve jadwal konsultasi with relationships
-        $jadwalKonsultasi = KonsultasiModel::with(['psikolog.detailPsikologs.bidangPsikologs'])
+        $jadwalKonsultasi = KonsultasiModel::with(['psikolog.detailPsikologs.bidangPsikologs', 'zoomMeeting'])
         ->where('psikolog_id', $psikolog->id)
-            ->get();
+        ->get();
 
         return view('pages.psikolog.jadwal.index', compact('bidangPsikologs', 'jadwalKonsultasi'));
     }

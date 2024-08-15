@@ -25,6 +25,7 @@ use App\Http\Controllers\PsikologDashboardController;
 use App\Http\Controllers\PsikologFavoritController;
 use App\Http\Controllers\PsikologJadwalController;
 use App\Http\Controllers\PsikologKonsultasiController;
+use App\Http\Controllers\PsikologMeetingController;
 use App\Http\Controllers\PsikologProfileController;
 use App\Http\Controllers\TesKesehatanMentalController;
 use App\Http\Middleware\AuthAdmin;
@@ -74,6 +75,8 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
     Route::get('logout', [AuthUserController::class, 'psikologLogout'])->name('psikolog.logout');
     Route::resource('my-artikel', PsikologArticleController::class);
     Route::resource('my-jadwal', PsikologJadwalController::class);
+    Route::resource('my-meeting', PsikologMeetingController::class);
+    Route::post('my-meeting/{konsultasiId}/store', [PsikologMeetingController::class, 'store'])->name('psikolog.createMeeting');
     Route::get('my-konsultasi/{receiverId}/{receiverType}', [PsikologKonsultasiController::class, 'index'])->name('psikolog.konsultasi.index');
     Route::post('my-konsultasi/store', [PsikologKonsultasiController::class, 'store'])->name('psikolog.konsultasi.store');
     Route::resource('my-profile', PsikologProfileController::class);

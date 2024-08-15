@@ -51,6 +51,21 @@ class PsikologModel extends Authenticatable
         return 'remember_token';
     }
 
+    public static function clientID()
+    {
+        return 'zoom_client_of_user';
+    }
+
+    public static function clientSecret()
+    {
+        return 'zoom_client_secret_of_user';
+    }
+
+    public static function accountID()
+    {
+        return 'zoom_account_id_of_user';
+    }
+
      // Relasi dengan tabel psikolog_favorits
      public function psikologFavorits()
      {
