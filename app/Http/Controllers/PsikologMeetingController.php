@@ -18,9 +18,36 @@ class PsikologMeetingController extends Controller
     {
         // $meeting = Zoom::deleteMeeting(88261116768);
         // dd($meeting);
-        $meetings = Zoom::getAllMeeting();
-        dd($meetings);
-        return view('pages.psikolog.meeting.index');
+        // $meetings = Zoom::getAllMeeting();
+        // dd($meetings);
+        $psikologId = Auth::guard('psikolog')->user()->id;
+
+        $allMeeting = ZoomMeeting::whereIn('konsultasi_id', function ($query) use ($psikologId) {
+            $query->select('id')
+                ->from('konsultasis')
+                ->where('psikolog_id', $psikologId);
+        })->get();
+        $countMeeting = ZoomMeeting::whereIn('konsultasi_id', function ($query) use ($psikologId) {
+            $query->select('id')
+                ->from('konsultasis')
+                ->where('psikolog_id', $psikologId);
+        })->count();
+        $upcomingMeetingsCount = ZoomMeeting::whereIn('konsultasi_id', function ($query) use ($psikologId) {
+            $query->select('id')
+                ->from('konsultasis')
+                ->where('psikolog_id', $psikologId);
+        })
+        ->where('start_time', '>', Carbon::now())
+        ->count();
+        $passedMeetingsCount = ZoomMeeting::whereIn('konsultasi_id', function ($query) use ($psikologId) {
+            $query->select('id')
+                ->from('konsultasis')
+                ->where('psikolog_id', $psikologId);
+        })
+        ->where('start_time', '<', Carbon::now())
+        ->count();
+        // dd($upcomingMeetingsCount);
+        return view('pages.psikolog.meeting.index', compact('allMeeting', 'countMeeting', 'upcomingMeetingsCount', 'passedMeetingsCount'));
     }
 
     /**

@@ -32,7 +32,7 @@
             </div>
           </div>
             <!-- Statistics -->
-            <div class="col-lg-8 mb-4 col-md-12">
+            <div class="col-lg-12 mb-4 col-md-12">
                 <div class="card">
                   <div class="card-header d-flex justify-content-between">
                     <h5 class="card-title mb-0">Statistics Psikolog</h5>
@@ -40,38 +40,36 @@
                   </div>
                   <div class="card-body pt-2">
                     <div class="row gy-3">
-                      <div class="col-md-3 col-6">
+                      <div class="col-md-4 col-6">
                         <div class="d-flex align-items-center">
                           <div class="badge rounded-pill bg-label-primary me-3 p-2">
-                            <i class="ti ti-users ti-sm"></i>
+                            <i class="ti ti-camera ti-sm"></i>
                           </div>
                           <div class="card-info">
-                            <h5 class="mb-0">10</h5>
-                            <small>Total Psikolog</small>
+                            <h5 class="mb-0">{{ $countMeeting }}</h5>
+                            <small>Total Meeting</small>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-3 col-6">
+                      <div class="col-md-4 col-6">
                         <div class="d-flex align-items-center">
                           <div class="badge rounded-pill bg-label-info me-3 p-2">
-                            <i class="ti ti-user-plus ti-sm"></i>
+                            <i class="ti ti-camera-plus ti-sm"></i>
                           </div>
                           <div class="card-info">
-                            <h5 class="mb-0">10</h5>
-                            <small>Admin Baru Bulan Ini</small>
+                            <h5 class="mb-0">{{ $upcomingMeetingsCount }}</h5>
+                            <small>Upcoming Meeting</small>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-3 col-6">
+                      <div class="col-md-4 col-6">
                         <div class="d-flex align-items-center">
                           <div class="badge rounded-pill bg-label-success me-3 p-2">
-                            <i class="ti ti-user-plus ti-sm"></i>
+                            <i class="ti ti-camera-minus ti-sm"></i>
                           </div>
                           <div class="card-info">
-                            <h5 class="mb-0 text-success">10
-
-                            </h5>
-                            <small>Psikolog Baru</small>
+                            <h5 class="mb-0 text-success">{{ $passedMeetingsCount }}</h5>
+                            <small>Passed Meeting</small>
                           </div>
                         </div>
                       </div>
@@ -80,33 +78,6 @@
                 </div>
               </div>
 
-                <!-- Reviews -->
-                <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-                    <div class="card h-100">
-                      <div class="row h-100">
-                        <div class="col-sm-5">
-                          <div class="d-flex align-items-end h-100 justify-content-center mt-sm-0 mt-3">
-                            <img
-                              src="{{ asset('image/add-user.jpg') }}"
-                              class="img-fluid mt-sm-4 mt-md-0"
-                              alt="add-new-roles"
-                              width="100"
-                            />
-                          </div>
-                        </div>
-                        <div class="col-sm-7">
-                          <div class="card-body text-sm-end text-center ps-sm-0">
-                            <a href="{{ route('my-meeting.create') }}"
-                              class="btn btn-primary mb-2 text-nowrap add-new-role d-block"
-                            >
-                              + Mmeeting
-                            </a>
-                            <small class="mb-0 mt-1 d-block">Buat Zoom Meeting</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
               <div class="container-xxl flex-grow-1 container-p-y">
                 <!-- DataTable with Buttons -->
                 <div class="card">
@@ -116,48 +87,36 @@
                           <tr>
                             <th></th>
                             <th></th>
-                            <th>ID</th>
-                            <th>Nama</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Universitas</th>
-                            <th>Status</th>
-                            <th>Foto</th>
+                            <th>Meeting ID</th>
+                            <th>Mahasiswa</th>
+                            <th>Waktu Meeting</th>
+                            <th>Agenda</th>
+                            <th>Link</th>
+                            <th>Password</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {{-- <?php $no=1; ?>
-                          @foreach($allPsikolog as $data) --}}
+                          <?php $no=1; ?>
+                          @foreach($allMeeting as $data)
                           <tr>
                               <td></td>
                               <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>{{ $data->meeting_id }}</td>
+                              <td>{{ $data->konsultasi->nama }}</td>
+                              <td>{{ \Carbon\Carbon::parse($data->start_time)->timezone('Asia/Jakarta')->format('d F Y H:i') }}</td>
+                              <td>{{ $data->agenda }}</td>
+                              <td>{{ $data->link }}</td>
+                              <td>{{ $data->password }}</td>
                               <td>
-                                
-                              </td>
-                              <td>
-                                  
-                              </td>
-                              <td>
-                                  <div class="d-inline-block">
-                                      <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="text-primary ti ti-dots-vertical"></i></a>
-                                      <div class="dropdown-menu dropdown-menu-end m-0">'
-                                      <button data-bs-toggle="modal"
-                                      data-bs-target="#viewUser"
-                                      class="dropdown-item"><i class="ti ti-eye me-1"></i>View
-                                  </button>
-                                      <button
-                                      data-bs-toggle="modal"
-                                      data-bs-target="#addNewAddress"
-                                      class="dropdown-item"><i class="ti ti-pencil me-1"></i>Edit</button>
-                                      </div>
-                                      </div>
+                                  <button
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#addNewAddress"
+                                  class="dropdown-item text-danger"><i class="ti ti-trash-x me-1 mb-1"></i>Delete</button>
+                                  </div>
                               </td>
                           </tr>
-                          {{-- @endforeach --}}
+                          @endforeach
                       </tbody>
                       </table>
                     </div>
