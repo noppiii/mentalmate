@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\KonsultasiModel;
 use App\Models\ZoomMeeting;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Jubaer\Zoom\Facades\Zoom;
 
 class PsikologMeetingController extends Controller
@@ -100,16 +102,16 @@ class PsikologMeetingController extends Controller
                 'duration' => $zoomMeeting['duration'],
                 'timezone' => $zoomMeeting['timezone'],
                 'password' => $zoomMeeting['password'],
-                'start_time' => $startTimeFormatted, // Format yang sesuai untuk MySQL
+                'start_time' => $startTimeFormatted,
                 'template_id' => $zoomMeeting['template_id'] ?? null,
                 'pre_schedule' => $zoomMeeting['pre_schedule'],
                 'schedule_for' => $zoomMeeting['schedule_for'] ?? null,
-                'konsultasi_id' => $konsultasi->id, // Tambahkan konsultasi_id di sini
+                'konsultasi_id' => $konsultasi->id, 
             ];
 
             ZoomMeeting::create($zoomMeetingData);
 
-            return redirect()->back()->with('success', 'Zoom meeting berhasil dibuat dan disimpan.');
+            return redirect()->back()->with('success_message_create', 'Zoom meeting berhasil dibuat dan disimpan.');
         } else {
             return redirect()->back()->with('error', 'Gagal membuat Zoom meeting.');
         }
@@ -144,6 +146,21 @@ class PsikologMeetingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $zoom = ZoomMeeting::findOrFail($id);
+            // dd($zoom->meeting_id);
+            Zoom::deleteMeeting($zoom->meeting_id);
+            $zoom->delete();
+
+            Session::flash('success_message_delete', 'Data zoom berhasil dihapus');
+            return redirect()->route('my-meeting.index');
+        } catch (ModelNotFoundException $e) {
+            // Handle not found exception
+            return redirect()->route('my-meeting.index')->with('error_message_not_found', 'Data zoom tidak ditemukan');
+        } catch (\Exception $e) {
+            // Handle other exceptions
+            $errorMessage = 'Upss terjadi kesalahan. Silahkan ulangi lagi';
+            return redirect()->back()->withErrors([$errorMessage]);
+        }
     }
 }

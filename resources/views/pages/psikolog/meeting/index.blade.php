@@ -111,7 +111,7 @@
                               <td>
                                   <button
                                   data-bs-toggle="modal"
-                                  data-bs-target="#addNewAddress"
+                                  data-bs-target="#onboardHorizontalImageModal{{ $data->meeting_id }}"
                                   class="dropdown-item text-danger"><i class="ti ti-trash-x me-1 mb-1"></i>Delete</button>
                                   </div>
                               </td>
@@ -123,4 +123,56 @@
                   </div>
     </div>
   </div>
+
+  
+  {{-- ====================== DELETE DATA ======================== --}}
+  @foreach ($allMeeting as $data)
+  <div
+  class="modal-onboarding modal fade animate__animated"
+  id="onboardHorizontalImageModal{{ $data->meeting_id }}"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-header border-0">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body onboarding-horizontal p-0 d-block">
+        <div class="onboarding-media">
+          <img
+            src="{{ asset('image/delete.jpg') }}"
+            alt="boy-verify-email-light"
+            width="273"
+            class="img-fluid"
+            data-app-light-img="illustrations/boy-verify-email-light.png"
+            data-app-dark-img="illustrations/boy-verify-email-dark.png"
+          />
+        </div>
+        <div class="onboarding-content mb-0">
+          <h4 class="onboarding-title text-body text-danger">Hapus Meeting ID {{ $data->meeting_id }}</h4>
+          <small class="onboarding-info">
+            Dengan menghapus meeting id {{ $data->meeting_id }}, data ini akan terhapus secara permanen.
+          </small>
+        </div>
+      </div>
+      <form method="POST" action="{{ route('my-meeting.destroy', $data->id) }}">
+        @csrf
+        @method('DELETE')
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" class="btn btn-danger">Hapus</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+@endforeach
 @endsection
