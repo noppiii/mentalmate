@@ -14,8 +14,8 @@ class PsikologProfileController extends Controller
     public function index()
     {
         $psikologId = Auth::guard('psikolog')->user()->id;
-        $psikologProfile = PsikologModel::where('id', $psikologId)->firstOrFail();
-        // dd($psikologProfile->toArray());
+        $psikologProfile = PsikologModel::with(['detailPsikologs.bidangPsikologs', 'detailPsikologs.metodeKonsultasis'])->where('id', $psikologId)->firstOrFail();
+
         return view('pages.psikolog.profile.index', compact('psikologProfile'));
     }
 

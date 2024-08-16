@@ -275,30 +275,32 @@
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">Bidang</label>
-                          <div class="col-sm-10">
-                             <div class="select2-primary">
-                            <select id="select2Primary" class="select2 form-select" multiple>
-                              <option value="1" selected>Option1</option>
-                              <option value="2" selected>Option2</option>
-                              <option value="3">Option3</option>
-                              <option value="4">Option4</option>
-                            </select>
-                          </div>
-                          </div>
+                            <label class="col-sm-2 form-label" for="basic-icon-default-phone">Bidang</label>
+                            <div class="col-sm-10">
+                                <div class="select2-primary">
+                                    <select id="select2Primary" class="select2 form-select" multiple>
+                                        @foreach($psikologProfile->detailPsikologs as $detail)
+                                            @foreach($detail->bidangPsikologs as $bidang)
+                                                <option value="{{ $bidang->id }}" selected>{{ $bidang->name }}</option>
+                                            @endforeach
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">Metode Kondultasi</label>
-                          <div class="col-sm-10">
-                             <div class="select2-success">
-                            <select id="select2Success" class="select2 form-select" multiple>
-                              <option value="1" selected>Option1</option>
-                              <option value="2" selected>Option2</option>
-                              <option value="3">Option3</option>
-                              <option value="4">Option4</option>
-                            </select>
-                          </div>
-                          </div>
+                            <label class="col-sm-2 form-label" for="basic-icon-default-phone">Metode Konsultasi</label>
+                            <div class="col-sm-10">
+                                <div class="select2-success">
+                                    <select id="select2Success" class="select2 form-select" multiple>
+                                        @foreach($psikologProfile->detailPsikologs as $detail)
+                                            @foreach($detail->metodeKonsultasis as $metode)
+                                                <option value="{{ $metode->id }}" selected>{{ $metode->jenis_metode_konsultasi }}</option>
+                                            @endforeach
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
