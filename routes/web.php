@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\ClientAboutUsController;
 use App\Http\Controllers\ClientArtikelController;
 use App\Http\Controllers\ClientKonsultasController;
 use App\Http\Controllers\ClientKonsultasiController;
@@ -10,6 +12,7 @@ use App\Http\Controllers\ClientSearchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaDashboardController;
 use App\Http\Controllers\MahasiswaKonsultasiController;
+use App\Http\Controllers\MahasiswaProfileController;
 use App\Http\Controllers\MasterAdminController;
 use App\Http\Controllers\MasterArticleController;
 use App\Http\Controllers\MasterBidangPsikologController;
@@ -44,6 +47,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [ClientSearchController::class, 'search'])->name('client.search');
 Route::get('/konsultasi', [ClientKonsultasiController::class, 'index'])->name('client.konsultasi');
 Route::get('/artikel', [ClientArtikelController::class, 'index'])->name('client.artikel');
+Route::get('/about-us', [ClientAboutUsController::class, 'index'])->name('client.aboutus');
 Route::get('/artikel/{slug}', [ClientArtikelController::class, 'show'])->name('client.detailArtikel');
 Route::post('/artikel/{slug}/post-comment', [ClientArtikelController::class, 'postComment'])->name('client.postComment');
 Route::get('/list-psikolog', [ClientPsikologController::class, 'index'])->name('client.psikolog');
@@ -58,6 +62,7 @@ Route::get('/get-psikolog-detail/{psikologId}', [ClientKonsultasController::clas
 Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('logout', [AuthUserController::class, 'adminLogout'])->name('admin.logout');
+    Route::get('profile', [AdminProfileController::class, 'index'])->name('admin.profile');
     Route::resource('admin', MasterAdminController::class);
     Route::resource('psikolog', MasterPsikologController::class);
     Route::resource('mahasiswa', MasterMahasiswaController::class);
@@ -73,6 +78,7 @@ Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(f
 Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->group(function () {
     Route::get('dashboard', [PsikologDashboardController::class, 'index'])->name('psikolog.dashboard');
     Route::get('logout', [AuthUserController::class, 'psikologLogout'])->name('psikolog.logout');
+    Route::get('profile', [PsikologProfileController::class, 'index'])->name('psikolog.profile');
     Route::resource('my-artikel', PsikologArticleController::class);
     Route::resource('my-jadwal', PsikologJadwalController::class);
     Route::resource('my-meeting', PsikologMeetingController::class);
@@ -86,6 +92,7 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
 Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {
     Route::get('dashboard', [MahasiswaDashboardController::class, 'index'])->name('mahasiswa.dashboard');
     Route::get('logout', [AuthUserController::class, 'mahasiswaLogout'])->name('mahasiswa.logout');
+    Route::get('profile', [MahasiswaProfileController::class, 'index'])->name('mahasiswa.profile');
     // In routes/web.php
 
     Route::get('konsultasi-ku/{receiverId}/{receiverType}', [MahasiswaKonsultasiController::class, 'index'])->name('mahasiswa.konsultasi.index');

@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PsikologModel;
+use App\Models\MahasiswaModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PsikologProfileController extends Controller
+class MahasiswaProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $psikologId = Auth::guard('psikolog')->user()->id;
-        $psikologProfile = PsikologModel::where('id', $psikologId)->firstOrFail();
-        // dd($psikologProfile->toArray());
-        return view('pages.psikolog.profile.index', compact('psikologProfile'));
+        $mahasiswaId = Auth::guard('mahasiswa')->user()->id;
+        $mahasiswaProfile = MahasiswaModel::where('id', $mahasiswaId)->get();
+        return view('pages.mahasiswa.profile.index', compact('mahasiswaProfile'));
     }
 
     /**

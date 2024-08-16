@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PsikologModel;
+use App\Models\AdminModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PsikologProfileController extends Controller
+class AdminProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $psikologId = Auth::guard('psikolog')->user()->id;
-        $psikologProfile = PsikologModel::where('id', $psikologId)->firstOrFail();
-        // dd($psikologProfile->toArray());
-        return view('pages.psikolog.profile.index', compact('psikologProfile'));
+        $adminId = Auth::guard('admin')->user()->id;
+        $adminProfile = AdminModel::where('id', $adminId)->get();
+        return view('pages.admin.profile.index', compact('adminProfile'));
     }
 
     /**

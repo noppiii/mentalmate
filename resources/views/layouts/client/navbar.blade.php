@@ -28,17 +28,20 @@
 											</svg>
 										</span>
 										<ul class="navigation clearfix">
-											<li class="active">
-												<a href="index.html">Home</a>
+											<li class="{{ request()->is('') ? 'active' : '' }}">
+											    <a href="{{ route('home') }}">Home</a>
 											</li>
-											<li>
-												<a href="{{ route('client.konsultasi') }}">Konsultasi</a>
+											<li class="{{ request()->is('konsultasi*') ? 'active' : '' }}">
+											    <a href="{{ route('client.konsultasi') }}">Konsultasi</a>
 											</li>
-											<li>
-												<a href="{{ route('client.psikolog') }}">Psikolog</a>
+											<li class="{{ request()->is('psikolog*') ? 'active' : '' }}">
+											    <a href="{{ route('client.psikolog') }}">Psikolog</a>
 											</li>
-											<li>
-												<a href="{{ route('client.artikel') }}">Artikel</a>
+											<li class="{{ request()->is('artikel*') ? 'active' : '' }}">
+											    <a href="{{ route('client.artikel') }}">Artikel</a>
+											</li>
+											<li class="{{ request()->is('about-us*') ? 'active' : '' }}">
+											    <a href="{{ route('client.aboutus') }}">About Us</a>
 											</li>
 											 @if ($user)
 											 <li class="dropdown d-none" id="userDropdown">

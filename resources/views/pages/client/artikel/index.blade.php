@@ -10,21 +10,25 @@
 	<div class="pbmit-title-bar-wrapper" style="background-image: url({{ asset('client/images/titlebar-bg-img.jpg') }})">
 		<div class="container">
 			<div class="pbmit-title-bar-content">
-				<div class="pbmit-title-bar-content-inner">
-					<div class="pbmit-tbar">
-						<div class="pbmit-tbar-inner container">
-							<h1 class="pbmit-tbar-title"> Blog</h1>
+					<div class="pbmit-title-bar-content-inner">
+						<div class="pbmit-tbar">
+							<div class="pbmit-tbar-inner container">
+								<h1 class="pbmit-tbar-title"> Artikel</h1>
+							</div>
+						</div>
+						<div class="pbmit-breadcrumb">
+							<div class="pbmit-breadcrumb-inner">
+								<span>
+									<a title="" href="#" class="home"><span>Xcare</span></a>
+								</span>
+								<span class="sep">
+									<i class="pbmit-base-icon-angle-double-right"></i>
+								</span>
+								<span><span class="post-root post post-post current-item"> Artikel</span></span>
+							</div>
 						</div>
 					</div>
-					<div class="pbmit-breadcrumb">
-						<div class="pbmit-breadcrumb-inner">
-							<span>
-								<a title="" href="#" class="home"><span>Xcare</span></a>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div> 
+				</div>   
 		</div> 
 	</div>
 	<!-- Title Bar End-->
