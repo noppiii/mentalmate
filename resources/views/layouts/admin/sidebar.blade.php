@@ -367,7 +367,13 @@
           <li class="menu-item {{ request()->is('mahasiswa/tes-kesehatan-mental*') ? 'active' : '' }}">
             <a href="{{ route('mahasiswa.test-kesehatan-mental') }}" class="menu-link">
               <i class="menu-icon tf-icons ti ti-subtask"></i>
-              <div data-i18n="Dashboard">Tes Mental</div>
+              <div data-i18n="Tes Mental">Tes Mental</div>
+            </a>
+          </li>
+          <li class="menu-item {{ request()->is('mahasiswa/meeting*') ? 'active' : '' }}">
+            <a href="{{ route('mahasiswa.listMeeting') }}" class="menu-link">
+              <i class="menu-icon tf-icons ti ti-camera"></i>
+              <div data-i18n="Meeting">Meeting</div>
             </a>
           </li>
         </ul>
