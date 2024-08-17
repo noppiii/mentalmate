@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\PsikologModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class PsikologProfileController extends Controller
 {
@@ -70,6 +72,7 @@ class PsikologProfileController extends Controller
             'deskripsi' => 'nullable|string',
             'bidang' => 'nullable|array',
             'metode_konsultasi' => 'nullable|array',
+            'profile_photo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
         ]);
 
         try {
@@ -92,6 +95,28 @@ class PsikologProfileController extends Controller
                 $psikologProfile->update(['password' => bcrypt($validated['password'])]);
             }
 
+            if ($request->hasFile('profile_photo_path')) {
+                $img_tmp = $request->file('profile_photo_path');
+                if ($img_tmp->isValid()) {
+                    // Get image extension
+                    $extension = $img_tmp->getClientOriginalExtension();
+                    // Generate new image name
+                    $imageName = rand(111, 99999) . '.' . $extension;
+                    $imagePath = 'store/user/photo/psikolog/' . $imageName;
+                    // Upload image
+                    Image::make($img_tmp)->save(public_path($imagePath));
+
+                    // Delete old image if it exists
+                    if ($psikologProfile->profile_photo_path && File::exists(public_path('store/user/photo/psikolog/' . $psikologProfile->profile_photo_path))) {
+                        File::delete(public_path('store/user/photo/psikolog/' . $psikologProfile->profile_photo_path));
+                    }
+
+                    // Save the new image name to the database
+                    $psikologProfile->profile_photo_path = $imageName;
+                    $psikologProfile->save();
+                }
+            }
+
             if ($request->has('bidang')) {
                 $psikologProfile->detailPsikologs()->first()->bidangPsikologs()->sync($validated['bidang']);
             }
@@ -100,7 +125,7 @@ class PsikologProfileController extends Controller
                 $psikologProfile->detailPsikologs()->first()->metodeKonsultasis()->sync($validated['metode_konsultasi']);
             }
 
-            return redirect()->back()->with('success_message_update', 'Profile berhasil diperbaruhi.');
+            return redirect()->back()->with('success_message_update', 'Profile berhasil diperbarui.');
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->withErrors([$e->getMessage()]);
         }

@@ -23,8 +23,9 @@
                     <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4">
                       <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
                         <img
-                          src="{{ asset('admin/assets/img/avatars/14.png') }}"
+                          src="{{ asset('store/user/photo/psikolog/' . $psikologProfile->profile_photo_path) }}"
                           alt="user image"
+                          style="object-fit: contain; width: 100px; height: 100px;"
                           class="d-block h-auto ms-0 ms-sm-4 rounded user-profile-img"
                         />
                       </div>
@@ -33,18 +34,29 @@
                           class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4"
                         >
                           <div class="user-profile-info">
-                            <h4>John Doe</h4>
+                            <h4>{{ $psikologProfile->nama }}</h4>
                             <ul
                               class="list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2"
                             >
-                              <li class="list-inline-item"><i class="ti ti-color-swatch"></i> UX Designer</li>
-                              <li class="list-inline-item"><i class="ti ti-map-pin"></i> Vatican City</li>
-                              <li class="list-inline-item"><i class="ti ti-calendar"></i> Joined April 2021</li>
+                              <li class="list-inline-item"><i class="ti ti-building"></i> {{ $psikologProfile->asal_universitas }}</li>
+                              <li class="list-inline-item">
+                                <i class="ti ti-category"></i> 
+                                @foreach($psikologProfile->detailPsikologs->first()->bidangPsikologs as $bidang)
+                                    {{ $bidang->name }}{{ !$loop->last ? ',' : '' }}
+                                @endforeach
+                            </li>
+
+                            <li class="list-inline-item">
+                                <i class="ti ti-category-2"></i> 
+                                @foreach($psikologProfile->detailPsikologs->first()->metodeKonsultasis as $metode)
+                                    {{ $metode->jenis_metode_konsultasi }}{{ !$loop->last ? ',' : '' }}
+                                @endforeach
+                            </li>
                             </ul>
                           </div>
-                          <a href="javascript:void(0)" class="btn btn-primary">
+                          {{-- <a href="javascript:void(0)" class="btn btn-primary">
                             <i class="ti ti-edit me-1"></i>Update
-                          </a>
+                          </a> --}}
                         </div>
                       </div>
                     </div>
@@ -79,7 +91,7 @@
                     <div class="card-header d-flex align-items-center justify-content-between">
                     </div>
                     <div class="card-body">
-                     <form action="{{ route('psikolog.updateProfile', $psikologProfile->id) }}" method="POST">
+                     <form action="{{ route('psikolog.updateProfile', $psikologProfile->id) }}" method="POST" enctype="multipart/form-data">
                       @csrf
                       @method('PUT')
 
@@ -90,6 +102,17 @@
                             <span id="basic-icon-default-fullname2" class="input-group-text"><i class="ti ti-user"></i></span>
                             <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="Masukan nama" aria-label="Masukan nama" aria-describedby="basic-icon-default-fullname2" value="{{ $psikologProfile->nama }}" name="nama" />
                           </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Foto</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="ti ti-photo"></i></span>
+                            <input type="file" class="form-control" id="basic-icon-default-fullname" placeholder="Masukan nama" aria-label="Masukan nama" aria-describedby="basic-icon-default-fullname2" name="profile_photo_path" />
+                          </div>
+                          <div class="form-text">Upload gambar jika ingin mengganti foto</div>
                         </div>
                       </div>
 

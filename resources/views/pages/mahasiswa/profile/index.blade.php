@@ -11,19 +11,21 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">User Profile /</span> Profile</h4>
 
               <!-- Header -->
               <div class="row">
                 <div class="col-12">
                   <div class="card mb-4">
                     <div class="user-profile-header-banner">
-                      <img src="../../assets/img/pages/profile-banner.png" alt="Banner image" class="rounded-top" />
+                      {{-- <img src="{{ asset('admin/assets/img/pages/profile-banner.png') }}" alt="Banner image" class="rounded-top" /> --}}
                     </div>
                     <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4">
                       <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
                         <img
-                          src="../../assets/img/avatars/14.png"
+                          src="{{ asset('store/user/photo/mahasiswa/' . $mahasiswaProfile->profile_photo_path) }}"
                           alt="user image"
+                          style="object-fit: contain; width: 100px; height: 100px;"
                           class="d-block h-auto ms-0 ms-sm-4 rounded user-profile-img"
                         />
                       </div>
@@ -32,18 +34,25 @@
                           class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4"
                         >
                           <div class="user-profile-info">
-                            <h4>John Doe</h4>
+                            <h4>{{ $mahasiswaProfile->nama }}</h4>
                             <ul
                               class="list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2"
                             >
-                              <li class="list-inline-item"><i class="ti ti-color-swatch"></i> UX Designer</li>
-                              <li class="list-inline-item"><i class="ti ti-map-pin"></i> Vatican City</li>
-                              <li class="list-inline-item"><i class="ti ti-calendar"></i> Joined April 2021</li>
+                              <li class="list-inline-item"><i class="ti ti-number"></i> {{ $mahasiswaProfile->nomor_induk_mahasiswa }}</li>
+                              <li class="list-inline-item">
+                                <i class="ti ti-building"></i> 
+                                {{ $mahasiswaProfile->nama_universitas }}
+                            </li>
+
+                            <li class="list-inline-item">
+                                <i class="ti ti-building-community"></i> 
+                               {{ $mahasiswaProfile->program_studi }}
+                            </li>
                             </ul>
                           </div>
-                          <a href="javascript:void(0)" class="btn btn-primary">
-                            <i class="ti ti-user-check me-1"></i>Connected
-                          </a>
+                          {{-- <a href="javascript:void(0)" class="btn btn-primary">
+                            <i class="ti ti-edit me-1"></i>Update
+                          </a> --}}
                         </div>
                       </div>
                     </div>
@@ -63,17 +72,7 @@
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="pages-profile-teams.html"
-                        ><i class="ti-xs ti ti-users me-1"></i> Teams</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="pages-profile-projects.html"
-                        ><i class="ti-xs ti ti-layout-grid me-1"></i> Projects</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="pages-profile-connections.html"
-                        ><i class="ti-xs ti ti-link me-1"></i> Connections</a
+                        ><i class="ti-xs ti ti-file me-1"></i> Berkas</a
                       >
                     </li>
                   </ul>
@@ -82,461 +81,160 @@
               <!--/ Navbar pills -->
 
               <!-- User Profile Content -->
-              <div class="row">
-                <div class="col-xl-4 col-lg-5 col-md-5">
-                  <!-- About User -->
+                <!-- Basic with Icons -->
+                <div class="col-xxl">
                   <div class="card mb-4">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                    </div>
                     <div class="card-body">
-                      <small class="card-text text-uppercase">About</small>
-                      <ul class="list-unstyled mb-4 mt-3">
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-user"></i><span class="fw-bold mx-2">Full Name:</span> <span>John Doe</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-check"></i><span class="fw-bold mx-2">Status:</span> <span>Active</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-crown"></i><span class="fw-bold mx-2">Role:</span> <span>Developer</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-flag"></i><span class="fw-bold mx-2">Country:</span> <span>USA</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-file-description"></i><span class="fw-bold mx-2">Languages:</span>
-                          <span>English</span>
-                        </li>
-                      </ul>
-                      <small class="card-text text-uppercase">Contacts</small>
-                      <ul class="list-unstyled mb-4 mt-3">
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-phone-call"></i><span class="fw-bold mx-2">Contact:</span>
-                          <span>(123) 456-7890</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-brand-skype"></i><span class="fw-bold mx-2">Skype:</span>
-                          <span>john.doe</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-mail"></i><span class="fw-bold mx-2">Email:</span>
-                          <span>john.doe@example.com</span>
-                        </li>
-                      </ul>
-                      <small class="card-text text-uppercase">Teams</small>
-                      <ul class="list-unstyled mb-0 mt-3">
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-brand-angular text-danger me-2"></i>
-                          <div class="d-flex flex-wrap">
-                            <span class="fw-bold me-2">Backend Developer</span><span>(126 Members)</span>
-                          </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                          <i class="ti ti-brand-react-native text-info me-2"></i>
-                          <div class="d-flex flex-wrap">
-                            <span class="fw-bold me-2">React Developer</span><span>(98 Members)</span>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!--/ About User -->
-                  <!-- Profile Overview -->
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <p class="card-text text-uppercase">Overview</p>
-                      <ul class="list-unstyled mb-0">
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-check"></i><span class="fw-bold mx-2">Task Compiled:</span> <span>13.5k</span>
-                        </li>
-                        <li class="d-flex align-items-center mb-3">
-                          <i class="ti ti-layout-grid"></i><span class="fw-bold mx-2">Projects Compiled:</span>
-                          <span>146</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                          <i class="ti ti-users"></i><span class="fw-bold mx-2">Connections:</span> <span>897</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!--/ Profile Overview -->
-                </div>
-                <div class="col-xl-8 col-lg-7 col-md-7">
-                  <!-- Activity Timeline -->
-                  <div class="card card-action mb-4">
-                    <div class="card-header align-items-center">
-                      <h5 class="card-action-title mb-0">Activity Timeline</h5>
-                      <div class="card-action-element">
-                        <div class="dropdown">
-                          <button
-                            type="button"
-                            class="btn dropdown-toggle hide-arrow p-0"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            <i class="ti ti-dots-vertical text-muted"></i>
-                          </button>
-                          <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="javascript:void(0);">Share timeline</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
-                            <li>
-                              <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-body pb-0">
-                      <ul class="timeline ms-1 mb-0">
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-primary"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Client Meeting</h6>
-                              <small class="text-muted">Today</small>
-                            </div>
-                            <p class="mb-2">Project meeting with john @10:15am</p>
-                            <div class="d-flex flex-wrap">
-                              <div class="avatar me-2">
-                                <img src="../../assets/img/avatars/3.png" alt="Avatar" class="rounded-circle" />
-                              </div>
-                              <div class="ms-1">
-                                <h6 class="mb-0">Lester McCarthy (Client)</h6>
-                                <span>CEO of Infibeam</span>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-success"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Create a new project for client</h6>
-                              <small class="text-muted">2 Day Ago</small>
-                            </div>
-                            <p class="mb-0">Add files to new design folder</p>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-danger"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Shared 2 New Project Files</h6>
-                              <small class="text-muted">6 Day Ago</small>
-                            </div>
-                            <p class="mb-2">
-                              Sent by Mollie Dixon
-                              <img
-                                src="../../assets/img/avatars/4.png"
-                                class="rounded-circle me-3"
-                                alt="avatar"
-                                height="24"
-                                width="24"
-                              />
-                            </p>
-                            <div class="d-flex flex-wrap gap-2 pt-1">
-                              <a href="javascript:void(0)" class="me-3">
-                                <img
-                                  src="../../assets/img/icons/misc/doc.png"
-                                  alt="Document image"
-                                  width="15"
-                                  class="me-2"
-                                />
-                                <span class="fw-semibold text-heading">App Guidelines</span>
-                              </a>
-                              <a href="javascript:void(0)">
-                                <img
-                                  src="../../assets/img/icons/misc/xls.png"
-                                  alt="Excel image"
-                                  width="15"
-                                  class="me-2"
-                                />
-                                <span class="fw-semibold text-heading">Testing Results</span>
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent border-0">
-                          <span class="timeline-point timeline-point-info"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">Project status updated</h6>
-                              <small class="text-muted">10 Day Ago</small>
-                            </div>
-                            <p class="mb-0">Woocommerce iOS App Completed</p>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!--/ Activity Timeline -->
-                  <div class="row">
-                    <!-- Connections -->
-                    <div class="col-lg-12 col-xl-6">
-                      <div class="card card-action mb-4">
-                        <div class="card-header align-items-center">
-                          <h5 class="card-action-title mb-0">Connections</h5>
-                          <div class="card-action-element">
-                            <div class="dropdown">
-                              <button
-                                type="button"
-                                class="btn dropdown-toggle hide-arrow p-0"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                              >
-                                <i class="ti ti-dots-vertical text-muted"></i>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="javascript:void(0);">Share connections</a></li>
-                                <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
-                                <li>
-                                  <hr class="dropdown-divider" />
-                                </li>
-                                <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="card-body">
-                          <ul class="list-unstyled mb-0">
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img src="../../assets/img/avatars/2.png" alt="Avatar" class="rounded-circle" />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">Cecilia Payne</h6>
-                                    <small class="text-muted">45 Connections</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <button class="btn btn-label-primary btn-icon btn-sm">
-                                    <i class="ti ti-user-check ti-xs"></i>
-                                  </button>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img src="../../assets/img/avatars/3.png" alt="Avatar" class="rounded-circle" />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">Curtis Fletcher</h6>
-                                    <small class="text-muted">1.32k Connections</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <button class="btn btn-primary btn-icon btn-sm">
-                                    <i class="ti ti-user-x ti-xs"></i>
-                                  </button>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img src="../../assets/img/avatars/10.png" alt="Avatar" class="rounded-circle" />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">Alice Stone</h6>
-                                    <small class="text-muted">125 Connections</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <button class="btn btn-primary btn-icon btn-sm">
-                                    <i class="ti ti-user-x ti-xs"></i>
-                                  </button>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">Darrell Barnes</h6>
-                                    <small class="text-muted">456 Connections</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <button class="btn btn-label-primary btn-icon btn-sm">
-                                    <i class="ti ti-user-check ti-xs"></i>
-                                  </button>
-                                </div>
-                              </div>
-                            </li>
+                     <form action="{{ route('mahasiswa.updateProfile', $mahasiswaProfile->id) }}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      @method('PUT')
 
-                            <li class="mb-3">
-                              <div class="d-flex align-items-start">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img src="../../assets/img/avatars/12.png" alt="Avatar" class="rounded-circle" />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">Eugenia Moore</h6>
-                                    <small class="text-muted">1.2k Connections</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <button class="btn btn-label-primary btn-icon btn-sm">
-                                    <i class="ti ti-user-check ti-xs"></i>
-                                  </button>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="text-center">
-                              <a href="javascript:;">View all connections</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <!--/ Connections -->
-                    <!-- Teams -->
-                    <div class="col-lg-12 col-xl-6">
-                      <div class="card card-action mb-4">
-                        <div class="card-header align-items-center">
-                          <h5 class="card-action-title mb-0">Teams</h5>
-                          <div class="card-action-element">
-                            <div class="dropdown">
-                              <button
-                                type="button"
-                                class="btn dropdown-toggle hide-arrow p-0"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                              >
-                                <i class="ti ti-dots-vertical text-muted"></i>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="javascript:void(0);">Share teams</a></li>
-                                <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
-                                <li>
-                                  <hr class="dropdown-divider" />
-                                </li>
-                                <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
-                              </ul>
-                            </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Nama</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="ti ti-user"></i></span>
+                            <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="Masukan nama" aria-label="Masukan nama" aria-describedby="basic-icon-default-fullname2" value="{{ $mahasiswaProfile->nama }}" name="nama" />
                           </div>
                         </div>
-                        <div class="card-body">
-                          <ul class="list-unstyled mb-0">
-                            <li class="mb-3">
-                              <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img
-                                      src="../../assets/img/icons/brands/react-label.png"
-                                      alt="Avatar"
-                                      class="rounded-circle"
-                                    />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">React Developers</h6>
-                                    <small class="text-muted">72 Members</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <a href="javascript:;"><span class="badge bg-label-danger">Developer</span></a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img
-                                      src="../../assets/img/icons/brands/support-label.png"
-                                      alt="Avatar"
-                                      class="rounded-circle"
-                                    />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">Support Team</h6>
-                                    <small class="text-muted">122 Members</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <a href="javascript:;"><span class="badge bg-label-primary">Support</span></a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img
-                                      src="../../assets/img/icons/brands/figma-label.png"
-                                      alt="Avatar"
-                                      class="rounded-circle"
-                                    />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">UI Designers</h6>
-                                    <small class="text-muted">7 Members</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <a href="javascript:;"><span class="badge bg-label-info">Designer</span></a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img
-                                      src="../../assets/img/icons/brands/vue-label.png"
-                                      alt="Avatar"
-                                      class="rounded-circle"
-                                    />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">Vue.js Developers</h6>
-                                    <small class="text-muted">289 Members</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <a href="javascript:;"><span class="badge bg-label-danger">Developer</span></a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="mb-3">
-                              <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-start">
-                                  <div class="avatar me-2">
-                                    <img
-                                      src="../../assets/img/icons/brands/twitter-label.png"
-                                      alt="Avatar"
-                                      class="rounded-circle"
-                                    />
-                                  </div>
-                                  <div class="me-2 ms-1">
-                                    <h6 class="mb-0">Digital Marketing</h6>
-                                    <small class="text-muted">24 Members</small>
-                                  </div>
-                                </div>
-                                <div class="ms-auto">
-                                  <a href="javascript:;"><span class="badge bg-label-secondary">Marketing</span></a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="text-center">
-                              <a href="javascript:;">View all teams</a>
-                            </li>
-                          </ul>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">NIM</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="ti ti-number"></i></span>
+                            <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="Masukan nama" aria-label="Masukan nama" aria-describedby="basic-icon-default-fullname2" value="{{ $mahasiswaProfile->nomor_induk_mahasiswa }}" name="nomor_induk_mahasiswa" />
+                          </div>
                         </div>
                       </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Foto</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="ti ti-photo"></i></span>
+                            <input type="file" class="form-control" id="basic-icon-default-fullname" placeholder="Masukan nama" aria-label="Masukan nama" aria-describedby="basic-icon-default-fullname2" name="profile_photo_path" />
+                          </div>
+                          <div class="form-text">Upload gambar jika ingin mengganti foto</div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Email</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i class="ti ti-mail"></i></span>
+                            <input type="email" id="basic-icon-default-email" class="form-control" placeholder="Masukan Email" aria-label="Masukan Email" aria-describedby="basic-icon-default-email2" value="{{ $mahasiswaProfile->email }}" name="email" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-password">Password</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i class="ti ti-key"></i></span>
+                            <input type="password" id="basic-icon-default-password" class="form-control" placeholder="******" aria-label="******" aria-describedby="basic-icon-default-password2" name="password" />
+                          </div>
+                          <div class="form-text">Tulis ulang jika ingin mengganti password</div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-gender">Jenis Kelamin</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <select class="selectpicker w-100 show-tick" id="selectpickerIcons" data-icon-base="ti" data-tick-icon="ti-check" data-style="btn-default" name="jenis_kelamin">
+                              <option data-icon="ti ti-gender-male" value="Laki-Laki" {{ $mahasiswaProfile->jenis_kelamin == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                              <option data-icon="ti ti-gender-female" value="Perempuan" {{ $mahasiswaProfile->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="flatpickr-date">Tanggal Lahir</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i class="ti ti-calendar"></i></span>
+                            <input type="text" name="tanggal_lahir" value="{{ $mahasiswaProfile->tanggal_lahir }}" class="form-control" placeholder="YYYY-MM-DD" id="flatpickr-date" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-tempat_lahir">Tempat Lahir</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-tempat_lahir2" class="input-group-text"><i class="ti ti-map-pin"></i></span>
+                            <input type="text" id="basic-icon-default-tempat_lahir" class="form-control" placeholder="Masukan tempat lahir" aria-label="Masukan tempat lahir" aria-describedby="basic-icon-default-tempat_lahir2" value="{{ $mahasiswaProfile->tempat_lahir }}" name="tempat_lahir" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-universitas">Universitas</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-universitas2" class="input-group-text"><i class="ti ti-building-arch"></i></span>
+                            <input type="text" id="basic-icon-default-universitas" class="form-control" placeholder="Masukan universitas" aria-label="Masukan universitas" aria-describedby="basic-icon-default-universitas2" value="{{ $mahasiswaProfile->nama_universitas }}" name="nama_universitas" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-prodi">Fakultas</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-prodi2" class="input-group-text"><i class="ti ti-building"></i></span>
+                            <input type="text" id="basic-icon-default-prodi" class="form-control" placeholder="Masukan Fakultas" aria-label="Masukan fakultas" aria-describedby="basic-icon-default-prodi2" value="{{ $mahasiswaProfile->fakultas }}" name="fakultas" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-prodi">Program Studi</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-prodi2" class="input-group-text"><i class="ti ti-building"></i></span>
+                            <input type="text" id="basic-icon-default-prodi" class="form-control" placeholder="Masukan program studi" aria-label="Masukan program studi" aria-describedby="basic-icon-default-prodi2" value="{{ $mahasiswaProfile->program_studi }}" name="program_studi" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-tahun_masuk">Tahun Masuk</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-tahun_masuk2" class="input-group-text"><i class="ti ti-calendar-stats"></i></span>
+                            <input type="text" id="basic-icon-default-tahun_masuk" class="form-control" placeholder="Masukan tahun masuk" aria-label="Masukan tahun masuk" aria-describedby="basic-icon-default-tahun_masuk2" value="{{ $mahasiswaProfile->tahun_masuk }}" name="tahun_masuk" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-semester">Semester</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-semester2" class="input-group-text"><i class="ti ti-calendar-event"></i></span>
+                            <input type="text" id="basic-icon-default-semester" class="form-control" placeholder="Masukan tahun masuk" aria-label="Masukan tahun masuk" aria-describedby="basic-icon-default-semester2" value="{{ $mahasiswaProfile->semester }}" name="semester" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-primary">Update Profile</button>
+                        </div>
+                      </div>
+                    </form>
                     </div>
-                    <!--/ Teams -->
                   </div>
                 </div>
               </div>
               <!--/ User Profile Content -->
             </div>
             <!-- / Content -->
-  @endsection
+ @endsection

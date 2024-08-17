@@ -94,6 +94,7 @@ Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])-
     Route::get('dashboard', [MahasiswaDashboardController::class, 'index'])->name('mahasiswa.dashboard');
     Route::get('logout', [AuthUserController::class, 'mahasiswaLogout'])->name('mahasiswa.logout');
     Route::get('profile', [MahasiswaProfileController::class, 'index'])->name('mahasiswa.profile');
+    Route::put('profile/{id}/update', [MahasiswaProfileController::class, 'update'])->name('mahasiswa.updateProfile');
     // In routes/web.php
 
     Route::get('konsultasi-ku/{receiverId}/{receiverType}', [MahasiswaKonsultasiController::class, 'index'])->name('mahasiswa.konsultasi.index');
