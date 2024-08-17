@@ -79,6 +79,7 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
     Route::get('dashboard', [PsikologDashboardController::class, 'index'])->name('psikolog.dashboard');
     Route::get('logout', [AuthUserController::class, 'psikologLogout'])->name('psikolog.logout');
     Route::get('profile', [PsikologProfileController::class, 'index'])->name('psikolog.profile');
+    Route::put('profile/{id}/update', [PsikologProfileController::class, 'update'])->name('psikolog.updateProfile');
     Route::resource('my-artikel', PsikologArticleController::class);
     Route::resource('my-jadwal', PsikologJadwalController::class);
     Route::resource('my-meeting', PsikologMeetingController::class);

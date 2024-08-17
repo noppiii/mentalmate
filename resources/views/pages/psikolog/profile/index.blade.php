@@ -79,220 +79,142 @@
                     <div class="card-header d-flex align-items-center justify-content-between">
                     </div>
                     <div class="card-body">
-                      <form>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Nama</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-fullname2" class="input-group-text"
-                                ><i class="ti ti-user"></i
-                              ></span>
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="basic-icon-default-fullname"
-                                placeholder="Masukan nama"
-                                aria-label="Masukan nama"
-                                aria-describedby="basic-icon-default-fullname2"
-                                value="{{ $psikologProfile->nama }}"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Email</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span class="input-group-text"><i class="ti ti-mail"></i></span>
-                              <input
-                                type="text"
-                                id="basic-icon-default-email"
-                                class="form-control"
-                                placeholder="Masukan Email"
-                                aria-label="Masukan Email"
-                                aria-describedby="basic-icon-default-email2"
-                                value="{{ $psikologProfile->email }}"
-                              />
-                              {{-- <span id="basic-icon-default-email2" class="input-group-text">@example.com</span> --}}
-                            </div>
-                            {{-- <div class="form-text">You can use letters, numbers & periods</div> --}}
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Password</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span class="input-group-text"><i class="ti ti-key"></i></span>
-                              <input
-                                type="password"
-                                id="basic-icon-default-email"
-                                class="form-control"
-                                placeholder="******"
-                                aria-label="******"
-                                aria-describedby="basic-icon-default-email2"
-                              />
-                              {{-- <span id="basic-icon-default-email2" class="input-group-text">@example.com</span> --}}
-                            </div>
-                            <div class="form-text">Tulis ulang jika ingin mengganti password</div>
-                          </div>
-                        </div>
+                     <form action="{{ route('psikolog.updateProfile', $psikologProfile->id) }}" method="POST">
+                      @csrf
+                      @method('PUT')
+
                       <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Jenis Kelamin</label>
-                          <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                  <select
-                                      class="selectpicker w-100 show-tick"
-                                      id="selectpickerIcons"
-                                      data-icon-base="ti"
-                                      data-tick-icon="ti-check"
-                                      data-style="btn-default"
-                                  >
-                                      <option data-icon="ti ti-gender-male" value="Laki-Laki" {{ $psikologProfile->jenis_kelamin == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
-                                      <option data-icon="ti ti-gender-female" value="Perempuan" {{ $psikologProfile->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-                                  </select>
-                              </div>
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Nama</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="ti ti-user"></i></span>
+                            <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="Masukan nama" aria-label="Masukan nama" aria-describedby="basic-icon-default-fullname2" value="{{ $psikologProfile->nama }}" name="nama" />
                           </div>
+                        </div>
                       </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Tanggal Lahir</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span class="input-group-text"><i class="ti ti-calendar"></i></span>
-                              <input type="text" value="{{ $psikologProfile->tanggal_lahir }}" class="form-control" placeholder="YYYY-MM-DD" id="flatpickr-date" />
-                            </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Email</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i class="ti ti-mail"></i></span>
+                            <input type="email" id="basic-icon-default-email" class="form-control" placeholder="Masukan Email" aria-label="Masukan Email" aria-describedby="basic-icon-default-email2" value="{{ $psikologProfile->email }}" name="email" />
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">Tempat Lahir</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
-                                ><i class="ti ti-map-pin"></i
-                              ></span>
-                              <input
-                                type="text"
-                                id="basic-icon-default-phone"
-                                class="form-control phone-mask"
-                                placeholder="Masukan tempat lahir"
-                                aria-label="Masukan tempat lahir"
-                                aria-describedby="basic-icon-default-phone2"
-                                value="{{ $psikologProfile->tempat_lahir }}"
-                              />
-                            </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-password">Password</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i class="ti ti-key"></i></span>
+                            <input type="password" id="basic-icon-default-password" class="form-control" placeholder="******" aria-label="******" aria-describedby="basic-icon-default-password2" name="password" />
+                          </div>
+                          <div class="form-text">Tulis ulang jika ingin mengganti password</div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-gender">Jenis Kelamin</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <select class="selectpicker w-100 show-tick" id="selectpickerIcons" data-icon-base="ti" data-tick-icon="ti-check" data-style="btn-default" name="jenis_kelamin">
+                              <option data-icon="ti ti-gender-male" value="Laki-Laki" {{ $psikologProfile->jenis_kelamin == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                              <option data-icon="ti ti-gender-female" value="Perempuan" {{ $psikologProfile->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                            </select>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">Universitas</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
-                                ><i class="ti ti-building-arch"></i
-                              ></span>
-                              <input
-                                type="text"
-                                id="basic-icon-default-phone"
-                                class="form-control phone-mask"
-                                placeholder="Masukan universitas"
-                                aria-label="Masukan universitas"
-                                aria-describedby="basic-icon-default-phone2"
-                                value="{{ $psikologProfile->asal_universitas }}"
-                              />
-                            </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="flatpickr-date">Tanggal Lahir</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i class="ti ti-calendar"></i></span>
+                            <input type="text" name="tanggal_lahir" value="{{ $psikologProfile->tanggal_lahir }}" class="form-control" placeholder="YYYY-MM-DD" id="flatpickr-date" />
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">Program Studi</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
-                                ><i class="ti ti-building"></i
-                              ></span>
-                              <input
-                                type="text"
-                                id="basic-icon-default-phone"
-                                class="form-control phone-mask"
-                                placeholder="Masukan program studi"
-                                aria-label="Masukan program studi"
-                                aria-describedby="basic-icon-default-phone2"
-                                value="{{ $psikologProfile->program_studi }}"
-                              />
-                            </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-tempat_lahir">Tempat Lahir</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-tempat_lahir2" class="input-group-text"><i class="ti ti-map-pin"></i></span>
+                            <input type="text" id="basic-icon-default-tempat_lahir" class="form-control" placeholder="Masukan tempat lahir" aria-label="Masukan tempat lahir" aria-describedby="basic-icon-default-tempat_lahir2" value="{{ $psikologProfile->tempat_lahir }}" name="tempat_lahir" />
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">Tahun Lulus</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
-                                ><i class="ti ti-calendar-stats"></i
-                              ></span>
-                              <input
-                                type="text"
-                                id="basic-icon-default-phone"
-                                class="form-control phone-mask"
-                                placeholder="Masukan tahun lulus"
-                                aria-label="Masukan tahun lulus"
-                                aria-describedby="basic-icon-default-phone2"
-                                value="{{ $psikologProfile->tahun_lulus }}"
-                              />
-                            </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-universitas">Universitas</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-universitas2" class="input-group-text"><i class="ti ti-building-arch"></i></span>
+                            <input type="text" id="basic-icon-default-universitas" class="form-control" placeholder="Masukan universitas" aria-label="Masukan universitas" aria-describedby="basic-icon-default-universitas2" value="{{ $psikologProfile->asal_universitas }}" name="asal_universitas" />
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">Tempat Praktik</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
-                                ><i class="ti ti-building-community"></i
-                              ></span>
-                              <input
-                                type="text"
-                                id="basic-icon-default-phone"
-                                class="form-control phone-mask"
-                                placeholder="Masukan tempat praktik"
-                                aria-label="Masukan tempat praktik"
-                                aria-describedby="basic-icon-default-phone2"
-                                value="{{ $psikologProfile->tempat_praktik }}"
-                              />
-                            </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-prodi">Program Studi</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-prodi2" class="input-group-text"><i class="ti ti-building"></i></span>
+                            <input type="text" id="basic-icon-default-prodi" class="form-control" placeholder="Masukan program studi" aria-label="Masukan program studi" aria-describedby="basic-icon-default-prodi2" value="{{ $psikologProfile->program_studi }}" name="program_studi" />
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-message">Deskripsi</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-message2" class="input-group-text"
-                                ><i class="ti ti-menu"></i
-                              ></span>
-                              <textarea
-                                id="basic-icon-default-message"
-                                class="form-control"
-                                placeholder="Hi, Do you have a moment to talk Joe?"
-                                aria-label="Hi, Do you have a moment to talk Joe?"
-                                aria-describedby="basic-icon-default-message2"
-                              >{{ $psikologProfile->deskripsi }}</textarea>
-                            </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-tahun_lulus">Tahun Lulus</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-tahun_lulus2" class="input-group-text"><i class="ti ti-calendar-stats"></i></span>
+                            <input type="text" id="basic-icon-default-tahun_lulus" class="form-control" placeholder="Masukan tahun lulus" aria-label="Masukan tahun lulus" aria-describedby="basic-icon-default-tahun_lulus2" value="{{ $psikologProfile->tahun_lulus }}" name="tahun_lulus" />
                           </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 form-label" for="basic-icon-default-phone">Bidang</label>
-                            <div class="col-sm-10">
-                                <div class="select2-primary">
-                                    <select id="select2Primary" class="select2 form-select" multiple>
-                                        @foreach($psikologProfile->detailPsikologs as $detail)
-                                            @foreach($detail->bidangPsikologs as $bidang)
-                                                <option value="{{ $bidang->id }}" selected>{{ $bidang->name }}</option>
-                                            @endforeach
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-tempat_praktik">Tempat Praktik</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-tempat_praktik2" class="input-group-text"><i class="ti ti-building-community"></i></span>
+                            <input type="text" id="basic-icon-default-tempat_praktik" class="form-control" placeholder="Masukan tempat praktik" aria-label="Masukan tempat praktik" aria-describedby="basic-icon-default-tempat_praktik2" value="{{ $psikologProfile->tempat_praktik }}" name="tempat_praktik" />
+                          </div>
                         </div>
-                        <div class="row mb-3">
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-deskripsi">Deskripsi</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-deskripsi2" class="input-group-text"><i class="ti ti-menu"></i></span>
+                            <textarea id="basic-icon-default-deskripsi" class="form-control" placeholder="Masukan deskripsi" aria-label="Masukan deskripsi" aria-describedby="basic-icon-default-deskripsi2" name="deskripsi">{{ $psikologProfile->deskripsi }}</textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="select2Primary">Bidang</label>
+                        <div class="col-sm-10">
+                          <div class="select2-primary">
+                            <select id="select2Primary" class="select2 form-select" multiple name="bidang[]">
+                              @foreach($psikologProfile->detailPsikologs as $detail)
+                                @foreach($detail->bidangPsikologs as $bidang)
+                                  <option value="{{ $bidang->id }}" selected>{{ $bidang->name }}</option>
+                                @endforeach
+                              @endforeach
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                       <div class="row mb-3">
                             <label class="col-sm-2 form-label" for="basic-icon-default-phone">Metode Konsultasi</label>
                             <div class="col-sm-10">
                                 <div class="select2-success">
-                                    <select id="select2Success" class="select2 form-select" multiple>
+                                    <select id="select2Success" class="select2 form-select" multiple name="metode_konsultasi[]">
                                         @foreach($psikologProfile->detailPsikologs as $detail)
                                             @foreach($detail->metodeKonsultasis as $metode)
                                                 <option value="{{ $metode->id }}" selected>{{ $metode->jenis_metode_konsultasi }}</option>
@@ -302,12 +224,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row justify-content-end">
-                          <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Send</button>
-                          </div>
+                      <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-primary">Update Profile</button>
                         </div>
-                      </form>
+                      </div>
+                    </form>
                     </div>
                   </div>
                 </div>
