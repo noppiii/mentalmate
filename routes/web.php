@@ -49,6 +49,7 @@ Route::get('/search', [ClientSearchController::class, 'search'])->name('client.s
 Route::get('/konsultasi', [ClientKonsultasiController::class, 'index'])->name('client.konsultasi');
 Route::get('/artikel', [ClientArtikelController::class, 'index'])->name('client.artikel');
 Route::get('/about-us', [ClientAboutUsController::class, 'index'])->name('client.aboutus');
+Route::post('/about-us/submit-rating', [ClientAboutUsController::class, 'submitRating'])->name('client.submitRating');
 Route::get('/artikel/{slug}', [ClientArtikelController::class, 'show'])->name('client.detailArtikel');
 Route::post('/artikel/{slug}/post-comment', [ClientArtikelController::class, 'postComment'])->name('client.postComment');
 Route::get('/list-psikolog', [ClientPsikologController::class, 'index'])->name('client.psikolog');
