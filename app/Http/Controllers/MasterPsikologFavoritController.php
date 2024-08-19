@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PsikologModel;
 use Illuminate\Http\Request;
 
 class MasterPsikologFavoritController extends Controller
@@ -11,7 +12,25 @@ class MasterPsikologFavoritController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.psikolog-favorit.index');
+        $psikologs = PsikologModel::with([
+            'psikologFavorits',
+            'detailPsikologs.bidangPsikologs',
+            'detailPsikologs.metodeKonsultasis'
+        ])->get();
+
+        foreach ($psikologs as $psikolog) {
+            $psikolog->total_favorit = $psikolog->psikologFavorits()->count();
+            $psikolog->total_bidang = $psikolog->detailPsikologs
+                ->flatMap(fn($detail) => $detail->bidangPsikologs)
+                ->unique('id')
+                ->count();
+            $psikolog->total_metode = $psikolog->detailPsikologs
+                ->flatMap(fn($detail) => $detail->metodeKonsultasis)
+                ->unique('id')
+                ->count();
+        }
+
+        return view('pages.admin.psikolog-favorit.index', compact('psikologs'));
     }
 
     /**

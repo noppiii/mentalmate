@@ -6,6 +6,7 @@ use App\Models\BidangPsikologModel;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -17,7 +18,23 @@ class MasterBidangPsikologController extends Controller
     public function index()
     {
         $allBidang = BidangPsikologModel::paginate(9);
-        return view('pages.admin.bidang-psikolog.index', compact('allBidang'));
+        $totalBidang = BidangPsikologModel::count();
+        $bidangPsikologTerfavorit = BidangPsikologModel::select('bidang_psikologs.name', DB::raw('COUNT(psikolog_favorits.id) as favorit_count'))
+            ->leftJoin('bidang_psikolog_mappings', 'bidang_psikologs.id', '=', 'bidang_psikolog_mappings.bidang_psikolog_id')
+            ->leftJoin('detail_psikologs', 'bidang_psikolog_mappings.detail_psikolog_id', '=', 'detail_psikologs.id')
+            ->leftJoin('psikologs', 'detail_psikologs.psikolog_id', '=', 'psikologs.id')
+            ->leftJoin('psikolog_favorits', 'psikologs.id', '=', 'psikolog_favorits.psikolog_id')
+            ->groupBy('bidang_psikologs.id', 'bidang_psikologs.name')
+            ->orderBy('favorit_count', 'DESC')
+            ->first();
+        $bidangPsikologTerbanyak = BidangPsikologModel::select('bidang_psikologs.name', DB::raw('COUNT(psikologs.id) as psikolog_count'))
+            ->leftJoin('bidang_psikolog_mappings', 'bidang_psikologs.id', '=', 'bidang_psikolog_mappings.bidang_psikolog_id')
+            ->leftJoin('detail_psikologs', 'bidang_psikolog_mappings.detail_psikolog_id', '=', 'detail_psikologs.id')
+            ->leftJoin('psikologs', 'detail_psikologs.psikolog_id', '=', 'psikologs.id')
+            ->groupBy('bidang_psikologs.id', 'bidang_psikologs.name')
+            ->orderBy('psikolog_count', 'DESC')
+            ->first();
+        return view('pages.admin.bidang-psikolog.index', compact('allBidang', 'totalBidang', 'bidangPsikologTerfavorit', 'bidangPsikologTerbanyak'));
     }
 
     /**

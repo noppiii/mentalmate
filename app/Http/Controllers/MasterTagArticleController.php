@@ -17,7 +17,9 @@ class MasterTagArticleController extends Controller
     public function index()
     {
         $allTagBerita = TagArticleModel::all();
-        return view('pages.admin.artikel.tag.index', compact('allTagBerita'));
+        $totalTag = TagArticleModel::count();
+        $newTag = TagArticleModel::latest()->first();
+        return view('pages.admin.artikel.tag.index', compact('allTagBerita','totalTag','newTag'));
     }
 
     /**

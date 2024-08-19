@@ -46,19 +46,32 @@
                             <i class="ti ti-users ti-sm"></i>
                           </div>
                           <div class="card-info">
-                            <h5 class="mb-0">10</h5>
+                            <h5 class="mb-0">{{$totalPsikolog}}</h5>
                             <small>Total Psikolog</small>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-3 col-6">
                         <div class="d-flex align-items-center">
-                          <div class="badge rounded-pill bg-label-info me-3 p-2">
-                            <i class="ti ti-user-plus ti-sm"></i>
+                          <div class="badge rounded-pill bg-label-danger me-3 p-2">
+                            <i class="ti ti-user-minus ti-sm"></i>
                           </div>
-                          <div class="card-info">
-                            <h5 class="mb-0">10</h5>
-                            <small>Admin Baru Bulan Ini</small>
+                          <div class="card-danger">
+                            <h5 class="mb-0 text-danger">{{$suspendPsikolog}}</h5>
+                            <small>Status Suspend</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-6">
+                        <div class="d-flex align-items-center">
+                          <div class="badge rounded-pill bg-label-warning me-3 p-2">
+                            <i class="ti ti-user-exclamation ti-sm"></i>
+                          </div>
+                          <div class="card-warning">
+                            <h5 class="mb-0 text-warning">{{$pendingPsikolog}}
+
+                            </h5>
+                            <small>Status Pending</small>
                           </div>
                         </div>
                       </div>
@@ -67,24 +80,11 @@
                           <div class="badge rounded-pill bg-label-success me-3 p-2">
                             <i class="ti ti-user-plus ti-sm"></i>
                           </div>
-                          <div class="card-info">
-                            <h5 class="mb-0 text-success">10
+                          <div class="card-success">
+                            <h5 class="mb-0 text-success">{{$verifiedPsikolog}}
 
                             </h5>
-                            <small>Psikolog Baru</small>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6">
-                        <div class="d-flex align-items-center">
-                          <div class="badge rounded-pill bg-label-success me-3 p-2">
-                            <i class="ti ti-user-plus ti-sm"></i>
-                          </div>
-                          <div class="card-info">
-                            <h5 class="mb-0 text-success">10
-
-                            </h5>
-                            <small>Psikolog Baru</small>
+                            <small>Status Verified</small>
                           </div>
                         </div>
                       </div>

@@ -46,7 +46,7 @@
                             <i class="ti ti-users ti-sm"></i>
                           </div>
                           <div class="card-info">
-                            <h5 class="mb-0">10</h5>
+                            <h5 class="mb-0">{{$totalAdmin}}</h5>
                             <small>Total Admin</small>
                           </div>
                         </div>
@@ -68,7 +68,7 @@
                             <i class="ti ti-user-plus ti-sm"></i>
                           </div>
                           <div class="card-info">
-                            <h5 class="mb-0 text-success">10
+                            <h5 class="mb-0 text-success">{{$newAdmin->nama}}
 
                             </h5>
                             <small>Admin Baru</small>

@@ -17,7 +17,10 @@ class MasterCategoryArticleController extends Controller
     public function index()
     {
         $allKategoriBerita = CategoryArticleModel::all();
-        return view('pages.admin.artikel.kategori.index', compact('allKategoriBerita'));
+        $totalCategory = CategoryArticleModel::count();
+        $newCategory = CategoryArticleModel::latest()->first();
+//        dd($newCategory);
+        return view('pages.admin.artikel.kategori.index', compact('allKategoriBerita', 'totalCategory', 'newCategory'));
     }
 
     /**

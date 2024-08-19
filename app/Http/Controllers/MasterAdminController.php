@@ -19,8 +19,10 @@ class MasterAdminController extends Controller
     public function index()
     {
         $allAdmin = AdminModel::all();
+        $totalAdmin = AdminModel::count();
+        $newAdmin = AdminModel::latest()->first();
         // dd(Auth::guard('admin')->user()->nama);
-        return view('pages.admin.user.admin.index', compact('allAdmin'));
+        return view('pages.admin.user.admin.index', compact('allAdmin','totalAdmin', 'newAdmin'));
     }
 
     /**

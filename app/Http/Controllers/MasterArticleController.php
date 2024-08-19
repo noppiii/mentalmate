@@ -21,7 +21,9 @@ class MasterArticleController extends Controller
     public function index()
     {
         $allArtikel = ArticleModel::all();
-        return view('pages.admin.artikel.artikel.index', compact('allArtikel'));
+        $totalArtikel = ArticleModel::count();
+        $pendingArtikel = ArticleModel::where('status', 'pending')->count();
+        return view('pages.admin.artikel.artikel.index', compact('allArtikel', 'totalArtikel', 'pendingArtikel'));
     }
 
     /**

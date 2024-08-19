@@ -16,7 +16,12 @@ class MasterPsikologController extends Controller
     public function index()
     {
         $allPsikolog = PsikologModel::all();
-        return view('pages.admin.user.psikolog.index', compact('allPsikolog'));
+        $totalPsikolog = PsikologModel::count();
+        $pendingPsikolog = PsikologModel::where('status', 'pending')->count();
+        $suspendPsikolog = PsikologModel::where('status', 'suspend')->count();
+        $verifiedPsikolog = PsikologModel::where('status', 'verified')->count();
+        return view('pages.admin.user.psikolog.index', compact('allPsikolog', 'totalPsikolog', 'pendingPsikolog',
+            'suspendPsikolog', 'verifiedPsikolog'));
     }
 
     /**

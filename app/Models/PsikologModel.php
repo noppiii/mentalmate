@@ -69,7 +69,7 @@ class PsikologModel extends Authenticatable
      // Relasi dengan tabel psikolog_favorits
      public function psikologFavorits()
      {
-         return $this->hasMany(PsikologFavoritModel::class);
+         return $this->hasMany(PsikologFavoritModel::class,'psikolog_id');
      }
 
      // Relasi dengan tabel artikels

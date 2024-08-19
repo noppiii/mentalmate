@@ -16,7 +16,12 @@ class MasterMahasiswaController extends Controller
     public function index()
     {
         $allMahasiswa = MahasiswaModel::all();
-        return view('pages.admin.user.mahasiswa.index', compact('allMahasiswa'));
+        $totalMahasiswa = MahasiswaModel::count();
+        $pendingMahasiswa = MahasiswaModel::where('status', 'pending')->count();
+        $suspendMahasiswa = MahasiswaModel::where('status', 'suspend')->count();
+        $verifiedMahasiswa = MahasiswaModel::where('status', 'verified')->count();
+        return view('pages.admin.user.mahasiswa.index', compact('allMahasiswa', 'totalMahasiswa', 'suspendMahasiswa',
+            'pendingMahasiswa', 'verifiedMahasiswa'));
     }
 
     /**

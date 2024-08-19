@@ -38,58 +38,58 @@
                     <h5 class="card-title mb-0">Statistics Mahasiswa</h5>
                     {{-- <small class="text-muted">Updated 1 month ago</small> --}}
                   </div>
-                  <div class="card-body pt-2">
-                    <div class="row gy-3">
-                      <div class="col-md-3 col-6">
-                        <div class="d-flex align-items-center">
-                          <div class="badge rounded-pill bg-label-primary me-3 p-2">
-                            <i class="ti ti-users ti-sm"></i>
-                          </div>
-                          <div class="card-info">
-                            <h5 class="mb-0">10</h5>
-                            <small>Total Mahasiswa</small>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6">
-                        <div class="d-flex align-items-center">
-                          <div class="badge rounded-pill bg-label-info me-3 p-2">
-                            <i class="ti ti-user-plus ti-sm"></i>
-                          </div>
-                          <div class="card-info">
-                            <h5 class="mb-0">10</h5>
-                            <small>Admin Baru Bulan Ini</small>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6">
-                        <div class="d-flex align-items-center">
-                          <div class="badge rounded-pill bg-label-success me-3 p-2">
-                            <i class="ti ti-user-plus ti-sm"></i>
-                          </div>
-                          <div class="card-info">
-                            <h5 class="mb-0 text-success">10
+                    <div class="card-body pt-2">
+                        <div class="row gy-3">
+                            <div class="col-md-3 col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="badge rounded-pill bg-label-primary me-3 p-2">
+                                        <i class="ti ti-users ti-sm"></i>
+                                    </div>
+                                    <div class="card-info">
+                                        <h5 class="mb-0">{{$totalMahasiswa}}</h5>
+                                        <small>Total Mahasiswa</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="badge rounded-pill bg-label-danger me-3 p-2">
+                                        <i class="ti ti-user-minus ti-sm"></i>
+                                    </div>
+                                    <div class="card-danger">
+                                        <h5 class="mb-0 text-danger">{{$suspendMahasiswa}}</h5>
+                                        <small>Status Suspend</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="badge rounded-pill bg-label-warning me-3 p-2">
+                                        <i class="ti ti-user-exclamation ti-sm"></i>
+                                    </div>
+                                    <div class="card-warning">
+                                        <h5 class="mb-0 text-warning">{{$pendingMahasiswa}}
 
-                            </h5>
-                            <small>Mahasiswa Baru</small>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6">
-                        <div class="d-flex align-items-center">
-                          <div class="badge rounded-pill bg-label-success me-3 p-2">
-                            <i class="ti ti-user-plus ti-sm"></i>
-                          </div>
-                          <div class="card-info">
-                            <h5 class="mb-0 text-success">10
+                                        </h5>
+                                        <small>Status Pending</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="badge rounded-pill bg-label-success me-3 p-2">
+                                        <i class="ti ti-user-plus ti-sm"></i>
+                                    </div>
+                                    <div class="card-success">
+                                        <h5 class="mb-0 text-success">{{$verifiedMahasiswa}}
 
-                            </h5>
-                            <small>Mahasiswa Baru</small>
-                          </div>
+                                        </h5>
+                                        <small>Status Verified</small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
               <div class="container-xxl flex-grow-1 container-p-y">
