@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PsikologModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 
@@ -19,6 +20,14 @@ class PsikologProfileController extends Controller
         $psikologProfile = PsikologModel::with(['detailPsikologs.bidangPsikologs', 'detailPsikologs.metodeKonsultasis'])->where('id', $psikologId)->firstOrFail();
 
         return view('pages.psikolog.profile.index', compact('psikologProfile'));
+    }
+
+    public function berkas()
+    {
+        $psikologId = Auth::guard('psikolog')->user()->id;
+        $psikologBerkas = PsikologModel::where('id', $psikologId)->firstOrFail();
+
+        return view('pages.psikolog.profile.berkas', compact('psikologBerkas'));
     }
 
     /**
@@ -72,7 +81,7 @@ class PsikologProfileController extends Controller
             'deskripsi' => 'nullable|string',
             'bidang' => 'nullable|array',
             'metode_konsultasi' => 'nullable|array',
-            'profile_photo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'profile_photo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         try {
@@ -129,6 +138,62 @@ class PsikologProfileController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->withErrors([$e->getMessage()]);
         }
+    }
+
+    public function updateBerkas(Request $request, string $id)
+    {
+        $validated = $request->validate([
+            'dokumen_cv' => 'nullable|file|mimes:pdf|max:2048',
+            'dokumen_ijazah' => 'nullable|file|mimes:pdf|max:2048',
+            'dokumen_str_aktif' => 'nullable|file|mimes:pdf|max:2048',
+            'dokumen_izin_praktik' => 'nullable|file|mimes:pdf|max:2048',
+        ]);
+
+        $psikologBerkas = PsikologModel::findOrFail($id);
+
+        if ($request->hasFile('dokumen_cv')) {
+            if ($psikologBerkas->dokumen_cv && Storage::disk('public')->exists($psikologBerkas->dokumen_cv)) {
+                Storage::disk('public')->delete($psikologBerkas->dokumen_cv);
+            }
+
+            $ktmFile = $request->file('dokumen_cv');
+            $ktmPath = $ktmFile->storeAs('psikolog/profile/berkas/cv', $ktmFile->getClientOriginalName(), 'public');
+            $psikologBerkas->dokumen_cv = $ktmPath;
+        }
+
+        if ($request->hasFile('dokumen_ijazah')) {
+            if ($psikologBerkas->dokumen_ijazah && Storage::disk('public')->exists($psikologBerkas->dokumen_ijazah)) {
+                Storage::disk('public')->delete($psikologBerkas->dokumen_ijazah);
+            }
+
+            $transkipFile = $request->file('dokumen_ijazah');
+            $transkipPath = $transkipFile->storeAs('psikolog/profile/berkas/ijazah', $transkipFile->getClientOriginalName(), 'public');
+            $psikologBerkas->dokumen_ijazah = $transkipPath;
+        }
+
+        if ($request->hasFile('dokumen_str_aktif')) {
+            if ($psikologBerkas->dokumen_str_aktif && Storage::disk('public')->exists($psikologBerkas->dokumen_str_aktif)) {
+                Storage::disk('public')->delete($psikologBerkas->dokumen_str_aktif);
+            }
+
+            $transkipFile = $request->file('dokumen_str_aktif');
+            $transkipPath = $transkipFile->storeAs('psikolog/profile/berkas/str', $transkipFile->getClientOriginalName(), 'public');
+            $psikologBerkas->dokumen_str_aktif = $transkipPath;
+        }
+
+        if ($request->hasFile('dokumen_izin_praktik')) {
+            if ($psikologBerkas->dokumen_izin_praktik && Storage::disk('public')->exists($psikologBerkas->dokumen_izin_praktik)) {
+                Storage::disk('public')->delete($psikologBerkas->dokumen_izin_praktik);
+            }
+
+            $transkipFile = $request->file('dokumen_izin_praktik');
+            $transkipPath = $transkipFile->storeAs('psikolog/profile/berkas/izin_praktik', $transkipFile->getClientOriginalName(), 'public');
+            $psikologBerkas->dokumen_izin_praktik = $transkipPath;
+        }
+
+        $psikologBerkas->save();
+
+        return redirect()->back()->with('success_message_create', 'Berkas berhasil diperbarui!');
     }
 
 

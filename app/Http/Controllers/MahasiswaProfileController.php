@@ -133,8 +133,8 @@ class MahasiswaProfileController extends Controller
     public function updateBerkas(Request $request, string $id)
     {
         $validated = $request->validate([
-            'dokumen_ktm' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'dokumen_transkip_nilai' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'dokumen_ktm' => 'nullable|file|mimes:pdf|max:2048',
+            'dokumen_transkip_nilai' => 'nullable|file|mimes:pdf|max:2048',
         ]);
 
         $mahasiswaBerkas = MahasiswaModel::findOrFail($id);

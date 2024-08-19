@@ -40,14 +40,14 @@
                             >
                               <li class="list-inline-item"><i class="ti ti-building"></i> {{ $psikologProfile->asal_universitas }}</li>
                               <li class="list-inline-item">
-                                <i class="ti ti-category"></i> 
+                                <i class="ti ti-category"></i>
                                 @foreach($psikologProfile->detailPsikologs->first()->bidangPsikologs as $bidang)
                                     {{ $bidang->name }}{{ !$loop->last ? ',' : '' }}
                                 @endforeach
                             </li>
 
                             <li class="list-inline-item">
-                                <i class="ti ti-category-2"></i> 
+                                <i class="ti ti-category-2"></i>
                                 @foreach($psikologProfile->detailPsikologs->first()->metodeKonsultasis as $metode)
                                     {{ $metode->jenis_metode_konsultasi }}{{ !$loop->last ? ',' : '' }}
                                 @endforeach
@@ -75,7 +75,7 @@
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages-profile-teams.html"
+                      <a class="nav-link" href="{{route('psikolog.profile.berkas')}}"
                         ><i class="ti-xs ti ti-file me-1"></i> Berkas</a
                       >
                     </li>
