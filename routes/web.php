@@ -89,14 +89,16 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
     Route::get('my-konsultasi/{receiverId}/{receiverType}', [PsikologKonsultasiController::class, 'index'])->name('psikolog.konsultasi.index');
     Route::post('my-konsultasi/store', [PsikologKonsultasiController::class, 'store'])->name('psikolog.konsultasi.store');
     Route::resource('my-profile', PsikologProfileController::class);
-    
+
 });
 // Group routes for mahasiswa
 Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {
     Route::get('dashboard', [MahasiswaDashboardController::class, 'index'])->name('mahasiswa.dashboard');
     Route::get('logout', [AuthUserController::class, 'mahasiswaLogout'])->name('mahasiswa.logout');
     Route::get('profile', [MahasiswaProfileController::class, 'index'])->name('mahasiswa.profile');
+    Route::get('profile/berkas', [MahasiswaProfileController::class, 'berkas'])->name('mahasiswa.profile.berkas');
     Route::put('profile/{id}/update', [MahasiswaProfileController::class, 'update'])->name('mahasiswa.updateProfile');
+    Route::put('profile/berkas/{id}/update', [MahasiswaProfileController::class, 'updateBerkas'])->name('mahasiswa.profile.updateBerkas');
     Route::get('meeting', [MahasiswaMeetingController::class, 'index'])->name('mahasiswa.listMeeting');
     // In routes/web.php
 

@@ -39,12 +39,12 @@
                             >
                               <li class="list-inline-item"><i class="ti ti-number"></i> {{ $mahasiswaProfile->nomor_induk_mahasiswa }}</li>
                               <li class="list-inline-item">
-                                <i class="ti ti-building"></i> 
+                                <i class="ti ti-building"></i>
                                 {{ $mahasiswaProfile->nama_universitas }}
                             </li>
 
                             <li class="list-inline-item">
-                                <i class="ti ti-building-community"></i> 
+                                <i class="ti ti-building-community"></i>
                                {{ $mahasiswaProfile->program_studi }}
                             </li>
                             </ul>
@@ -70,7 +70,7 @@
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages-profile-teams.html"
+                      <a class="nav-link" href="{{ route('mahasiswa.profile.berkas') }}"
                         ><i class="ti-xs ti ti-file me-1"></i> Berkas</a
                       >
                     </li>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MahasiswaModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 
@@ -18,6 +19,13 @@ class MahasiswaProfileController extends Controller
         $mahasiswaId = Auth::guard('mahasiswa')->user()->id;
         $mahasiswaProfile = MahasiswaModel::where('id', $mahasiswaId)->firstOrFail();
         return view('pages.mahasiswa.profile.index', compact('mahasiswaProfile'));
+    }
+
+    public function berkas()
+    {
+        $mahasiswaId = Auth::guard('mahasiswa')->user()->id;
+        $mahasiswaBerkas = MahasiswaModel::where('id', $mahasiswaId)->firstOrFail();
+        return view('pages.mahasiswa.profile.berkas', compact('mahasiswaBerkas'));
     }
 
     /**
@@ -121,6 +129,41 @@ class MahasiswaProfileController extends Controller
             return redirect()->back()->withInput()->withErrors([$e->getMessage()]);
         }
     }
+
+    public function updateBerkas(Request $request, string $id)
+    {
+        $validated = $request->validate([
+            'dokumen_ktm' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'dokumen_transkip_nilai' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
+        ]);
+
+        $mahasiswaBerkas = MahasiswaModel::findOrFail($id);
+
+        if ($request->hasFile('dokumen_ktm')) {
+            if ($mahasiswaBerkas->dokumen_ktm && Storage::disk('public')->exists($mahasiswaBerkas->dokumen_ktm)) {
+                Storage::disk('public')->delete($mahasiswaBerkas->dokumen_ktm);
+            }
+
+            $ktmFile = $request->file('dokumen_ktm');
+            $ktmPath = $ktmFile->storeAs('mahasiswa/profile/berkas/ktm', $ktmFile->getClientOriginalName(), 'public');
+            $mahasiswaBerkas->dokumen_ktm = $ktmPath;
+        }
+
+        if ($request->hasFile('dokumen_transkip_nilai')) {
+            if ($mahasiswaBerkas->dokumen_transkip_nilai && Storage::disk('public')->exists($mahasiswaBerkas->dokumen_transkip_nilai)) {
+                Storage::disk('public')->delete($mahasiswaBerkas->dokumen_transkip_nilai);
+            }
+
+            $transkipFile = $request->file('dokumen_transkip_nilai');
+            $transkipPath = $transkipFile->storeAs('mahasiswa/profile/berkas/transkip', $transkipFile->getClientOriginalName(), 'public');
+            $mahasiswaBerkas->dokumen_transkip_nilai = $transkipPath;
+        }
+
+        $mahasiswaBerkas->save();
+
+        return redirect()->back()->with('success_message_create', 'Berkas berhasil diperbarui!');
+    }
+
 
     /**
      * Remove the specified resource from storage.
