@@ -20,6 +20,7 @@ use App\Http\Controllers\MasterBidangPsikologController;
 use App\Http\Controllers\MasterCategoryArticleController;
 use App\Http\Controllers\MasterKonsultasiController;
 use App\Http\Controllers\MasterMahasiswaController;
+use App\Http\Controllers\MasterMetodeKonsultasiController;
 use App\Http\Controllers\MasterPsikologController;
 use App\Http\Controllers\MasterPsikologFavoritController;
 use App\Http\Controllers\MasterTagArticleController;
@@ -75,7 +76,9 @@ Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(f
     Route::resource('bidang-psikolog', MasterBidangPsikologController::class);
     Route::resource('psikolog-favorit', MasterPsikologFavoritController::class);
     Route::resource('konsultasi', MasterKonsultasiController::class);
+    Route::resource('metode-konsultasi', MasterMetodeKonsultasiController::class);
 });
+
 // Group routes for psikolog
 Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->group(function () {
     Route::get('dashboard', [PsikologDashboardController::class, 'index'])->name('psikolog.dashboard');
@@ -93,6 +96,7 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
     Route::resource('my-profile', PsikologProfileController::class);
 
 });
+
 // Group routes for mahasiswa
 Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])->group(function () {
     Route::get('dashboard', [MahasiswaDashboardController::class, 'index'])->name('mahasiswa.dashboard');

@@ -52,7 +52,7 @@ class MasterCategoryArticleController extends Controller
 
         try {
             $category = new CategoryArticleModel();
-            $category->fill([
+            $category->create([
                 'nama' => $data['nama'],
                 'content' => $data['content'],
                 'slug' => Str::slug($data['nama'], '-'),

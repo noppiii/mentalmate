@@ -66,7 +66,7 @@ class MasterBidangPsikologController extends Controller
 
         try {
             $bidang = new BidangPsikologModel();
-            $bidang->fill([
+            $bidang->create([
                 'name' => $data['name'],
                 'description' => $data['description'],
                 'slug' => Str::slug($data['name'], '-'),
@@ -120,7 +120,7 @@ class MasterBidangPsikologController extends Controller
         try {
             $bidang = BidangPsikologModel::where('id', $id)
                 ->firstOrFail();
-                // dd($admin->toArray());
+            // dd($admin->toArray());
         } catch (ModelNotFoundException $e) {
             // Handle not found exception
             return redirect()->route('bidang-psikolog.index')->with('error_message_not_found', 'Data bidang psikolog tidak ditemukan');
@@ -175,7 +175,7 @@ class MasterBidangPsikologController extends Controller
             $bidangPsikolog = BidangPsikologModel::findOrFail($id);
 
             // Periksa apakah ada psikolog yang terkait dengan bidang psikolog ini
-            if ($bidangPsikolog->psikologs()->count() > 0) {
+            if ($bidangPsikolog->detailPsikologs()->count() > 0) {
                 return redirect()->route('bidang-psikolog.index')->withErrors(['error_message_not_found' => 'Bidang psikolog ini masih memiliki psikolog terkait dan tidak dapat dihapus.']);
             }
 

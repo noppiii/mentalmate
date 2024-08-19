@@ -51,7 +51,7 @@ class MasterTagArticleController extends Controller
 
         try {
             $tag = new TagArticleModel();
-            $tag->fill([
+            $tag->create([
                 'nama' => $data['nama'],
                 'content' => $data['content'],
                 'slug' => Str::slug($data['nama'], '-'),

@@ -80,7 +80,7 @@ class MasterArticleController extends Controller
 
         try {
             $artikel = new ArticleModel();
-            $artikel->fill([
+            $artikel->create([
                 'name' => $data['name'],
                 'slug' => Str::slug($data['name']),
                 'content' => $data['content'],

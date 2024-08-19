@@ -129,7 +129,7 @@ class AuthUserController extends Controller
 
         try {
             $mahasiswa = new MahasiswaModel();
-            $mahasiswa->fill([
+            $mahasiswa->create([
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'nama' => $data['nama'],
@@ -181,7 +181,7 @@ class AuthUserController extends Controller
         }
     }
 
-    
+
     public function showPsikologSignupForm(){
         return view('auth.psikolog-register');
     }
@@ -245,7 +245,7 @@ class AuthUserController extends Controller
 
         try {
             $psikolog = new PsikologModel();
-            $psikolog->fill([
+            $psikolog->create([
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'nama' => $data['nama'],
@@ -314,14 +314,14 @@ class AuthUserController extends Controller
         Session::flash('success_message', 'Berhasil Logout');
         return redirect()->route('home');
     }
-    
+
     public function mahasiswaLogout()
     {
         Auth::guard('mahasiswa')->logout();
         Session::flash('success_message', 'Berhasil Logout');
         return redirect()->route('home');
     }
-    
+
     public function psikologLogout()
     {
         Auth::guard('psikolog')->logout();

@@ -11,4 +11,14 @@ class MetodeKonsultasiModel extends Model
     protected $table = 'metode_konsultasis';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function psikologs()
+    {
+        return $this->belongsToMany(PsikologModel::class, 'metode_konsultasi_mappings', 'metode_konsultasi_id', 'psikolog_id');
+    }
+
+    public function detailPsikologs()
+    {
+        return $this->belongsToMany(DetailPsikologModel::class, 'metode_konsultasi_mappings', 'metode_konsultasi_id', 'detail_psikolog_id');
+    }
 }

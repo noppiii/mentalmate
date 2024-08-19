@@ -85,7 +85,7 @@ class MasterAdminController extends Controller
         $data = $request->all();
         try {
             $admin = new AdminModel();
-            $admin->fill([
+            $admin->create([
                 'email' => $data['email'],
                 'password' => $data['password'],
                 'nama' => $data['nama'],

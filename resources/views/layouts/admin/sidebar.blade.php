@@ -148,7 +148,7 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a href="app-calendar.html" class="menu-link">
+                <a href="{{route('metode-konsultasi.index')}}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-checkup-list"></i>
                     <div data-i18n="Metode Konsultasi">Metode Konsultasi</div>
                 </a>
