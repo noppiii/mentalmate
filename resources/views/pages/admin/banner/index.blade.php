@@ -14,7 +14,7 @@
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <h5 class="text-primary">Welcome {{ Auth::guard('admin')->user()->nama }}! 🎉</h5>
-                                <p>Di sini Anda dapat mengontrol dan mengelola semua aspek artikel</p>
+                                <p>Di sini Anda dapat mengontrol dan mengelola semua aspek Banner</p>
                                 <button id="viewDataLink" class="btn btn-sm btn-outline-primary">View Data</button>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
             <div class="col-lg-8 mb-4 col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <h5 class="card-title mb-0">Statistics Artikel</h5>
+                        <h5 class="card-title mb-0">Statistics Banner</h5>
                         {{-- <small class="text-muted">Updated 1 month ago</small> --}}
                     </div>
                     <div class="card-body pt-2">
@@ -46,8 +46,8 @@
                                         <i class="ti ti-news ti-sm"></i>
                                     </div>
                                     <div class="card-info">
-                                        <h5 class="mb-0">{{$totalArtikel}}</h5>
-                                        <small>Total Artikel</small>
+                                        <h5 class="mb-0">{{$totalBanner}}</h5>
+                                        <small>Total Banner</small>
                                     </div>
                                 </div>
                             </div>
@@ -68,10 +68,10 @@
                                         <i class="ti ti-news-off ti-sm"></i>
                                     </div>
                                     <div class="card-info">
-                                        <h5 class="mb-0 text-warning">{{$pendingArtikel}}
+                                        <h5 class="mb-0 text-warning">{{$newBanner->judul}}
 
                                         </h5>
-                                        <small>Pending Artikel</small>
+                                        <small>Banner Banner</small>
                                     </div>
                                 </div>
                             </div>
@@ -96,12 +96,12 @@
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body text-sm-end text-center ps-sm-0">
-                                <a href="{{ route('artikel.create') }}"
+                                <a href="{{ route('banner.create') }}"
                                    class="btn btn-primary mb-2 text-nowrap add-new-role d-block"
                                 >
-                                    + Artikel
+                                    + Banner
                                 </a>
-                                <small class="mb-0 mt-1 d-block">Tambah artikel</small>
+                                <small class="mb-0 mt-1 d-block">Tambah Banner</small>
                             </div>
                         </div>
                     </div>
@@ -117,35 +117,36 @@
                                 <th></th>
                                 <th></th>
                                 <th>ID</th>
-                                <th>Nama</th>
-                                <th>Penulis</th>
+                                <th>Judul</th>
                                 <th>Status</th>
+                                <th>Gambar</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $no = 1; ?>
-                            @foreach($allArtikel as $data)
+                            @foreach($allBanner as $data)
                                 <tr>
                                     <td></td>
                                     <td></td>
                                     <td>{{ $data->id }}</td>
-                                    <td>{{ $data->name }}</td>
+                                    <td>{{ $data->judul }}</td>
                                     <td>
-                                        @if ($data->psikolog_id == null)
-                                            <span class="badge bg-label-primary">{{ $data->admin->nama }}</span>
-                                        @elseif ($data->admin_id == null)
-                                            <span class="badge bg-label-info">{{ $data->psikolog->nama }}</span>
+                                        @if ($data->status == 'disable')
+                                            <span class="badge bg-label-danger">{{ $data->status }}</span>
+                                        @elseif ($data->status == 'enable')
+                                            <span class="badge bg-label-success">{{ $data->status }}</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($data->status == 'rejected')
-                                            <span class="badge bg-label-danger">{{ $data->status }}</span>
-                                        @elseif ($data->status == 'pending')
-                                            <span class="badge bg-label-warning">{{ $data->status }}</span>
-                                        @elseif ($data->status == 'accepted')
-                                            <span class="badge bg-label-success">{{ $data->status }}</span>
-                                        @endif
+                                        <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
+                                            <img
+                                                src="{{ asset('store/banner/' . $data->gambar) }}"
+                                                alt="user image"
+                                                style="object-fit: cover; width: 300px; height: 60px;"
+                                                class="d-block h-auto ms-0 ms-sm-4 rounded user-profile-img"
+                                            />
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="d-inline-block">
@@ -162,7 +163,7 @@
                                                         data-bs-target="#editStatus{{ $data->id }}"
                                                         class="dropdown-item"><i class="ti ti-edit me-1"></i>Status
                                                 </button>
-                                                <a href="{{ route('artikel.edit', $data->id) }}"
+                                                <a href="{{ route('banner.edit', $data->id) }}"
                                                    class="dropdown-item"><i class="ti ti-pencil me-1"></i>Edit</a>
                                                 <div class="dropdown-divider"></div>
                                                 <button data-bs-toggle="modal"
@@ -182,21 +183,21 @@
             </div>
         </div>
         {{-- ============= SHOW DATA =============== --}}
-        @foreach ($allArtikel as $data)
+        @foreach ($allBanner as $data)
             <div class="modal fade" id="viewUser{{ $data->id }}" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-simple modal-edit-user">
                     <div class="modal-content p-3 p-md-5">
                         <div class="modal-body">
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             <div class="text-center mb-4">
-                                <h3 class="mb-2">{{ $data->name }}</h3>
-                                <p class="text-muted">Informasi tentang {{ $data->name }}.</p>
+                                <h3 class="mb-2">{{ $data->judul }}</h3>
+                                <p class="text-muted">Informasi tentang {{ $data->judul }}.</p>
                             </div>
                             <form id="editUserForm" class="row g-3" onsubmit="return false">
                                 <div class="col-12 text-center">
                                     <div class="onboarding-media">
                                         <img
-                                            src="{{ asset('store/artikel/thumbnail/' . $data->tumbnail) }}"
+                                            src="{{ asset('store/banner/' . $data->gambar) }}"
                                             alt="boy-verify-email-light"
                                             width="273"
                                             class="img-fluid"
@@ -206,49 +207,26 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label" for="modalEditUserName">Judul artikel</label>
+                                    <label class="form-label" for="modalEditUserName">Judul Banner</label>
                                     <input
                                         type="text"
                                         id="modalEditUserName"
                                         name="modalEditUserName"
                                         class="form-control"
-                                        placeholder="Masukan judul artikel"
-                                        value="{{ $data->name }}"
+                                        placeholder="Masukan judul banner"
+                                        value="{{ $data->judul }}"
                                     />
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label" for="modalEditUserName">Penulis</label>
+                                    <label class="form-label" for="modalEditUserName">Link</label>
                                     <input
                                         type="text"
                                         id="modalEditUserName"
                                         name="modalEditUserName"
                                         class="form-control"
-                                        placeholder="Masukan Penulis artikel"
-                                        value="{{ $data->admin ? $data->admin->nama : ($data->psikolog ? $data->psikolog->nama : '') }}"
+                                        placeholder="Masukan Penulis banner"
+                                        value="{{ $data->link }}"
                                     />
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label d-block" for="modalEditUserName">Category Artikel</label>
-                                    @foreach($data->kategoriArtikels as $kategori)
-                                        <span class="badge bg-label-primary">{{ $kategori->nama }}</span>
-                                    @endforeach
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label d-block" for="modalEditUserName">Tag Artikel</label>
-                                    @foreach($data->tagArtikels as $tag)
-                                        <span class="badge bg-label-info">{{ $tag->nama }}</span>
-                                    @endforeach
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label" for="modalEditUserLanguage">Content</label>
-                                    <textarea
-                                        id="basic-icon-default-message"
-                                        class="form-control"
-                                        placeholder="Masukan tempat praktik"
-                                        aria-label="Masukan tempat praktik"
-                                        aria-describedby="basic-icon-default-message2"
-                                        style="height: 240px;"
-                                    >{{ strip_tags($data->content) }}</textarea>
                                 </div>
                                 <div class="col-12 text-center">
                                     <button type="reset" data-bs-dismiss="modal"
@@ -264,7 +242,7 @@
         @endforeach
 
         {{-- ============= EDIT STATUS DATA =============== --}}
-        @foreach ($allArtikel as $data)
+        @foreach ($allBanner as $data)
             <div class="modal fade" id="editStatus{{ $data->id }}" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-simple modal-edit-user">
                     <div class="modal-content p-3 p-md-5">
@@ -275,7 +253,7 @@
                                 <p class="text-muted">Edit Status {{ $data->name }}.</p>
                             </div>
                             <form id="editUserForm" class="row g-3"
-                                  action="{{ route('artikel.updateStatus', ['id' => $data->id]) }}" method="post">
+                                  action="{{ route('banner.updateStatus', ['id' => $data->id]) }}" method="post">
                                 @csrf
                                 @method('put')
                                 <div class="col-12 mb-4">
@@ -285,15 +263,12 @@
                                         class="select2 form-select"
                                         data-allow-clear="true"
                                     >
-                                        <option value="">Pilih Status Artikel</option>
-                                        <option value="rejected" {{ $data->status === 'rejected' ? 'selected' : '' }}>
-                                            Rejected
+                                        <option value="">Pilih Status Banner</option>
+                                        <option value="disable" {{ $data->status === 'disable' ? 'selected' : '' }}>
+                                            Disable
                                         </option>
-                                        <option value="pending" {{ $data->status === 'pending' ? 'selected' : '' }}>
-                                            Pending
-                                        </option>
-                                        <option value="accepted" {{ $data->status === 'accepted' ? 'selected' : '' }}>
-                                            Accepted
+                                        <option value="enable" {{ $data->status === 'enable' ? 'selected' : '' }}>
+                                            Enable
                                         </option>
                                     </select>
                                 </div>
@@ -316,7 +291,7 @@
         @endforeach
 
         {{-- ====================== DELETE DATA ======================== --}}
-        @foreach ($allArtikel as $data)
+        @foreach ($allBanner as $data)
             <div
                 class="modal-onboarding modal fade animate__animated"
                 id="onboardHorizontalImageModal{{ $data->id }}"
@@ -351,7 +326,7 @@
                                 </small>
                             </div>
                         </div>
-                        <form method="POST" action="{{ route('artikel.destroy', $data->id) }}">
+                        <form method="POST" action="{{ route('banner.destroy', $data->id) }}">
                             @csrf
                             @method('DELETE')
                             <div class="modal-footer border-0">

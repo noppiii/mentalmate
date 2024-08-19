@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('judul')->nullable();
             $table->longText('link')->nullable();
             $table->string('gambar');
+            $table->enum('status', ['disable', 'enable'])->default('disable');
             $table->timestamps();
         });
     }

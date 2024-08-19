@@ -16,6 +16,7 @@ use App\Http\Controllers\MahasiswaMeetingController;
 use App\Http\Controllers\MahasiswaProfileController;
 use App\Http\Controllers\MasterAdminController;
 use App\Http\Controllers\MasterArticleController;
+use App\Http\Controllers\MasterBannerController;
 use App\Http\Controllers\MasterBidangPsikologController;
 use App\Http\Controllers\MasterCategoryArticleController;
 use App\Http\Controllers\MasterKonsultasiController;
@@ -77,6 +78,8 @@ Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(f
     Route::resource('psikolog-favorit', MasterPsikologFavoritController::class);
     Route::resource('konsultasi', MasterKonsultasiController::class);
     Route::resource('metode-konsultasi', MasterMetodeKonsultasiController::class);
+    Route::resource('banner', MasterBannerController::class);
+    Route::put('banner/status/{id}/update', [MasterBannerController::class, 'updateStatus'])->name('banner.updateStatus');
 });
 
 // Group routes for psikolog

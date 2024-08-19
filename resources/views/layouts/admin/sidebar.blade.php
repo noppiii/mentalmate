@@ -196,6 +196,17 @@
                 </a>
             </li>
 
+            <!-- Components -->
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Master Setting</span>
+            </li>
+            <!-- Cards -->
+            <li class="menu-item">
+                <a href="{{route('banner.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-shape"></i>
+                    <div data-i18n="Banner">Banner</div>
+                </a>
+            </li>
         </ul>
     </aside>
 @elseif ($guard === 'psikolog')
