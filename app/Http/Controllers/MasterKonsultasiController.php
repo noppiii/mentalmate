@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\KonsultasiModel;
+use App\Models\ZoomMeeting;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MasterKonsultasiController extends Controller
@@ -12,8 +14,27 @@ class MasterKonsultasiController extends Controller
      */
     public function index()
     {
-        $allKonsultasi = KonsultasiModel::all();
-        return view('pages.admin.konsultasi.konsultasi', compact('allKonsultasi'));
+        $allKonsultasi = ZoomMeeting::whereIn('konsultasi_id', function ($query) {
+            $query->select('id')
+                ->from('konsultasis');
+        })->get();
+        $countMeeting = ZoomMeeting::whereIn('konsultasi_id', function ($query) {
+            $query->select('id')
+                ->from('konsultasis');
+        })->count();
+        $upcomingMeetingsCount = ZoomMeeting::whereIn('konsultasi_id', function ($query) {
+            $query->select('id')
+                ->from('konsultasis');
+        })
+            ->where('start_time', '>', Carbon::now())
+            ->count();
+        $passedMeetingsCount = ZoomMeeting::whereIn('konsultasi_id', function ($query) {
+            $query->select('id')
+                ->from('konsultasis');
+        })
+            ->where('start_time', '<', Carbon::now())
+            ->count();
+        return view('pages.admin.konsultasi.konsultasi', compact('allKonsultasi', 'countMeeting', 'upcomingMeetingsCount', 'passedMeetingsCount'));
     }
 
     /**
