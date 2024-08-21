@@ -55,9 +55,9 @@ class ArtikelSeeder extends Seeder
                 'slug' => 'understanding-mental-health',
                 'content' => 'This article provides insights into mental health issues and how to manage them.',
                 'tumbnail' => 'path/to/thumbnail1.jpg',
-                'status' => 'published',
+                'status' => 'accepted',
                 'psikolog_id' => 1, // Optional, or use null
-                'admin_id' => 1, // Optional, or use null
+                'admin_id' => null, // Optional, or use null
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -67,8 +67,8 @@ class ArtikelSeeder extends Seeder
                 'content' => 'An exploration of how therapy can help individuals cope with psychological challenges.',
                 'tumbnail' => 'path/to/thumbnail2.jpg',
                 'status' => 'pending',
-                'psikolog_id' => null,
-                'admin_id' => 2,
+                'psikolog_id' => 1,
+                'admin_id' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

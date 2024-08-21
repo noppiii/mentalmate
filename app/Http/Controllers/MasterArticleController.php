@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\ArticleModel;
 use App\Models\CategoryArticleModel;
+use App\Mail\ArticleStatusChangedMail;
 use App\Models\TagArticleModel;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
@@ -200,11 +202,12 @@ class MasterArticleController extends Controller
     public function updateStatus(Request $request, string $id)
     {
         try {
-            $status = ArticleModel::findOrFail($id);
+            $article = ArticleModel::findOrFail($id);
         } catch (ModelNotFoundException $e) {
             // Handle not found exception
             return redirect()->route('artikel.index')->with('error_message_not_found', 'Data artikel tidak ditemukan');
         }
+
         $data = $request->all();
 
         $rules = [
@@ -218,25 +221,21 @@ class MasterArticleController extends Controller
         $this->validate($request, $rules, $customMessages);
 
         try {
-            $status->status  = $data['status'];
-            $status->save();
+            $article->status = $data['status'];
+            $article->save();
+
+            if (in_array($data['status'], ['rejected', 'accepted'])) {
+                Mail::to($article->psikolog->email)->send(new ArticleStatusChangedMail($article, $data['status']));
+            }
 
             Session::flash('success_message_create', 'Data status artikel berhasil diperbarui');
             return redirect()->route('artikel.index');
         } catch (QueryException $e) {
             // Handle the integrity constraint violation exception (duplicate entry)
-            if ($e->getCode() === 23000) {
-                // Duplicate entry error
-                $errorMessage = 'Upppss Terjadi Kesalahan. Silahkan Ulangi Lagi.';
-            } else {
-                // Other database-related errors
-                $errorMessage = 'Upppss Terjadi Kesalahan. Silahkan Ulangi Lagi.';
-            }
-
+            $errorMessage = 'Upppss Terjadi Kesalahan. Silahkan Ulangi Lagi.';
             return redirect()->back()->withInput()->withErrors([$errorMessage]);
         }
     }
-
 
     /**
      * Remove the specified resource from storage.

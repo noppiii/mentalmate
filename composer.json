@@ -12,7 +12,9 @@
         "laravel/reverb": "@beta",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "spatie/laravel-sluggable": "^3.6"
+        "spatie/laravel-sluggable": "^3.6",
+        "symfony/mailgun-mailer": "^6.4",
+        "symfony/postmark-mailer": "^6.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
