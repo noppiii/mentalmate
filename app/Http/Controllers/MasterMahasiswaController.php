@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MahasiswaAccountStatusChangedMail;
 use App\Models\MahasiswaModel;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class MasterMahasiswaController extends Controller
@@ -74,6 +76,10 @@ class MasterMahasiswaController extends Controller
 
             if ($mahasiswa->isDirty()) {
                 $mahasiswa->save();
+            }
+
+            if (in_array($data['status'], ['verified', 'suspended'])) {
+                Mail::to($mahasiswa->email)->send(new MahasiswaAccountStatusChangedMail($mahasiswa));
             }
 
             Session::flash('success_message_update', 'Data mahasiswa berhasil diperbarui');
