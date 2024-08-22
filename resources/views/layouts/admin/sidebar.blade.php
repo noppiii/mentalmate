@@ -56,7 +56,7 @@
         <ul class="menu-inner py-1">
             <!-- Dashboards -->
             <li class="menu-item {{ request()->is('admin/dashboard*') ? 'open active' : '' }}">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <a href="{{route('admin.dashboard')}}" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons ti ti-smart-home"></i>
                     <div data-i18n="Dashboards">Dashboards</div>
                     <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
