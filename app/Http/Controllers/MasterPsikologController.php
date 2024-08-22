@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PsikologAccountStatusChangedMail;
 use App\Models\PsikologModel;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class MasterPsikologController extends Controller
@@ -74,6 +76,10 @@ class MasterPsikologController extends Controller
 
             if ($psikolog->isDirty()) {
                 $psikolog->save();
+            }
+
+            if (in_array($data['status'], ['verified', 'suspended'])) {
+                Mail::to($psikolog->email)->send(new PsikologAccountStatusChangedMail($psikolog));
             }
 
             Session::flash('success_message_update', 'Data psikolog berhasil diperbarui');
