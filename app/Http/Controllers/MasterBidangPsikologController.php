@@ -34,6 +34,7 @@ class MasterBidangPsikologController extends Controller
             ->groupBy('bidang_psikologs.id', 'bidang_psikologs.name')
             ->orderBy('psikolog_count', 'DESC')
             ->first();
+//        dd($bidangPsikologTerbanyak->toArray());
         return view('pages.admin.bidang-psikolog.index', compact('allBidang', 'totalBidang', 'bidangPsikologTerfavorit', 'bidangPsikologTerbanyak'));
     }
 

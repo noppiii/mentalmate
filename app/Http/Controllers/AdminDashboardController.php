@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\AdminModel;
 use App\Models\ArticleModel;
+use App\Models\BidangPsikologModel;
 use App\Models\KonsultasiModel;
 use App\Models\MahasiswaModel;
+use App\Models\PembayaranModel;
 use App\Models\PsikologModel;
+use App\Models\TransaksiModel;
 use App\Models\UlasanModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use marineusde\LarapexCharts\LarapexChart;
 
 class AdminDashboardController extends Controller
@@ -85,6 +89,37 @@ class AdminDashboardController extends Controller
             $reviewData[] = $reviewCount;
         }
 
+        $bidangPsikologTerbanyakChart = BidangPsikologModel::select('bidang_psikologs.name', DB::raw('COUNT(psikologs.id) as psikolog_count'))
+            ->leftJoin('bidang_psikolog_mappings', 'bidang_psikologs.id', '=', 'bidang_psikolog_mappings.bidang_psikolog_id')
+            ->leftJoin('detail_psikologs', 'bidang_psikolog_mappings.detail_psikolog_id', '=', 'detail_psikologs.id')
+            ->leftJoin('psikologs', 'detail_psikologs.psikolog_id', '=', 'psikologs.id')
+            ->groupBy('bidang_psikologs.id', 'bidang_psikologs.name')
+            ->orderBy('psikolog_count', 'DESC')
+            ->get();
+
+        $metodeKonsultasiTerbanyakChart = KonsultasiModel::select('metode_konsultasis.jenis_metode_konsultasi', DB::raw('COUNT(konsultasis.id) as konsultasi_count'))
+            ->leftJoin('detail_psikologs', 'konsultasis.psikolog_id', '=', 'detail_psikologs.psikolog_id')
+            ->leftJoin('metode_konsultasis', 'detail_psikologs.metode_konsultasi_id', '=', 'metode_konsultasis.id')
+            ->whereMonth('konsultasis.tanggal', Carbon::now()->month)
+            ->whereYear('konsultasis.tanggal', Carbon::now()->year)
+            ->groupBy('metode_konsultasis.id', 'metode_konsultasis.jenis_metode_konsultasi')
+            ->orderBy('konsultasi_count', 'DESC')
+            ->limit(5)
+            ->get();
+
+        $topMetodeNominalChart = KonsultasiModel::select('metode_konsultasis.jenis_metode_konsultasi', DB::raw('SUM(pembayarans.nominal) as total_nominal'))
+            ->leftJoin('detail_psikologs', 'konsultasis.psikolog_id', '=', 'detail_psikologs.psikolog_id')
+            ->leftJoin('pembayarans', 'konsultasis.id', '=', 'pembayarans.konsultasi_id')
+            ->leftJoin('metode_konsultasis', 'detail_psikologs.metode_konsultasi_id', '=', 'metode_konsultasis.id')
+            ->whereMonth('konsultasis.tanggal', Carbon::now()->month)
+            ->whereYear('konsultasis.tanggal', Carbon::now()->year)
+            ->groupBy('metode_konsultasis.id', 'metode_konsultasis.jenis_metode_konsultasi')
+            ->orderBy('total_nominal', 'DESC')
+            ->limit(5)
+            ->get();
+
+//        dd($topMetodeNominalChart);
+
         $totalUser = AdminModel::count() + PsikologModel::count() + MahasiswaModel::count();
         $totalUserMonth = AdminModel::whereYear('created_at', Carbon::now()->year)
                 ->whereMonth('created_at', Carbon::now()->month)
@@ -111,9 +146,17 @@ class AdminDashboardController extends Controller
             ->whereMonth('created_at', Carbon::now()->month)
             ->count();
 
+        $totalTransaksi = PembayaranModel::sum('nominal');
+        $cancelTransaksi = PembayaranModel::where('status', 'cancel')->count();
+        $pendingTransaksi = PembayaranModel::where('status', 'pending')->count();
+        $successTransaksi = PembayaranModel::where('status', 'success')->count();
+        $totalTransaksiMonth = PembayaranModel::whereYear('created_at', Carbon::now()->year)
+            ->whereMonth('created_at', Carbon::now()->month)->sum('nominal');
+
         return view('pages.admin.dashboard.dashboard', compact('months', 'adminData', 'psikologData', 'mahasiswaData',
-            'rejectedData', 'pendingData', 'acceptedData', 'upcomingConsultations', 'pastConsultations', 'totalUser', 'totalUserMonth', 'totalArtikel',
-            'totalArtikelMonth', 'totalKonsultasi', 'totalKonsultasiMonth', 'totalUlasan', 'totalUlasanMonth', 'reviewData'));
+            'rejectedData', 'pendingData', 'acceptedData', 'upcomingConsultations', 'pastConsultations', 'bidangPsikologTerbanyakChart', 'totalUser', 'totalUserMonth', 'totalArtikel',
+            'totalArtikelMonth', 'totalKonsultasi', 'totalKonsultasiMonth', 'totalUlasan', 'totalUlasanMonth', 'reviewData', 'totalTransaksi', 'cancelTransaksi', 'pendingTransaksi', 'successTransaksi',
+            'metodeKonsultasiTerbanyakChart', 'totalTransaksiMonth', 'topMetodeNominalChart'));
     }
 
     /**
