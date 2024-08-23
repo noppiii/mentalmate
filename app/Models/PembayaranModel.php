@@ -16,4 +16,9 @@ class PembayaranModel extends Model
     {
         return $this->belongsTo(MahasiswaModel::class);
     }
+
+    public function konsultasi()
+    {
+        return $this->belongsTo(KonsultasiModel::class);
+    }
 }

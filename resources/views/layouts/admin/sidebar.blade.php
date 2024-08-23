@@ -184,7 +184,7 @@
             </li>
             <!-- Cards -->
             <li class="menu-item">
-                <a href="app-calendar.html" class="menu-link">
+                <a href="{{route('transaksi.index')}}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-credit-card"></i>
                     <div data-i18n="Transaksi">Transaksi</div>
                 </a>
