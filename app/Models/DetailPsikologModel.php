@@ -14,7 +14,7 @@ class DetailPsikologModel extends Model
 
     public function psikolog()
     {
-        return $this->belongsTo(PsikologModel::class);
+        return $this->belongsTo(PsikologModel::class, 'psikolog_id');
     }
 
     // public function bidangPsikolog()

@@ -90,7 +90,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="card mb-4">
-                        <form action="#" method="GET">
+                        <form action="{{route('bidang-psikolog.index')}}" method="GET">
                             <div class="card-body demo-vertical-spacing demo-only-element">
                                 <div class="row mb-2">
                                     <div class="col-md-10">
@@ -100,11 +100,11 @@
                                             <input
                                                 type="text"
                                                 class="form-control"
-                                                placeholder="Cari data KKN..."
-                                                aria-label="Cari data KKN..."
+                                                placeholder="Cari data bidang psikolog..."
+                                                aria-label="Cari data bidang psikolog..."
                                                 aria-describedby="basic-addon-search31"
-                                                name="searchkKn"
-                                                {{-- value="{{ $search }}" --}}
+                                                name="search"
+                                                value="{{ $search }}"
                                             />
                                         </div>
                                     </div>
@@ -123,127 +123,140 @@
 
             <!-- Teams Cards -->
             <div class="row g-4">
-                @foreach ($allBidang as $data)
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-3">
-                                    <a href="javascript:;" class="d-flex align-items-center">
-                                        <div class="me-2 text-body h5 mb-0">{{ $data->name }}</div>
-                                    </a>
-                                    <div class="ms-auto">
-                                        <ul class="list-inline mb-0 d-flex align-items-center">
-                                            <li class="list-inline-item">
-                                                <div class="dropdown">
-                                                    <button
-                                                        type="button"
-                                                        class="btn dropdown-toggle hide-arrow p-0"
-                                                        data-bs-toggle="dropdown"
-                                                        aria-expanded="false"
-                                                    >
-                                                        <i class="ti ti-dots-vertical text-muted"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-end">
-                                                        <li><a class="dropdown-item"
-                                                               href="{{ route('bidang-psikolog.edit', $data->id) }}"><i
-                                                                    class="ti ti-pencil me-2"></i>Edit Bidang</a></li>
-                                                        <li>
-                                                            <hr class="dropdown-divider"/>
-                                                        </li>
-                                                        <li>
-                                                            <button class="dropdown-item text-danger"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#onboardHorizontalImageModal{{ $data->id }}">
-                                                                <i class="ti ti-trash me-2"></i>Delete Bidang
-                                                            </button>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
+                @if(count($allBidang) > 0)
+                    @foreach ($allBidang as $data)
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <a href="javascript:;" class="d-flex align-items-center">
+                                            <div class="me-2 text-body h5 mb-0">{{ $data->name }}</div>
+                                        </a>
+                                        <div class="ms-auto">
+                                            <ul class="list-inline mb-0 d-flex align-items-center">
+                                                <li class="list-inline-item">
+                                                    <div class="dropdown">
+                                                        <button
+                                                            type="button"
+                                                            class="btn dropdown-toggle hide-arrow p-0"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false"
+                                                        >
+                                                            <i class="ti ti-dots-vertical text-muted"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-end">
+                                                            <li><a class="dropdown-item"
+                                                                   href="{{ route('bidang-psikolog.edit', $data->id) }}"><i
+                                                                        class="ti ti-pencil me-2"></i>Edit Bidang</a>
+                                                            </li>
+                                                            <li>
+                                                                <hr class="dropdown-divider"/>
+                                                            </li>
+                                                            <li>
+                                                                <button class="dropdown-item text-danger"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#onboardHorizontalImageModal{{ $data->id }}">
+                                                                    <i class="ti ti-trash me-2"></i>Delete Bidang
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <p class="mb-3 text-justify">
-                                    {{ implode(' ', array_slice(str_word_count($data->description, 1), 0, 20)) }}
-                                </p>
-                                <div class="d-flex align-items-center pt-1">
-                                    <div class="d-flex align-items-center">
-                                        <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
-                                            <li
-                                                data-bs-toggle="tooltip"
-                                                data-popup="tooltip-custom"
-                                                data-bs-placement="top"
-                                                title="Vinnie Mostowy"
-                                                class="avatar avatar-sm pull-up"
-                                            >
-                                                <img class="rounded-circle" src="../../assets/img/avatars/5.png"
-                                                     alt="Avatar"/>
-                                            </li>
-                                            <li
-                                                data-bs-toggle="tooltip"
-                                                data-popup="tooltip-custom"
-                                                data-bs-placement="top"
-                                                title="Allen Rieske"
-                                                class="avatar avatar-sm pull-up"
-                                            >
-                                                <img class="rounded-circle" src="../../assets/img/avatars/12.png"
-                                                     alt="Avatar"/>
-                                            </li>
-                                            <li
-                                                data-bs-toggle="tooltip"
-                                                data-popup="tooltip-custom"
-                                                data-bs-placement="top"
-                                                title="Julee Rossignol"
-                                                class="avatar avatar-sm pull-up"
-                                            >
-                                                <img class="rounded-circle" src="../../assets/img/avatars/6.png"
-                                                     alt="Avatar"/>
-                                            </li>
-                                            <li class="avatar avatar-sm">
-                      <span
-                          class="avatar-initial rounded-circle pull-up"
-                          data-bs-toggle="tooltip"
-                          data-bs-placement="top"
-                          title="8 more"
-                      >+8</span
-                      >
-                                            </li>
-                                        </ul>
+                                    <p class="mb-3 text-justify">
+                                        {{ implode(' ', array_slice(str_word_count($data->description, 1), 0, 20)) }}
+                                    </p>
+                                    <div class="d-flex align-items-center pt-1">
+                                        <div class="d-flex align-items-center">
+                                            <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
+                                                @foreach ($data->detailPsikologs as $detailPsikolog)
+                                                    @if ($detailPsikolog->psikolog)
+                                                        <!-- Check if psikolog exists -->
+                                                        <li
+                                                            data-bs-toggle="tooltip"
+                                                            data-popup="tooltip-custom"
+                                                            data-bs-placement="top"
+                                                            title="{{ $detailPsikolog->psikolog->nama }}"
+                                                            class="avatar avatar-sm pull-up"
+                                                        >
+                                                            <img class="rounded-circle"
+                                                                 src="{{asset('store/user/photo/psikolog/' . $detailPsikolog->psikolog->profile_photo_path)}}"
+                                                                 alt="{{ $detailPsikolog->psikolog->nama }}"/>
+                                                        </li>
+                                                    @endif
+                                                @endforeach
+                                                <li class="avatar avatar-sm">
+                                                @if ($data->detailPsikologs->count() > 4)
+                                                    <li class="avatar avatar-sm">
+                                                         <span
+                                                             class="avatar-initial rounded-circle pull-up"
+                                                             data-bs-toggle="tooltip"
+                                                             data-bs-placement="top"
+                                                             title="{{ $data->detailPsikologs->count() - 4 }} more"
+                                                         >{{ $data->detailPsikologs->count() - 4 }}</span
+                                                         >
+                                                    </li>
+                                                    @endif
+                                                    </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    @endforeach
+                @else
+                    <div class="text-center">
+                        <img src="{{ asset('image/data-not-found.png') }}" alt="No Data Image" class="img-fluid w-40"/>
                     </div>
-                @endforeach
+                @endif
             </div>
             <div class="row mt-4">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item prev">
-                            <a class="page-link" href="javascript:void(0);"
-                            ><i class="ti ti-chevrons-left ti-xs"></i
-                                ></a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="javascript:void(0);">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="javascript:void(0);">2</a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="javascript:void(0);">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="javascript:void(0);">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="javascript:void(0);">5</a>
-                        </li>
-                        <li class="page-item next">
-                            <a class="page-link" href="javascript:void(0);"
-                            ><i class="ti ti-chevrons-right ti-xs"></i
-                                ></a>
-                        </li>
+                        <!-- Tombol Previous -->
+                        @if ($allBidang->onFirstPage())
+                            <li class="page-item disabled">
+                                <span class="page-link" aria-hidden="true">&laquo;</span>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $allBidang->previousPageUrl() }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        @endif
+
+                        <!-- Tombol Halaman -->
+                        @php
+                            $start = max($allBidang->currentPage() - 2, 1);
+                            $end = min($start + 4, $allBidang->lastPage());
+
+                            if ($end - $start < 4) {
+                                $start = max($end - 4, 1);
+                            }
+                        @endphp
+
+                        @for ($i = $start; $i <= $end; $i++)
+                            <li class="page-item {{ $i == $allBidang->currentPage() ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $allBidang->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+
+                        <!-- Tombol Next -->
+                        @if ($allBidang->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $allBidang->nextPageUrl() }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        @else
+                            <li class="page-item disabled">
+                                <span class="page-link" aria-hidden="true">&raquo;</span>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
             </div>

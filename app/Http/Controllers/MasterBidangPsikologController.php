@@ -15,9 +15,23 @@ class MasterBidangPsikologController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $allBidang = BidangPsikologModel::paginate(9);
+        $search = $request->input('search');
+        $bidangQuery = BidangPsikologModel::with('detailPsikologs.psikolog');
+
+        if ($search) {
+            $bidangQuery->where('name', 'LIKE', '%' . $search . '%');
+        }
+
+        $allBidang = $bidangQuery->paginate(10);
+
+//        foreach ($allBidang as $bidang) {
+//            foreach ($bidang->detailPsikologs as $detailPsikolog) {
+//                dd($detailPsikolog->psikolog);
+//            }
+//        }
+
         $totalBidang = BidangPsikologModel::count();
         $bidangPsikologTerfavorit = BidangPsikologModel::select('bidang_psikologs.name', DB::raw('COUNT(psikolog_favorits.id) as favorit_count'))
             ->leftJoin('bidang_psikolog_mappings', 'bidang_psikologs.id', '=', 'bidang_psikolog_mappings.bidang_psikolog_id')
@@ -35,7 +49,7 @@ class MasterBidangPsikologController extends Controller
             ->orderBy('psikolog_count', 'DESC')
             ->first();
 //        dd($bidangPsikologTerbanyak->toArray());
-        return view('pages.admin.bidang-psikolog.index', compact('allBidang', 'totalBidang', 'bidangPsikologTerfavorit', 'bidangPsikologTerbanyak'));
+        return view('pages.admin.bidang-psikolog.index', compact('search', 'allBidang', 'totalBidang', 'bidangPsikologTerfavorit', 'bidangPsikologTerbanyak'));
     }
 
     /**
