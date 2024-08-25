@@ -10,13 +10,24 @@ class MasterPsikologFavoritController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $psikologs = PsikologModel::with([
+        $search = $request->input('search');
+
+        $psikologsQuery = PsikologModel::with([
             'psikologFavorits',
             'detailPsikologs.bidangPsikologs',
             'detailPsikologs.metodeKonsultasis'
-        ])->get();
+        ]);
+
+        if ($search) {
+            $psikologsQuery->where(function($query) use ($search) {
+                $query->where('nama', 'LIKE', '%' . $search . '%')
+                    ->orWhere('asal_universitas', 'LIKE', '%' . $search . '%');
+            });
+        }
+
+        $psikologs = $psikologsQuery->paginate(10);
 
         foreach ($psikologs as $psikolog) {
             $psikolog->total_favorit = $psikolog->psikologFavorits()->count();
@@ -30,7 +41,7 @@ class MasterPsikologFavoritController extends Controller
                 ->count();
         }
 
-        return view('pages.admin.psikolog-favorit.index', compact('psikologs'));
+        return view('pages.admin.psikolog-favorit.index', compact('psikologs', 'search'));
     }
 
     /**

@@ -14,9 +14,16 @@ class MasterMetodeKonsultasiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $allMetode = MetodeKonsultasiModel::paginate(9);
+        $search = $request->input('search');
+        $metodeQuery = MetodeKonsultasiModel::with('detailPsikologs.psikolog');
+
+        if ($search) {
+            $metodeQuery->where('jenis_metode_konsultasi', 'LIKE', '%' . $search . '%');
+        }
+
+        $allMetode = $metodeQuery->paginate(10);
 
         $totalMetode = MetodeKonsultasiModel::count();
 
@@ -37,7 +44,7 @@ class MasterMetodeKonsultasiController extends Controller
             ->orderBy('psikolog_count', 'DESC')
             ->first();
 
-        return view('pages.admin.metode-konsultasi.index', compact('allMetode', 'totalMetode', 'metodePsikologTerfavorit', 'metodePsikologTerbanyak'));
+        return view('pages.admin.metode-konsultasi.index', compact('search', 'allMetode', 'totalMetode', 'metodePsikologTerfavorit', 'metodePsikologTerbanyak'));
     }
 
     /**
