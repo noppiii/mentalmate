@@ -2,31 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ArticleModel;
 use App\Models\UlasanModel;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class MasterUlasanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $newArtikel = ArticleModel::where('status', 'accepted')
-        ->orderBy('created_at', 'asc')
-            ->take(3)
-            ->get();
-            // dd($newArtikel);
-        $newArtikelSlide = ArticleModel::where('status', 'accepted')
-        ->orderBy('created_at', 'desc')
-        ->skip(2)
-        ->take(6)
-        ->get();
-
-        $ulasan = UlasanModel::latest()->take(6)->get();
-
-        return view('pages.client.home.home', compact('newArtikel', 'newArtikelSlide', 'ulasan'));
+        $allUlasan = UlasanModel::all();
+        return view('pages.admin.ulasan.index', compact('allUlasan'));
     }
 
     /**

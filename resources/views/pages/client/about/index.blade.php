@@ -28,8 +28,8 @@
 							</div>
 						</div>
 					</div>
-				</div>  
-		</div> 
+				</div>
+		</div>
 	</div>
 	<!-- Title Bar End-->
 
@@ -49,7 +49,7 @@
 								<div class="accordion" id="accordionExample">
 									<div class="accordion-item active">
 										<h2 class="accordion-header" id="headingOne">
-											<button class="accordion-button" type="button" data-bs-toggle="collapse" 
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
 											data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 													<span class="pbmit-accordion-icon-closed">
@@ -89,7 +89,7 @@
 												</span>
 											</button>
 										</h2>
-										<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" 
+										<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
 										data-bs-parent="#accordionExample">
 											<div class="accordion-body">
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
@@ -98,7 +98,7 @@
 									</div>
 									<div class="accordion-item">
 										<h2 class="accordion-header" id="headingThree">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 											data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 													<span class="pbmit-accordion-icon-closed">
@@ -113,14 +113,14 @@
 													What are the main industries we serve?
 												</span>
 											</button>
-										</h2> 
-										<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" 
+										</h2>
+										<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
 										data-bs-parent="#accordionExample">
 											<div class="accordion-body">
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
 											</div>
-										</div>                         
-									</div>                 
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -133,7 +133,7 @@
 								<div class="accordion" id="accordionExample1">
 									<div class="accordion-item active">
 										<h2 class="accordion-header" id="heading1">
-											<button class="accordion-button" type="button" data-bs-toggle="collapse" 
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
 											data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
 												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 													<span class="pbmit-accordion-icon-closed">
@@ -149,7 +149,7 @@
 												</span>
 											</button>
 										</h2>
-										<div id="collapse1" class="accordion-collapse collapse show" 
+										<div id="collapse1" class="accordion-collapse collapse show"
 										aria-labelledby="heading1" data-bs-parent="#accordionExample1">
 											<div class="accordion-body">
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
@@ -158,7 +158,7 @@
 									</div>
 									<div class="accordion-item">
 										<h2 class="accordion-header" id="heading2">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 											data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
 												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 													<span class="pbmit-accordion-icon-closed">
@@ -173,17 +173,17 @@
 													How is the selection process organized?
 												</span>
 											</button>
-										</h2> 
-										<div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" 
+										</h2>
+										<div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
 										data-bs-parent="#accordionExample1">
 											<div class="accordion-body">
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
 											</div>
-										</div>                         
-									</div> 
+										</div>
+									</div>
 									<div class="accordion-item">
 										<h2 class="accordion-header" id="heading3">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 											data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
 												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 													<span class="pbmit-accordion-icon-closed">
@@ -198,13 +198,13 @@
 													How quickly can you source developers?
 												</span>
 											</button>
-										</h2> 
-										<div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" 
+										</h2>
+										<div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
 										data-bs-parent="#accordionExample1">
 											<div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.We meet with you to learn about your team, your needs, and your goals. If you have a job profile available, we will use it. If not, we will help you write the job profile.
 											</div>
-										</div>                         
-									</div>       
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -223,7 +223,7 @@
 					<div class="accordion" id="accordionExample2">
 						<div class="accordion-item active">
 							<h2 class="accordion-header" id="heading01">
-								<button class="accordion-button" type="button" data-bs-toggle="collapse" 
+								<button class="accordion-button" type="button" data-bs-toggle="collapse"
 								data-bs-target="#collapse01" aria-expanded="false" aria-controls="collapse01">
 									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 										<span class="pbmit-accordion-icon-closed">
@@ -239,7 +239,7 @@
 									</span>
 								</button>
 							</h2>
-							<div id="collapse01" class="accordion-collapse collapse show" 
+							<div id="collapse01" class="accordion-collapse collapse show"
 							aria-labelledby="heading01" data-bs-parent="#accordionExample2">
 								<div class="accordion-body">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
@@ -248,7 +248,7 @@
 						</div>
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="heading02">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 								data-bs-target="#collapse02" aria-expanded="false" aria-controls="collapse02">
 									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 										<span class="pbmit-accordion-icon-closed">
@@ -263,17 +263,17 @@
 										I’m not sure what kind of application development services I need. What should I do?
 									</span>
 								</button>
-							</h2> 
-							<div id="collapse02" class="accordion-collapse collapse" aria-labelledby="heading02" 
+							</h2>
+							<div id="collapse02" class="accordion-collapse collapse" aria-labelledby="heading02"
 							data-bs-parent="#accordionExample2">
 								<div class="accordion-body">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
 								</div>
-							</div>                         
-						</div> 
+							</div>
+						</div>
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="heading03">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 								data-bs-target="#collapse03" aria-expanded="false" aria-controls="collapse03">
 									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 										<span class="pbmit-accordion-icon-closed">
@@ -288,17 +288,17 @@
 										Do we have a pilot project as our software development services?
 									</span>
 								</button>
-							</h2> 
-							<div id="collapse03" class="accordion-collapse collapse" aria-labelledby="heading03" 
+							</h2>
+							<div id="collapse03" class="accordion-collapse collapse" aria-labelledby="heading03"
 							data-bs-parent="#accordionExample2">
 								<div class="accordion-body">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
 								</div>
-							</div>                         
+							</div>
 						</div>
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="heading04">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 								data-bs-target="#collapse04" aria-expanded="false" aria-controls="collapse04">
 									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 										<span class="pbmit-accordion-icon-closed">
@@ -313,17 +313,17 @@
 										What advantages of outsourcing your project to our team you get?
 									</span>
 								</button>
-							</h2> 
-							<div id="collapse04" class="accordion-collapse collapse" aria-labelledby="heading04" 
+							</h2>
+							<div id="collapse04" class="accordion-collapse collapse" aria-labelledby="heading04"
 							data-bs-parent="#accordionExample2">
 								<div class="accordion-body">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
 								</div>
-							</div>                         
-						</div>   
+							</div>
+						</div>
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="heading05">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 								data-bs-target="#collapse05" aria-expanded="false" aria-controls="collapse05">
 									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
 										<span class="pbmit-accordion-icon-closed">
@@ -338,14 +338,14 @@
 										What is the budget generally needed? How do you estimate the cost of a software project?
 									</span>
 								</button>
-							</h2> 
-							<div id="collapse05" class="accordion-collapse collapse" aria-labelledby="heading05" 
+							</h2>
+							<div id="collapse05" class="accordion-collapse collapse" aria-labelledby="heading05"
 							data-bs-parent="#accordionExample2">
 								<div class="accordion-body">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
 								</div>
-							</div>                         
-						</div>          
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -411,17 +411,17 @@
     document.querySelectorAll('.pbminfotech-box-star-ratings i').forEach((star) => {
         star.addEventListener('click', function() {
             let rating = this.getAttribute('data-rating');
-            
+
             document.querySelectorAll('.pbminfotech-box-star-ratings i').forEach((s) => {
                 s.classList.remove('active');
             });
-            
+
             for (let i = 0; i < rating; i++) {
                 document.querySelectorAll('.pbminfotech-box-star-ratings i')[i].classList.add('active');
             }
 
             document.getElementById('rating-value').value = rating;
-            
+
             console.log('Selected rating:', rating);
         });
     });

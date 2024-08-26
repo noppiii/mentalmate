@@ -26,6 +26,7 @@ use App\Http\Controllers\MasterPsikologController;
 use App\Http\Controllers\MasterPsikologFavoritController;
 use App\Http\Controllers\MasterTagArticleController;
 use App\Http\Controllers\MasterTransaksiController;
+use App\Http\Controllers\MasterUlasanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PsikologArticleController;
 use App\Http\Controllers\PsikologDashboardController;
@@ -81,6 +82,7 @@ Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(f
     Route::resource('metode-konsultasi', MasterMetodeKonsultasiController::class);
     Route::resource('transaksi', MasterTransaksiController::class);
     Route::resource('banner', MasterBannerController::class);
+    Route::resource('ulasan', MasterUlasanController::class);
     Route::put('banner/status/{id}/update', [MasterBannerController::class, 'updateStatus'])->name('banner.updateStatus');
 });
 

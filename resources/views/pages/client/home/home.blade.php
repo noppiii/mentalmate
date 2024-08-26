@@ -161,7 +161,7 @@
 			</div>
 		</header>
 <div class="page-content">
-			<!-- Inner Box Start --> 
+			<!-- Inner Box Start -->
 			<section class="section-xl inner-box_area">
 				<div class="container">
 					<div class="row">
@@ -173,7 +173,7 @@
 							</div>
 							<div class="inner-box_style inner-box_1">
 								<div class="pbmit-heading_title">
-									<h5>Schedule Hours</h5>	
+									<h5>Schedule Hours</h5>
 								</div>
 								<ul class="pbmit-timelist-list">
 									<li>
@@ -203,7 +203,7 @@
 							</div>
 							<div class="inner-box_style inner-box_2">
 								<div class="pbmit-heading_title">
-									<h5>Our Location </h5>	
+									<h5>Our Location </h5>
 								</div>
 								<div class="pbmit-text_aditor">
 									Search our locations to find the one nearest you Get the answers and assurance you deserve with accuracy you can trust.
@@ -232,7 +232,7 @@
 							<div class="inner-box_style inner-box_3">
 								<div class="pbmit-bg_overlay"></div>
 								<div class="pbmit-heading_title">
-									<h5>Our Location </h5>	
+									<h5>Our Location </h5>
 								</div>
 								<div class="pbmit-text_aditor">
 									Emergency Medical Services, more commonly known as EMS, is a system that responds
@@ -259,9 +259,9 @@
 					</div>
 				</div>
 			</section>
-			<!-- Inner Box end --> 
+			<!-- Inner Box end -->
 
-			<!-- About Us Start --> 
+			<!-- About Us Start -->
 			<section class="about-us-section_two">
 				<div class="container">
 					<div class="pbmit-sticky-special pbmit-bg-color-white">
@@ -381,7 +381,7 @@
 															<span class="pbmit-icon-list-text">Avoid harmful use of alcohol</span>
 														</li>
 													</ul>
-												</div>	
+												</div>
 											</div>
 										</div>
 									</div>
@@ -391,9 +391,9 @@
 					</div>
 				</div>
 			</section>
-			<!-- About Us end --> 
+			<!-- About Us end -->
 
-			<!-- Marquee Start --> 
+			<!-- Marquee Start -->
             <section>
 				<div class="container-fluid p-0">
 					<div class="swiper-slider marquee">
@@ -444,7 +444,7 @@
             </section>
             <!-- Marquee End -->
 
-			<!-- Service Start --> 
+			<!-- Service Start -->
 			<section class="pbmit-sticky-section section-xl">
 				<div class="container">
 					<div class="row">
@@ -493,11 +493,11 @@
 													</h3>
 												</div>
 												<div class="pbmit-service-icon">
-													<i class="pbmit-xcare-icon pbmit-xcare-icon-gesundheit-1"></i>					
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-gesundheit-1"></i>
 												</div>
 												</div>
 												<div class="pbmit-service-description">
-												The medical professional doctors available in the clinic					
+												The medical professional doctors available in the clinic
 												</div>
 											</div>
 										</div>
@@ -532,11 +532,11 @@
 													</h3>
 												</div>
 												<div class="pbmit-service-icon">
-													<i class="pbmit-xcare-icon pbmit-xcare-icon-pills"></i>					
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-pills"></i>
 												</div>
 												</div>
 												<div class="pbmit-service-description">
-												The medical professional doctors available in the clinic					
+												The medical professional doctors available in the clinic
 												</div>
 											</div>
 										</div>
@@ -571,11 +571,11 @@
 													</h3>
 												</div>
 												<div class="pbmit-service-icon">
-													<i class="pbmit-xcare-icon pbmit-xcare-icon-joint"></i>					
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-joint"></i>
 												</div>
 												</div>
 												<div class="pbmit-service-description">
-												The medical professional doctors available in the clinic					
+												The medical professional doctors available in the clinic
 												</div>
 											</div>
 										</div>
@@ -610,11 +610,11 @@
 													</h3>
 												</div>
 												<div class="pbmit-service-icon">
-													<i class="pbmit-xcare-icon pbmit-xcare-icon-ppe"></i>					
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-ppe"></i>
 												</div>
 												</div>
 												<div class="pbmit-service-description">
-												The medical professional doctors available in the clinic					
+												The medical professional doctors available in the clinic
 												</div>
 											</div>
 										</div>
@@ -649,11 +649,11 @@
 													</h3>
 												</div>
 												<div class="pbmit-service-icon">
-													<i class="pbmit-xcare-icon pbmit-xcare-icon-chemistry-1"></i>					
+													<i class="pbmit-xcare-icon pbmit-xcare-icon-chemistry-1"></i>
 												</div>
 												</div>
 												<div class="pbmit-service-description">
-												The medical professional doctors available in the clinic					
+												The medical professional doctors available in the clinic
 												</div>
 											</div>
 										</div>
@@ -674,7 +674,7 @@
 			</section>
 			<!-- Service End -->
 
-			<!-- Tab Start --> 
+			<!-- Tab Start -->
 			<section class="section-xl pbmit-bg-color-global pbmit-extend-animation tab_section">
 				<div class="container">
 					<div class="pbmit-heading-subheading text-white text-center">
@@ -684,22 +684,22 @@
 					<div class="pbmit-tab">
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item" role="presentation">
-								<a class="nav-link active" data-bs-toggle="tab" href="#tab-2-1" aria-selected="true" role="tab"> 
+								<a class="nav-link active" data-bs-toggle="tab" href="#tab-2-1" aria-selected="true" role="tab">
 									<span>Modern Technology</span>
-								</a>	
+								</a>
 							</li>
-							<li class="nav-item" role="presentation"> 
-								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-2" aria-selected="false" role="tab" tabindex="-1"> 
+							<li class="nav-item" role="presentation">
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-2" aria-selected="false" role="tab" tabindex="-1">
 									<span>Success of Treatment</span>
 								</a>
 							</li>
 							<li class="nav-item" role="presentation">
-								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-3" aria-selected="false" role="tab" tabindex="-1"> 
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-3" aria-selected="false" role="tab" tabindex="-1">
 									<span>Certified Doctors</span>
 								</a>
 							</li>
 							<li class="nav-item" role="presentation">
-								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-4" aria-selected="false" role="tab" tabindex="-1"> 
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-2-4" aria-selected="false" role="tab" tabindex="-1">
 									<span>Medical Advice</span>
 								</a>
 							</li>
@@ -712,7 +712,7 @@
 											<img src="{{ asset('client/images/tab-img-01.jpg') }}" class="img-fluid" alt="">
 										</div>
 										<div class="col-md-12 col-xl-6 pbmit-tab-list">
-											<h2>We are here to hear and heal your</h2>	
+											<h2>We are here to hear and heal your</h2>
 											<div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even. Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
 											<ul class="list-group list-group-borderless">
 												<li class="list-group-item">
@@ -775,7 +775,7 @@
 											<img src="{{ asset('client/images/tab-img-02.jpg') }}" class="img-fluid" alt="">
 										</div>
 										<div class="col-md-12 col-xl-6 pbmit-tab-list">
-											<h2>Treatment patients in primary care</h2>	
+											<h2>Treatment patients in primary care</h2>
 											<div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even. Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
 											<ul class="list-group list-group-borderless">
 												<li class="list-group-item">
@@ -838,7 +838,7 @@
 											<img src="{{ asset('client/images/tab-img-03.jpg') }}" class="img-fluid" alt="">
 										</div>
 										<div class="col-md-12 col-xl-6 pbmit-tab-list">
-											<h2>Accreditation within a given specialty</h2>	
+											<h2>Accreditation within a given specialty</h2>
 											<div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even. Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
 											<ul class="list-group list-group-borderless">
 												<li class="list-group-item">
@@ -901,7 +901,7 @@
 											<img src="{{ asset('client/images/tab-img-04.jpg') }}" class="img-fluid" alt="">
 										</div>
 										<div class="col-md-12 col-xl-6 pbmit-tab-list">
-											<h2>Better Health While Aging health</h2>	
+											<h2>Better Health While Aging health</h2>
 											<div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even. Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
 											<ul class="list-group list-group-borderless">
 												<li class="list-group-item">
@@ -963,7 +963,7 @@
 			</section>
 			<!-- Tab End -->
 
-			<!-- Timetable Start --> 
+			<!-- Timetable Start -->
 			<section class="section-lgt timetable_section">
 				<div class="container">
 					<div class="pbmit-heading-subheading animation-style2">
@@ -974,37 +974,37 @@
 						<div class="pbmit-select">
 							<ul class="nav nav-tabs" role="tablist">
 								<li class="nav-item" role="presentation">
-									<a class="nav-link active" data-bs-toggle="tab" href="#tab-3-1" aria-selected="true" role="tab"> 
+									<a class="nav-link active" data-bs-toggle="tab" href="#tab-3-1" aria-selected="true" role="tab">
 										<span>All Events</span>
-									</a>	
+									</a>
 								</li>
-								<li class="nav-item" role="presentation"> 
-									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-2" aria-selected="false" role="tab" tabindex="-1"> 
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-2" aria-selected="false" role="tab" tabindex="-1">
 										<span>Ophthalmology</span>
 									</a>
 								</li>
 								<li class="nav-item" role="presentation">
-									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-3" aria-selected="false" role="tab" tabindex="-1"> 
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-3" aria-selected="false" role="tab" tabindex="-1">
 										<span>Cardiologist</span>
 									</a>
 								</li>
 								<li class="nav-item" role="presentation">
-									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-4" aria-selected="false" role="tab" tabindex="-1"> 
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-4" aria-selected="false" role="tab" tabindex="-1">
 										<span>Pulmonary</span>
 									</a>
 								</li>
-								<li class="nav-item" role="presentation"> 
-									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-5" aria-selected="false" role="tab" tabindex="-1"> 
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-5" aria-selected="false" role="tab" tabindex="-1">
 										<span>Rhinology</span>
 									</a>
 								</li>
 								<li class="nav-item" role="presentation">
-									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-6" aria-selected="false" role="tab" tabindex="-1"> 
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-6" aria-selected="false" role="tab" tabindex="-1">
 										<span>Psychiatry</span>
 									</a>
 								</li>
 								<li class="nav-item" role="presentation">
-									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-7" aria-selected="false" role="tab" tabindex="-1"> 
+									<a class="nav-link" data-bs-toggle="tab" href="#tab-3-7" aria-selected="false" role="tab" tabindex="-1">
 										<span>Dental</span>
 									</a>
 								</li>
@@ -1765,37 +1765,37 @@
 							<div class="pbmit-select">
 								<ul class="nav nav-tabs" role="tablist">
 									<li class="nav-item" role="presentation">
-										<a class="nav-link active" data-bs-toggle="tab" href="#tab-4-1" aria-selected="true" role="tab"> 
+										<a class="nav-link active" data-bs-toggle="tab" href="#tab-4-1" aria-selected="true" role="tab">
 											<span>All Events</span>
-										</a>	
+										</a>
 									</li>
-									<li class="nav-item" role="presentation"> 
-										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-2" aria-selected="false" role="tab" tabindex="-1"> 
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-2" aria-selected="false" role="tab" tabindex="-1">
 											<span>Ophthalmology</span>
 										</a>
 									</li>
 									<li class="nav-item" role="presentation">
-										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-3" aria-selected="false" role="tab" tabindex="-1"> 
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-3" aria-selected="false" role="tab" tabindex="-1">
 											<span>Cardiologist</span>
 										</a>
 									</li>
 									<li class="nav-item" role="presentation">
-										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-4" aria-selected="false" role="tab" tabindex="-1"> 
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-4" aria-selected="false" role="tab" tabindex="-1">
 											<span>Pulmonary</span>
 										</a>
 									</li>
-									<li class="nav-item" role="presentation"> 
-										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-5" aria-selected="false" role="tab" tabindex="-1"> 
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-5" aria-selected="false" role="tab" tabindex="-1">
 											<span>Rhinology</span>
 										</a>
 									</li>
 									<li class="nav-item" role="presentation">
-										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-6" aria-selected="false" role="tab" tabindex="-1"> 
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-6" aria-selected="false" role="tab" tabindex="-1">
 											<span>Psychiatry</span>
 										</a>
 									</li>
 									<li class="nav-item" role="presentation">
-										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-7" aria-selected="false" role="tab" tabindex="-1"> 
+										<a class="nav-link" data-bs-toggle="tab" href="#tab-4-7" aria-selected="false" role="tab" tabindex="-1">
 											<span>Dental</span>
 										</a>
 									</li>
@@ -2159,8 +2159,8 @@
 					</div>
 				</div>
 			</section>
-			<!-- Timetable End --> 
-			
+			<!-- Timetable End -->
+
 			<!-- Portfolio Start -->
 			<section class="section-lgt portfolio_two">
 				<div class="container-fluid p-0">
@@ -2383,215 +2383,49 @@
 					<div class="swiper-slider" data-arrows-class="testimonial_arrow" data-autoplay="true" data-loop="true" data-dots="false" data-arrows="true" data-columns="3" data-margin="30" data-effect="slide">
 						<div class="swiper-wrapper">
 							<!-- Slide1 -->
+                            @foreach($ulasan as $data)
 							<div class="swiper-slide">
 								<article class="pbmit-testimonial-style-1">
 									<div class="pbminfotech-post-item">
 										<div class="pbmit-box-content-wrap">
 											<div class="pbminfotech-box-star-ratings">
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($data->rating >= $i)
+                                                        <i class="pbmit-base-icon-star-1 pbmit-active"></i>
+                                                    @else
+                                                        <i class="pbmit-base-icon-star-1"></i>
+                                                    @endif
+                                                @endfor
 											</div>
 											<div class="pbminfotech-box-desc">
 												<blockquote class="pbminfotech-testimonial-text">
-													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
+													<p>{{$data->isi}}</p>
 												</blockquote>
 											</div>
 											<div class="pbminfotech-box-author d-flex align-items-center">
 												<div class="pbminfotech-box-img">
 													<div class="pbmit-featured-img-wrapper">
 														<div class="pbmit-featured-wrapper">
-															<img src="{{ asset('client/images/testimonial-01.jpg') }}" class="img-fluid" alt="">
+															<img src="{{ asset('store/user/photo/mahasiswa/' . $data->mahasiswa->profile_photo_path) }}" class="img-fluid" alt="">
 														</div>
 													</div>
 												</div>
 												<div class="pbmit-auther-content">
-													<h3 class="pbminfotech-box-title">Mariam Ness</h3>
-													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
+													<h3 class="pbminfotech-box-title">{{$data->mahasiswa->nama}}</h3>
+													<div class="pbminfotech-testimonial-detail">{{$data->mahasiswa->asal_universitas}}</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</article>
 							</div>
-							<!-- Slide2 -->
-							<div class="swiper-slide">
-								<article class="pbmit-testimonial-style-1">
-									<div class="pbminfotech-post-item">
-										<div class="pbmit-box-content-wrap">
-											<div class="pbminfotech-box-star-ratings">
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-											</div>
-											<div class="pbminfotech-box-desc">
-												<blockquote class="pbminfotech-testimonial-text">
-													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
-												</blockquote>
-											</div>
-											<div class="pbminfotech-box-author d-flex align-items-center">
-												<div class="pbminfotech-box-img">
-													<div class="pbmit-featured-img-wrapper">
-														<div class="pbmit-featured-wrapper">
-															<img src="{{ asset('client/images/testimonial-02.jpg') }}" class="img-fluid" alt="">
-														</div>
-													</div>
-												</div>
-												<div class="pbmit-auther-content">
-													<h3 class="pbminfotech-box-title">Maria Flynn</h3>
-													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!-- Slide3 -->
-							<div class="swiper-slide">
-								<article class="pbmit-testimonial-style-1">
-									<div class="pbminfotech-post-item">
-										<div class="pbmit-box-content-wrap">
-											<div class="pbminfotech-box-star-ratings">
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1"></i>
-											</div>
-											<div class="pbminfotech-box-desc">
-												<blockquote class="pbminfotech-testimonial-text">
-													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
-												</blockquote>
-											</div>
-											<div class="pbminfotech-box-author d-flex align-items-center">
-												<div class="pbminfotech-box-img">
-													<div class="pbmit-featured-img-wrapper">
-														<div class="pbmit-featured-wrapper">
-															<img src="{{ asset('client/images/testimonial-03.jpg') }}" class="img-fluid" alt="">
-														</div>
-													</div>
-												</div>
-												<div class="pbmit-auther-content">
-													<h3 class="pbminfotech-box-title">Jennifer Smith</h3>
-													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!-- Slide4 -->
-							<div class="swiper-slide">
-								<article class="pbmit-testimonial-style-1">
-									<div class="pbminfotech-post-item">
-										<div class="pbmit-box-content-wrap">
-											<div class="pbminfotech-box-star-ratings">
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-											</div>
-											<div class="pbminfotech-box-desc">
-												<blockquote class="pbminfotech-testimonial-text">
-													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
-												</blockquote>
-											</div>
-											<div class="pbminfotech-box-author d-flex align-items-center">
-												<div class="pbminfotech-box-img">
-													<div class="pbmit-featured-img-wrapper">
-														<div class="pbmit-featured-wrapper">
-															<img src="{{ asset('client/images/testimonial-04.jpg') }}" class="img-fluid" alt="">
-														</div>
-													</div>
-												</div>
-												<div class="pbmit-auther-content">
-													<h3 class="pbminfotech-box-title">Jane Brown</h3>
-													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!-- Slide5 -->
-							<div class="swiper-slide">
-								<article class="pbmit-testimonial-style-1">
-									<div class="pbminfotech-post-item">
-										<div class="pbmit-box-content-wrap">
-											<div class="pbminfotech-box-star-ratings">
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1"></i>
-											</div>
-											<div class="pbminfotech-box-desc">
-												<blockquote class="pbminfotech-testimonial-text">
-													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
-												</blockquote>
-											</div>
-											<div class="pbminfotech-box-author d-flex align-items-center">
-												<div class="pbminfotech-box-img">
-													<div class="pbmit-featured-img-wrapper">
-														<div class="pbmit-featured-wrapper">
-															<img src="{{ asset('client/images/testimonial-05.jpg') }}" class="img-fluid" alt="">
-														</div>
-													</div>
-												</div>
-												<div class="pbmit-auther-content">
-													<h3 class="pbminfotech-box-title">Becky Linch</h3>
-													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!-- Slide6 -->
-							<div class="swiper-slide">
-								<article class="pbmit-testimonial-style-1">
-									<div class="pbminfotech-post-item">
-										<div class="pbmit-box-content-wrap">
-											<div class="pbminfotech-box-star-ratings">
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-												<i class="pbmit-base-icon-star-1 pbmit-active"></i>
-											</div>
-											<div class="pbminfotech-box-desc">
-												<blockquote class="pbminfotech-testimonial-text">
-													<p>I would recommend practitioners at this center to everyone! They are great to work with and are excellemt trainers. Thank you all!</p>
-												</blockquote>
-											</div>
-											<div class="pbminfotech-box-author d-flex align-items-center">
-												<div class="pbminfotech-box-img">
-													<div class="pbmit-featured-img-wrapper">
-														<div class="pbmit-featured-wrapper">
-															<img src="{{ asset('client/images/testimonial-06.jpg') }}" class="img-fluid" alt="">
-														</div>
-													</div>
-												</div>
-												<div class="pbmit-auther-content">
-													<h3 class="pbminfotech-box-title">Daniel Craig</h3>
-													<div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
+                            @endforeach
 						</div>
 					</div>
 				</div>
 			</section>
-			<!-- Testimonial End -->  
-			
+			<!-- Testimonial End -->
+
 			<!-- Ihbox Style Start -->
 			<section>
 				<div class="container">
@@ -2724,7 +2558,7 @@
 															<div class="pbmit-featured-wrapper">
 																<img src="{{ asset('store/artikel/thumbnail/' . $data->tumbnail) }}" class="img-fluid" alt="">
 															</div>
-														</div> 
+														</div>
 													</div>
 												</div>
 												<div class="pbminfotech-box-wrap">

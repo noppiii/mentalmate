@@ -394,82 +394,83 @@
                 <h3 class="address-title mb-2">Ubah Status Psikolog</h3>
                 <p class="text-muted address-subtitle">Ubah status psikolog deactive, pending, active</p>
               </div>
-              <form id="addNewAddressForm" class="row g-3"  action="{{ route('psikolog.update', $data->id) }}" method="post">
-                @csrf
-                @method('PUT')
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-md mb-md-0 mb-3">
-                            <div class="form-check custom-option custom-option-icon">
-                                <label class="form-check-label custom-option-content" for="customRadioHome">
+                <form id="addNewAddressForm" class="row g-3" action="{{ route('psikolog.update', $data->id) }}"
+                      method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md mb-md-0 mb-3">
+                                <div class="form-check custom-option custom-option-icon">
+                                    <label class="form-check-label custom-option-content" for="customRadioHome">
                                     <span class="custom-option-body">
                                         <i class="ti ti-user-off"></i>
                                         <span class="custom-option-title">Suspended</span>
                                         <small> Psikolog tidak bisa mengakses resource </small>
                                     </span>
-                                    <input
-                                        name="status"
-                                        class="form-check-input"
-                                        type="radio"
-                                        value="suspended"
-                                        id="customRadioHome"
-                                        {{ $data->status == 'suspended' ? 'checked' : '' }}
-                                    />
-                                </label>
+                                        <input
+                                            name="status"
+                                            class="form-check-input"
+                                            type="radio"
+                                            value="suspended"
+                                            id="customRadioHome"
+                                            {{ $data->status == 'suspended' ? 'checked' : '' }}
+                                        />
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md mb-md-0 mb-3">
-                            <div class="form-check custom-option custom-option-icon">
-                                <label class="form-check-label custom-option-content" for="customRadioPending">
+                            <div class="col-md mb-md-0 mb-3">
+                                <div class="form-check custom-option custom-option-icon">
+                                    <label class="form-check-label custom-option-content" for="customRadioPending">
                                     <span class="custom-option-body">
                                        <i class="ti ti-user"></i>
                                         <span class="custom-option-title"> Pending </span>
                                         <small> Psikolog menunggu verifikasi data </small>
                                     </span>
-                                    <input
-                                        name="status"
-                                        class="form-check-input"
-                                        type="radio"
-                                        value="pending"
-                                        id="customRadioPending"
-                                        {{ $data->status == 'pending' ? 'checked' : '' }}
-                                    />
-                                </label>
+                                        <input
+                                            name="status"
+                                            class="form-check-input"
+                                            type="radio"
+                                            value="pending"
+                                            id="customRadioPending"
+                                            {{ $data->status == 'pending' ? 'checked' : '' }}
+                                        />
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md mb-md-0 mb-3">
-                            <div class="form-check custom-option custom-option-icon">
-                                <label class="form-check-label custom-option-content" for="customRadioActive">
+                            <div class="col-md mb-md-0 mb-3">
+                                <div class="form-check custom-option custom-option-icon">
+                                    <label class="form-check-label custom-option-content" for="customRadioActive">
                                     <span class="custom-option-body">
                                        <i class="ti ti-user"></i>
                                         <span class="custom-option-title"> Verified </span>
                                         <small> Psikolog dapat mengakses resource </small>
                                     </span>
-                                    <input
-                                        name="status"
-                                        class="form-check-input"
-                                        type="radio"
-                                        value="verified"
-                                        id="customRadioActive"
-                                        {{ $data->status == 'verified' ? 'checked' : '' }}
-                                    />
-                                </label>
+                                        <input
+                                            name="status"
+                                            class="form-check-input"
+                                            type="radio"
+                                            value="verified"
+                                            id="customRadioActive"
+                                            {{ $data->status == 'verified' ? 'checked' : '' }}
+                                        />
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
-                    <button
-                        type="reset"
-                        class="btn btn-label-secondary"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                    >
-                        Cancel
-                    </button>
-                </div>
-            </form>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+                        <button
+                            type="reset"
+                            class="btn btn-label-secondary"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </form>
 
             </div>
           </div>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\PembayaranModel;
+use Couchbase\QueryException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MasterTransaksiController extends Controller
 {
@@ -56,7 +59,35 @@ class MasterTransaksiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $transaksi = PembayaranModel::where('id', $id)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            // Handle not found exception
+            return redirect()->route('transaksi.index')->with('error_message_not_found', 'Data transaksi tidak ditemukan');
+        }
+
+        $data = $request->all();
+        try {
+            $transaksi->status = $data['status'];
+
+            if ($transaksi->isDirty()) {
+                $transaksi->save();
+            }
+
+            Session::flash('success_message_update', 'Data status transaksi berhasil diperbarui');
+            return redirect()->route('transaksi.index');
+        } catch (QueryException $e) {
+            // Handle the integrity constraint violation exception (duplicate entry)
+            if ($e->getCode() === 23000) {
+                // Duplicate entry error
+                $errorMessage = 'Upppsss Terjadi Kesalahan Silahkan Coba Lagi.';
+            } else {
+                // Other database-related errors
+                $errorMessage = 'Upppsss Terjadi Kesalahan Silahkan Coba Lagi.';
+            }
+
+            return redirect()->back()->withInput()->withErrors([$errorMessage]);
+        }
     }
 
     /**

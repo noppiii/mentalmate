@@ -32,7 +32,7 @@
                 </div>
             </div>
             <!-- Statistics -->
-            <div class="col-lg-8 mb-4 col-md-12">
+            <div class="col-lg-12 mb-4 col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <h5 class="card-title mb-0">Statistics Artikel</h5>
@@ -42,8 +42,8 @@
                         <div class="row gy-3">
                             <div class="col-md-4 col-6">
                                 <div class="d-flex align-items-center">
-                                    <div class="badge rounded-pill bg-label-primary me-3 p-2">
-                                        <i class="ti ti-news ti-sm"></i>
+                                    <div class="badge rounded-pill bg-label-danger me-3 p-2">
+                                        <i class="ti ti-circle-off ti-sm"></i>
                                     </div>
                                     <div class="card-info">
                                         <h5 class="mb-0">{{$cancelTransaksi}}</h5>
@@ -52,23 +52,23 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-6">
-                              <div class="d-flex align-items-center">
-                                <div class="badge rounded-pill bg-label-info me-3 p-2">
-                                  <i class="ti ti-user-plus ti-sm"></i>
+                                <div class="d-flex align-items-center">
+                                    <div class="badge rounded-pill bg-label-warning me-3 p-2">
+                                        <i class="ti ti-refresh ti-sm"></i>
+                                    </div>
+                                    <div class="card-info">
+                                        <h5 class="mb-0">{{ $pendingTransaksi }}</h5>
+                                        <small>Pending Transaksi</small>
+                                    </div>
                                 </div>
-                                <div class="card-info">
-                                  <h5 class="mb-0">{{ $pendingTransaksi }}</h5>
-                                  <small>Pending Transaksi</small>
-                                </div>
-                              </div>
                             </div>
                             <div class="col-md-4 col-6">
                                 <div class="d-flex align-items-center">
-                                    <div class="badge rounded-pill bg-label-warning me-3 p-2">
-                                        <i class="ti ti-news-off ti-sm"></i>
+                                    <div class="badge rounded-pill bg-label-success me-3 p-2">
+                                        <i class="ti ti-circle-check ti-sm"></i>
                                     </div>
                                     <div class="card-info">
-                                        <h5 class="mb-0 text-warning">{{$successTransaksi}}
+                                        <h5 class="mb-0">{{$successTransaksi}}
 
                                         </h5>
                                         <small>Success Transaksi</small>
@@ -81,32 +81,6 @@
             </div>
 
             <!-- Reviews -->
-            <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="row h-100">
-                        <div class="col-sm-5">
-                            <div class="d-flex align-items-end h-100 justify-content-center mt-sm-0 mt-3">
-                                <img
-                                    src="{{ asset('image/add-user.jpg') }}"
-                                    class="img-fluid mt-sm-4 mt-md-0"
-                                    alt="add-new-roles"
-                                    width="100"
-                                />
-                            </div>
-                        </div>
-                        <div class="col-sm-7">
-                            <div class="card-body text-sm-end text-center ps-sm-0">
-                                <a href="{{ route('artikel.create') }}"
-                                   class="btn btn-primary mb-2 text-nowrap add-new-role d-block"
-                                >
-                                    + Artikel
-                                </a>
-                                <small class="mb-0 mt-1 d-block">Tambah artikel</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="container-xxl flex-grow-1 container-p-y">
                 <!-- DataTable with Buttons -->
                 <div class="card">
@@ -150,6 +124,10 @@
                                                data-bs-toggle="dropdown"><i
                                                     class="text-primary ti ti-dots-vertical"></i></a>
                                             <div class="dropdown-menu dropdown-menu-end m-0">
+                                                <button data-bs-toggle="modal"
+                                                        data-bs-target="#viewUser{{ $data->id }}"
+                                                        class="dropdown-item"><i class="ti ti-eye me-1"></i>Detail
+                                                </button>
                                                 <button data-bs-toggle="modal"
                                                         data-bs-target="#editStatus{{ $data->id }}"
                                                         class="dropdown-item"><i class="ti ti-edit me-1"></i>Status
@@ -256,34 +234,79 @@
                                 <h3 class="mb-2">{{ $data->konsultasi->nama }}</h3>
                                 <p class="text-muted">Edit Status Transaksi {{ $data->konsultasi->nama }}.</p>
                             </div>
-                            <form id="editUserForm" class="row g-3"
-                                  action="{{ route('artikel.updateStatus', ['id' => $data->id]) }}" method="post">
+                            <form id="addNewAddressForm" class="row g-3"
+                                  action="{{ route('transaksi.update', $data->id) }}" method="post">
                                 @csrf
-                                @method('put')
-                                <div class="col-12 mb-4">
-                                    <select
-                                        id="modalEditUserCountry"
-                                        name="status"
-                                        class="select2 form-select"
-                                        data-allow-clear="true"
-                                    >
-                                        <option value="">Pilih Status Artikel</option>
-                                        <option value="rejected" {{ $data->status === 'rejected' ? 'selected' : '' }}>
-                                            Rejected
-                                        </option>
-                                        <option value="pending" {{ $data->status === 'pending' ? 'selected' : '' }}>
-                                            Pending
-                                        </option>
-                                        <option value="accepted" {{ $data->status === 'accepted' ? 'selected' : '' }}>
-                                            Accepted
-                                        </option>
-                                    </select>
+                                @method('PUT')
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-md mb-md-0 mb-3">
+                                            <div class="form-check custom-option custom-option-icon">
+                                                <label class="form-check-label custom-option-content"
+                                                       for="customRadioHome">
+                                    <span class="custom-option-body">
+                                        <i class="ti ti-circle-off"></i>
+                                        <span class="custom-option-title">Cancel</span>
+                                        <small> Cancel pembayaran ini </small>
+                                    </span>
+                                                    <input
+                                                        name="status"
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        value="cancel"
+                                                        id="customRadioHome"
+                                                        {{ $data->status == 'cancel' ? 'checked' : '' }}
+                                                    />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md mb-md-0 mb-3">
+                                            <div class="form-check custom-option custom-option-icon">
+                                                <label class="form-check-label custom-option-content"
+                                                       for="customRadioPending">
+                                    <span class="custom-option-body">
+                                       <i class="ti ti-refresh"></i>
+                                        <span class="custom-option-title"> Pending </span>
+                                        <small> Pending pembayaran ini </small>
+                                    </span>
+                                                    <input
+                                                        name="status"
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        value="pending"
+                                                        id="customRadioPending"
+                                                        {{ $data->status == 'pending' ? 'checked' : '' }}
+                                                    />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md mb-md-0 mb-3">
+                                            <div class="form-check custom-option custom-option-icon">
+                                                <label class="form-check-label custom-option-content"
+                                                       for="customRadioActive">
+                                    <span class="custom-option-body">
+                                       <i class="ti ti-circle-check"></i>
+                                        <span class="custom-option-title"> Success </span>
+                                        <small> Terima pembayaran ini </small>
+                                    </span>
+                                                    <input
+                                                        name="status"
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        value="success"
+                                                        id="customRadioActive"
+                                                        {{ $data->status == 'verified' ? 'checked' : '' }}
+                                                    />
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-12 text-center mt-4">
+                                <div class="col-12 text-center">
                                     <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
                                     <button
                                         type="reset"
-                                        class="btn btn-label-secondary btn-reset"
+                                        class="btn btn-label-secondary"
                                         data-bs-dismiss="modal"
                                         aria-label="Close"
                                     >

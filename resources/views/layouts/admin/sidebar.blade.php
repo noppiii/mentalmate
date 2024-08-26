@@ -147,7 +147,7 @@
                     <div data-i18n="Konsultasi">Konsultasi</div>
                 </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{ request()->is('admin/metode-konsultasi*') ? 'active' : '' }}">
                 <a href="{{route('metode-konsultasi.index')}}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-checkup-list"></i>
                     <div data-i18n="Metode Konsultasi">Metode Konsultasi</div>
@@ -183,14 +183,14 @@
                 <span class="menu-header-text">Master Transaksi</span>
             </li>
             <!-- Cards -->
-            <li class="menu-item">
+            <li class="menu-item {{ request()->is('admin/transaksi*') ? 'active' : '' }}">
                 <a href="{{route('transaksi.index')}}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-credit-card"></i>
                     <div data-i18n="Transaksi">Transaksi</div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="app-calendar.html" class="menu-link">
+            <li class="menu-item {{ request()->is('admin/ulasan*') ? 'active' : '' }}">
+                <a href="{{route('ulasan.index')}}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-message"></i>
                     <div data-i18n="Ulasan">Ulasan</div>
                 </a>
