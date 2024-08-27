@@ -39,21 +39,26 @@ class MahasiswaKonsultasiController extends Controller
         return view('pages.mahasiswa.konsultasi.index', compact('receiverId', 'receiverType', 'allPsikolog', 'messages', 'detailPsikolog'));
     }
 
-    public function fetchNewMessages(Request $request)
+    public function getMessages($receiverId, $receiverType)
     {
-        $receiverId = $request->input('receiverId');
-        $lastMessageTimestamp = $request->input('lastMessageTimestamp');
+        $senderId = Auth::guard('mahasiswa')->user()->id;
 
-        // Ensure lastMessageTimestamp is a valid date format
-        $lastMessageTimestamp = Carbon::parse($lastMessageTimestamp);
-
-        // Retrieve new messages from the database
-        $newMessages = Message::where('receiver_id', $receiverId)
-            ->where('created_at', '>', $lastMessageTimestamp)
+        $messages = Message::where(function ($query) use ($senderId, $receiverId) {
+            $query->where('sender_id', $senderId)
+                ->orWhere('sender_id', $receiverId);
+        })
+            ->where(function ($query) use ($senderId, $receiverId) {
+                $query->where('receiver_id', $senderId)
+                    ->orWhere('receiver_id', $receiverId);
+            })
+            ->whereIn('sender_type', ['Psikolog', 'Mahasiswa'])
+            ->whereIn('receiver_type', ['MahasiswaModel', 'PsikologModel'])
+            ->orderBy('created_at', 'asc')
             ->get();
 
-        return response()->json($newMessages);
+        return response()->json($messages);
     }
+
 
 
     /**

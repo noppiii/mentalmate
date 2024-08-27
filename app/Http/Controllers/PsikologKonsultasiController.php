@@ -38,6 +38,26 @@ class PsikologKonsultasiController extends Controller
         return view('pages.psikolog.konsultasi.index', compact('receiverId', 'receiverType', 'messages', 'mahasiswa', 'detailMahasiswa'));
     }
 
+    public function getMessages($receiverId, $receiverType)
+    {
+        $senderId = Auth::guard('psikolog')->user()->id;
+
+        $messages = Message::where(function ($query) use ($senderId, $receiverId) {
+            $query->where('sender_id', $senderId)
+                ->orWhere('sender_id', $receiverId);
+        })
+            ->where(function ($query) use ($senderId, $receiverId) {
+                $query->where('receiver_id', $senderId)
+                    ->orWhere('receiver_id', $receiverId);
+            })
+            ->whereIn('sender_type', ['Mahasiswa', 'Psikolog'])
+            ->whereIn('receiver_type', ['PsikologModel', 'MahasiswaModel'])
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        return response()->json($messages);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -79,7 +99,7 @@ class PsikologKonsultasiController extends Controller
         broadcast(new MessageSentEvent($message))->toOthers();
 
         // Return a response
-        return redirect()->back();
+        return response()->json($message);
     }
 
     /**

@@ -100,6 +100,7 @@ Route::prefix('psikolog')->middleware([AuthUser::class, AuthPsikolog::class])->g
     Route::post('my-meeting/{konsultasiId}/store', [PsikologMeetingController::class, 'store'])->name('psikolog.createMeeting');
     Route::get('my-konsultasi/{receiverId}/{receiverType}', [PsikologKonsultasiController::class, 'index'])->name('psikolog.konsultasi.index');
     Route::post('my-konsultasi/store', [PsikologKonsultasiController::class, 'store'])->name('psikolog.konsultasi.store');
+    Route::get('/get-messages/{receiverId}/{receiverType}', [PsikologKonsultasiController::class, 'getMessages'])->name('psikolog.getMessages');
     Route::resource('my-profile', PsikologProfileController::class);
 
 });
@@ -117,6 +118,7 @@ Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])-
 
     Route::get('konsultasi-ku/{receiverId}/{receiverType}', [MahasiswaKonsultasiController::class, 'index'])->name('mahasiswa.konsultasi.index');
     Route::post('konsultasi-ku/store', [MahasiswaKonsultasiController::class, 'store'])->name('mahasiswa.konsultasi.store');
+    Route::get('/get-messages/{receiverId}/{receiverType}', [MahasiswaKonsultasiController::class, 'getMessages'])->name('mahasiswa.getMessages');
     Route::get('tes-kesehatan-mental', [TesKesehatanMentalController::class, 'index'])->name('mahasiswa.test-kesehatan-mental');
     // Route::resource('konsultasi-ku', MahasiswaKonsultasiController::class)->except(['index']);
 });

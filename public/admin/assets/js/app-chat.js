@@ -71,9 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Scroll to bottom function
       function scrollToBottom() {
-          chatHistoryBody.scrollTop = chatHistoryBody.scrollHeight;
+          if (chatHistoryBody) {
+              chatHistoryBody.scrollTop = chatHistoryBody.scrollHeight;
+          }
       }
-    scrollToBottom();
+      scrollToBottom();
 
     // User About Maxlength Init
     if (chatSidebarLeftUserAbout.length) {

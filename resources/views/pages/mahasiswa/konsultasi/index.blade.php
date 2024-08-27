@@ -276,10 +276,10 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                                 </div>
                             </div>
                             <div class="chat-history-body bg-body">
-                                <ul class="list-unstyled chat-history">
+                                <ul class="list-unstyled chat-history" id="chat-history">
                                     @foreach ($messages as $message)
+                                        <!-- Isi pesan sama seperti sebelumnya -->
                                         @if ($message->sender_id == Auth::guard('mahasiswa')->user()->id && $message->sender_type == 'Mahasiswa')
-                                            <!-- Pesan dari pengguna saat ini -->
                                             <li class="chat-message chat-message-right">
                                                 <div class="d-flex overflow-hidden">
                                                     <div class="chat-message-wrapper flex-grow-1">
@@ -300,7 +300,6 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
                                                 </div>
                                             </li>
                                         @else
-                                            <!-- Pesan dari Psikolog -->
                                             <li class="chat-message chat-message">
                                                 <div class="d-flex overflow-hidden">
                                                     <div class="user-avatar flex-shrink-0 me-3">
@@ -461,10 +460,87 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
             }
         </style>
 
+        <script>
+            function fetchMessages() {
+                $.ajax({
+                    url: '{{ route("mahasiswa.getMessages", ["receiverId" => $receiverId, "receiverType" => $receiverType]) }}',
+                    method: 'GET',
+                    success: function(data) {
+                        let chatHistory = $('#chat-history');
+                        chatHistory.empty();
+
+                        if (Array.isArray(data)) {
+                            data.forEach(function(message) {
+                                let messageHtml = '';
+
+                                if (message.sender_id == {{ Auth::guard('mahasiswa')->user()->id }} && message.sender_type == 'Mahasiswa') {
+                                    messageHtml = `
+                                <li class="chat-message chat-message-right">
+                                    <div class="d-flex overflow-hidden">
+                                        <div class="chat-message-wrapper flex-grow-1">
+                                            <div class="chat-message-text">
+                                                <p class="mb-0">${message.content}</p>
+                                            </div>
+                                            <div class="text-end text-muted mt-1">
+                                                <i class="ti ti-checks ti-xs me-1 text-success"></i>
+                                                <small>${new Date(message.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</small>
+                                            </div>
+                                        </div>
+                                        <div class="user-avatar flex-shrink-0 ms-3">
+                                            <div class="avatar avatar-sm">
+                                                <img src="{{ asset('store/user/photo/mahasiswa/' . Auth::guard('mahasiswa')->user()->profile_photo_path) }}" alt="Avatar" class="rounded-circle"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            `;
+                                } else {
+                                    messageHtml = `
+                                <li class="chat-message chat-message">
+                                    <div class="d-flex overflow-hidden">
+                                        <div class="user-avatar flex-shrink-0 me-3">
+                                            <div class="avatar avatar-sm">
+                                                <img src="{{ asset('store/user/photo/psikolog/' . $detailPsikolog->profile_photo_path) }}" alt="Avatar" class="rounded-circle"/>
+                                            </div>
+                                        </div>
+                                        <div class="chat-message-wrapper flex-grow-1">
+                                            <div class="chat-message-text">
+                                                <p class="mb-0">${message.content}</p>
+                                            </div>
+                                            <div class="text-muted mt-1">
+                                                <small>${new Date(message.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            `;
+                                }
+
+                                chatHistory.append(messageHtml);
+                            });
+                            scrollToBottom();
+                        } else {
+                            console.error("Data yang diterima bukan array:", data);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error("Terjadi kesalahan:", textStatus, errorThrown);
+                    }
+                });
+            }
+
+            setInterval(fetchMessages, 5000);
+
+            function scrollToBottom() {
+                const chatHistory = document.querySelector('#chat-history');
+                if (chatHistory) {
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                }
+            }
+        </script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Send Message
                 document.querySelector('.form-send-message').addEventListener('submit', function(event) {
                     event.preventDefault();
 
@@ -472,80 +548,40 @@ Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw 
 
                     axios.post('/mahasiswa/konsultasi-ku/store', formData)
                         .then(response => {
-                            const messageContent = response.data.content; // Pesan yang baru dikirim
+                            const messageContent = response.data.content;
 
-                            // Menambahkan pesan baru ke chat history
-                            const chatHistoryBody = document.querySelector('.chat-history-body');
+                            const chatHistoryBody = document.querySelector('#chat-history');
                             const newMessageHTML = `
-                    <li class="chat-message chat-message-right">
-                        <div class="d-flex overflow-hidden">
-                            <div class="chat-message-wrapper flex-grow-1">
-                                <div class="chat-message-text">
-                                    <p class="mb-0">${messageContent}</p>
+                        <li class="chat-message chat-message-right">
+                            <div class="d-flex overflow-hidden">
+                                <div class="chat-message-wrapper flex-grow-1">
+                                    <div class="chat-message-text">
+                                        <p class="mb-0">${messageContent}</p>
+                                    </div>
+                                    <div class="text-end text-muted mt-1">
+                                        <i class="ti ti-checks ti-xs me-1 text-success"></i>
+                                        <small>${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</small>
+                                    </div>
                                 </div>
-                                <div class="text-end text-muted mt-1">
-                                    <i class="ti ti-checks ti-xs me-1 text-success"></i>
-                                    <small>${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</small>
+                                <div class="user-avatar flex-shrink-0 ms-3">
+                                    <div class="avatar avatar-sm">
+                                        <img src="{{ asset('store/user/photo/mahasiswa/' . Auth::guard('mahasiswa')->user()->profile_photo_path) }}" alt="Avatar" class="rounded-circle"/>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="user-avatar flex-shrink-0 ms-3">
-                                <div class="avatar avatar-sm">
-                                    <img src="{{ asset('store/user/photo/mahasiswa/' . Auth::guard('mahasiswa')->user()->profile_photo_path) }}"
-                                         alt="Avatar" class="rounded-circle"/>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                `;
+                        </li>
+                    `;
                             chatHistoryBody.insertAdjacentHTML('beforeend', newMessageHTML);
 
-                            // Scroll ke bawah untuk pesan terbaru
                             chatHistoryBody.scrollTop = chatHistoryBody.scrollHeight;
 
-                            // Reset form setelah pengiriman berhasil
                             this.reset();
                         })
                         .catch(error => {
                             console.error('There was an error!', error);
                         });
                 });
-
-                function updateChatHistory(message) {
-                    const chatHistoryBody = document.querySelector('.chat-history-body');
-                    if (chatHistoryBody) {
-                        const newMessageHTML = `
-                <li class="chat-message chat-message-right">
-                    <div class="d-flex overflow-hidden">
-                        <div class="chat-message-wrapper flex-grow-1">
-                            <div class="chat-message-text">
-                                <p class="mb-0">${message.content}</p>
-                            </div>
-                            <div class="text-end text-muted mt-1">
-                                <i class="ti ti-checks ti-xs me-1 text-success"></i>
-                                <small>${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</small>
-                            </div>
-                        </div>
-                        <div class="user-avatar flex-shrink-0 ms-3">
-                            <div class="avatar avatar-sm">
-                                <img src="{{ asset('store/user/photo/mahasiswa/' . Auth::guard('mahasiswa')->user()->profile_photo_path) }}"
-                                     alt="Avatar" class="rounded-circle"/>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            `;
-                        chatHistoryBody.insertAdjacentHTML('beforeend', newMessageHTML);
-                        scrollToBottom();
-                    }
-                }
-
-                function scrollToBottom() {
-                    const chatHistoryBody = document.querySelector('.chat-history-body');
-                    if (chatHistoryBody) {
-                        chatHistoryBody.scrollTop = chatHistoryBody.scrollHeight;
-                    }
-                }
             });
-
         </script>
+
 @endsection
