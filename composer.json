@@ -13,6 +13,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "marineusde/larapex-charts": "^1.4",
+        "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-sluggable": "^3.6",
         "symfony/mailgun-mailer": "^6.4",
         "symfony/postmark-mailer": "^6.4"

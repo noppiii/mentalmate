@@ -4,6 +4,8 @@
 
 'use strict';
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
   (function () {
     const chatContactsBody = document.querySelector('.app-chat-contacts .sidebar-body'),
@@ -28,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize PerfectScrollbar
     // ------------------------------
+      if (chatHistoryBody) {
+          new PerfectScrollbar(chatHistoryBody, {
+              wheelPropagation: false,
+              suppressScrollX: true
+          });
+      }
 
     // Chat contacts scrollbar
     if (chatContactsBody) {
@@ -62,9 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Scroll to bottom function
-    function scrollToBottom() {
-      chatHistoryBody.scrollTo(0, chatHistoryBody.scrollHeight);
-    }
+      function scrollToBottom() {
+          chatHistoryBody.scrollTop = chatHistoryBody.scrollHeight;
+      }
     scrollToBottom();
 
     // User About Maxlength Init
@@ -155,21 +163,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Send Message
-    // formSendMessage.addEventListener('submit', e => {
-    //   e.preventDefault();
-    //   if (messageInput.value) {
-    //     // Create a div and add a class
-    //     let renderMsg = document.createElement('div');
-    //     renderMsg.className = 'chat-message-text mt-2';
-    //     renderMsg.innerHTML = '<p class="mb-0">' + messageInput.value + '</p>';
-    //     document.querySelector('li:last-child .chat-message-wrapper').appendChild(renderMsg);
-    //     messageInput.value = '';
-    //     scrollToBottom();
-    //   }
-    // });
 
-    // on click of chatHistoryHeaderMenu, Remove data-overlay attribute from chatSidebarLeftClose to resolve overlay overlapping issue for two sidebar
+      // on click of chatHistoryHeaderMenu, Remove data-overlay attribute from chatSidebarLeftClose to resolve overlay overlapping issue for two sidebar
     let chatHistoryHeaderMenu = document.querySelector(".chat-history-header [data-target='#app-chat-contacts']"),
       chatSidebarLeftClose = document.querySelector('.app-chat-sidebar-left .close-sidebar');
     chatHistoryHeaderMenu.addEventListener('click', e => {

@@ -35,6 +35,7 @@
 
   <!-- Page CSS -->
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/pages/cards-advance.css') }}" />
+  <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/pages/app-chat.css') }}" />
 
   {{-- data tabel --}}
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/datatables-select-bs5/select.bootstrap5.css') }}" />
@@ -62,4 +63,3 @@
   <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css') }}" />
 {{-- page --}}
  <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/pages/app-calendar.css') }}" />
- <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/pages/app-chat.css') }}" />

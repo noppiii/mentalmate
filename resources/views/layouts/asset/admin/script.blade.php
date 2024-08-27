@@ -5,6 +5,7 @@
 <script src="{{ asset('admin/assets/vendor/libs/node-waves/node-waves.js') }}"></script>
 <script src="{{ asset('admin/assets/vendor/js/helpers.js') }}"></script>
 <script src="{{ asset('admin/assets/js/config.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script src="{{ asset('admin/assets/vendor/libs/hammer/hammer.js') }}"></script>
 <script src="{{ asset('admin/assets/vendor/libs/i18n/i18n.js') }}"></script>
@@ -46,7 +47,7 @@
   <script src="{{ asset('admin/assets/vendor/libs/bloodhound/bloodhound.js') }}"></script>
   <script src="{{ asset('admin/assets/vendor/libs/fullcalendar/fullcalendar.js') }}"></script>
   <script src="{{ asset('admin/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.js') }}"></script>
-  
+
 
   <!-- Page JS -->
 {{-- <script src="{{ asset('admin/assets/js/modal-edit-user.js') }}"></script> --}}

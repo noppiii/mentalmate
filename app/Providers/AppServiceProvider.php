@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\MahasiswaModel;
 use App\Models\PsikologModel;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
                 'allMahasiswa' => $allMahasiswa
             ]);
         });
+        Schema::defaultStringLength(191);
     }
 }

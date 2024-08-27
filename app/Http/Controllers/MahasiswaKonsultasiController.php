@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\MessageSentEvent;
 use App\Models\Message;
 use App\Models\PsikologModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,6 +39,23 @@ class MahasiswaKonsultasiController extends Controller
         return view('pages.mahasiswa.konsultasi.index', compact('receiverId', 'receiverType', 'allPsikolog', 'messages', 'detailPsikolog'));
     }
 
+    public function fetchNewMessages(Request $request)
+    {
+        $receiverId = $request->input('receiverId');
+        $lastMessageTimestamp = $request->input('lastMessageTimestamp');
+
+        // Ensure lastMessageTimestamp is a valid date format
+        $lastMessageTimestamp = Carbon::parse($lastMessageTimestamp);
+
+        // Retrieve new messages from the database
+        $newMessages = Message::where('receiver_id', $receiverId)
+            ->where('created_at', '>', $lastMessageTimestamp)
+            ->get();
+
+        return response()->json($newMessages);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -51,7 +69,7 @@ class MahasiswaKonsultasiController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the request
+        // Validate and create the message
         $validatedData = $request->validate([
             'sender_type' => 'required|string',
             'sender_id' => 'required|integer',
@@ -61,10 +79,8 @@ class MahasiswaKonsultasiController extends Controller
             'reply_id' => 'nullable|integer|exists:messages,id',
         ]);
 
-        // Handle reply_id in a safe manner
         $replyId = $validatedData['reply_id'] ?? null;
 
-        // Create a new message
         $message = Message::create([
             'sender_type' => $validatedData['sender_type'],
             'sender_id' => $validatedData['sender_id'],
@@ -74,12 +90,13 @@ class MahasiswaKonsultasiController extends Controller
             'reply_id' => $replyId,
         ]);
 
-        // Broadcast the message to others in real-time
+        // Broadcast the message
         broadcast(new MessageSentEvent($message))->toOthers();
 
-        // Return a response
-        return redirect()->back();
+        // Return a JSON response
+        return response()->json($message);
     }
+
 
     /**
      * Display the specified resource.

@@ -63,7 +63,7 @@ Route::get('/konsultasi', [ClientKonsultasController::class, 'index'])->name('cl
 Route::post('/konsultasi/store', [ClientKonsultasController::class, 'store'])->name('client.postKonsultasi');
 Route::get('/get-psikolog/{bidangId}', [ClientKonsultasController::class, 'getPsikologByBidang'])->name('client.psikolog.getByBidang');
 Route::get('/get-psikolog-detail/{psikologId}', [ClientKonsultasController::class, 'getPsikologDetail'])->name('client.psikolog.getDetail');
-
+Route::get('/fetch-new-messages', [MahasiswaKonsultasiController::class, 'fetchNewMessages'])->name('fetch-new-messages');
 
 Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
