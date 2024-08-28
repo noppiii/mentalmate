@@ -18,11 +18,40 @@ class PsikologArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $psikologId = Auth::guard('psikolog')->user()->id;
-        $artikels = ArticleModel::where('psikolog_id', $psikologId)->get();
-        return view('pages.psikolog.artikel.index', compact('artikels'));
+
+        $totalArtikel = ArticleModel::where('psikolog_id', $psikologId)->count();
+        $pendingArtikel = ArticleModel::where('psikolog_id', $psikologId)
+            ->where('status', 'pending')
+            ->count();
+        $rejectedArtikel = ArticleModel::where('psikolog_id', $psikologId)
+            ->where('status', 'rejected')
+            ->count();
+
+        $search = $request->input('search');
+
+        $artikels = ArticleModel::with(['kategoriArtikels', 'tagArtikels', 'comments'])
+            ->where('psikolog_id', $psikologId);
+
+        if ($search) {
+            $artikels->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('status', 'like', '%' . $search . '%')
+                    ->orWhereHas('kategoriArtikels', function ($q) use ($search) {
+                        $q->where('nama', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereHas('tagArtikels', function ($q) use ($search) {
+                        $q->where('nama', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereDate('updated_at', '=', date('Y-m-d', strtotime($search)));
+            });
+        }
+
+        $artikels = $artikels->orderBy('updated_at', 'desc')->paginate(12);
+
+        return view('pages.psikolog.artikel.index', compact('artikels', 'search', 'totalArtikel', 'pendingArtikel', 'rejectedArtikel'));
     }
 
     /**
@@ -30,7 +59,7 @@ class PsikologArticleController extends Controller
      */
     public function create()
     {
-         $allCategory = CategoryArticleModel::all();
+        $allCategory = CategoryArticleModel::all();
         $allTag = TagArticleModel::all();
         return view('pages.psikolog.artikel.create', compact('allCategory', 'allTag'));
     }
