@@ -68,8 +68,35 @@ class PsikologDashboardController extends Controller
             })
             ->sum('nominal');
 
+        $upcomingMeetings = ZoomMeeting::whereIn('konsultasi_id', function ($query) use ($psikologId) {
+            $query->select('id')
+                ->from('konsultasis')
+                ->where('mahasiswa_id', $psikologId);
+        })
+            ->where('start_time', '>', Carbon::now())
+            ->orderBy('start_time', 'asc')
+            ->take(3)
+            ->get();
+
+        $passedMeetings = ZoomMeeting::whereIn('konsultasi_id', function ($query) use ($psikologId) {
+            $query->select('id')
+                ->from('konsultasis')
+                ->where('mahasiswa_id', $psikologId);
+        })
+            ->where('start_time', '<', Carbon::now())
+            ->orderBy('start_time', 'desc')
+            ->take(3)
+            ->get();
+
+        $popularArtikel = ArticleModel::with(['kategoriArtikels', 'tagArtikels', 'comments'])
+            ->where('psikolog_id', $psikologId)
+            ->where('status', 'accepted')
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
         return view('pages.psikolog.dashboard.dashboard', compact('totalArtikel', 'totalArtikelMonth', 'totalJadwal',
-            'totalJadwalDay', 'allMeeting', 'meetingToday', 'monthlyRevenue', 'totalAnnualRevenue', 'totalMonthRevenue'
+            'totalJadwalDay', 'allMeeting', 'meetingToday', 'monthlyRevenue', 'totalAnnualRevenue', 'totalMonthRevenue', 'upcomingMeetings', 'passedMeetings',
+            'popularArtikel'
         ));
     }
 

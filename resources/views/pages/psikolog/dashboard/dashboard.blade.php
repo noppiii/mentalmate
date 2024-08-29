@@ -48,7 +48,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="badge p-2 bg-label-secondary mb-2 rounded">
-                                <i class="ti ti-camera-selfie ti-md"></i>
+                                <i class="ti ti-camera ti-md"></i>
                             </div>
                             <h5 class="card-title mb-1 pt-2">Meeting</h5>
                             <small class="text-muted">This Month</small>
@@ -121,8 +121,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 class="text-center pt-4 mb-0">Rp {{ number_format($totalAnnualRevenue, 0, ',', '.') }}</h3>
-                                    <p class="mb-4 text-center mt-2"><span class="fw-semibold">This Month: </span>Rp {{ number_format($totalMonthRevenue, 0, ',', '.') }}</p>
+                                    <h3 class="text-center pt-4 mb-0">
+                                        Rp {{ number_format($totalAnnualRevenue, 0, ',', '.') }}</h3>
+                                    <p class="mb-4 text-center mt-2"><span
+                                            class="fw-semibold">This Month: </span>Rp {{ number_format($totalMonthRevenue, 0, ',', '.') }}
+                                    </p>
                                     <div class="px-3">
                                         <div id="budgetChart"></div>
                                     </div>
@@ -133,102 +136,13 @@
                 </div>
                 <!--/ Revenue Report -->
 
-                <!-- Earning Reports -->
-                <div class="col-xl-4 col-lg-5 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-header d-flex justify-content-between">
-                            <div class="card-title mb-0">
-                                <h5 class="m-0 me-2">Earning Reports</h5>
-                                <small class="text-muted">Weekly Earnings Overview</small>
-                            </div>
-                            <div class="dropdown">
-                                <button
-                                    class="btn p-0"
-                                    type="button"
-                                    id="earningReports"
-                                    data-bs-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >
-                                    <i class="ti ti-dots-vertical ti-sm text-muted"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="earningReports">
-                                    <a class="dropdown-item" href="javascript:void(0);">Download</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body pb-0">
-                            <ul class="p-0 m-0">
-                                <li class="d-flex mb-3">
-                                    <div class="avatar flex-shrink-0 me-3">
-                    <span class="avatar-initial rounded bg-label-primary"
-                    ><i class="ti ti-chart-pie-2 ti-sm"></i
-                        ></span>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Net Profit</h6>
-                                            <small class="text-muted">12.4k Sales</small>
-                                        </div>
-                                        <div class="user-progress">
-                                            <small>$1,619</small><i class="ti ti-chevron-up text-success ms-3"></i>
-                                            <small class="text-muted">18.6%</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-3">
-                                    <div class="avatar flex-shrink-0 me-3">
-                    <span class="avatar-initial rounded bg-label-success"
-                    ><i class="ti ti-currency-dollar ti-sm"></i
-                        ></span>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Total Income</h6>
-                                            <small class="text-muted">Sales, Affiliation</small>
-                                        </div>
-                                        <div class="user-progress">
-                                            <small>$3,571</small><i class="ti ti-chevron-up text-success ms-3"></i>
-                                            <small class="text-muted">39.6%</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-3">
-                                    <div class="avatar flex-shrink-0 me-3">
-                    <span class="avatar-initial rounded bg-label-secondary"
-                    ><i class="ti ti-credit-card ti-sm"></i
-                        ></span>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Total Expenses</h6>
-                                            <small class="text-muted">ADVT, Marketing</small>
-                                        </div>
-                                        <div class="user-progress">
-                                            <small>$430</small><i class="ti ti-chevron-up text-success ms-3"></i>
-                                            <small class="text-muted">52.8%</small>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div id="reportBarChart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!--/ Earning Reports -->
-
                 <!-- Popular Product -->
-                <div class="col-md-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-6 mb-4">
                     <div class="card h-100">
                         <div class="card-header d-flex justify-content-between">
                             <div class="card-title m-0 me-2">
-                                <h5 class="m-0 me-2">Popular Products</h5>
-                                <small class="text-muted">Total 10.4k Visitors</small>
+                                <h5 class="m-0 me-2">Popular Artikel</h5>
+                                <small class="text-muted">Daftar Popular Artikel Anda</small>
                             </div>
                             <div class="dropdown">
                                 <button
@@ -250,118 +164,32 @@
                         </div>
                         <div class="card-body">
                             <ul class="p-0 m-0">
-                                <li class="d-flex mb-4 pb-1">
-                                    <div class="me-3">
-                                        <img src="../../assets/img/products/iphone.png" alt="User" class="rounded"
-                                             width="46"/>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Apple iPhone 13</h6>
-                                            <small class="text-muted d-block">Item: #FXZ-4567</small>
+                                @foreach($popularArtikel as $data)
+                                    <li class="d-flex mb-4 pb-1">
+                                        <div class="me-3">
+                                            <img src="{{ asset('store/artikel/thumbnail/' . $data->tumbnail) }}" alt="User" class="rounded"
+                                                 width="46"/>
                                         </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <p class="mb-0 fw-semibold">$999.29</p>
+                                        <div
+                                            class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                            <div class="me-2">
+                                                <h6 class="mb-0">{{ implode(' ', array_slice(str_word_count($data->name, 1), 0, 4)) }}</h6>
+                                                <small class="text-muted d-block">Tag:
+                                                    @foreach($data->tagArtikels as $tag)
+                                                        <span
+                                                            class="badge bg-label-info fw-normal me-2">{{ $tag->nama }}</span>
+                                                    @endforeach
+                                                </small>
+                                                <small class="text-muted d-block">Category:
+                                                    @foreach($data->kategoriArtikels as $kategori)
+                                                        <span
+                                                            class="badge bg-label-primary fw-normal me-2">{{ $kategori->nama }}</span>
+                                                    @endforeach
+                                                </small>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 pb-1">
-                                    <div class="me-3">
-                                        <img
-                                            src="../../assets/img/products/nike-air-jordan.png"
-                                            alt="User"
-                                            class="rounded"
-                                            width="46"
-                                        />
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Nike Air Jordan</h6>
-                                            <small class="text-muted d-block">Item: #FXZ-3456</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <p class="mb-0 fw-semibold">$72.40</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 pb-1">
-                                    <div class="me-3">
-                                        <img src="../../assets/img/products/headphones.png" alt="User" class="rounded"
-                                             width="46"/>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Beats Studio 2</h6>
-                                            <small class="text-muted d-block">Item: #FXZ-9485</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <p class="mb-0 fw-semibold">$99</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 pb-1">
-                                    <div class="me-3">
-                                        <img
-                                            src="../../assets/img/products/apple-watch.png"
-                                            alt="User"
-                                            class="rounded"
-                                            width="46"
-                                        />
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Apple Watch Series 7</h6>
-                                            <small class="text-muted d-block">Item: #FXZ-2345</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <p class="mb-0 fw-semibold">$249.99</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 pb-1">
-                                    <div class="me-3">
-                                        <img
-                                            src="../../assets/img/products/amazon-echo.png"
-                                            alt="User"
-                                            class="rounded"
-                                            width="46"
-                                        />
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Amazon Echo Dot</h6>
-                                            <small class="text-muted d-block">Item: #FXZ-8959</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <p class="mb-0 fw-semibold">$79.40</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex">
-                                    <div class="me-3">
-                                        <img
-                                            src="../../assets/img/products/play-station.png"
-                                            alt="User"
-                                            class="rounded"
-                                            width="46"
-                                        />
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Play Station Console</h6>
-                                            <small class="text-muted d-block">Item: #FXZ-7892</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <p class="mb-0 fw-semibold">$129.48</p>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -369,12 +197,12 @@
                 <!--/ Popular Product -->
 
                 <!-- Sales by Countries tabs-->
-                <div class="col-md-6 col-xl-4 col-xl-4 mb-4">
+                <div class="col-md-6 col-xl-6 col-xl-4 mb-4">
                     <div class="card h-100">
                         <div class="card-header d-flex justify-content-between pb-2 mb-1">
-                            <div class="card-title mb-1">
-                                <h5 class="m-0 me-2">Sales by Countries</h5>
-                                <small class="text-muted">62 Deliveries in Progress</small>
+                            <div class="card-title m-0 me-2">
+                                <h5 class="m-0 me-2">Meeting</h5>
+                                <small class="text-muted">Daftar Meeting Anda</small>
                             </div>
                             <div class="dropdown">
                                 <button
@@ -407,7 +235,7 @@
                                             aria-controls="navs-justified-new"
                                             aria-selected="true"
                                         >
-                                            New
+                                            Upcoming
                                         </button>
                                     </li>
                                     <li class="nav-item">
@@ -420,359 +248,86 @@
                                             aria-controls="navs-justified-link-preparing"
                                             aria-selected="false"
                                         >
-                                            Preparing
-                                        </button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button
-                                            type="button"
-                                            class="nav-link"
-                                            role="tab"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#navs-justified-link-shipping"
-                                            aria-controls="navs-justified-link-shipping"
-                                            aria-selected="false"
-                                        >
-                                            Shipping
+                                            Passed
                                         </button>
                                     </li>
                                 </ul>
                                 <div class="tab-content pb-0">
                                     <div class="tab-pane fade show active" id="navs-justified-new" role="tabpanel">
-                                        <ul class="timeline timeline-advance timeline-advance mb-2 pb-1">
-                                            <li class="timeline-item ps-4 border-left-dashed">
+                                        @foreach($upcomingMeetings as $data)
+                                            <ul class="timeline timeline-advance timeline-advance mb-2 pb-1">
+                                                <li class="timeline-item ps-4 border-left-dashed">
                         <span class="timeline-indicator timeline-indicator-success">
                           <i class="ti ti-circle-check"></i>
                         </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-success text-uppercase fw-semibold">sender</small>
+                                                    <div class="timeline-event ps-0 pb-0">
+                                                        <div class="timeline-header">
+                                                            <small
+                                                                class="text-success text-uppercase fw-semibold">{{$data->konsultasi->nama}}</small>
+                                                        </div>
+                                                        <h6 class="mb-0">{{$data->konsultasi->asal_universitas}}</h6>
+                                                        <p class="text-muted mb-0 text-nowrap"> {{ \Carbon\Carbon::parse($data->konsultasi->tanggal)->translatedFormat('l, H:i') }}</p>
                                                     </div>
-                                                    <h6 class="mb-0">Myrtle Ullrich</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">101 Boulder, California(CA),
-                                                        95959</p>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item ps-4 border-0">
+                                                </li>
+                                                <li class="timeline-item ps-4 border-0">
                         <span class="timeline-indicator timeline-indicator-primary">
                           <i class="ti ti-map-pin"></i>
                         </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-primary text-uppercase fw-semibold">Receiver</small>
+                                                    <div class="timeline-event ps-0 pb-0">
+                                                        <div class="timeline-header">
+                                                            <small
+                                                                class="text-primary text-uppercase fw-semibold">{{$data->topic}}</small>
+                                                        </div>
+                                                        <h6 class="mb-0">{{$data->agenda}}</h6>
+                                                        <a href="{{$data->link}}" target="_blank"
+                                                           class="text-muted mb-0 text-nowrap">Link Zoom</a>
                                                     </div>
-                                                    <h6 class="mb-0">Barry Schowalter</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">939 Orange,
-                                                        California(CA),92118</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="border-bottom border-bottom-dashed mt-0 mb-4"></div>
-                                        <ul class="timeline timeline-advance mb-0">
-                                            <li class="timeline-item ps-4 border-left-dashed">
-                        <span class="timeline-indicator timeline-indicator-success">
-                          <i class="ti ti-circle-check"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-success text-uppercase fw-semibold">sender</small>
-                                                    </div>
-                                                    <h6 class="mb-0">Veronica Herman</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">162 Windsor, California(CA),
-                                                        95492</p>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item ps-4 border-0">
-                        <span class="timeline-indicator timeline-indicator-primary">
-                          <i class="ti ti-map-pin"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-primary text-uppercase fw-semibold">Receiver</small>
-                                                    </div>
-                                                    <h6 class="mb-0">Helen Jacobs</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">487 Sunset, California(CA),
-                                                        94043</p>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                            </ul>
+                                        @endforeach
                                     </div>
-
-                                    <div class="tab-pane fade" id="navs-justified-link-preparing" role="tabpanel">
-                                        <ul class="timeline timeline-advance mb-2 pb-1">
-                                            <li class="timeline-item ps-4 border-left-dashed">
-                        <span class="timeline-indicator timeline-indicator-success">
-                          <i class="ti ti-circle-check"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-success text-uppercase fw-semibold">sender</small>
+                                    @foreach($passedMeetings as $data)
+                                        <div class="tab-pane fade" id="navs-justified-link-preparing" role="tabpanel">
+                                            <ul class="timeline timeline-advance mb-2 pb-1">
+                                                <li class="timeline-item ps-4 border-left-dashed">
+                                                <span class="timeline-indicator timeline-indicator-success">
+                                                    <i class="ti ti-user"></i>
+                                                 </span>
+                                                    <div class="timeline-event ps-0 pb-0">
+                                                        <div class="timeline-header">
+                                                            <small
+                                                                class="text-success text-uppercase fw-semibold">{{$data->konsultasi->nama}}</small>
+                                                        </div>
+                                                        <h6 class="mb-0">{{$data->konsultasi->asal_universitas}}</h6>
+                                                        <p class="text-muted mb-0 text-nowrap">
+                                                        <p class="text-muted mb-0 text-nowrap">
+                                                            {{ \Carbon\Carbon::parse($data->konsultasi->tanggal)->translatedFormat('l, H:i') }}
+                                                        </p>
                                                     </div>
-                                                    <h6 class="mb-0">Barry Schowalter</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">939 Orange,
-                                                        California(CA),92118</p>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item ps-4 border-0 border-left-dashed">
+                                                </li>
+                                                <li class="timeline-item ps-4 border-0 border-left-dashed">
                         <span class="timeline-indicator timeline-indicator-primary">
-                          <i class="ti ti-map-pin"></i>
+                          <i class="ti ti-camera"></i>
                         </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-primary text-uppercase fw-semibold">Receiver</small>
+                                                    <div class="timeline-event ps-0 pb-0">
+                                                        <div class="timeline-header">
+                                                            <small
+                                                                class="text-primary text-uppercase fw-semibold">{{$data->topic}}</small>
+                                                        </div>
+                                                        <h6 class="mb-0">{{$data->agenda}}</h6>
+                                                        <a href="{{$data->link}}" target="_blank"
+                                                           class="text-muted mb-0 text-nowrap">Link Zoom</a>
                                                     </div>
-                                                    <h6 class="mb-0">Myrtle Ullrich</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">101 Boulder, California(CA),
-                                                        95959</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="border-bottom border-bottom-dashed mt-0 mb-4"></div>
-                                        <ul class="timeline timeline-advance mb-0">
-                                            <li class="timeline-item ps-4 border-left-dashed">
-                        <span class="timeline-indicator timeline-indicator-success">
-                          <i class="ti ti-circle-check"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-success text-uppercase fw-semibold">sender</small>
-                                                    </div>
-                                                    <h6 class="mb-0">Veronica Herman</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">162 Windsor, California(CA),
-                                                        95492</p>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item ps-4 border-0">
-                        <span class="timeline-indicator timeline-indicator-primary">
-                          <i class="ti ti-map-pin"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-primary text-uppercase fw-semibold">Receiver</small>
-                                                    </div>
-                                                    <h6 class="mb-0">Helen Jacobs</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">487 Sunset, California(CA),
-                                                        94043</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="tab-pane fade" id="navs-justified-link-shipping" role="tabpanel">
-                                        <ul class="timeline timeline-advance mb-2 pb-1">
-                                            <li class="timeline-item ps-4 border-left-dashed">
-                        <span class="timeline-indicator timeline-indicator-success">
-                          <i class="ti ti-circle-check"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-success text-uppercase fw-semibold">sender</small>
-                                                    </div>
-                                                    <h6 class="mb-0">Veronica Herman</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">101 Boulder, California(CA),
-                                                        95959</p>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item ps-4 border-0">
-                        <span class="timeline-indicator timeline-indicator-primary">
-                          <i class="ti ti-map-pin"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-primary text-uppercase fw-semibold">Receiver</small>
-                                                    </div>
-                                                    <h6 class="mb-0">Barry Schowalter</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">939 Orange,
-                                                        California(CA),92118</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="border-bottom border-bottom-dashed mt-0 mb-4"></div>
-                                        <ul class="timeline timeline-advance mb-0">
-                                            <li class="timeline-item ps-4 border-left-dashed">
-                        <span class="timeline-indicator timeline-indicator-success">
-                          <i class="ti ti-circle-check"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-success text-uppercase fw-semibold">sender</small>
-                                                    </div>
-                                                    <h6 class="mb-0">Myrtle Ullrich</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">162 Windsor, California(CA),
-                                                        95492</p>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item ps-4 border-0">
-                        <span class="timeline-indicator timeline-indicator-primary">
-                          <i class="ti ti-map-pin"></i>
-                        </span>
-                                                <div class="timeline-event ps-0 pb-0">
-                                                    <div class="timeline-header">
-                                                        <small
-                                                            class="text-primary text-uppercase fw-semibold">Receiver</small>
-                                                    </div>
-                                                    <h6 class="mb-0">Helen Jacobs</h6>
-                                                    <p class="text-muted mb-0 text-nowrap">487 Sunset, California(CA),
-                                                        94043</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--/ Sales by Countries tabs -->
-
-                <!-- Transactions -->
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                    <div class="card h-100">
-                        <div class="card-header d-flex justify-content-between">
-                            <div class="card-title m-0 me-2">
-                                <h5 class="m-0 me-2">Transactions</h5>
-                                <small class="text-muted">Total 58 Transactions done in this Month</small>
-                            </div>
-                            <div class="dropdown">
-                                <button
-                                    class="btn p-0"
-                                    type="button"
-                                    id="transactionID"
-                                    data-bs-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >
-                                    <i class="ti ti-dots-vertical ti-sm text-muted"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-                                    <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <ul class="p-0 m-0">
-                                <li class="d-flex mb-3 pb-1 align-items-center">
-                                    <div class="badge bg-label-primary me-3 rounded p-2">
-                                        <i class="ti ti-wallet ti-sm"></i>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Wallet</h6>
-                                            <small class="text-muted d-block">Starbucks</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0 text-danger">-$75</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-3 pb-1 align-items-center">
-                                    <div class="badge bg-label-success rounded me-3 p-2">
-                                        <i class="ti ti-browser-check ti-sm"></i>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Bank Transfer</h6>
-                                            <small class="text-muted d-block">Add Money</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0 text-success">+$480</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-3 pb-1 align-items-center">
-                                    <div class="badge bg-label-danger rounded me-3 p-2">
-                                        <i class="ti ti-brand-paypal ti-sm"></i>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Paypal</h6>
-                                            <small class="text-muted d-block mb-1">Client Payment</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0 text-success">+$268</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-3 pb-1 align-items-center">
-                                    <div class="badge bg-label-secondary me-3 rounded p-2">
-                                        <i class="ti ti-credit-card ti-sm"></i>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Master Card</h6>
-                                            <small class="text-muted d-block mb-1">Ordered iPhone 13</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0 text-danger">-$699</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-3 pb-1 align-items-center">
-                                    <div class="badge bg-label-info me-3 rounded p-2">
-                                        <i class="ti ti-currency-dollar ti-sm"></i>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Bank Transactions</h6>
-                                            <small class="text-muted d-block mb-1">Refund</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0 text-success">+$98</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-3 pb-1 align-items-center">
-                                    <div class="badge bg-label-danger me-3 rounded p-2">
-                                        <i class="ti ti-brand-paypal ti-sm"></i>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Paypal</h6>
-                                            <small class="text-muted d-block mb-1">Client Payment</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0 text-success">+$126</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="badge bg-label-success me-3 rounded p-2">
-                                        <i class="ti ti-browser-check ti-sm"></i>
-                                    </div>
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Bank Transfer</h6>
-                                            <small class="text-muted d-block mb-1">Pay Office Rent</small>
-                                        </div>
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0 text-danger">-$1290</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--/ Transactions -->
             </div>
         </div>
         <!-- / Content -->
@@ -793,7 +348,9 @@
                     data: @json(array_values($monthlyRevenue)),
                     borderColor: 'rgba(75, 192, 192, 1)',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderWidth: 1
+                    borderWidth: 1,
+                    tension: 0.4,
+                    fill: true,
                 }]
             },
             options: {
@@ -801,8 +358,26 @@
                     y: {
                         beginAtZero: true
                     }
+                },
+                elements: {
+                    line: {
+                        borderJoinStyle: 'round'
+                    },
+                    point: {
+                        radius: 5,
+                        borderWidth: 2,
+                        hoverRadius: 7,
+                        hoverBorderWidth: 3
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
                 }
             }
         });
     </script>
+
 @endsection
