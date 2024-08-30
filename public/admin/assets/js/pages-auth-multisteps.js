@@ -37,6 +37,54 @@ $(function () {
   }
 });
 
+$(function () {
+    var select2 = $('.select2Universitas');
+
+    // select2
+    if (select2.length) {
+        select2.each(function () {
+            var $this = $(this);
+            $this.wrap('<div class="position-relative"></div>');
+            $this.select2({
+                placeholder: 'Pilih Universitas',
+                dropdownParent: $this.parent()
+            });
+        });
+    }
+});
+
+$(function () {
+    var select2 = $('.select2Fakultas');
+
+    // select2
+    if (select2.length) {
+        select2.each(function () {
+            var $this = $(this);
+            $this.wrap('<div class="position-relative"></div>');
+            $this.select2({
+                placeholder: 'Pilih Fakultas',
+                dropdownParent: $this.parent()
+            });
+        });
+    }
+});
+
+$(function () {
+    var select2 = $('.select2Prodi');
+
+    // select2
+    if (select2.length) {
+        select2.each(function () {
+            var $this = $(this);
+            $this.wrap('<div class="position-relative"></div>');
+            $this.select2({
+                placeholder: 'Pilih Prodi',
+                dropdownParent: $this.parent()
+            });
+        });
+    }
+});
+
 // Multi Steps Validation
 // --------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', function (e) {
@@ -113,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
       // Account details
       const multiSteps1 = FormValidation.formValidation(stepsValidationFormStep1, {
-        
+
         plugins: {
           trigger: new FormValidation.plugins.Trigger(),
           bootstrap5: new FormValidation.plugins.Bootstrap5({
@@ -139,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
       // Personal info
       const multiSteps2 = FormValidation.formValidation(stepsValidationFormStep2, {
-        
+
         plugins: {
           trigger: new FormValidation.plugins.Trigger(),
           bootstrap5: new FormValidation.plugins.Bootstrap5({
@@ -169,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
       // Social links
       const multiSteps3 = FormValidation.formValidation(stepsValidationFormStep3, {
-        
+
         plugins: {
           trigger: new FormValidation.plugins.Trigger(),
           bootstrap5: new FormValidation.plugins.Bootstrap5({

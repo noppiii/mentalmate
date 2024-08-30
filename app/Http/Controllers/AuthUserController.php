@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\UniversitasImport;
 use App\Models\MahasiswaModel;
 use App\Models\PsikologModel;
 use Illuminate\Database\QueryException;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AuthUserController extends Controller
 {
@@ -72,7 +74,13 @@ class AuthUserController extends Controller
 
 
     public function showMahasiswaSignupForm(){
-        return view('auth.mahasiswa-register');
+        $filePath = public_path('Data_Perguruan_Tinggi.xlsx');
+
+        $import = new UniversitasImport();
+        Excel::import($import, $filePath);
+
+        $universitas = $import->getData();
+        return view('auth.mahasiswa-register', compact('universitas'));
     }
 
     public function mahasiswaSignup(Request $request)
