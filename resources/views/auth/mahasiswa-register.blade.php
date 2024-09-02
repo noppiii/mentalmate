@@ -15,7 +15,7 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Multi Steps Sign-up - Pages | Vuexy - Bootstrap Admin Template</title>
+    <title>Mahasiswa Register | {{ config('app.name') }}</title>
 
     <meta name="description" content=""/>
 

@@ -16,7 +16,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Multi Steps Sign-up - Pages | Vuexy - Bootstrap Admin Template</title>
+    <title>Psikolog Register | {{ config('app.name') }}</title>
 
     <meta name="description" content="" />
 
@@ -160,7 +160,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <!-- Personal Info -->
                 <div id="personalInfoValidation" class="content">
                   <div class="row g-3">
@@ -255,7 +255,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <!-- Billing Links -->
                 <div id="billingLinksValidation" class="content">
                   <div class="row g-3">
@@ -377,7 +377,7 @@
     <script src="{{ asset('admin/assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js') }}"></script>
-    
+
     <script src="{{ asset('admin/assets/vendor/libs/moment/moment.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>

@@ -16,7 +16,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Cover - Pages | Vuexy - Bootstrap Admin Template</title>
+    <title>Login | {{ config('app.name') }}</title>
 
     <meta name="description" content="" />
 
@@ -175,7 +175,7 @@
                       <div class="pb-sm-5 pb-2 rounded-top">
                         <h2 class="text-center mb-2">Pilih Akses</h2>
                         <p class="text-center">
-                          
+
                         </p>
                         <div class="row mx-0 gy-3">
 
