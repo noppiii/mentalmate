@@ -1,9 +1,9 @@
 @extends('layouts.client.main')
 @section('title')
-    Home | Mentalmate
+    About | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Home
+    About
 @endsection
 @section('content')
     <!-- Title Bar -->

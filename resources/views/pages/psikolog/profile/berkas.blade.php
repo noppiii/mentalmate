@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Admin || Dashboard
+    Profile | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Dashboard
+    Profile Berkas Psikolog
 @endsection
 @section('content')
     <!-- Content wrapper -->

@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Xcare Demo1 – Health & Medical HTML Template</title>
+		<title>@yield('title')</title>
 		<meta name="robots" content="noindex, follow">
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,7 +53,7 @@
 				<rect width="36" height="1" transform="translate(0 25.456) rotate(-45)"></rect>
 			</svg>
 		</div>
-		<div class="pbmit-search-outer"> 
+		<div class="pbmit-search-outer">
 			<form class="pbmit-site-searchform" action="{{ route('client.search') }}" method="GET">
 				<input type="text" class="form-control field searchform-s" name="search" value="{{ request('search') }}" placeholder="Search …">
 				<button type="submit"></button>
@@ -66,10 +66,10 @@
 	<div class="pbmit-progress-wrap">
 		<svg class="pbmit-progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
 			<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
-		</svg>	
+		</svg>
 	</div>
 	<!-- Scroll To Top End -->
-	
+
 	<!-- JS
 		============================================ -->
   @if (Session::has('success_message'))

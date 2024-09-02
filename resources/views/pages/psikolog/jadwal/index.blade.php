@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Admin || Dashboard
+    Jadwal | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Dashboard
+    Jadwal Psikolog
 @endsection
 @section('content')
   <div class="content-wrapper">
@@ -128,10 +128,10 @@
 
         return {
             id: konsultasi.id,
-            url: '', 
-            title: konsultasi.nama, 
-            start: startDate, 
-            end: endDate, 
+            url: '',
+            title: konsultasi.nama,
+            start: startDate,
+            end: endDate,
             allDay: false,
             extendedProps: {
                 calendar: 'Business',

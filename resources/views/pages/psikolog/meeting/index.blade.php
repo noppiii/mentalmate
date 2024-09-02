@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Mentalmate || Psikolog
+    Meeting | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Master Psikolog
+    Meeting Psikolog
 @endsection
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -124,7 +124,7 @@
     </div>
   </div>
 
-  
+
   {{-- ====================== DELETE DATA ======================== --}}
   @foreach ($allMeeting as $data)
   <div

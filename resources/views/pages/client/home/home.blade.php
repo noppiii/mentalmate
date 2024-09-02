@@ -1,6 +1,6 @@
 @extends('layouts.client.main')
 @section('title')
-    Home | Mentalmate
+    Home | {{ config('app.name') }}
 @endsection
 @section('pages')
     Home

@@ -1,9 +1,9 @@
 @extends('layouts.client.main')
 @section('title')
-    Home | Mentalmate
+    Detail Artikel | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Home
+    Detail Artikel
 @endsection
 @section('content')
 <!-- Title Bar -->
@@ -32,13 +32,13 @@
 						</div>
 					</div>
 				</div>
-			</div> 
-		</div> 
+			</div>
+		</div>
 	</div>
     <!-- Title Bar End-->
 
 	<!-- Page Content -->
-	<div class="page-content"> 
+	<div class="page-content">
 
 		<!-- Blog Single Details -->
 		<section class="site_content blog-details">
@@ -48,7 +48,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<article>
-									<div class="post blog-classic">    
+									<div class="post blog-classic">
 										<div class="pbmit-featured-img-wrapper">
 											<div class="pbmit-featured-wrapper">
 												<img src="images/blog/blog-02b.jpg" class="img-fluid" alt="">
@@ -58,9 +58,9 @@
 												<a href="blog-classic.html" rel="category tag">{{ $data->nama }}</a>
 											</span>
 											@endforeach
-										</div> 
+										</div>
 										<div class="pbmit-blog-classic-inner">
-											<div class="pbmit-blog-meta pbmit-blog-meta-top">	
+											<div class="pbmit-blog-meta pbmit-blog-meta-top">
 												<span class="pbmit-meta pbmit-meta-date">
 													<i class="pbmit-base-icon-calendar-3"></i>
 													<a href="blog-details.html" rel="bookmark">
@@ -79,7 +79,7 @@
 												</span>
 												<span class="pbmit-meta pbmit-meta-comments pbmit-comment-bigger-than-zero">
 													<i class="pbmit-base-icon-chat-3"></i>3 Comments
-												</span>			
+												</span>
 											</div>
 											<div class="pbmit-entry-content">
 												<p class="pbmit-firstletter">
@@ -95,8 +95,8 @@
 													</span>
 												</div>
 											</div>
-										</div>   
-									</div> 
+										</div>
+									</div>
 									<nav class="navigation post-navigation" aria-label="Posts">
 										<div class="nav-links">
 											<div class="nav-previous">
@@ -107,7 +107,7 @@
 														<span class="pbmit-post-nav-head">Previous Post</span>
 													</span>
 													<span class="pbmit-post-nav-wrapper">
-														<span class="pbmit-post-nav nav-title">{{ $previousArtikel->nama }}</span> 
+														<span class="pbmit-post-nav nav-title">{{ $previousArtikel->nama }}</span>
 													</span>
 												</a>
 												@endif
@@ -120,7 +120,7 @@
 														<i class="pbmit-base-icon-next"></i>
 													</span>
 													<span class="pbmit-post-nav-wrapper">
-														<span class="pbmit-post-nav nav-title">{{ $nextArtikel->nama }}</span> 
+														<span class="pbmit-post-nav nav-title">{{ $nextArtikel->nama }}</span>
 													</span>
 												</a>
 												@endif
@@ -181,7 +181,7 @@
 													<div class="col-sm-12">
 														<textarea class="form-control" name="content" id="exampleFormControlTextarea1" placeholder="Enter your comment here..." rows="3"></textarea>
 													</div>
-													<div class="col-sm-12"> 
+													<div class="col-sm-12">
 														<button type="submit" class="pbmit-btn">Post Comment</button>
 													</div>
 												</div>
@@ -189,7 +189,7 @@
 										</div>
 									</div>
 								</div>
-							</div> 
+							</div>
 						</div>
 					</div>
 					<div class="col-md-12 col-lg-3 blog-left-col">
@@ -225,7 +225,7 @@
 								<h2 class="widget-title">Recent Post </h2>
 									<ul class="recent-post-list">
 										 @foreach ($recentArtikel as $data)
-										<li class="recent-post-list-li"> 
+										<li class="recent-post-list-li">
 											<a class="recent-post-thum" href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">
 												<img src="{{ asset('store/artikel/thumbnail/' . $data->tumbnail) }}" class="img-fluid" alt="">
 											</a>
@@ -236,11 +236,11 @@
 												<span class="pbmit-rpw-title">
 													<a href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">{{ $data->name }}</a>
 												</span>
-											</div> 
+											</div>
 										</li>
 										@endforeach
 									</ul>
-							</aside> 
+							</aside>
 							<aside class="widget widget-tag-cloud">
 								<h3 class="widget-title">Tag Cloud</h3>
 								<div class="tagcloud">
@@ -255,14 +255,14 @@
 									<a href="{{ $url }}" class="tag-cloud-link">{{ $data->nama }}</a>
                                     @endforeach
 								</div>
-							</aside> 
+							</aside>
 						</aside>
 					</div>
 				</div>
 			</div>
 		</section>
 		<!-- Blog Single Details End -->
-		
+
 	</div>
 	<!-- Page Content End -->
 @endsection

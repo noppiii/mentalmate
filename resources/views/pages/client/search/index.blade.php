@@ -1,9 +1,9 @@
 @extends('layouts.client.main')
 @section('title')
-    Home | Mentalmate
+    Search | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Home
+    Search
 @endsection
 @section('content')
   <!-- Title Bar -->
@@ -35,14 +35,14 @@
 							</div>
 						</div>
 					</div>
-				</div>  
-			</div> 
+				</div>
+			</div>
 		</div>
         <!-- Title Bar End-->
            <!-- Page Content -->
-        <div class="page-content"> 
+        <div class="page-content">
 
-			<!-- Team Start --> 
+			<!-- Team Start -->
 			<section class="section-lgx">
 				<div class="container">
 					<div class="row pbmit-element-posts-wrapper"><div class="pbmit-tbar">
@@ -59,7 +59,7 @@
 										<div class="pbmit-featured-wrapper">
                                             <div style="width: 80%; max-width: 400px; height: 0; padding-top: 100%; position: relative; overflow: hidden;">
                                                 <img src="{{ asset('store/user/photo/psikolog' . $data->profile_photo_path) }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" class="img-fluid" alt="">
-                                            </div>										
+                                            </div>
                                         </div>
 									</div>
 									@if (Auth::guard('mahasiswa')->check())
@@ -170,7 +170,7 @@
 				</div>
 				</div>
 			</section>
-			<!-- Team End --> 
+			<!-- Team End -->
 
         </div>
         <!-- Page Content End -->

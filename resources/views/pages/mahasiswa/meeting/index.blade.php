@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Mentalmate || Psikolog
+    Meeting || {{ config('app.name') }}
 @endsection
 @section('pages')
-    Master Psikolog
+    Meeting Mahasiswa
 @endsection
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">

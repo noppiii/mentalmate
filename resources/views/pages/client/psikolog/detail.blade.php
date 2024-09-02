@@ -1,9 +1,9 @@
 @extends('layouts.client.main')
 @section('title')
-    Home | Mentalmate
+    Detail Psikolog | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Home
+    Detail Psikolog
 @endsection
 @section('content')
   <!-- Title Bar -->
@@ -35,8 +35,8 @@
 							</div>
 						</div>
 					</div>
-				</div>  
-			</div> 
+				</div>
+			</div>
 		</div>
         <!-- Title Bar End-->
 
@@ -258,16 +258,16 @@
 										<div class="comment-form">
 											<form>
 												<div class="row">
-													<div class="col-md-6"> 
+													<div class="col-md-6">
 														<input id="name" type="text" placeholder="Your Name *" class="form-control" name="name">
 													</div>
-													<div class="col-md-6"> 
+													<div class="col-md-6">
 														<input id="email" class="form-control" placeholder="Your Email *" name="email" type="email" value="">
 													</div>
-													<div class="col-md-6"> 
+													<div class="col-md-6">
 														<input id="url" class="form-control" placeholder="Your Phone *" name="phone-number" type="text" value="">
 													</div>
-													<div class="col-md-6"> 
+													<div class="col-md-6">
 														<input class="form-control" placeholder="Subject" name="subject" type="text" value="">
 													</div>
 													<div class="col-md-12">
@@ -281,7 +281,7 @@
 															</label>
 														</div>
 													</div>
-													<div class="col-md-12"> 
+													<div class="col-md-12">
 														<button class="pbmit-btn">
 															<span class="pbmit-button-content-wrapper">
 																<span class="pbmit-button-icon pbmit-align-icon-right">

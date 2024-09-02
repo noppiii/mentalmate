@@ -1,9 +1,9 @@
 @extends('layouts.client.main')
 @section('title')
-    Home | Mentalmate
+    Konsultasi | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Home
+    Konsultasi
 @endsection
 @section('content')
 	<!-- Page Content -->
@@ -21,7 +21,7 @@
 					</div>
 					<div class="appointment_box">
 						<h4 class="text-center mb-3">Make An Appointment</h4>
-						@if (Auth::guard('mahasiswa')->check())	
+						@if (Auth::guard('mahasiswa')->check())
 						<form action="{{ route('client.postKonsultasi') }}" method="post">
 							@csrf
 							<div class="row">
@@ -128,7 +128,7 @@
 					</div>
 				</div>
 			</section>
-			<!-- Make An Appointment End --> 
+			<!-- Make An Appointment End -->
 
 			<!-- Client Start -->
 			<section class="section-lgb">
@@ -251,7 +251,7 @@
 
 		</div>
 		<!-- Page Content End -->
-		
+
 
 <script>
 function formatRupiah(angka) {

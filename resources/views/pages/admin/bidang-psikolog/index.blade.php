@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Admin || Dashboard
+    Bidang Psikolog | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Dashboard
+    Bidang Psikolog Admin
 @endsection
 @section('content')
     <div class="content-wrapper">

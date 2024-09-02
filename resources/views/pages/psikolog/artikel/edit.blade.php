@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Admin || Admin
+    Edit Artikel | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Master Admin
+    Edit Artikel Psikolog
 @endsection
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">

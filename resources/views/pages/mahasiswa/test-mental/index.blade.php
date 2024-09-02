@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Admin || Dashboard
+    Tes Kesehatan Mental || {{ config('app.name') }}
 @endsection
 @section('pages')
-    Dashboard
+    Tes Kesehatan Mental Mahasiswa
 @endsection
 @section('content')
 

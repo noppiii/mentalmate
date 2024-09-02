@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Admin || Dashboard
+    Profile || Dashboard
 @endsection
 @section('pages')
-    Dashboard
+    Profile Mahasiswa
 @endsection
 @section('content')
  <!-- Content wrapper -->

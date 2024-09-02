@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Mentalmate || Admin
+    Transaksi | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Master Admin
+    Transaksi Admin
 @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">

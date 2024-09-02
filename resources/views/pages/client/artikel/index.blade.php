@@ -1,9 +1,9 @@
 @extends('layouts.client.main')
 @section('title')
-    Home | Mentalmate
+    Artikel | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Home
+    Artikel
 @endsection
 @section('content')
 	<!-- Title Bar -->
@@ -28,8 +28,8 @@
 							</div>
 						</div>
 					</div>
-				</div>   
-		</div> 
+				</div>
+		</div>
 	</div>
 	<!-- Title Bar End-->
 
@@ -43,8 +43,8 @@
 					<div class="col-md-12 col-lg-9 blog-right-col">
 						<div class="row pbmit-element-posts-wrapper">
 							 @if(count($paginateArtikel) > 0)
-                            @foreach ($paginateArtikel as $data)   
-							<article class="post blog-classic">   
+                            @foreach ($paginateArtikel as $data)
+							<article class="post blog-classic">
 								<div class="pbmit-featured-img-wrapper">
 									<div class="pbmit-featured-wrapper">
 										<a href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">
@@ -56,9 +56,9 @@
 										<a href="blog-classic.html" rel="category tag">{{ $kategori->nama }}</a>
                                         @endforeach
 									</span>
-								</div>  
+								</div>
 								<div class="pbmit-blog-classic-inner">
-									<div class="pbmit-blog-meta pbmit-blog-meta-top">	
+									<div class="pbmit-blog-meta pbmit-blog-meta-top">
 										<span class="pbmit-meta pbmit-meta-date">
 											<i class="pbmit-base-icon-calendar-3"></i>
 											<a href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}" rel="bookmark">
@@ -77,7 +77,7 @@
 										</span>
 										<span class="pbmit-meta pbmit-meta-comments pbmit-comment-bigger-than-zero">
 											<i class="pbmit-base-icon-chat-3"></i>3 Comments
-										</span>			
+										</span>
 									</div>
 									<h3 class="pbmit-post-title">
 										<a href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">{{ $data->name }}</a>
@@ -100,7 +100,7 @@
 											</span>
 										</a>
 									</div>
-								</div> 
+								</div>
 							</article>
                             @endforeach
 							 @else
@@ -122,12 +122,12 @@
                 			            </a>
                 			        </li>
                 			    @endif
-								
+
                 			    <!-- Tombol Halaman -->
                 			    @php
                 			        $start = max($paginateArtikel->currentPage() - 2, 1);
                 			        $end = min($start + 4, $paginateArtikel->lastPage());
-								
+
                 			        if ($end - $start < 4) {
                 			            $start = max($end - 4, 1);
                 			        }
@@ -138,7 +138,7 @@
                 			            <a class="page-link" href="{{ $paginateArtikel->url($i) }}">{{ $i }}</a>
                 			        </li>
                 			    @endfor
-								
+
                 			    <!-- Tombol Next -->
                 			    @if ($paginateArtikel->hasMorePages())
                 			        <li class="page-item">
@@ -188,7 +188,7 @@
 								<h2 class="widget-title">Recent Post </h2>
 									<ul class="recent-post-list">
                                         @foreach ($recentArtikel as $data)
-										<li class="recent-post-list-li"> 
+										<li class="recent-post-list-li">
 											<a class="recent-post-thum" href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">
 												<img src="{{ asset('store/artikel/thumbnail/' . $data->tumbnail) }}" class="img-fluid" alt="">
 											</a>
@@ -199,11 +199,11 @@
 												<span class="pbmit-rpw-title">
 													<a href="{{ route('client.detailArtikel', ['slug' => $data->slug]) }}">{{ $data->name }}</a>
 												</span>
-											</div> 
+											</div>
 										</li>
                                         @endforeach
 									</ul>
-							</aside> 
+							</aside>
 							{{-- <aside class="widget pbmit-service-ad">
 								<div class="textwidget">
 									<div class="pbmit-service-ads">
@@ -243,14 +243,14 @@
 									<a href="{{ $url }}" class="tag-cloud-link">{{ $data->nama }}</a>
                                     @endforeach
 								</div>
-							</aside> 
+							</aside>
 						</aside>
 					</div>
 				</div>
 			</div>
 		</section>
 		<!-- Blog Classic End -->
-		
+
 	</div>
 	<!-- Page Content End -->
 

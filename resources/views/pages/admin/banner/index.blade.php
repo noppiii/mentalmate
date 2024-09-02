@@ -1,9 +1,9 @@
 @extends('layouts.admin.main')
 @section('title')
-    Mentalmate || Admin
+    Banner | {{ config('app.name') }}
 @endsection
 @section('pages')
-    Master Admin
+    Banner Admin
 @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
