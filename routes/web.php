@@ -13,6 +13,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaDashboardController;
 use App\Http\Controllers\MahasiswaKonsultasiController;
 use App\Http\Controllers\MahasiswaMeetingController;
+use App\Http\Controllers\MahasiswaTransactionController;
 use App\Http\Controllers\MahasiswaProfileController;
 use App\Http\Controllers\MasterAdminController;
 use App\Http\Controllers\MasterArticleController;
@@ -114,6 +115,7 @@ Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])-
     Route::put('profile/{id}/update', [MahasiswaProfileController::class, 'update'])->name('mahasiswa.updateProfile');
     Route::put('profile/berkas/{id}/update', [MahasiswaProfileController::class, 'updateBerkas'])->name('mahasiswa.profile.updateBerkas');
     Route::get('meeting', [MahasiswaMeetingController::class, 'index'])->name('mahasiswa.listMeeting');
+    Route::get('transaksi', [MahasiswaTransactionController::class, 'index'])->name('mahasiswa.listTransaksi');
     // In routes/web.php
 
     Route::get('konsultasi-ku/{receiverId}/{receiverType}', [MahasiswaKonsultasiController::class, 'index'])->name('mahasiswa.konsultasi.index');

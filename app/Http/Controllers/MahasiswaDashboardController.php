@@ -34,7 +34,6 @@ class MahasiswaDashboardController extends Controller
             ->orderBy('start_time', 'asc')
             ->first();
 
-        // Update query untuk transaksi pending
         $pendingTransactions = PembayaranModel::where('status', 'pending')
             ->whereHas('konsultasi', function ($query) use ($mahasiswaId) {
                 $query->where('mahasiswa_id', $mahasiswaId);

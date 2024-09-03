@@ -381,6 +381,12 @@
                     <div data-i18n="Meeting">Meeting</div>
                 </a>
             </li>
+            <li class="menu-item {{ request()->is('mahasiswa/transaksi*') ? 'active' : '' }}">
+                <a href="{{ route('mahasiswa.listTransaksi') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-credit-card"></i>
+                    <div data-i18n="Transaksi">Transaksi</div>
+                </a>
+            </li>
         </ul>
     </aside>
 @endif
