@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.9",
         "maatwebsite/excel": "^3.1",
         "marineusde/larapex-charts": "^1.4",
+        "midtrans/midtrans-php": "^2.5",
         "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-sluggable": "^3.6",
         "symfony/mailgun-mailer": "^6.4",

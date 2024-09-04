@@ -24,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
             // \App\Http\Middleware\AuthAdmin::class,
             // \App\Http\Middleware\AuthPsikolog::class,
             // \App\Http\Middleware\AuthMahasiswa::class,
+            \App\Http\Middleware\MidtransConfig::class
         ]);
     $middleware->alias([
         'Zoom' => Jubaer\Zoom\Facades\Zoom::class,

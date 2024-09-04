@@ -65,6 +65,10 @@ Route::post('/konsultasi/store', [ClientKonsultasController::class, 'store'])->n
 Route::get('/get-psikolog/{bidangId}', [ClientKonsultasController::class, 'getPsikologByBidang'])->name('client.psikolog.getByBidang');
 Route::get('/get-psikolog-detail/{psikologId}', [ClientKonsultasController::class, 'getPsikologDetail'])->name('client.psikolog.getDetail');
 Route::get('/fetch-new-messages', [MahasiswaKonsultasiController::class, 'fetchNewMessages'])->name('fetch-new-messages');
+Route::get('/payment/{snapToken}', function ($snapToken) {
+    return view('pages.client.konsultasi.payment', compact('snapToken'));
+})->name('client.paymentPage');
+
 
 Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');

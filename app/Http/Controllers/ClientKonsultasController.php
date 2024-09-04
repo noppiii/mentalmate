@@ -9,6 +9,8 @@ use App\Models\PsikologModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Midtrans\Config;
+use Midtrans\Snap;
 
 class ClientKonsultasController extends Controller
 {
@@ -61,6 +63,7 @@ class ClientKonsultasController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate request data
         $request->validate([
             'nama' => 'required|string',
             'email' => 'required|email',
@@ -69,12 +72,14 @@ class ClientKonsultasController extends Controller
             'psikolog_id' => 'required',
             'harga_konsultasi' => 'required|numeric',
             'deskripsi' => 'required|string',
-            'metode_pembayaran' => 'required|string', 
+            'metode_pembayaran' => 'required|string',
         ]);
 
-        try {
-            DB::beginTransaction();
+        // Start database transaction
+        DB::beginTransaction();
 
+        try {
+            // Save Konsultasi data
             $konsultasi = new KonsultasiModel();
             $konsultasi->nama = $request->nama;
             $konsultasi->email = $request->email;
@@ -85,6 +90,7 @@ class ClientKonsultasController extends Controller
             $konsultasi->deskripsi = $request->deskripsi;
             $konsultasi->save();
 
+            // Save Pembayaran data
             $pembayaran = new PembayaranModel();
             $pembayaran->nominal = $request->harga_konsultasi;
             $pembayaran->konsultasi_id = $konsultasi->id;
@@ -92,11 +98,53 @@ class ClientKonsultasController extends Controller
             $pembayaran->status = 'pending';
             $pembayaran->save();
 
+            // Configure Midtrans
+            Config::$serverKey = config('services.midtrans.serverKey');
+            Config::$isProduction = config('services.midtrans.isProduction');
+            Config::$isSanitized = config('services.midtrans.isSanitized');
+            Config::$is3ds = config('services.midtrans.is3ds');
+
+            // Prepare transaction details
+            $transactionDetails = [
+                'order_id' => $pembayaran->id,
+                'gross_amount' => $request->harga_konsultasi,
+            ];
+
+            $itemDetails = [
+                [
+                    'id' => $konsultasi->id,
+                    'price' => $request->harga_konsultasi,
+                    'quantity' => 1,
+                    'name' => 'Konsultasi dengan ' . $konsultasi->nama,
+                ],
+            ];
+
+            $customerDetails = [
+                'first_name' => $request->nama,
+                'email' => $request->email,
+                'phone' => $request->nomor_telepon,
+            ];
+
+            $params = [
+                'transaction_details' => $transactionDetails,
+                'item_details' => $itemDetails,
+                'customer_details' => $customerDetails,
+            ];
+
+            // Generate Snap token
+            $snapToken = Snap::getSnapToken($params);
+
+            // Commit transaction
             DB::commit();
 
-            return redirect()->back()->with('success_message_create', 'Konsultasi berhasil disimpan!');
+            // Return response with Snap token
+            return redirect()->route('client.paymentPage', ['snapToken' => $snapToken]);
+
         } catch (\Exception $e) {
+            // Rollback transaction on error
             DB::rollBack();
+
+            // Return error message
             return redirect()->back()->with('error_message_update_details', 'Terjadi kesalahan saat menyimpan konsultasi. Silakan coba lagi.');
         }
     }
