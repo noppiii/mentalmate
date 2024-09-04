@@ -63,7 +63,6 @@ class ClientKonsultasController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate request data
         $request->validate([
             'nama' => 'required|string',
             'email' => 'required|email',
@@ -75,11 +74,9 @@ class ClientKonsultasController extends Controller
             'metode_pembayaran' => 'required|string',
         ]);
 
-        // Start database transaction
         DB::beginTransaction();
 
         try {
-            // Save Konsultasi data
             $konsultasi = new KonsultasiModel();
             $konsultasi->nama = $request->nama;
             $konsultasi->email = $request->email;
@@ -90,21 +87,18 @@ class ClientKonsultasController extends Controller
             $konsultasi->deskripsi = $request->deskripsi;
             $konsultasi->save();
 
-            // Save Pembayaran data
             $pembayaran = new PembayaranModel();
             $pembayaran->nominal = $request->harga_konsultasi;
             $pembayaran->konsultasi_id = $konsultasi->id;
-            $pembayaran->metode_pembayaran = $request->metode_pembayaran;
+            $pembayaran->metode_pembayaran = null;
             $pembayaran->status = 'pending';
             $pembayaran->save();
 
-            // Configure Midtrans
             Config::$serverKey = config('services.midtrans.serverKey');
             Config::$isProduction = config('services.midtrans.isProduction');
             Config::$isSanitized = config('services.midtrans.isSanitized');
             Config::$is3ds = config('services.midtrans.is3ds');
 
-            // Prepare transaction details
             $transactionDetails = [
                 'order_id' => $pembayaran->id,
                 'gross_amount' => $request->harga_konsultasi,
@@ -131,20 +125,15 @@ class ClientKonsultasController extends Controller
                 'customer_details' => $customerDetails,
             ];
 
-            // Generate Snap token
             $snapToken = Snap::getSnapToken($params);
 
-            // Commit transaction
             DB::commit();
 
-            // Return response with Snap token
             return redirect()->route('client.paymentPage', ['snapToken' => $snapToken]);
 
         } catch (\Exception $e) {
-            // Rollback transaction on error
             DB::rollBack();
 
-            // Return error message
             return redirect()->back()->with('error_message_update_details', 'Terjadi kesalahan saat menyimpan konsultasi. Silakan coba lagi.');
         }
     }

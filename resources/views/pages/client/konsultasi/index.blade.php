@@ -60,16 +60,16 @@
                                         <option value="">Pilih Psikolog</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <select id="metodePembayaran" class="form-select form-control"
-                                            name="metode_pembayaran" aria-label="Default select example">
-                                        <option value="">Metode Pembayaran</option>
-                                        <option value="gopay">Gopay</option>
-                                        <option value="dana">Dana</option>
-                                        <option value="shopeepay">ShopeePay</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
+{{--                                <div class="col-md-6">--}}
+{{--                                    <select id="metodePembayaran" class="form-select form-control"--}}
+{{--                                            name="metode_pembayaran" aria-label="Default select example">--}}
+{{--                                        <option value="">Metode Pembayaran</option>--}}
+{{--                                        <option value="gopay">Gopay</option>--}}
+{{--                                        <option value="dana">Dana</option>--}}
+{{--                                        <option value="shopeepay">ShopeePay</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+                                <div class="col-md-12">
                                     <input type="text" class="form-control" id="biayaKonsultasiInput"
                                            placeholder="Biaya Konsultasi" readonly>
                                     <input type="hidden" name="harga_konsultasi" id="biayaKonsultasiHidden">
