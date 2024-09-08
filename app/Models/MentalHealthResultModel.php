@@ -9,11 +9,13 @@ class MentalHealthResultModel extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'mental_health_test_id', 'total_score'];
+    protected $table = 'mental_health_results';
 
-    public function user()
+    protected $fillable = ['mahasiswa_id', 'mental_health_test_id', 'total_score'];
+
+    public function mahasiswa()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(MahasiswaModel::class);
     }
 
     public function mentalHealthTest()

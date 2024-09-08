@@ -9,6 +9,8 @@ class MentalHealthAnswerModel extends Model
 {
     use HasFactory;
 
+    protected $table = 'mental_health_answers';
+
     protected $fillable = ['mental_health_result_id', 'mental_health_question_id', 'mental_health_option_id'];
 
     public function mentalHealthResult()
