@@ -16,12 +16,12 @@ class MentalHealthQuestionModel extends Model
 
     public function mentalHealthTest()
     {
-        return $this->belongsTo(MentalHealthTestModel::class);
+        return $this->belongsTo(MentalHealthTestModel::class, 'mental_health_test_id');
     }
 
-    public function mentalHealtOptions()
+    public function mentalHealthOptions()
     {
-        return $this->hasMany(MentalHealthOptionModel::class);
+        return $this->hasMany(MentalHealthOptionModel::class, 'mental_health_question_id');
     }
 
     public function mentalHealtAnswers()

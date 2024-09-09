@@ -15,11 +15,11 @@ class MentalHealthTestModel extends Model
 
     public function mentalHealthQuestions()
     {
-        return $this->hasMany(MentalHealthQuestionModel::class);
+        return $this->hasMany(MentalHealthQuestionModel::class, 'mental_health_test_id');
     }
 
     public function mentalHealthResults()
     {
-        return $this->hasMany(MentalHealthResultModel::class);
+        return $this->hasMany(MentalHealthResultModel::class, 'mental_health_test_id');
     }
 }

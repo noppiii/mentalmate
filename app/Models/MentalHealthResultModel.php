@@ -20,7 +20,7 @@ class MentalHealthResultModel extends Model
 
     public function mentalHealthTest()
     {
-        return $this->belongsTo(MentalHealthTestModel::class);
+        return $this->belongsTo(MentalHealthTestModel::class, 'mental_health_test_id');
     }
 
     public function mentalHealtAnswers()

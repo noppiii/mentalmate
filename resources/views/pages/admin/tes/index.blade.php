@@ -12,6 +12,63 @@
         <div class="container-xxl flex-grow-1 container-p-y">
             <!-- Navbar pills -->
             <div class="row g-4 mb-4">
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start justify-content-between">
+                                <div class="content-left">
+                                    <span>Total Tes</span>
+                                    <div class="d-flex align-items-center my-1">
+                                        <h4 class="mb-0 me-2">10</h4>
+                                        {{--                                        <span class="text-success">(+29%)</span>--}}
+                                    </div>
+                                    <small>Total Tes Soal</small>
+                                </div>
+                                <span class="badge bg-label-primary rounded p-2">
+                    <i class="ti ti-shield-chevron ti-sm"></i>
+                  </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start justify-content-between">
+                                <div class="content-left">
+                                    <span>Tes Soal</span>
+                                    <div class="d-flex align-items-center my-1">
+                                        <h6 class="mb-0 me-2">10</h6>
+                                        {{--                                        <span class="text-success">(+18%)</span>--}}
+                                    </div>
+                                    <small>Tes Soal Terbanyak</small>
+                                </div>
+                                <span class="badge bg-label-secondary rounded p-2">
+                    <i class="ti ti-shield-checkered ti-sm"></i>
+                  </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start justify-content-between">
+                                <div class="content-left">
+                                    <span>Tambah Tes</span>
+                                    <div class="d-flex align-items-center my-1">
+                                        <a href="{{ route('test-kesehatan-mental.create') }}" class="btn btn-primary mt-2">+
+                                            Tes</a>
+                                    </div>
+                                    {{-- <small>&nbsp;</small> --}}
+                                </div>
+                                <span class="badge bg-label-primary rounded p-2">
+                    <i class="ti ti-shield-check ti-sm"></i>
+                  </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <form action="{{route('test-kesehatan-mental.index')}}" method="GET">
@@ -87,7 +144,13 @@
                                             <span>Jumlah User</span>
                                         </div>
                                         <div>
-                                            <h4 class="mb-0">{{ number_format($data->mentalHealthResults->first()->avg_score, 2) }}</h4>
+                                            <h4 class="mb-0">
+                                                @if ($data->mentalHealthResults->isNotEmpty())
+                                                    {{ number_format($data->mentalHealthResults->first()->avg_score, 2) }}
+                                                @else
+                                                    N/A
+                                                @endif
+                                            </h4>
                                             <span>Rata Rata Score</span>
                                         </div>
                                     </div>
