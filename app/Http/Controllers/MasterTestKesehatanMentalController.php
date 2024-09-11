@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MentalHealthTestModel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -46,7 +47,31 @@ class MasterTestKesehatanMentalController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
+        $questions = [];
+        $currentQuestionIndex = -1;
+
+        foreach ($request->input('group-a') as $index => $item) {
+            if (isset($item['question_text'])) {
+                $questions[$index] = [
+                    'question_text' => $item['question_text'],
+                    'options' => [],
+                ];
+                $currentQuestionIndex = $index;
+            } elseif ($currentQuestionIndex !== -1 && isset($item['option_text']) && isset($item['value'])) {
+                $questions[$currentQuestionIndex]['options'][] = [
+                    'option_text' => $item['option_text'],
+                    'value' => $item['value'],
+                ];
+            }
+        }
+
+        $request->merge(['questions' => $questions]);
+
+//        dd([
+//            'name' => $request->input('name'),
+//            'description' => $request->input('description'),
+//            'questions' => $request->input('questions')
+//        ]);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -66,22 +91,16 @@ class MasterTestKesehatanMentalController extends Controller
                 ]);
 
                 foreach ($request->input('questions') as $questionData) {
-                    if (!isset($questionData['question_text'])) {
-                        continue;
-                    }
-
                     $question = $test->mentalHealthQuestions()->create([
                         'question_text' => $questionData['question_text'],
                     ]);
 
                     if (isset($questionData['options'])) {
                         foreach ($questionData['options'] as $optionData) {
-                            if (isset($optionData['option_text']) && isset($optionData['value'])) {
-                                $question->mentalHealthOptions()->create([
-                                    'option_text' => $optionData['option_text'],
-                                    'value' => $optionData['value'],
-                                ]);
-                            }
+                            $question->mentalHealthOptions()->create([
+                                'option_text' => $optionData['option_text'],
+                                'value' => $optionData['value'],
+                            ]);
                         }
                     }
                 }
@@ -90,15 +109,11 @@ class MasterTestKesehatanMentalController extends Controller
             Session::flash('success_message_create', 'Data tes berhasil disimpan');
             return redirect()->route('test-kesehatan-mental.index');
         } catch (QueryException $e) {
-            if ($e->getCode() === '23000') {
-                $errorMessage = 'Upss terjadi kesalahan';
-            } else {
-                $errorMessage = 'Upss terjadi kesalahan';
-            }
-
+            $errorMessage = $e->getCode() === '23000' ? 'Upss terjadi kesalahan' : 'Upss terjadi kesalahan';
             return redirect()->back()->withInput()->withErrors([$errorMessage]);
         }
     }
+
 
     /**
      * Display the specified resource.
@@ -113,7 +128,14 @@ class MasterTestKesehatanMentalController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        try {
+            $test = MentalHealthTestModel::with('mentalHealthQuestions.mentalHealthOptions')->findOrFail($id);
+             dd($test->toArray());
+        } catch (ModelNotFoundException $e) {
+            // Handle not found exception
+            return redirect()->route('test-kesehatan-mental.index')->with('error_message_not_found', 'Data tes artikel tidak ditemukan');
+        }
+        return view('pages.admin.tes.edit', compact('test'));
     }
 
     /**

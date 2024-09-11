@@ -134,97 +134,115 @@ $(function () {
   // ! Using jQuery each loop to add dynamic id and class for inputs. You may need to improve it based on form fields.
   // -----------------------------------------------------------------------------------------------------------------
 
-    if (formRepeater.length) {
-        var questionRow = 2;
-        var answerCol = 1;
+    $(document).ready(function() {
+        var questionIndex = 0; // Start index for questions
 
-        formRepeater.on('submit', function (e) {
-            e.preventDefault();
-        });
+        function updateIndices() {
+            $('[data-repeater-list="group-a"] [data-repeater-item]').each(function (index) {
+                $(this).find('[id]').each(function () {
+                    var id = $(this).attr('id').replace(/{index}/g, index);
+                    $(this).attr('id', id);
+                });
+                $(this).find('[name]').each(function () {
+                    var name = $(this).attr('name').replace(/\[\d+\]/g, '[' + index + ']');
+                    $(this).attr('name', name);
+                });
+            });
 
-        formRepeater.repeater({
+            $('[data-repeater-list="group-a"] [data-repeater-item"] [data-repeater-list="group-b"] [data-repeater-item]').each(function (index) {
+                $(this).find('[id]').each(function () {
+                    var id = $(this).attr('id').replace(/{subIndex}/g, index);
+                    $(this).attr('id', id);
+                });
+                $(this).find('[name]').each(function () {
+                    var name = $(this).attr('name').replace(/\[\d+\]\[\d+\]/g, '[' + index + '][' + index + ']');
+                    $(this).attr('name', name);
+                });
+            });
+        }
+
+        // Initialize repeater
+        $('.form-repeater').repeater({
             show: function () {
-                var fromControl = $(this).find('.form-control, .form-select');
-                var formLabel = $(this).find('.form-label');
-
-                // Check if it's a pertanyaan (question) repeater
-                if ($(this).parents('[data-repeater-list="group-a"]').length > 0) {
-                    fromControl.each(function (i) {
-                        var id = 'form-repeater-pertanyaan-' + questionRow;
-                        $(fromControl[i]).attr('id', id);
-                        $(formLabel[i]).attr('for', id);
-                    });
-                    questionRow++;
-                }
-
                 $(this).slideDown();
+                updateIndices();
             },
             hide: function (e) {
-                confirm('Are you sure you want to delete this element?') && $(this).slideUp(e);
+                if (confirm('Are you sure you want to delete this item?')) {
+                    $(this).slideUp(e);
+                    updateIndices();
+                }
             }
         });
 
-        // Create Jawaban
+        // Add Jawaban
         $(document).on('click', '[data-repeater-create-jawaban]', function (e) {
             e.preventDefault();
-            var $repeaterItem = $(this).closest('[data-repeater-item]');
-            var repeaterGroupB = $repeaterItem.find('[data-repeater-list="group-b"]');
+            var $questionItem = $(this).closest('[data-repeater-item]');
+            var $groupB = $questionItem.find('[data-repeater-list="group-b"]');
+            var answerIndex = $groupB.find('[data-repeater-item]').length;
 
-            var newItem = repeaterGroupB.find('[data-repeater-item]').first().clone();
-            newItem.find('input').val(''); // Clear the inputs
+            var $newJawaban = $groupB.find('[data-repeater-item]').first().clone();
+            $newJawaban.find('input').val('');
 
-            // Update the IDs and Labels for the new item
-            var questionIndex = $repeaterItem.index() + 1;
-            answerCol = repeaterGroupB.find('[data-repeater-item]').length + 1;
-
-            newItem.find('.form-control, .form-select').each(function (i) {
-                var id = 'form-repeater-jawaban-' + questionIndex + '-' + answerCol;
+            $newJawaban.find('[id]').each(function () {
+                var id = $(this).attr('id').replace(/{index}/g, questionIndex).replace(/{subIndex}/g, answerIndex);
                 $(this).attr('id', id);
-                $(this).siblings('.form-label').attr('for', id);
             });
 
-            repeaterGroupB.append(newItem);
+            $newJawaban.find('[name]').each(function () {
+                var name = $(this).attr('name').replace(/\[\d+\]/g, '[' + questionIndex + ']').replace(/\[\d+\]\[\d+\]/g, '[' + questionIndex + '][' + answerIndex + ']');
+                $(this).attr('name', name);
+            });
+
+            $groupB.append($newJawaban);
+            updateIndices();
         });
 
-        // Create Pertanyaan
+        // Add Pertanyaan
         $(document).on('click', '[data-repeater-create-pertanyaan]', function (e) {
             e.preventDefault();
 
-            // Clone the first question item and reset values
-            var $newQuestionItem = $('[data-repeater-list="group-a"]').find('[data-repeater-item]').first().clone();
-            $newQuestionItem.find('input').val(''); // Clear the inputs
+            var $newQuestionItem = $('[data-repeater-list="group-a"] [data-repeater-item]').first().clone();
+            $newQuestionItem.find('input').val('');
 
-            // Reset IDs and Labels for the new item
-            $newQuestionItem.find('.form-control, .form-select').each(function (i) {
-                var id = 'form-repeater-pertanyaan-' + questionRow;
+            $newQuestionItem.find('[id]').each(function () {
+                var id = $(this).attr('id').replace(/{index}/g, questionIndex);
                 $(this).attr('id', id);
-                $(this).siblings('.form-label').attr('for', id);
             });
 
-            // Add only one default jawaban
-            var $jawabanTemplate = $newQuestionItem.find('[data-repeater-list="group-b"]').find('[data-repeater-item]').first().clone();
-            $jawabanTemplate.find('input').val(''); // Clear the inputs
-            $jawabanTemplate.find('.form-control, .form-select').each(function (i) {
-                var id = 'form-repeater-jawaban-' + questionRow + '-1';
+            $newQuestionItem.find('[name]').each(function () {
+                var name = $(this).attr('name').replace(/\[\d+\]/g, '[' + questionIndex + ']');
+                $(this).attr('name', name);
+            });
+
+            var $jawabanTemplate = $newQuestionItem.find('[data-repeater-list="group-b"] [data-repeater-item]').first().clone();
+            $jawabanTemplate.find('input').val('');
+
+            $jawabanTemplate.find('[id]').each(function () {
+                var id = $(this).attr('id').replace(/{index}/g, questionIndex).replace(/{subIndex}/g, 0);
                 $(this).attr('id', id);
-                $(this).siblings('.form-label').attr('for', id);
+            });
+
+            $jawabanTemplate.find('[name]').each(function () {
+                var name = $(this).attr('name').replace(/\[\d+\]\[\d+\]/g, '[' + questionIndex + '][0]');
+                $(this).attr('name', name);
             });
 
             $newQuestionItem.find('[data-repeater-list="group-b"]').empty().append($jawabanTemplate);
 
             $('[data-repeater-list="group-a"]').append($newQuestionItem);
-            questionRow++;
+            questionIndex++;
+            updateIndices();
         });
 
         // Delete Jawaban
         $(document).on('click', '[data-repeater-delete-jawaban]', function (e) {
             e.preventDefault();
-            var $item = $(this).closest('[data-repeater-item]');
-
-            // Confirm delete
             if (confirm('Are you sure you want to delete this jawaban?')) {
-                $item.slideUp(function() {
+                $(this).closest('[data-repeater-item]').slideUp(function () {
                     $(this).remove();
+                    updateIndices();
                 });
             }
         });
@@ -232,16 +250,14 @@ $(function () {
         // Delete Pertanyaan
         $(document).on('click', '[data-repeater-delete-pertanyaan]', function (e) {
             e.preventDefault();
-            var $item = $(this).closest('[data-repeater-item]');
-
-            // Confirm delete
             if (confirm('Are you sure you want to delete this pertanyaan?')) {
-                $item.slideUp(function() {
+                $(this).closest('[data-repeater-item]').slideUp(function () {
                     $(this).remove();
+                    updateIndices();
                 });
             }
         });
-    }
+    });
 
 
     // if (formRepeater.length) {

@@ -119,7 +119,7 @@
                                             <i class="ti ti-dots-vertical text-muted"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="javascript:void(0);">Share connection</a>
+                                            <li><a class="dropdown-item" href="{{route('test-kesehatan-mental.edit', $data->id)}}"><i class="ti ti-edit me-2"></i>Edit Tes</a>
                                             </li>
                                             <li><a class="dropdown-item" href="javascript:void(0);">Block connection</a>
                                             </li>
