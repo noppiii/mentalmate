@@ -19,13 +19,13 @@
                                 <div class="content-left">
                                     <span>Total Tes</span>
                                     <div class="d-flex align-items-center my-1">
-                                        <h4 class="mb-0 me-2">10</h4>
+                                        <h4 class="mb-0 me-2">{{$totalTest}}</h4>
                                         {{--                                        <span class="text-success">(+29%)</span>--}}
                                     </div>
                                     <small>Total Tes Soal</small>
                                 </div>
                                 <span class="badge bg-label-primary rounded p-2">
-                    <i class="ti ti-shield-chevron ti-sm"></i>
+                    <i class="ti ti-checklist ti-sm"></i>
                   </span>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                     <small>Tes Soal Terbanyak</small>
                                 </div>
                                 <span class="badge bg-label-secondary rounded p-2">
-                    <i class="ti ti-shield-checkered ti-sm"></i>
+                    <i class="ti ti-checkup-list ti-sm"></i>
                   </span>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                     {{-- <small>&nbsp;</small> --}}
                                 </div>
                                 <span class="badge bg-label-primary rounded p-2">
-                    <i class="ti ti-shield-check ti-sm"></i>
+                    <i class="ti ti-file-plus ti-sm"></i>
                   </span>
                             </div>
                         </div>
@@ -121,13 +121,11 @@
                                         <ul class="dropdown-menu dropdown-menu-end">
                                             <li><a class="dropdown-item" href="{{route('test-kesehatan-mental.edit', $data->id)}}"><i class="ti ti-edit me-2"></i>Edit Tes</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="javascript:void(0);">Block connection</a>
-                                            </li>
                                             <li>
                                                 <hr class="dropdown-divider"/>
                                             </li>
                                             <li><a class="dropdown-item text-danger"
-                                                   href="javascript:void(0);">Delete</a>
+                                                   href="javascript:void(0);"><i class="ti ti-trash me-2"></i>Delete</a>
                                             </li>
                                         </ul>
                                     </div>

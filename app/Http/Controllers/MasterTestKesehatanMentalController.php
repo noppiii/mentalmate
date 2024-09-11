@@ -30,8 +30,9 @@ class MasterTestKesehatanMentalController extends Controller
         }
 
         $allTest = $testQuery->paginate(10);
+        $totalTest = MentalHealthTestModel::count();
 
-        return view('pages.admin.tes.index', compact('search', 'allTest'));
+        return view('pages.admin.tes.index', compact('search', 'allTest', 'totalTest'));
     }
 
     /**
@@ -130,7 +131,7 @@ class MasterTestKesehatanMentalController extends Controller
     {
         try {
             $test = MentalHealthTestModel::with('mentalHealthQuestions.mentalHealthOptions')->findOrFail($id);
-             dd($test->toArray());
+//             dd($test->toArray());
         } catch (ModelNotFoundException $e) {
             // Handle not found exception
             return redirect()->route('test-kesehatan-mental.index')->with('error_message_not_found', 'Data tes artikel tidak ditemukan');
@@ -143,8 +144,77 @@ class MasterTestKesehatanMentalController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $questions = [];
+        $currentQuestionIndex = -1;
+
+        foreach ($request->input('group-a') as $index => $item) {
+            if (isset($item['question_text'])) {
+                $questions[$index] = [
+                    'question_text' => $item['question_text'],
+                    'options' => [],
+                ];
+                $currentQuestionIndex = $index;
+            } elseif ($currentQuestionIndex !== -1 && isset($item['option_text']) && isset($item['value'])) {
+                $questions[$currentQuestionIndex]['options'][] = [
+                    'option_text' => $item['option_text'],
+                    'value' => $item['value'],
+                ];
+            }
+        }
+
+        $request->merge(['questions' => $questions]);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'questions' => 'required|array',
+            'questions.*.question_text' => 'required|string',
+            'questions.*.options' => 'nullable|array',
+            'questions.*.options.*.option_text' => 'required_with:questions.*.options|string',
+            'questions.*.options.*.value' => 'required_with:questions.*.options|numeric',
+        ]);
+
+        try {
+            DB::transaction(function () use ($request, $id) {
+                $test = MentalHealthTestModel::findOrFail($id);
+
+                $test->update([
+                    'name' => $request->input('name'),
+                    'description' => $request->input('description'),
+                ]);
+
+                $test->mentalHealthQuestions()->delete();
+
+                $questions = $request->input('questions');
+
+                foreach ($questions as $questionData) {
+                    $question = $test->mentalHealthQuestions()->create([
+                        'question_text' => $questionData['question_text'],
+                    ]);
+
+                    if (isset($questionData['options'])) {
+                        foreach ($questionData['options'] as $optionData) {
+                            $question->mentalHealthOptions()->create([
+                                'option_text' => $optionData['option_text'],
+                                'value' => $optionData['value'],
+                            ]);
+                        }
+                    }
+                }
+            });
+
+            Session::flash('success_message_update', 'Data tes berhasil diperbarui');
+            return redirect()->route('test-kesehatan-mental.index');
+
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('test-kesehatan-mental.index')->with('error_message_not_found', 'Data tes tidak ditemukan');
+        } catch (QueryException $e) {
+            $errorMessage = $e->getCode() === '23000' ? 'Upss terjadi kesalahan dengan data yang ada' : 'Upss terjadi kesalahan';
+            return redirect()->back()->withInput()->withErrors([$errorMessage]);
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->withErrors(['Terjadi kesalahan: ' . $e->getMessage()]);
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
