@@ -24,9 +24,22 @@ class MentalHealthQuestionModel extends Model
         return $this->hasMany(MentalHealthOptionModel::class, 'mental_health_question_id');
     }
 
-    public function mentalHealtAnswers()
+    public function mentalHealthAnswers()
     {
-        return $this->hasMany(MentalHealthAnswerModel::class);
+        return $this->hasMany(MentalHealthAnswerModel::class, 'mental_health_question_id');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($question) {
+            // Delete related answers
+            $question->mentalHealthAnswers()->delete();
+
+            // Delete related options
+            $question->mentalHealthOptions()->delete();
+        });
     }
 
 }

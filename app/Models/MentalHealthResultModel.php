@@ -15,7 +15,7 @@ class MentalHealthResultModel extends Model
 
     public function mahasiswa()
     {
-        return $this->belongsTo(MahasiswaModel::class);
+        return $this->belongsTo(MahasiswaModel::class, 'mahasiswa_id');
     }
 
     public function mentalHealthTest()
@@ -25,6 +25,16 @@ class MentalHealthResultModel extends Model
 
     public function mentalHealtAnswers()
     {
-        return $this->hasMany(MentalHealthAnswerModel::class);
+        return $this->hasMany(MentalHealthAnswerModel::class, 'mental_health_result_id');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($result) {
+            // Delete related answers
+            $result->mentalHealthAnswers()->delete();
+        });
     }
 }

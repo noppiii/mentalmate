@@ -57,7 +57,8 @@
                                 <div class="content-left">
                                     <span>Tambah Tes</span>
                                     <div class="d-flex align-items-center my-1">
-                                        <a href="{{ route('test-kesehatan-mental.create') }}" class="btn btn-primary mt-2">+
+                                        <a href="{{ route('test-kesehatan-mental.create') }}"
+                                           class="btn btn-primary mt-2">+
                                             Tes</a>
                                     </div>
                                     {{-- <small>&nbsp;</small> --}}
@@ -119,18 +120,25 @@
                                             <i class="ti ti-dots-vertical text-muted"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="{{route('test-kesehatan-mental.edit', $data->id)}}"><i class="ti ti-edit me-2"></i>Edit Tes</a>
+                                            <li><a class="dropdown-item"
+                                                   href="{{route('test-kesehatan-mental.edit', $data->id)}}"><i
+                                                        class="ti ti-edit me-2"></i>Edit Tes</a>
                                             </li>
                                             <li>
                                                 <hr class="dropdown-divider"/>
                                             </li>
-                                            <li><a class="dropdown-item text-danger"
-                                                   href="javascript:void(0);"><i class="ti ti-trash me-2"></i>Delete</a>
+                                            <li>
+                                                <button data-bs-toggle="modal"
+                                                        data-bs-target="#onboardHorizontalImageModal{{ $data->id }}"
+                                                        class="dropdown-item text-danger"
+                                                ><i class="ti ti-trash me-2"></i>Delete
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>
                                     <h4 class="mb-1 card-title">{{$data->name}}</h4>
-                                    <span class="pb-1">{{ implode(' ', array_slice(str_word_count($data->description, 1), 0, 20)) }}</span>
+                                    <span
+                                        class="pb-1">{{ implode(' ', array_slice(str_word_count($data->description, 1), 0, 20)) }}</span>
 
                                     <div class="d-flex align-items-center justify-content-around my-3 py-1">
                                         <div>
@@ -213,5 +221,54 @@
         </div>
         <!-- / Content -->
     </div>
-
+    {{-- ====================== DELETE DATA ======================== --}}
+    @foreach ($allTest as $data)
+        <div
+            class="modal-onboarding modal fade animate__animated"
+            id="onboardHorizontalImageModal{{ $data->id }}"
+            tabindex="-1"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content text-center">
+                    <div class="modal-header border-0">
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body onboarding-horizontal p-0 d-block">
+                        <div class="onboarding-media">
+                            <img
+                                src="{{ asset('image/delete.jpg') }}"
+                                alt="boy-verify-email-light"
+                                width="273"
+                                class="img-fluid"
+                                data-app-light-img="illustrations/boy-verify-email-light.png"
+                                data-app-dark-img="illustrations/boy-verify-email-dark.png"
+                            />
+                        </div>
+                        <div class="onboarding-content mb-0">
+                            <h4 class="onboarding-title text-body text-danger">Hapus {{ $data->name }}</h4>
+                            <small class="onboarding-info">
+                                Dengan menghapus {{ $data->name }}, data ini akan terhapus secara permanen.
+                            </small>
+                        </div>
+                    </div>
+                    <form method="POST" action="{{ route('test-kesehatan-mental.destroy', $data->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection

@@ -221,6 +221,21 @@ class MasterTestKesehatanMentalController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            DB::transaction(function () use ($id) {
+                $test = MentalHealthTestModel::findOrFail($id);
+
+                $test->delete();
+            });
+
+            Session::flash('success_message_delete', 'Data tes, pertanyaan, opsi, jawaban, dan hasil berhasil dihapus.');
+            return redirect()->route('test-kesehatan-mental.index');
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('test-kesehatan-mental.index')->with('error_message_not_found', 'Data tes tidak ditemukan');
+        } catch (QueryException $e) {
+            return redirect()->back()->withErrors(['Upss terjadi kesalahan dalam menghapus data']);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['Terjadi kesalahan: ' . $e->getMessage()]);
+        }
     }
 }

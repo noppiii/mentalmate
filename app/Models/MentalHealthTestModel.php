@@ -22,4 +22,21 @@ class MentalHealthTestModel extends Model
     {
         return $this->hasMany(MentalHealthResultModel::class, 'mental_health_test_id');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($test) {
+            $test->mentalHealthResults()->each(function ($result) {
+                // Delete related results
+                $result->delete();
+            });
+
+            // Delete related questions and their options
+            $test->mentalHealthQuestions()->each(function ($question) {
+                $question->delete(); // This will trigger deletion of options via the MentalHealthQuestionModel
+            });
+        });
+    }
 }
