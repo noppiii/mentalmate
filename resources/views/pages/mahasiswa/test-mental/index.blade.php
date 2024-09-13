@@ -51,7 +51,7 @@
                     @foreach ($allTest as $data)
                         <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="card">
-                                <a href="{{route('')}}" class="card-body text-center">
+                                <a href="{{ route('mahasiswa.test-kesehatan-mental.pertanyaan', ['idTest' => $data->id, 'nama' => str_replace(' ', '-', $data->name)]) }}" class="card-body text-center">
                                     <h4 class="mb-1 card-title">{{$data->name}}</h4>
                                     <span
                                         class="pb-1">{{ implode(' ', array_slice(str_word_count($data->description, 1), 0, 20)) }}</span>

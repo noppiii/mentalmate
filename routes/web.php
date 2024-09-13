@@ -129,5 +129,6 @@ Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])-
     Route::get('/get-messages/{receiverId}/{receiverType}', [MahasiswaKonsultasiController::class, 'getMessages'])->name('mahasiswa.getMessages');
     Route::get('tes-kesehatan-mental', [TesKesehatanMentalController::class, 'index'])->name('mahasiswa.test-kesehatan-mental');
     Route::get('tes-kesehatan-mental/{idTest}-{nama}', [TesKesehatanMentalController::class, 'displayQuestion'])->name('mahasiswa.test-kesehatan-mental.pertanyaan');
+    Route::post('tes-kesehatan-mental/{idTest}-{nama}/submitTest', [TesKesehatanMentalController::class, 'submitTest'])->name('mahasiswa.test-kesehatan-mental.submitTest');
     // Route::resource('konsultasi-ku', MahasiswaKonsultasiController::class)->except(['index']);
 });
