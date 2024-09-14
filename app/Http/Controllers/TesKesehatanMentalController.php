@@ -79,7 +79,6 @@ class TesKesehatanMentalController extends Controller
 
             return redirect()->route('mahasiswa.test-kesehatan-mental')->with('success_message_update', 'Data Test Berhasil Di Submit!');
         } catch (\Exception $e) {
-
             return redirect()->back()->with('error', 'An error occurred while submitting the test. Please try again.');
         }
     }

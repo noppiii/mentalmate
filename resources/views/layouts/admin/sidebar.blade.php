@@ -203,7 +203,7 @@
             <!-- Cards -->
             <li class="menu-item">
                 <a href="{{route('banner.index')}}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-shape"></i>
+                    <i class="menu-icon tf-icons ti ti-photo"></i>
                     <div data-i18n="Banner">Banner</div>
                 </a>
             </li>

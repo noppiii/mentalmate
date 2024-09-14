@@ -68,10 +68,14 @@
                                         <i class="ti ti-news-off ti-sm"></i>
                                     </div>
                                     <div class="card-info">
-                                        <h5 class="mb-0 text-warning">{{$newBanner->judul}}
-
+                                        <h5 class="mb-0 text-warning">
+                                            @if($newBanner)
+                                                {{ $newBanner->judul }}
+                                            @else
+                                                No title available
+                                            @endif
                                         </h5>
-                                        <small>Banner Banner</small>
+                                        <small>Banner Baru</small>
                                     </div>
                                 </div>
                             </div>

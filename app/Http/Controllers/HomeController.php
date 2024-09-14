@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ArticleModel;
+use App\Models\BannerModel;
 use App\Models\UlasanModel;
 use Illuminate\Http\Request;
 
@@ -24,9 +25,10 @@ class HomeController extends Controller
         ->take(6)
         ->get();
 
+        $banners = BannerModel::all();
         $ulasan = UlasanModel::latest()->take(6)->get();
 
-        return view('pages.client.home.home', compact('newArtikel', 'newArtikelSlide', 'ulasan'));
+        return view('pages.client.home.home', compact('newArtikel', 'newArtikelSlide', 'ulasan', 'banners'));
     }
 
     /**
