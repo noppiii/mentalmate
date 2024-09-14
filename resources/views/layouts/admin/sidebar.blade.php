@@ -381,6 +381,12 @@
                     <div data-i18n="Meeting">Meeting</div>
                 </a>
             </li>
+            <li class="menu-item {{ request()->is('mahasiswa/hasil-tes*') ? 'active' : '' }}">
+                <a href="{{ route('mahasiswa.hasil-tes') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-checkup-list"></i>
+                    <div data-i18n="Hasil Tes">Hasil Tes</div>
+                </a>
+            </li>
             <li class="menu-item {{ request()->is('mahasiswa/transaksi*') ? 'active' : '' }}">
                 <a href="{{ route('mahasiswa.listTransaksi') }}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-credit-card"></i>

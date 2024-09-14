@@ -11,6 +11,7 @@ use App\Http\Controllers\ClientPsikologController;
 use App\Http\Controllers\ClientSearchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaDashboardController;
+use App\Http\Controllers\MahasiswaHasilTesController;
 use App\Http\Controllers\MahasiswaKonsultasiController;
 use App\Http\Controllers\MahasiswaMeetingController;
 use App\Http\Controllers\MahasiswaTransactionController;
@@ -130,5 +131,6 @@ Route::prefix('mahasiswa')->middleware([AuthUser::class, AuthMahasiswa::class])-
     Route::get('tes-kesehatan-mental', [TesKesehatanMentalController::class, 'index'])->name('mahasiswa.test-kesehatan-mental');
     Route::get('tes-kesehatan-mental/{idTest}-{nama}', [TesKesehatanMentalController::class, 'displayQuestion'])->name('mahasiswa.test-kesehatan-mental.pertanyaan');
     Route::post('tes-kesehatan-mental/{idTest}-{nama}/submitTest', [TesKesehatanMentalController::class, 'submitTest'])->name('mahasiswa.test-kesehatan-mental.submitTest');
+    Route::get('hasil-tes', [MahasiswaHasilTesController::class, 'index'])->name('mahasiswa.hasil-tes');
     // Route::resource('konsultasi-ku', MahasiswaKonsultasiController::class)->except(['index']);
 });
