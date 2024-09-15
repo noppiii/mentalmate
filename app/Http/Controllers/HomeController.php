@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ArticleModel;
 use App\Models\BannerModel;
+use App\Models\BidangPsikologModel;
 use App\Models\UlasanModel;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,9 @@ class HomeController extends Controller
 
         $banners = BannerModel::all();
         $ulasan = UlasanModel::latest()->take(6)->get();
+        $bidangPsikolog = BidangPsikologModel::all();
 
-        return view('pages.client.home.home', compact('newArtikel', 'newArtikelSlide', 'ulasan', 'banners'));
+        return view('pages.client.home.home', compact('newArtikel', 'newArtikelSlide', 'ulasan', 'banners', 'bidangPsikolog'));
     }
 
     /**

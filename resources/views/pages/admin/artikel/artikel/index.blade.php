@@ -14,14 +14,14 @@
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <h5 class="text-primary">Welcome {{ Auth::guard('admin')->user()->nama }}! 🎉</h5>
-                                <p>Di sini Anda dapat mengontrol dan mengelola semua aspek artikel</p>
+                                <p>Di sini Anda dapat mengontrol dan mengelola semua aspek artikel berita</p>
                                 <button id="viewDataLink" class="btn btn-sm btn-outline-primary">View Data</button>
                             </div>
                         </div>
                         <div class="col-sm-5 text-center text-sm-left">
                             <div class="card-body pb-0 px-0 px-md-4">
                                 <img
-                                    src="{{ asset('image/admin.jpg') }}"
+                                    src="{{ asset('image/artikel.jpg') }}"
                                     height="150"
                                     alt="View Badge User"
                                     data-app-dark-img="illustrations/man-with-laptop-dark.png"
@@ -87,7 +87,7 @@
                         <div class="col-sm-5">
                             <div class="d-flex align-items-end h-100 justify-content-center mt-sm-0 mt-3">
                                 <img
-                                    src="{{ asset('image/add-user.jpg') }}"
+                                    src="{{ asset('image/add-data.jpg') }}"
                                     class="img-fluid mt-sm-4 mt-md-0"
                                     alt="add-new-roles"
                                     width="100"

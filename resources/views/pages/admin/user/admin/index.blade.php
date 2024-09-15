@@ -87,7 +87,7 @@
                         <div class="col-sm-5">
                           <div class="d-flex align-items-end h-100 justify-content-center mt-sm-0 mt-3">
                             <img
-                              src="{{ asset('image/add-user.jpg') }}"
+                              src="{{ asset('image/add-data.jpg') }}"
                               class="img-fluid mt-sm-4 mt-md-0"
                               alt="add-new-roles"
                               width="100"

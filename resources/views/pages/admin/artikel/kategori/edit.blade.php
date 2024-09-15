@@ -13,15 +13,15 @@
               <div class="d-flex align-items-end row">
                 <div class="col-sm-7">
                   <div class="card-body">
-                    <h5 class="text-primary">Tambah Kategori Artikel</h5>
-                    <p>Di sini anda dapat menambahkan user sebagai kategori berita</p>
+                    <h5 class="text-primary">Edit Kategori Artikel</h5>
+                    <p>Di sini anda dapat mengubah kategori artikel</p>
                     <button id="viewDataLink" class="btn btn-sm btn-outline-primary">View Form</button>
                   </div>
                 </div>
                 <div class="col-sm-5 text-center text-sm-left">
                   <div class="card-body pb-0 px-0 px-md-4">
                     <img
-                      src="{{ asset('image/add-admin.jpg') }}"
+                      src="{{ asset('image/category-artikel.jpg') }}"
                       height="150"
                       alt="View Badge User"
                       data-app-dark-img="illustrations/man-with-laptop-dark.png"

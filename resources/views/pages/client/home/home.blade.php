@@ -7,20 +7,20 @@
 @endsection
 @section('content')
     <header class="site-header header-style-2">
-        <div class="pbmit-slider-social">
-            <a title="Facebook" href="#" target="_blank">
-                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-            </a>
-            <a title="Twitter" href="#" target="_blank">
-                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-            </a>
-            <a title="LinkedIn" href="#" target="_blank">
-                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-            </a>
-            <a title="Instagram" href="#" target="_blank">
-                <span><i class="pbmit-base-icon-instagram"></i></span>
-            </a>
-        </div>
+{{--        <div class="pbmit-slider-social">--}}
+{{--            <a title="Facebook" href="#" target="_blank">--}}
+{{--                <span><i class="pbmit-base-icon-facebook-f"></i></span>--}}
+{{--            </a>--}}
+{{--            <a title="Twitter" href="#" target="_blank">--}}
+{{--                <span><i class="pbmit-base-icon-twitter-2"></i></span>--}}
+{{--            </a>--}}
+{{--            <a title="LinkedIn" href="#" target="_blank">--}}
+{{--                <span><i class="pbmit-base-icon-linkedin-in"></i></span>--}}
+{{--            </a>--}}
+{{--            <a title="Instagram" href="#" target="_blank">--}}
+{{--                <span><i class="pbmit-base-icon-instagram"></i></span>--}}
+{{--            </a>--}}
+{{--        </div>--}}
         <div class="pbmit-slider-area pbmit-slider-one">
             <div class="swiper-slider" data-autoplay="true" data-loop="true" data-dots="true" data-arrows="false"
                  data-columns="1" data-margin="0" data-effect="fade">
@@ -69,68 +69,68 @@
                         </div>
                     @endforeach
                     <!-- Slide1 -->
-                    <div class="swiper-slide">
-                        <div class="pbmit-slider-item">
-                            <div class="pbmit-slider-bg"
-                                 style="background-image: url({{ asset('client/images/demo01-slide-01.jpg') }});"></div>
-                            <div class="container">
-                                <div class="row text-center">
-                                    <div class="col-md-12">
-                                        <div class="pbmit-slider-content">
-                                            <h5 class="pbmit-sub-title transform-top transform-delay-1">Quality Care
-                                                Made Easy </h5>
-                                            <h2 class="pbmit-title transform-bottom transform-delay-2">Best Healthcare
-                                                <br> <strong>Experience</strong></h2>
-                                            <div class="pbmit-button transform-bottom transform-delay-3">
-                                                <a class="pbmit-btn pbmit-btn-outline" href="about-us.html">
-														<span class="pbmit-button-content-wrapper">
-															<span class="pbmit-button-icon pbmit-align-icon-right">
-																<svg xmlns="http://www.w3.org/2000/svg" width="22.76"
-                                                                     height="22.76" viewBox="0 0 22.76 22.76">
-																	<title>black-arrow</title>
-																	<path
-                                                                        d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1"
-                                                                        transform="translate(-0.29 -0.29)" fill="none"
-                                                                        stroke="#000" stroke-width="2"></path>
-																	<path d="M22.34,1a14.67,14.67,0,0,0,0,20.75"
-                                                                          transform="translate(-0.29 -0.29)" fill="none"
-                                                                          stroke="#000" stroke-width="2"></path>
-																	<path d="M22.34,1,1,22.34"
-                                                                          transform="translate(-0.29 -0.29)" fill="none"
-                                                                          stroke="#000" stroke-width="2"></path>
-																</svg>
-															</span>
-															<span class="pbmit-button-text">read more</span>
-														</span>
-                                                </a>
-                                                <a class="pbmit-btn" href="contact-us.html">
-														<span class="pbmit-button-content-wrapper">
-															<span class="pbmit-button-icon pbmit-align-icon-right">
-																<svg xmlns="http://www.w3.org/2000/svg" width="22.76"
-                                                                     height="22.76" viewBox="0 0 22.76 22.76">
-																	<title>black-arrow</title>
-																	<path
-                                                                        d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1"
-                                                                        transform="translate(-0.29 -0.29)" fill="none"
-                                                                        stroke="#000" stroke-width="2"></path>
-																	<path d="M22.34,1a14.67,14.67,0,0,0,0,20.75"
-                                                                          transform="translate(-0.29 -0.29)" fill="none"
-                                                                          stroke="#000" stroke-width="2"></path>
-																	<path d="M22.34,1,1,22.34"
-                                                                          transform="translate(-0.29 -0.29)" fill="none"
-                                                                          stroke="#000" stroke-width="2"></path>
-																</svg>
-															</span>
-															<span class="pbmit-button-text">contact us</span>
-														</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="swiper-slide">--}}
+{{--                        <div class="pbmit-slider-item">--}}
+{{--                            <div class="pbmit-slider-bg"--}}
+{{--                                 style="background-image: url({{ asset('client/images/demo01-slide-01.jpg') }});"></div>--}}
+{{--                            <div class="container">--}}
+{{--                                <div class="row text-center">--}}
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <div class="pbmit-slider-content">--}}
+{{--                                            <h5 class="pbmit-sub-title transform-top transform-delay-1">Quality Care--}}
+{{--                                                Made Easy </h5>--}}
+{{--                                            <h2 class="pbmit-title transform-bottom transform-delay-2">Best Healthcare--}}
+{{--                                                <br> <strong>Experience</strong></h2>--}}
+{{--                                            <div class="pbmit-button transform-bottom transform-delay-3">--}}
+{{--                                                <a class="pbmit-btn pbmit-btn-outline" href="about-us.html">--}}
+{{--														<span class="pbmit-button-content-wrapper">--}}
+{{--															<span class="pbmit-button-icon pbmit-align-icon-right">--}}
+{{--																<svg xmlns="http://www.w3.org/2000/svg" width="22.76"--}}
+{{--                                                                     height="22.76" viewBox="0 0 22.76 22.76">--}}
+{{--																	<title>black-arrow</title>--}}
+{{--																	<path--}}
+{{--                                                                        d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1"--}}
+{{--                                                                        transform="translate(-0.29 -0.29)" fill="none"--}}
+{{--                                                                        stroke="#000" stroke-width="2"></path>--}}
+{{--																	<path d="M22.34,1a14.67,14.67,0,0,0,0,20.75"--}}
+{{--                                                                          transform="translate(-0.29 -0.29)" fill="none"--}}
+{{--                                                                          stroke="#000" stroke-width="2"></path>--}}
+{{--																	<path d="M22.34,1,1,22.34"--}}
+{{--                                                                          transform="translate(-0.29 -0.29)" fill="none"--}}
+{{--                                                                          stroke="#000" stroke-width="2"></path>--}}
+{{--																</svg>--}}
+{{--															</span>--}}
+{{--															<span class="pbmit-button-text">read more</span>--}}
+{{--														</span>--}}
+{{--                                                </a>--}}
+{{--                                                <a class="pbmit-btn" href="contact-us.html">--}}
+{{--														<span class="pbmit-button-content-wrapper">--}}
+{{--															<span class="pbmit-button-icon pbmit-align-icon-right">--}}
+{{--																<svg xmlns="http://www.w3.org/2000/svg" width="22.76"--}}
+{{--                                                                     height="22.76" viewBox="0 0 22.76 22.76">--}}
+{{--																	<title>black-arrow</title>--}}
+{{--																	<path--}}
+{{--                                                                        d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1"--}}
+{{--                                                                        transform="translate(-0.29 -0.29)" fill="none"--}}
+{{--                                                                        stroke="#000" stroke-width="2"></path>--}}
+{{--																	<path d="M22.34,1a14.67,14.67,0,0,0,0,20.75"--}}
+{{--                                                                          transform="translate(-0.29 -0.29)" fill="none"--}}
+{{--                                                                          stroke="#000" stroke-width="2"></path>--}}
+{{--																	<path d="M22.34,1,1,22.34"--}}
+{{--                                                                          transform="translate(-0.29 -0.29)" fill="none"--}}
+{{--                                                                          stroke="#000" stroke-width="2"></path>--}}
+{{--																</svg>--}}
+{{--															</span>--}}
+{{--															<span class="pbmit-button-text">contact us</span>--}}
+{{--														</span>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <!-- Slide2 -->
                 </div>
             </div>
@@ -450,243 +450,7 @@
         <!-- Service Start -->
         <section class="pbmit-sticky-section section-xl">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-5 pbmit-sticky-col">
-                        <div class="pbmit-ele-header-area">
-                            <div class="pbmit-heading-subheading">
-                                <h4 class="pbmit-subtitle">Motivation</h4>
-                                <h2 class="pbmit-title">Department of a medical health care</h2>
-                                <div class="pbmit-heading-desc">
-                                    The healthcare arena there was a felt need of developing new as well as upgrading
-                                    the existing functioning and processes, consequently develop an institution
-                                    supported with necessary
-                                </div>
-                            </div>
-                            <a class="pbmit-btn" href="service-details.html">
-									<span class="pbmit-button-content-wrapper">
-										<span class="pbmit-button-icon pbmit-align-icon-right">
-											<svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76"
-                                                 viewBox="0 0 22.76 22.76">
-												<title>black-arrow</title>
-												<path
-                                                    d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1"
-                                                    transform="translate(-0.29 -0.29)" fill="none" stroke="#000"
-                                                    stroke-width="2"></path>
-												<path d="M22.34,1a14.67,14.67,0,0,0,0,20.75"
-                                                      transform="translate(-0.29 -0.29)" fill="none" stroke="#000"
-                                                      stroke-width="2"></path>
-												<path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)"
-                                                      fill="none" stroke="#000" stroke-width="2"></path>
-											</svg>
-										</span>
-										<span class="pbmit-button-text">Read More</span>
-									</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-7 pbmit-servicebox-right">
-                        <article class="pbmit-service-style-4">
-                            <div class="pbminfotech-post-item">
-                                <div class="pbminfotech-box-content">
-                                    <div class="pbmit-box-content-wrap">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="{{ asset('client/images/service-01.jpg') }}" class="img-fluid"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-box-content-inner">
-                                            <div class="pbmit-content-inner-wrap">
-                                                <div class="pbmit-contant-box">
-                                                    <div class="pbmit-serv-cat">
-                                                        <a href="service-details.html" rel="tag">Dentist</a>
-                                                    </div>
-                                                    <h3 class="pbmit-service-title">
-                                                        <a href="service-details.html">Dental Care</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="pbmit-service-icon">
-                                                    <i class="pbmit-xcare-icon pbmit-xcare-icon-gesundheit-1"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-service-description">
-                                                The medical professional doctors available in the clinic
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="pbmit-service-btn" href="service-details.html" title="Dental Care">
-											<span class="pbmit-button-icon-wrapper">
-												<span class="pbmit-button-icon">
-													<i class="pbmit-base-icon-black-arrow-1"></i>
-												</span>
-											</span>
-                                    </a>
-                                </div>
-                                <a class="pbmit-link" href="service-details.html"></a>
-                            </div>
-                        </article>
-                        <article class="pbmit-service-style-4">
-                            <div class="pbminfotech-post-item">
-                                <div class="pbminfotech-box-content">
-                                    <div class="pbmit-box-content-wrap">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="{{ asset('client/images/service-02.jpg') }}" class="img-fluid"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-box-content-inner">
-                                            <div class="pbmit-content-inner-wrap">
-                                                <div class="pbmit-contant-box">
-                                                    <div class="pbmit-serv-cat">
-                                                        <a href="service-details.html" rel="tag">Barbiturates</a>
-                                                    </div>
-                                                    <h3 class="pbmit-service-title">
-                                                        <a href="service-details.html">Pharmacology</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="pbmit-service-icon">
-                                                    <i class="pbmit-xcare-icon pbmit-xcare-icon-pills"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-service-description">
-                                                The medical professional doctors available in the clinic
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="pbmit-service-btn" href="service-details.html" title="Pharmacology">
-											<span class="pbmit-button-icon-wrapper">
-												<span class="pbmit-button-icon">
-													<i class="pbmit-base-icon-black-arrow-1"></i>
-												</span>
-											</span>
-                                    </a>
-                                </div>
-                                <a class="pbmit-link" href="service-details.html"></a>
-                            </div>
-                        </article>
-                        <article class="pbmit-service-style-4">
-                            <div class="pbminfotech-post-item">
-                                <div class="pbminfotech-box-content">
-                                    <div class="pbmit-box-content-wrap">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="{{ asset('client/images/service-03.jpg') }}" class="img-fluid"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-box-content-inner">
-                                            <div class="pbmit-content-inner-wrap">
-                                                <div class="pbmit-contant-box">
-                                                    <div class="pbmit-serv-cat">
-                                                        <a href="service-details.html" rel="tag">Osteopaths</a>
-                                                    </div>
-                                                    <h3 class="pbmit-service-title">
-                                                        <a href="service-details.html">Orthopedic</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="pbmit-service-icon">
-                                                    <i class="pbmit-xcare-icon pbmit-xcare-icon-joint"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-service-description">
-                                                The medical professional doctors available in the clinic
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="pbmit-service-btn" href="service-details.html" title="Dental Care">
-											<span class="pbmit-button-icon-wrapper">
-												<span class="pbmit-button-icon">
-													<i class="pbmit-base-icon-black-arrow-1"></i>
-												</span>
-											</span>
-                                    </a>
-                                </div>
-                                <a class="pbmit-link" href="service-details.html"></a>
-                            </div>
-                        </article>
-                        <article class="pbmit-service-style-4">
-                            <div class="pbminfotech-post-item">
-                                <div class="pbminfotech-box-content">
-                                    <div class="pbmit-box-content-wrap">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="{{ asset('client/images/service-04.jpg') }}" class="img-fluid"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-box-content-inner">
-                                            <div class="pbmit-content-inner-wrap">
-                                                <div class="pbmit-contant-box">
-                                                    <div class="pbmit-serv-cat">
-                                                        <a href="service-details.html" rel="tag">Rhinoplasty</a>
-                                                    </div>
-                                                    <h3 class="pbmit-service-title">
-                                                        <a href="service-details.html">Plastic Surgery</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="pbmit-service-icon">
-                                                    <i class="pbmit-xcare-icon pbmit-xcare-icon-ppe"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-service-description">
-                                                The medical professional doctors available in the clinic
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="pbmit-service-btn" href="service-details.html" title="Plastic Surgery">
-											<span class="pbmit-button-icon-wrapper">
-												<span class="pbmit-button-icon">
-													<i class="pbmit-base-icon-black-arrow-1"></i>
-												</span>
-											</span>
-                                    </a>
-                                </div>
-                                <a class="pbmit-link" href="service-details.html"></a>
-                            </div>
-                        </article>
-                        <article class="pbmit-service-style-4">
-                            <div class="pbminfotech-post-item">
-                                <div class="pbminfotech-box-content">
-                                    <div class="pbmit-box-content-wrap">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="{{ asset('client/images/service-05.jpg') }}" class="img-fluid"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-box-content-inner">
-                                            <div class="pbmit-content-inner-wrap">
-                                                <div class="pbmit-contant-box">
-                                                    <div class="pbmit-serv-cat">
-                                                        <a href="service-details.html" rel="tag">Anaemia</a>
-                                                    </div>
-                                                    <h3 class="pbmit-service-title">
-                                                        <a href="service-details.html">Hematology</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="pbmit-service-icon">
-                                                    <i class="pbmit-xcare-icon pbmit-xcare-icon-chemistry-1"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-service-description">
-                                                The medical professional doctors available in the clinic
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="pbmit-service-btn" href="service-details.html" title="Dental Care">
-											<span class="pbmit-button-icon-wrapper">
-												<span class="pbmit-button-icon">
-													<i class="pbmit-base-icon-black-arrow-1"></i>
-												</span>
-											</span>
-                                    </a>
-                                </div>
-                                <a class="pbmit-link" href="service-details.html"></a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+
             </div>
         </section>
         <!-- Service End -->
@@ -2231,212 +1995,30 @@
                      data-arrows="false" data-columns="4" data-margin="30" data-effect="slide">
                     <div class="swiper-wrapper">
                         <!-- Slide1 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-01.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Health</a>
+                        @foreach($bidangPsikolog as $data)
+                            <div class="swiper-slide">
+                                <article class="pbmit-portfolio-style-2">
+                                    <div class="pbminfotech-post-content">
+                                        <div class="pbmit-featured-img-wrapper">
+                                            <div class="pbmit-featured-wrapper">
+                                                <img src="{{ asset('client/images/portfolio-01.jpg') }}" class="img-fluid"
+                                                     alt="">
                                             </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Neurosurgery Surgeon</a>
-                                            </h3>
                                         </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Slide2 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-02.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Osteopaths</a>
+                                        <div class="pbminfotech-box-content">
+                                            <div class="pbminfotech-titlebox">
+                                                <div class="pbmit-port-cat">
+{{--                                                    <a href="portfolio-grid-col-3.html" rel="tag">{{$data->name}}</a>--}}
+                                                </div>
+                                                <h3 class="pbmit-portfolio-title">
+                                                    <a href="single-detail-style-01.html">{{$data->name}}</a>
+                                                </h3>
                                             </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Abdominal Aneurysm</a>
-                                            </h3>
                                         </div>
                                     </div>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Slide3 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-03.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Pharmacy</a>
-                                            </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Supraventricular</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Slide4 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-04.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Research</a>
-                                            </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Cardiothoracic</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Slide5 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-05.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Surgeon</a>
-                                            </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Pediatric Surgery</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Slide6 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-06.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Treatments</a>
-                                            </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Congestive Heart</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Slide7 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-07.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Osteopaths</a>
-                                            </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Advices & Checkup</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Slide8 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-08.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Research</a>
-                                            </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Orthopaedic Surgery</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Slide9 -->
-                        <div class="swiper-slide">
-                            <article class="pbmit-portfolio-style-2">
-                                <div class="pbminfotech-post-content">
-                                    <div class="pbmit-featured-img-wrapper">
-                                        <div class="pbmit-featured-wrapper">
-                                            <img src="{{ asset('client/images/portfolio-09.jpg') }}" class="img-fluid"
-                                                 alt="">
-                                        </div>
-                                    </div>
-                                    <div class="pbminfotech-box-content">
-                                        <div class="pbminfotech-titlebox">
-                                            <div class="pbmit-port-cat">
-                                                <a href="portfolio-grid-col-3.html" rel="tag">Treatments</a>
-                                            </div>
-                                            <h3 class="pbmit-portfolio-title">
-                                                <a href="single-detail-style-01.html">Laboratory & Pathology</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+                                </article>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
