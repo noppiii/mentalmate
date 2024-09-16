@@ -13,15 +13,15 @@
                     <div class="d-flex align-items-end row">
                         <div class="col-sm-7">
                             <div class="card-body">
-                                <h5 class="text-primary">Edit Bidang Psikolog</h5>
-                                <p>Di sini anda dapat mengubah data bidang psikolog</p>
+                                <h5 class="text-primary">Edit Metode Konsultasi</h5>
+                                <p>Di sini anda dapat mengubah data metode konsultasi</p>
                                 <button id="viewDataLink" class="btn btn-sm btn-outline-primary">View Form</button>
                             </div>
                         </div>
                         <div class="col-sm-5 text-center text-sm-left">
                             <div class="card-body pb-0 px-0 px-md-4">
                                 <img
-                                    src="{{ asset('image/add-admin.jpg') }}"
+                                    src="{{ asset('image/metode-konsultasi.jpg') }}"
                                     height="150"
                                     alt="View Badge User"
                                     data-app-dark-img="illustrations/man-with-laptop-dark.png"

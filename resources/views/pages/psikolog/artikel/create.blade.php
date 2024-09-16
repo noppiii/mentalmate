@@ -21,7 +21,7 @@
                 <div class="col-sm-5 text-center text-sm-left">
                   <div class="card-body pb-0 px-0 px-md-4">
                     <img
-                      src="{{ asset('image/add-admin.jpg') }}"
+                      src="{{ asset('image/artikel.jpg') }}"
                       height="150"
                       alt="View Badge User"
                       data-app-dark-img="illustrations/man-with-laptop-dark.png"

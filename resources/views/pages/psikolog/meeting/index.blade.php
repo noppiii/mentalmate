@@ -14,14 +14,14 @@
                 <div class="col-sm-7">
                   <div class="card-body">
                     <h5 class="text-primary">Welcome {{ Auth::guard('psikolog')->user()->nama }}! 🎉</h5>
-                    <p>Di sini Anda dapat mengontrol dan mengelola semua aspek psikolog</p>
+                    <p>Di sini Anda dapat mengontrol dan mengelola semua meeting</p>
                     <button id="viewDataLink" class="btn btn-sm btn-outline-primary">View Data</button>
                   </div>
                 </div>
                 <div class="col-sm-5 text-center text-sm-left">
                   <div class="card-body pb-0 px-0 px-md-4">
                     <img
-                      src="{{ asset('image/admin.jpg') }}"
+                      src="{{ asset('image/meeting.jpg') }}"
                       height="150"
                       alt="View Badge User"
                       data-app-dark-img="illustrations/man-with-laptop-dark.png"

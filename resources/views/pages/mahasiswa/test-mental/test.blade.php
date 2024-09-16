@@ -11,6 +11,29 @@
         <!-- Content -->
 
         <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="col-lg-12 mb-4 order-0">
+                <div class="card">
+                    <div class="d-flex align-items-end row">
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <h5 class="text-primary">Soal {{$test->name}}</h5>
+                                <p>Selamat mencoba mengerjakan {{$data->name}}</p>
+                                <button id="viewDataLink" class="btn btn-sm btn-outline-primary">View Data</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-5 text-center text-sm-left">
+                            <div class="card-body pb-0 px-0 px-md-4">
+                                <img
+                                    src="{{ asset('image/tes.jpg') }}"
+                                    height="150"
+                                    alt="View Badge User"
+                                    data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
 
                 <!-- User Content -->
