@@ -52,6 +52,28 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row g-3">
+                      <div class="row mb-3 mt-4">
+                          <label class="col-sm-2 form-label" for="basic-icon-default-email">Gambar Cover</label>
+                          <div class="col-sm-10">
+                              <div class="input-group">
+                                  <input type="file" name="image_cover" class="form-control" id="inputGroupFile02" />
+                                  <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row g-3">
+                      <div class="row mb-3 mt-4">
+                          <label class="col-sm-2 form-label" for="basic-icon-default-email">Gambar Banner</label>
+                          <div class="col-sm-10">
+                              <div class="input-group">
+                                  <input type="file" name="image_banner" class="form-control" id="inputGroupFile02" />
+                                  <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
                   <div class="row mb-3">
                     <label class="col-sm-2 form-label" for="multicol-password">Deskripsi</label>
                     <div class="col-sm-10">

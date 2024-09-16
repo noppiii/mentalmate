@@ -54,6 +54,42 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row g-3">
+                      <div class="row mb-3 mt-4">
+                          <label class="col-sm-2 form-label" for="basic-icon-default-email">Gambar Cover <small class="text-danger">*Jika ingin mengubah thumbnail</small></label>
+                          <div class="col-sm-10">
+                              @if ($bidang->image_cover)
+                                  <div class="avatar avatar-xl mt-2 mb-2">
+                                      <img src="{{ asset('store/bidang-psikolog/' . $bidang->image_cover) }}" alt="Avatar" class="rounded-circle" />
+                                  </div>
+                              @else
+                                  <p>Gambar Cover Tidak Ditemukan</p>
+                              @endif
+                              <div class="input-group">
+                                  <input type="file" name="image_cover" class="form-control" id="inputGroupFile02" />
+                                  <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row g-3">
+                      <div class="row mb-3 mt-4">
+                          <label class="col-sm-2 form-label" for="basic-icon-default-email">Gambar Banner <small class="text-danger">*Jika ingin mengubah thumbnail</small></label>
+                          <div class="col-sm-10">
+                              @if ($bidang->image_banner)
+                                  <div class="avatar avatar-xl mt-2 mb-2">
+                                      <img src="{{ asset('store/bidang-psikolog/' . $bidang->image_banner) }}" alt="Avatar" class="rounded-circle" />
+                                  </div>
+                              @else
+                                  <p>Gambar Banner Tidak Ditemukan</p>
+                              @endif
+                              <div class="input-group">
+                                  <input type="file" name="image_banner" class="form-control" id="inputGroupFile02" />
+                                  <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
                   <div class="row mb-3">
                     <label class="col-sm-2 form-label" for="multicol-password">Deskripsi</label>
                     <div class="col-sm-10">
