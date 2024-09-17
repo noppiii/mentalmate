@@ -38,6 +38,7 @@ use App\Http\Controllers\PsikologJadwalController;
 use App\Http\Controllers\PsikologKonsultasiController;
 use App\Http\Controllers\PsikologMeetingController;
 use App\Http\Controllers\PsikologProfileController;
+use App\Http\Controllers\SiteIdentityController;
 use App\Http\Controllers\TesKesehatanMentalController;
 use App\Http\Middleware\AuthAdmin;
 use App\Http\Middleware\AuthMahasiswa;
@@ -92,6 +93,7 @@ Route::prefix('admin')->middleware([AuthUser::class, AuthAdmin::class])->group(f
     Route::resource('ulasan', MasterUlasanController::class);
     Route::put('banner/status/{id}/update', [MasterBannerController::class, 'updateStatus'])->name('banner.updateStatus');
     Route::resource('test-kesehatan-mental', MasterTestKesehatanMentalController::class);
+    Route::resource('site-identity', SiteIdentityController::class);
 });
 
 // Group routes for psikolog

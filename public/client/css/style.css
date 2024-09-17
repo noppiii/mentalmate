@@ -5,7 +5,7 @@
 		01 - About Us
 		02 - Our History
 		03 - Service Detail
-        04 - Project Single 
+        04 - Project Single
         05 - Blog Detail
              Sidebar Right
              Blog Large
@@ -14,7 +14,7 @@
         07 - Contact Us
         08 - Comment Form
 		09 - Make Appointment 01
-    
+
 ******************************/
 
 /*----------------------------------------*/
@@ -116,7 +116,7 @@ body {
 	padding: 100px 90px 100px 90px;
 	border-radius: 30px;
 }
-.team_arrow .swiper-button-next, 
+.team_arrow .swiper-button-next,
 .team_arrow .swiper-button-prev,
 .blog-swiper_arrow .swiper-button-next,
 .blog-swiper_arrow .swiper-button-prev,
@@ -135,7 +135,7 @@ body {
 	color: var(--pbmit-blackish-color);
 	border-color: var(--pbmit-blackish-color);
 }
-.team_arrow .swiper-button-next:hover, 
+.team_arrow .swiper-button-next:hover,
 .team_arrow .swiper-button-prev:hover,
 .blog-swiper_arrow .swiper-button-next:hover,
 .blog-swiper_arrow .swiper-button-prev:hover,
@@ -164,7 +164,7 @@ body {
     width: auto;
     z-index: 1;
     overflow: hidden;
-	background-image: url(../images/contact-form-bg.jpg);
+	/*background-image: url(../images/contact-form-bg.jpg);*/
     border-radius: 0px;
     background-color: transparent;
     background-position: 50% 50%;
@@ -175,7 +175,7 @@ body {
 	padding: 100px 80px 100px 80px;
 	border-radius: 0 30px 30px 0;
 }
-/** Homepage 02 **/ 
+/** Homepage 02 **/
 .pbmit-widget_icon{
 	position: absolute;
 	width: auto;
@@ -364,7 +364,7 @@ body {
 	width: auto;
     text-align: center;
 	border: inherit;
-    font-size: 14px; 
+    font-size: 14px;
 	padding: 0 1rem!important;
     white-space: nowrap;
 	vertical-align: middle;
@@ -577,7 +577,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 	margin-bottom: 25px;
 	border-bottom: 1px solid #dae0e6;
 }
-/** Homepage 03 **/ 
+/** Homepage 03 **/
 .about-us-three_leftbox{
 	padding-right: 150px;
 }
@@ -646,7 +646,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 .classes_content .testimonial-three_bg{
 	margin-bottom: 100px;
 }
-/** Homepage 04 **/ 
+/** Homepage 04 **/
 .about-four-img img{
 	mask-image: url(../images/about-shape.png);
     mask-size: contain;
@@ -738,7 +738,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 .testimonial-four-bg .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet-active{
 	outline-color: var(--pbmit-secondary-color);
 }
-/** Homepage 05 **/ 
+/** Homepage 05 **/
 .demo-five .about-us-two_rightbox{
 	padding: 90px 70px 0 0;
 }
@@ -962,7 +962,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 .product-ad-section .pbmit-heading-subheading{
 	position: relative;
 	z-index: 1;
-} 
+}
 .product-ad-section .pbmit-heading-subheading .pbmit-subtitle{
 	background-color: transparent;
 	font-size: 16px;
@@ -1095,7 +1095,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 	width: auto;
 	max-width: 100%;
 	bottom: 0.004px;
-} 
+}
 .about-us-ten .about-img-02 img{
 	-webkit-mask-image: url(../images/shape.png);
     -webkit-mask-size: contain;
@@ -1493,7 +1493,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 	margin-bottom: 20px;
 }
 /*------------------- ---------------------*/
-/*01 - Inner Page 
+/*01 - Inner Page
 /*----------------------------------------*/
 /** 01 - About Us **/
 .about-us-left_box{
@@ -1610,8 +1610,8 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 	right: 0;
 	top: 0;
 	bottom: 0;
-} 
-.pbmit-element-timeline-style-1 .pbmit-timeline-wrapper .steps-dot .steps-dot-line::before, 
+}
+.pbmit-element-timeline-style-1 .pbmit-timeline-wrapper .steps-dot .steps-dot-line::before,
 .pbmit-element-timeline-style-1 .pbmit-timeline-wrapper .steps-dot .steps-dot-line::after {
 	content: "";
 	width: calc(50% + 10px * 100);
@@ -1652,7 +1652,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 }
 .pbmit-element-timeline-style-1 .pbmit-timeline-wrapper:not(.pbmit-slide-even) .pbmit-feature-image {
 	transition: all 0.4s, opacity 0.4s 0.9s, transform 0.4s 0.9s;
-} 
+}
 .pbmit-element-timeline-style-1 .pbmit-timeline-wrapper .steps-dot,
 .pbmit-element-timeline-style-1 .pbmit-timeline-wrapper .pbmit-feature-image,
 .pbmit-element-timeline-style-1 .pbmit-timeline-wrapper .steps-content_wrap {
@@ -2035,7 +2035,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 }
 
 /** Sidebar Right **/
-.sidebar .widget{ 
+.sidebar .widget{
     border: none;
     padding: 30px;
     margin-bottom: 55px;
@@ -2048,7 +2048,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 .sidebar .widget.widget-search{
 	background-color: var(--pbmit-blackish-color);
 }
-.sidebar .widget .widget-title{ 
+.sidebar .widget .widget-title{
 	display: block;
 	padding-bottom: 15px;
 	margin-bottom: 20px;
@@ -2061,7 +2061,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
     padding-bottom: 0;
 	text-transform: capitalize;
 	color: var(--pbmit-blackish-color);
-} 
+}
 .sidebar .widget.widget-search .widget-title{
 	color: var(--pbmit-white-color);
 }
@@ -2402,7 +2402,7 @@ aside.widget.widget-tag-cloud a:hover{
 	margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(3, 27, 78, 0.1);
-} 
+}
 .pbmit-firstletter::first-letter{
 	color: var(--pbmit-global-color);
 	padding:0;
@@ -2683,7 +2683,7 @@ aside.widget.widget-tag-cloud a:hover{
 	margin-left: 100px;
     padding-top: 8px;
 }
-.blog-details .comment-list li:not(:last-child) .pbmit-comment{ 
+.blog-details .comment-list li:not(:last-child) .pbmit-comment{
 	border-bottom: 1px solid rgba( 3, 27, 78, 0.1);
 }
 .blog-details .comment-respond{

@@ -2001,7 +2001,7 @@
                                     <div class="pbminfotech-post-content">
                                         <div class="pbmit-featured-img-wrapper">
                                             <div class="pbmit-featured-wrapper">
-                                                <img src="{{ asset('client/images/portfolio-01.jpg') }}" class="img-fluid"
+                                                <img src="{{ asset('store/bidang-psikolog/' . $data->image_cover) }}" class="img-fluid"
                                                      alt="">
                                             </div>
                                         </div>

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             PsikologSeeder::class,
             DetailPsikologSeeder::class,
             ArtikelSeeder::class,
+            SiteIdentitySeeder::class,
             // Tambahkan seeder lain di sini
         ]);
     }

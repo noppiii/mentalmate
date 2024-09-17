@@ -352,10 +352,10 @@
 			<!-- Faq End -->
 	<!-- Contact Form -->
 			<section>
-				<div class="container">
+				<div class="container mb-5">
 					<div class="row g-0">
 						<div class="col-md-12 col-xl-6">
-							<div class="contact-us-left_img"></div>
+							<div class="contact-us-left_img" style="background-image: url({{ asset('client/images/titlebar-bg-img.jpg') }})"></div>
 						</div>
 						<div class="col-md-12 col-xl-6">
 							<div class="contact-form-one_right pbmit-bg-color-white">

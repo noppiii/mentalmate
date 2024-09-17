@@ -4,26 +4,26 @@
         class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column"
       >
         <div>
-          © SISKA, @php echo date("Y"); @endphp LPPM UPN "Veteran" Jawa Timur
+          © {{$siteIdentity->name_website}}, @php echo date("Y"); @endphp
         </div>
         <div>
-          <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank"
-            >License</a
-          >
-          <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4"
-            >More Themes</a
-          >
+{{--          <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank"--}}
+{{--            >License</a--}}
+{{--          >--}}
+{{--          <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4"--}}
+{{--            >More Themes</a--}}
+{{--          >--}}
 
-          <a
-            href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/"
-            target="_blank"
-            class="footer-link me-4"
-            >Documentation</a
-          >
+{{--          <a--}}
+{{--            href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/"--}}
+{{--            target="_blank"--}}
+{{--            class="footer-link me-4"--}}
+{{--            >Documentation</a--}}
+{{--          >--}}
 
-          <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block"
-            >Support</a
-          >
+{{--          <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block"--}}
+{{--            >Support</a--}}
+{{--          >--}}
         </div>
       </div>
     </div>
