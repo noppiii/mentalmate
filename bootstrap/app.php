@@ -28,6 +28,8 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     $middleware->alias([
         'Zoom' => Jubaer\Zoom\Facades\Zoom::class,
+        'AccessArtikel' => \App\Http\Middleware\AccessArtikel::class,
+        'AccessCommentArtikel' => \App\Http\Middleware\AccessCommentArtikel::class
     ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

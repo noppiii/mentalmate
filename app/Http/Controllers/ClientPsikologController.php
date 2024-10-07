@@ -16,13 +16,20 @@ class ClientPsikologController extends Controller
     public function index()
     {
         $paginatePsikolog = PsikologModel::orderBy('created_at', 'desc')->paginate(12);
+
+        $mahasiswaId = Auth::guard('mahasiswa')->check() ? Auth::guard('mahasiswa')->user()->id : null;
+
         foreach ($paginatePsikolog as $psikolog) {
-            $psikolog->isFavorite = PsikologFavoritModel::where('mahasiswa_id', Auth::guard('mahasiswa')->user()->id)
-                ->where('psikolog_id', $psikolog->id)
-                ->exists();
+            $psikolog->isFavorite = $mahasiswaId ?
+                PsikologFavoritModel::where('mahasiswa_id', $mahasiswaId)
+                    ->where('psikolog_id', $psikolog->id)
+                    ->exists()
+                : false;
         }
+
         return view('pages.client.psikolog.index', compact('paginatePsikolog'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -62,7 +69,7 @@ class ClientPsikologController extends Controller
 
     public function addFavoritePsikolog($id) {
         $mahasiswaId = Auth::guard('mahasiswa')->user()->id;
-        
+
         if($mahasiswaId == null) {
             return back()->with('error_message_not_found', 'Psikolog gagal ditambahkan ke favorite.');
         }

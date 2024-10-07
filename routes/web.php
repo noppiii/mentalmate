@@ -58,8 +58,8 @@ Route::get('/konsultasi', [ClientKonsultasiController::class, 'index'])->name('c
 Route::get('/artikel', [ClientArtikelController::class, 'index'])->name('client.artikel');
 Route::get('/about-us', [ClientAboutUsController::class, 'index'])->name('client.aboutus');
 Route::post('/about-us/submit-rating', [ClientAboutUsController::class, 'submitRating'])->name('client.submitRating');
-Route::get('/artikel/{slug}', [ClientArtikelController::class, 'show'])->name('client.detailArtikel');
-Route::post('/artikel/{slug}/post-comment', [ClientArtikelController::class, 'postComment'])->name('client.postComment');
+Route::get('/artikel/{slug}', [ClientArtikelController::class, 'show'])->name('client.detailArtikel')->middleware('AccessArtikel');
+Route::post('/artikel/{slug}/post-comment', [ClientArtikelController::class, 'postComment'])->name('client.postComment')->middleware('AccessCommentArtikel');
 Route::get('/list-psikolog', [ClientPsikologController::class, 'index'])->name('client.psikolog');
 Route::post('/list-psikolog/{id}/favorite', [ClientPsikologController::class, 'addFavoritePsikolog'])->name('client.psikolog.favorite');
 Route::get('/list-psikolog/{username}', [ClientPsikologController::class, 'show'])->name('client.detailPsikolog');

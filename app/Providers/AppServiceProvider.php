@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\ArticleModel;
 use App\Models\MahasiswaModel;
 use App\Models\PsikologModel;
 use App\Models\SiteIdentity;
@@ -27,11 +28,18 @@ class AppServiceProvider extends ServiceProvider
             $allPsikolog = PsikologModel::all();
             $allMahasiswa = MahasiswaModel::all();
             $siteIdentity = SiteIdentity::first();
+            $latestArticles = ArticleModel::orderBy('created_at', 'desc')->take(3)->get();
+            $favoritePsychologists = PsikologModel::withCount('psikologFavorits')
+                ->orderBy('psikolog_favorits_count', 'desc')
+                ->take(3)
+                ->get();
 
             $view->with([
                 'allPsikolog' => $allPsikolog,
                 'allMahasiswa' => $allMahasiswa,
-                'siteIdentity' => $siteIdentity
+                'siteIdentity' => $siteIdentity,
+                'latestArticles' => $latestArticles,
+                'favoritePsychologists' => $favoritePsychologists,
             ]);
         });
         Schema::defaultStringLength(191);

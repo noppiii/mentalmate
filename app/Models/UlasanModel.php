@@ -14,6 +14,6 @@ class UlasanModel extends Model
 
     public function mahasiswa()
     {
-        return $this->belongsTo(MahasiswaModel::class);
+        return $this->belongsTo(MahasiswaModel::class, 'mahasiswa_id');
     }
 }

@@ -19,7 +19,7 @@
 					<div class="pbmit-breadcrumb">
 						<div class="pbmit-breadcrumb-inner">
 							<span>
-								<a title="" href="#" class="home"><span>Xcare</span></a>
+								<a title="" href="#" class="home"><span>{{$siteIdentity->name_website}}</span></a>
 							</span>
 							<span class="sep">
 								<i class="pbmit-base-icon-angle-double-right"></i>

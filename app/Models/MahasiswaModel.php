@@ -60,7 +60,7 @@ class MahasiswaModel extends Authenticatable
     // Relasi dengan tabel ulasans
     public function ulasans()
     {
-        return $this->hasMany(UlasanModel::class);
+        return $this->hasMany(UlasanModel::class,'mahasiswa_id');
     }
 
     // Relasi dengan tabel pembayarans
@@ -78,7 +78,7 @@ class MahasiswaModel extends Authenticatable
     // Relasi dengan tabel konsultasis
     public function konsultasis()
     {
-        return $this->hasMany(KonsultasiModel::class);
+        return $this->hasMany(KonsultasiModel::class, 'mahasiswa_id');
     }
 
     public function comments()

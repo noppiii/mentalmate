@@ -13,7 +13,7 @@
 						<div class="site-navigation">
 							<nav class="main-menu navbar-expand-xl navbar-light">
 								<div class="navbar-header">
-									<!-- Toggle Button --> 
+									<!-- Toggle Button -->
 									<button class="navbar-toggler" type="button" id="navbarToggle">
 										<i class="pbmit-base-icon-menu-1"></i>
 									</button>
@@ -113,7 +113,7 @@
 						<div class="site-branding">
 							<h1 class="site-title">
 								<a href="index.html">
-									<img class="pbmit-sticky-logo" src="{{ asset('client/images/logo.svg') }}" alt="Yoge">
+									<img class="pbmit-sticky-logo" src="{{ asset('store/site-identity/' . $siteIdentity->logo) }}" alt="Yoge">
 								</a>
 							</h1>
 						</div>
@@ -122,7 +122,7 @@
 						<div class="pbmit-button-box">
 							<div class="pbmit-header-button">
 								<a href="tel:+1(212)255-511">
-									<span class="pbmit-header-button-text-1">+1(212)255-511</span>		
+									<span class="pbmit-header-button-text-1">+1(212)255-511</span>
 								</a>
 							</div>
 						</div>
@@ -168,7 +168,7 @@
 				</div>
 			</div>
 		</header>
-		
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     function updateVisibility() {

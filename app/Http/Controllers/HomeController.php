@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ArticleModel;
 use App\Models\BannerModel;
 use App\Models\BidangPsikologModel;
+use App\Models\MahasiswaModel;
 use App\Models\UlasanModel;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,12 @@ class HomeController extends Controller
         $banners = BannerModel::all();
         $ulasan = UlasanModel::latest()->take(6)->get();
         $bidangPsikolog = BidangPsikologModel::all();
+        $consultationCount = MahasiswaModel::has('konsultasis')->count();
+        $averageSatisfaction = UlasanModel::average('rating');
+        $satisfactionPercentage = $averageSatisfaction ? ($averageSatisfaction / 5) * 100 : 0;
+//        dd($consultationCount);
 
-        return view('pages.client.home.home', compact('newArtikel', 'newArtikelSlide', 'ulasan', 'banners', 'bidangPsikolog'));
+        return view('pages.client.home.home', compact('newArtikel', 'newArtikelSlide', 'ulasan', 'banners', 'bidangPsikolog','consultationCount','satisfactionPercentage'));
     }
 
     /**
