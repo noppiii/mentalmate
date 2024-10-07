@@ -60,7 +60,7 @@
             class="d-none d-lg-flex col-lg-4 align-items-center justify-content-center p-5 auth-cover-bg-color position-relative auth-multisteps-bg-height"
         >
             <img
-                src="{{ asset('admin/assets/img/illustrations/auth-register-multisteps-illustration.png') }}"
+                src="{{ asset('image/register-mahasiswa.png') }}"
                 alt="auth-register-multisteps"
                 class="img-fluid"
                 width="280px"

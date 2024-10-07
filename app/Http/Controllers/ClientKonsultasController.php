@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ReminderPaymentMail;
 use App\Models\BidangPsikologModel;
 use App\Models\KonsultasiModel;
 use App\Models\PembayaranModel;
@@ -9,6 +10,7 @@ use App\Models\PsikologModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Midtrans\Config;
 use Midtrans\Snap;
 
@@ -90,7 +92,6 @@ class ClientKonsultasController extends Controller
             $pembayaran->nominal = $request->harga_konsultasi;
             $pembayaran->konsultasi_id = $konsultasi->id;
             $pembayaran->metode_pembayaran = $request->metode_pembayaran;
-
             $pembayaran->status = 'pending';
             $pembayaran->save();
 
@@ -127,6 +128,15 @@ class ClientKonsultasController extends Controller
             ];
 
             $snapToken = Snap::getSnapToken($params);
+
+            Mail::to($request->email)->send(new ReminderPaymentMail(
+                $request->nama,
+                $konsultasi->psikolog->nama,
+                $request->harga_konsultasi,
+                $request->tanggal,
+                $request->metode_pembayaran,
+                $snapToken
+            ));
 
             DB::commit();
 
