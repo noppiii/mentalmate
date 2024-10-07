@@ -60,15 +60,15 @@
                                         <option value="">Pilih Psikolog</option>
                                     </select>
                                 </div>
-{{--                                <div class="col-md-6">--}}
-{{--                                    <select id="metodePembayaran" class="form-select form-control"--}}
-{{--                                            name="metode_pembayaran" aria-label="Default select example">--}}
-{{--                                        <option value="">Metode Pembayaran</option>--}}
-{{--                                        <option value="gopay">Gopay</option>--}}
-{{--                                        <option value="dana">Dana</option>--}}
-{{--                                        <option value="shopeepay">ShopeePay</option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
+                                <div class="col-md-12">
+                                    <select id="metodePembayaran" class="form-select form-control"
+                                            name="metode_pembayaran" aria-label="Default select example">
+                                        <option value="">Metode Pembayaran</option>
+                                        <option value="gopay">Gopay</option>
+                                        <option value="dana">Dana</option>
+                                        <option value="shopeepay">ShopeePay</option>
+                                    </select>
+                                </div>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" id="biayaKonsultasiInput"
                                            placeholder="Biaya Konsultasi" readonly>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <button type="submit" class="pbmit-btn" id="pay-button">
-                                        <span class="pbmit-button-text">Submit Now</span>
+                                        <span class="pbmit-button-text">Konsultasi Sekarang</span>
                                         <span class="pbmit-button-icon-wrapper">
                     <span class="pbmit-button-icon">
                         <i class="pbmit-base-icon-black-arrow-1"></i>
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <button class="pbmit-btn">
-                                        <span class="pbmit-button-text">Submit Now</span>
+                                        <span class="pbmit-button-text">Konsultasi Sekarang</span>
                                         <span class="pbmit-button-icon-wrapper">
 											<span class="pbmit-button-icon">
 												<i class="pbmit-base-icon-black-arrow-1"></i>

@@ -71,7 +71,6 @@ class ClientKonsultasController extends Controller
             'psikolog_id' => 'required',
             'harga_konsultasi' => 'required|numeric',
             'deskripsi' => 'required|string',
-            'metode_pembayaran' => 'required|string',
         ]);
 
         DB::beginTransaction();
@@ -90,7 +89,8 @@ class ClientKonsultasController extends Controller
             $pembayaran = new PembayaranModel();
             $pembayaran->nominal = $request->harga_konsultasi;
             $pembayaran->konsultasi_id = $konsultasi->id;
-            $pembayaran->metode_pembayaran = null;
+            $pembayaran->metode_pembayaran = $request->metode_pembayaran;
+
             $pembayaran->status = 'pending';
             $pembayaran->save();
 
@@ -123,6 +123,7 @@ class ClientKonsultasController extends Controller
                 'transaction_details' => $transactionDetails,
                 'item_details' => $itemDetails,
                 'customer_details' => $customerDetails,
+                'enabled_payments' => [$request->metode_pembayaran],
             ];
 
             $snapToken = Snap::getSnapToken($params);
