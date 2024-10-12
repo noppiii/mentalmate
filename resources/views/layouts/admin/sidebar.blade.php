@@ -131,30 +131,30 @@
                     <div data-i18n="Metode Konsultasi">Metode Konsultasi</div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="app-calendar.html" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-medical-cross"></i>
-                    <div data-i18n="Meditasi">Meditasi</div>
-                </a>
-            </li>
+{{--            <li class="menu-item">--}}
+{{--                <a href="app-calendar.html" class="menu-link">--}}
+{{--                    <i class="menu-icon tf-icons ti ti-medical-cross"></i>--}}
+{{--                    <div data-i18n="Meditasi">Meditasi</div>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li class="menu-item {{ request()->is('admin/test-kesehatan-mental*') ? 'active' : '' }}">
                 <a href="{{route('test-kesehatan-mental.index')}}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-medicine-syrup"></i>
                     <div data-i18n="Tes Kesehatan Mental">Tes Kesehatan Mental</div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="app-calendar.html" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-history"></i>
-                    <div data-i18n="Riwayat Konsultasi">Riwayat Konsultasi</div>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="app-calendar.html" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-history-toggle"></i>
-                    <div data-i18n="Riwayat Sesi Konsultasi">Riwayat Sesi Konsultasi</div>
-                </a>
-            </li>
+{{--            <li class="menu-item">--}}
+{{--                <a href="app-calendar.html" class="menu-link">--}}
+{{--                    <i class="menu-icon tf-icons ti ti-history"></i>--}}
+{{--                    <div data-i18n="Riwayat Konsultasi">Riwayat Konsultasi</div>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="menu-item">--}}
+{{--                <a href="app-calendar.html" class="menu-link">--}}
+{{--                    <i class="menu-icon tf-icons ti ti-history-toggle"></i>--}}
+{{--                    <div data-i18n="Riwayat Sesi Konsultasi">Riwayat Sesi Konsultasi</div>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
             <!-- Components -->
             <li class="menu-header small text-uppercase">

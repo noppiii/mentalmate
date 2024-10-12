@@ -41,173 +41,173 @@
 				<div class="container">
 					<div class="row g-0">
 						<div class="col-md-6">
-							<div class="faq-left_box">
-								<div class="pbmit-heading-subheading">
-									<h4 class="pbmit-subtitle">Most Ask</h4>
-									<h2 class="pbmit-title">General Questions</h2>
-								</div>
-								<div class="accordion" id="accordionExample">
-									<div class="accordion-item active">
-										<h2 class="accordion-header" id="headingOne">
-											<button class="accordion-button" type="button" data-bs-toggle="collapse"
-											data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-													<span class="pbmit-accordion-icon-closed">
-														<i class="fa fa-angle-up"></i>
-													</span>
-													<span class="pbmit-accordion-icon-opened">
-														<i class="fa fa-angle-down"></i>
-													</span>
-												</span>
-												<span class="pbmit-accordion-title">
-													<span class="pbmit-global-color">01.</span>
-													How do you guarantee the product quality?
-												</span>
-											</button>
-										</h2>
-										<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-											<div class="accordion-body">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-											</div>
-										</div>
-									</div>
-									<div class="accordion-item">
-										<h2 class="accordion-header" id="headingTwo">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-											data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-													<span class="pbmit-accordion-icon-closed">
-														<i class="fa fa-angle-up"></i>
-													</span>
-													<span class="pbmit-accordion-icon-opened">
-														<i class="fa fa-angle-down"></i>
-													</span>
-												</span>
-												<span class="pbmit-accordion-title">
-													<span class="pbmit-global-color">02.</span>
-													What is your customer geography?
-												</span>
-											</button>
-										</h2>
-										<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-										data-bs-parent="#accordionExample">
-											<div class="accordion-body">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-											</div>
-										</div>
-									</div>
-									<div class="accordion-item">
-										<h2 class="accordion-header" id="headingThree">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-											data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-													<span class="pbmit-accordion-icon-closed">
-														<i class="fa fa-angle-up"></i>
-													</span>
-													<span class="pbmit-accordion-icon-opened">
-														<i class="fa fa-angle-down"></i>
-													</span>
-												</span>
-												<span class="pbmit-accordion-title">
-													<span class="pbmit-global-color">03.</span>
-													What are the main industries we serve?
-												</span>
-											</button>
-										</h2>
-										<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-										data-bs-parent="#accordionExample">
-											<div class="accordion-body">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+                            <div class="faq-left_box">
+                                <div class="pbmit-heading-subheading">
+                                    <h4 class="pbmit-subtitle">Pertanyaan yang Sering Ditanyakan</h4>
+                                    <h2 class="pbmit-title">Pertanyaan Umum</h2>
+                                </div>
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item active">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                                <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">01.</span>
+                        Bagaimana cara memastikan kualitas layanan psikolog MentalMate?
+                    </span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                Kami memastikan kualitas layanan psikolog dengan seleksi ketat terhadap psikolog yang bergabung dalam platform MentalMate. Setiap psikolog telah melalui sertifikasi resmi dan pengalaman di bidang mereka.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                                <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">02.</span>
+                        Bagaimana cara memilih psikolog yang sesuai?
+                    </span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                Anda bisa memilih psikolog berdasarkan profil mereka yang mencakup bidang keahlian, pengalaman, dan ulasan dari klien sebelumnya. Platform MentalMate memberikan rekomendasi sesuai dengan kebutuhan Anda.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                                <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">03.</span>
+                        Apakah layanan konseling online MentalMate aman?
+                    </span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                Ya, semua sesi konseling online di MentalMate dilakukan melalui platform yang terenkripsi, memastikan privasi dan kerahasiaan data pengguna.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 						<div class="col-md-6">
-							<div class="faq-right_box">
-								<div class="pbmit-heading-subheading">
-									<h4 class="pbmit-subtitle">PEOPLE KNOW</h4>
-									<h2 class="pbmit-title">Other Questions</h2>
-								</div>
-								<div class="accordion" id="accordionExample1">
-									<div class="accordion-item active">
-										<h2 class="accordion-header" id="heading1">
-											<button class="accordion-button" type="button" data-bs-toggle="collapse"
-											data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-													<span class="pbmit-accordion-icon-closed">
-														<i class="fa fa-angle-up"></i>
-													</span>
-													<span class="pbmit-accordion-icon-opened">
-														<i class="fa fa-angle-down"></i>
-													</span>
-												</span>
-												<span class="pbmit-accordion-title">
-													<span class="pbmit-global-color">01.</span>
-													Do you get any product support?
-												</span>
-											</button>
-										</h2>
-										<div id="collapse1" class="accordion-collapse collapse show"
-										aria-labelledby="heading1" data-bs-parent="#accordionExample1">
-											<div class="accordion-body">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-											</div>
-										</div>
-									</div>
-									<div class="accordion-item">
-										<h2 class="accordion-header" id="heading2">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-											data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-													<span class="pbmit-accordion-icon-closed">
-														<i class="fa fa-angle-up"></i>
-													</span>
-													<span class="pbmit-accordion-icon-opened">
-														<i class="fa fa-angle-down"></i>
-													</span>
-												</span>
-												<span class="pbmit-accordion-title">
-													<span class="pbmit-global-color">02.</span>
-													How is the selection process organized?
-												</span>
-											</button>
-										</h2>
-										<div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
-										data-bs-parent="#accordionExample1">
-											<div class="accordion-body">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-											</div>
-										</div>
-									</div>
-									<div class="accordion-item">
-										<h2 class="accordion-header" id="heading3">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-											data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-												<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-													<span class="pbmit-accordion-icon-closed">
-														<i class="fa fa-angle-up"></i>
-													</span>
-													<span class="pbmit-accordion-icon-opened">
-														<i class="fa fa-angle-down"></i>
-													</span>
-												</span>
-												<span class="pbmit-accordion-title">
-													<span class="pbmit-global-color">03.</span>
-													How quickly can you source developers?
-												</span>
-											</button>
-										</h2>
-										<div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
-										data-bs-parent="#accordionExample1">
-											<div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.We meet with you to learn about your team, your needs, and your goals. If you have a job profile available, we will use it. If not, we will help you write the job profile.
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+                            <div class="faq-right_box">
+                                <div class="pbmit-heading-subheading">
+                                    <h4 class="pbmit-subtitle">PENGGUNA BERTANYA</h4>
+                                    <h2 class="pbmit-title">Pertanyaan Lainnya</h2>
+                                </div>
+                                <div class="accordion" id="accordionExample1">
+                                    <div class="accordion-item active">
+                                        <h2 class="accordion-header" id="heading1">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                                <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">01.</span>
+                        Apakah Mentalmate menyediakan dukungan pengguna?
+                    </span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse1" class="accordion-collapse collapse show"
+                                             aria-labelledby="heading1" data-bs-parent="#accordionExample1">
+                                            <div class="accordion-body">
+                                                Ya, Mentalmate menyediakan dukungan pengguna melalui berbagai kanal seperti email, live chat, dan konsultasi langsung dengan psikolog yang terdaftar di platform kami.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading2">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                                <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">02.</span>
+                        Bagaimana proses seleksi psikolog di Mentalmate?
+                    </span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                                             data-bs-parent="#accordionExample1">
+                                            <div class="accordion-body">
+                                                Proses seleksi psikolog di Mentalmate dilakukan dengan ketat, mencakup verifikasi lisensi praktik, pengalaman, dan kompetensi psikolog sebelum mereka dapat bergabung di platform kami.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading3">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                                <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">03.</span>
+                        Seberapa cepat saya dapat terhubung dengan psikolog?
+                    </span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                                             data-bs-parent="#accordionExample1">
+                                            <div class="accordion-body">
+                                                Setelah Anda mendaftar dan memilih paket layanan, Anda dapat segera menjadwalkan sesi konsultasi dengan psikolog yang tersedia dalam waktu 24 jam melalui aplikasi Mentalmate.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
 					</div>
 				</div>
 			</section>
@@ -215,140 +215,136 @@
 
 			<!-- Faq Start -->
 			<section class="section-lgb">
-				<div class="container">
-					<div class="pbmit-heading-subheading">
-						<h4 class="pbmit-subtitle"> CONTACT US NOW</h4>
-						<h2 class="pbmit-title">Happy to Answer All Your Questions</h2>
-					</div>
-					<div class="accordion" id="accordionExample2">
-						<div class="accordion-item active">
-							<h2 class="accordion-header" id="heading01">
-								<button class="accordion-button" type="button" data-bs-toggle="collapse"
-								data-bs-target="#collapse01" aria-expanded="false" aria-controls="collapse01">
-									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-										<span class="pbmit-accordion-icon-closed">
-											<i class="fa fa-angle-up"></i>
-										</span>
-										<span class="pbmit-accordion-icon-opened">
-											<i class="fa fa-angle-down"></i>
-										</span>
-									</span>
-									<span class="pbmit-accordion-title">
-										<span class="pbmit-global-color">01.</span>
-										Do you provide product support services after the app development is complete?
-									</span>
-								</button>
-							</h2>
-							<div id="collapse01" class="accordion-collapse collapse show"
-							aria-labelledby="heading01" data-bs-parent="#accordionExample2">
-								<div class="accordion-body">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="heading02">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-								data-bs-target="#collapse02" aria-expanded="false" aria-controls="collapse02">
-									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-										<span class="pbmit-accordion-icon-closed">
-											<i class="fa fa-angle-up"></i>
-										</span>
-										<span class="pbmit-accordion-icon-opened">
-											<i class="fa fa-angle-down"></i>
-										</span>
-									</span>
-									<span class="pbmit-accordion-title">
-										<span class="pbmit-global-color">02.</span>
-										I’m not sure what kind of application development services I need. What should I do?
-									</span>
-								</button>
-							</h2>
-							<div id="collapse02" class="accordion-collapse collapse" aria-labelledby="heading02"
-							data-bs-parent="#accordionExample2">
-								<div class="accordion-body">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="heading03">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-								data-bs-target="#collapse03" aria-expanded="false" aria-controls="collapse03">
-									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-										<span class="pbmit-accordion-icon-closed">
-											<i class="fa fa-angle-up"></i>
-										</span>
-										<span class="pbmit-accordion-icon-opened">
-											<i class="fa fa-angle-down"></i>
-										</span>
-									</span>
-									<span class="pbmit-accordion-title">
-										<span class="pbmit-global-color">03.</span>
-										Do we have a pilot project as our software development services?
-									</span>
-								</button>
-							</h2>
-							<div id="collapse03" class="accordion-collapse collapse" aria-labelledby="heading03"
-							data-bs-parent="#accordionExample2">
-								<div class="accordion-body">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="heading04">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-								data-bs-target="#collapse04" aria-expanded="false" aria-controls="collapse04">
-									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-										<span class="pbmit-accordion-icon-closed">
-											<i class="fa fa-angle-up"></i>
-										</span>
-										<span class="pbmit-accordion-icon-opened">
-											<i class="fa fa-angle-down"></i>
-										</span>
-									</span>
-									<span class="pbmit-accordion-title">
-										<span class="pbmit-global-color">04.</span>
-										What advantages of outsourcing your project to our team you get?
-									</span>
-								</button>
-							</h2>
-							<div id="collapse04" class="accordion-collapse collapse" aria-labelledby="heading04"
-							data-bs-parent="#accordionExample2">
-								<div class="accordion-body">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="heading05">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-								data-bs-target="#collapse05" aria-expanded="false" aria-controls="collapse05">
-									<span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-										<span class="pbmit-accordion-icon-closed">
-											<i class="fa fa-angle-up"></i>
-										</span>
-										<span class="pbmit-accordion-icon-opened">
-											<i class="fa fa-angle-down"></i>
-										</span>
-									</span>
-									<span class="pbmit-accordion-title">
-										<span class="pbmit-global-color">05.</span>
-										What is the budget generally needed? How do you estimate the cost of a software project?
-									</span>
-								</button>
-							</h2>
-							<div id="collapse05" class="accordion-collapse collapse" aria-labelledby="heading05"
-							data-bs-parent="#accordionExample2">
-								<div class="accordion-body">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+                <div class="container">
+                    <div class="pbmit-heading-subheading">
+                        <h4 class="pbmit-subtitle">HUBUNGI KAMI SEKARANG</h4>
+                        <h2 class="pbmit-title">Kami Siap Menjawab Semua Pertanyaan Anda</h2>
+                    </div>
+                    <div class="accordion" id="accordionExample2">
+                        <div class="accordion-item active">
+                            <h2 class="accordion-header" id="heading01">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse01" aria-expanded="false" aria-controls="collapse01">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                    <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">01.</span>
+                        Apakah MentalMate menyediakan layanan dukungan produk setelah pengembangan aplikasi selesai?
+                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapse01" class="accordion-collapse collapse show" aria-labelledby="heading01" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                    Ya, kami menyediakan dukungan berkelanjutan setelah aplikasi diluncurkan, termasuk pembaruan fitur, perbaikan bug, dan peningkatan performa.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading02">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse02" aria-expanded="false" aria-controls="collapse02">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                    <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">02.</span>
+                        Saya belum yakin jenis layanan pengembangan aplikasi apa yang saya butuhkan. Apa yang harus saya lakukan?
+                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapse02" class="accordion-collapse collapse" aria-labelledby="heading02" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                    Tim kami siap membantu Anda memahami kebutuhan spesifik Anda dan memberikan saran yang tepat terkait jenis aplikasi dan fitur yang paling sesuai.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading03">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse03" aria-expanded="false" aria-controls="collapse03">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                    <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">03.</span>
+                        Apakah MentalMate menyediakan proyek percontohan sebagai bagian dari layanan pengembangan?
+                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapse03" class="accordion-collapse collapse" aria-labelledby="heading03" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                    Ya, kami menyediakan proyek percontohan agar Anda dapat melihat hasil kerja sebelum melanjutkan ke pengembangan penuh.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading04">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse04" aria-expanded="false" aria-controls="collapse04">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                    <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">04.</span>
+                        Apa keunggulan menggunakan tim MentalMate untuk outsourcing pengembangan proyek Anda?
+                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapse04" class="accordion-collapse collapse" aria-labelledby="heading04" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                    Keuntungan outsourcing ke MentalMate termasuk efisiensi biaya, akses ke tim ahli, serta pengembangan yang cepat dan berkualitas.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading05">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse05" aria-expanded="false" aria-controls="collapse05">
+                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                        <span class="pbmit-accordion-icon-closed">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                        <span class="pbmit-accordion-icon-opened">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </span>
+                                    <span class="pbmit-accordion-title">
+                        <span class="pbmit-global-color">05.</span>
+                        Berapa anggaran yang umumnya dibutuhkan? Bagaimana MentalMate memperkirakan biaya proyek perangkat lunak?
+                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapse05" class="accordion-collapse collapse" aria-labelledby="heading05" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                    Kami menentukan biaya berdasarkan kompleksitas fitur, skala proyek, dan waktu pengembangan yang dibutuhkan. Estimasi akan diberikan setelah konsultasi awal.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
 			<!-- Faq End -->
 	<!-- Contact Form -->
 			<section>

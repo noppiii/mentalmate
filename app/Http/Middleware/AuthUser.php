@@ -24,10 +24,10 @@ class AuthUser
             if (Auth::guard($guard)->check()) {
                 $user = Auth::guard($guard)->user();
                 $request->merge(['user' => $user, 'guard' => $guard]);
-                return $next($request); // Proceed to the next middleware or route handler
+                return $next($request);
             }
         }
 
-        return redirect()->route('signin'); // Redirect to sign-in page if no user authenticated
+        return redirect()->route('signin');
     }
 }
